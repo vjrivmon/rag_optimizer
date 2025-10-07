@@ -28,7 +28,7 @@ def create_vector_store():
 
     print("🧠 Creando embeddings...")
     embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+        model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
         model_kwargs={'device': 'cpu'}
     )
 
