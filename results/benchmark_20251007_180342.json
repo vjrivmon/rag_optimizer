@@ -1,0 +1,386 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-07T18:03:42.130833",
+    "total_questions": 3,
+    "total_time": 606.0764982700348,
+    "models": [
+      "qwen3:32b",
+      "deepseek-r1:latest",
+      "gemma2:27b",
+      "llama3.3:70b"
+    ]
+  },
+  "results": [
+    {
+      "question_id": 1,
+      "question": "¿Qué se hace en la actividad de desayunos?",
+      "expected_answer": "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles conversación y compañía.",
+      "contexts": [
+        "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble\n\nLa factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+        "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+        "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN\n\nLos desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión. Este voluntariado es uno de los primeros en nuestra asociación y, a la vez, de los que más nos representan como institución y por nuestra manera de hacer voluntariado, siendo jóvenes, cercanos y comprometidos.",
+        "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+        "Para la realización de la actividad, reunimos a todos los voluntarios en algún lugar concretado anteriormente. Allí, se explica la actividad y nos dividimos en grupos integrados por, por lo menos, un coordinador del staff y entre 4 y 9 voluntarios. Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad."
+      ],
+      "models": {
+        "qwen3:32b": {
+          "response": "<think>\nOkay, let's see. The user is asking what happens during the breakfast activity. I need to look through the provided documents to find the relevant information.\n\nFirst, Document 1 mentions that breakfasts include items like valencianas, milk, small cups, sugar, and soluble coffee. The payment is via transfer. Also, for solidarity dinners, food is collected from restaurants an hour before the activity. But the question is about breakfasts, so maybe the dinner info isn't directly relevant here.\n\nDocument 2 says that the association handles the breakfasts, while dinners are provided by restaurants. So the breakfasts are organized by the association themselves.\n\nDocument 3 is an introduction about the project, emphasizing that breakfasts and dinners are key parts of their activities. It mentions that volunteers are young, close, and committed.\n\nDocument 4 states that the activity duration depends on the day, number of people, and area. Usually, it's about 1.5 hours plus a voluntary breakfast that can last longer.\n\nDocument 5 explains the process: volunteers gather in a designated place, get divided into groups with a coordinator and 4-9 volunteers. Each group follows a route to distribute food and items. After finishing, they regroup to have breakfast/dinner together and discuss experiences.\n\nPutting this together: The breakfast activity involves volunteers gathering, being divided into groups, distributing food (as listed in Document 1) along routes, then coming back to have a group breakfast where they share experiences. The association handles the breakfast purchases, which are paid via transfer. The duration is around 1.5 hours plus the voluntary breakfast time. The food items are specified in Document 1.\n</think>\n\nEn la actividad de desayunos solidarios, los voluntarios se reúnen en un lugar previamente acordado",
+          "latency": 27.475857734680176,
+          "metrics": {
+            "response_length": 1851,
+            "has_response": 1.0,
+            "keyword_coverage": 0.42857142857142855,
+            "context_overlap": 0.08888888888888889,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.5888888888692593,
+            "context_recall": 0.3333333333333333,
+            "answer_correctness": 0.39679376545617134,
+            "answer_similarity": 0.8815054404039901,
+            "combined_score": 0.6965151241846891
+          },
+          "score": 0.6965151241846891,
+          "params": {
+            "top_k": 7,
+            "similarity_threshold": 0.5550304369598491,
+            "temperature": 0.41187640010910787,
+            "top_p": 0.9096850157946487,
+            "max_tokens": 370,
+            "strictness": "medium"
+          },
+          "success": true
+        },
+        "deepseek-r1:latest": {
+          "response": "<think>\nBueno, tengo que responder a la pregunta: \"¿Qué se hace en la actividad de desayunos?\" basándome en el contexto proporcionado. Primero, revisaré los documentos para entender el proceso.\n\nEn Documento 1 hay una lista de compra para desayunos, incluyendo varios productos específicos y cómo se abona la factura. En Documento 2 se menciona cómo se compra la comida, distingriendo entre desayunos solidarios y cenas solidarias. Documentos 3, 4 y 5 abarcan más detalles sobre la actividad general, incluyendo la duration y el proceso de reparto.\n\nParticularmente, en Documento 1, se detallan los items necesarios para cada desayuno: 6 paquetes de valencianas, etc. En Documento 2, se menciona que en desayunos solidarios, la asociación se encarga del cargo, mientras que en cenas solidarias, se contactan con restaurantes.\n\nTambién en Documentos 4 y 5 se describe cómo se coordina el proceso: se reúnan los voluntarios, dividen en grupos, reparten la comida, y luego se reúnen para desayunar juntos.\n\nMe aseguraré de que la respuesta incluya los pasos específicos relacionados con los desayunos, como la compra de los alimentos, cómo se abona la factura, y la estructura de la actividad itself.\n</think>\n\nEn la actividad de desayunos, se realizan los siguientes pasos:\n\n1. **Lista de Compra**: Se prepara una lista con los productos necesarios para cada desayuno, como 6 paquetes de valencianas, ",
+          "latency": 11.490118265151978,
+          "metrics": {
+            "response_length": 1399,
+            "has_response": 1.0,
+            "keyword_coverage": 0.42857142857142855,
+            "context_overlap": 0.3017241379310345,
+            "faithfulness": 0.7,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.5888888888692593,
+            "context_recall": 0.3333333333333333,
+            "answer_correctness": 0.3786360216485407,
+            "answer_similarity": 0.8478774199274961,
+            "combined_score": 0.6539937678501699
+          },
+          "score": 0.6539937678501699,
+          "params": {
+            "top_k": 7,
+            "similarity_threshold": 0.5550304369598491,
+            "temperature": 0.41187640010910787,
+            "top_p": 0.9096850157946487,
+            "max_tokens": 370,
+            "strictness": "medium"
+          },
+          "success": true
+        },
+        "gemma2:27b": {
+          "response": "En la actividad de desayunos, se reparten valencianas, leche semidesnatada, vasos pequeños, azúcar y café soluble a personas que se encuentran en la calle. \n\nDespués de repartir la comida, los voluntarios se reúnen para desayunar juntos. \n",
+          "latency": 13.625769138336182,
+          "metrics": {
+            "response_length": 239,
+            "has_response": 1.0,
+            "keyword_coverage": 0.42857142857142855,
+            "context_overlap": 0.6666666666666666,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.9227889531248115,
+            "context_precision": 0.5888888888692593,
+            "context_recall": 0.3333333333333333,
+            "answer_correctness": 0.3271834539600411,
+            "answer_similarity": 0.9337338158401645,
+            "combined_score": 0.8277391923710969
+          },
+          "score": 0.8277391923710969,
+          "params": {
+            "top_k": 7,
+            "similarity_threshold": 0.5550304369598491,
+            "temperature": 0.41187640010910787,
+            "top_p": 0.9096850157946487,
+            "max_tokens": 370,
+            "strictness": "medium"
+          },
+          "success": true
+        },
+        "llama3.3:70b": {
+          "response": "En la actividad de desayunos, se reparte comida a personas necesitadas en la calle. Después de repartir la comida y otros enseres, los voluntarios se reúnen para compartir un desayuno juntos y comentar las experiencias vividas durante la actividad. La asociación se encarga de comprar los alimentos para el desayuno solidario, que incluye valencianas, leche semidesnatada, azúcar, café soluble y otros productos.",
+          "latency": 31.422351837158203,
+          "metrics": {
+            "response_length": 412,
+            "has_response": 1.0,
+            "keyword_coverage": 0.42857142857142855,
+            "context_overlap": 0.6739130434782609,
+            "faithfulness": 0.8,
+            "answer_relevancy": 0.9554809773959092,
+            "context_precision": 0.5888888888692593,
+            "context_recall": 0.3333333333333333,
+            "answer_correctness": 0.7039270455151201,
+            "answer_similarity": 0.9407081820604803,
+            "combined_score": 0.7812807775995105
+          },
+          "score": 0.7812807775995105,
+          "params": {
+            "top_k": 7,
+            "similarity_threshold": 0.5550304369598491,
+            "temperature": 0.41187640010910787,
+            "top_p": 0.9096850157946487,
+            "max_tokens": 370,
+            "strictness": "medium"
+          },
+          "success": true
+        }
+      },
+      "winner": "gemma2:27b"
+    },
+    {
+      "question_id": 2,
+      "question": "¿Dónde es el punto de encuentro de desayunos?",
+      "expected_answer": "El punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí se reparten los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.",
+      "contexts": [
+        "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+        "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble\n\nLa factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+        "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde (20:30).\n\n¿Cada cuánto se hace?\nNormalmente, la actividad se realiza una vez a la semana, pero lo mejor es que consultes el calendario de la comunidad de WhatsApp o preguntes a un miembro del staff.",
+        "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN\n\nLos desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión. Este voluntariado es uno de los primeros en nuestra asociación y, a la vez, de los que más nos representan como institución y por nuestra manera de hacer voluntariado, siendo jóvenes, cercanos y comprometidos.",
+        "¿Cómo me apunto?\nLa actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miércoles se publica por la comunidad de WhatsApp y por redes sociales un formulario para inscribirse.\n\n¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+        "Para la realización de la actividad, reunimos a todos los voluntarios en algún lugar concretado anteriormente. Allí, se explica la actividad y nos dividimos en grupos integrados por, por lo menos, un coordinador del staff y entre 4 y 9 voluntarios. Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad.",
+        "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.\n\nZONAS DE REPARTO\n\nLos grupos recorren diferentes zonas de Valencia:\n- Puentes y Alameda\n- Mestalla\n- Colón\n- Mercado Central y Lonja\n- Plaza de la Virgen y El Carmen\n- FNAC y San Agustín"
+      ],
+      "models": {
+        "qwen3:32b": {
+          "response": "<think>\nOkay, let's see. The user is asking where the meeting point is for the breakfasts. I need to check the context provided to find the answer.\n\nLooking through the documents, Document 3 mentions under \"¿Dónde es?\" that the meeting point is always the Porta de la Mar in Valencia. From there, they distribute food to areas like Mestalla, the center, El Carmen, or the river, among others. \n\nI should confirm if there's any other document that might mention a different location. Checking the other documents, Document 7 also talks about the activity being held once a week on Saturdays for breakfasts, but it doesn't specify a different meeting point. The zones of distribution are listed, but the starting point remains Porta de la Mar as per Document 3. \n\nNo other documents mention a different location for the meeting point. So the answer should be Porta de la Mar in Valencia. The user's question is straightforward, and the context clearly states that. I need to make sure not to include any extra information not in the context. Since the answer is directly provided in Document 3, I can confidently state that.\n</think>\n\nEl punto de encuentro de los desayunos solidarios es la **Porta de la Mar de Valencia**.",
+          "latency": 26.824366569519043,
+          "metrics": {
+            "response_length": 1221,
+            "has_response": 1.0,
+            "keyword_coverage": 0.6666666666666666,
+            "context_overlap": 0.11023622047244094,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.9053230420174101,
+            "context_precision": 0.3333333333,
+            "context_recall": 1.0,
+            "answer_correctness": 0.6372710403622424,
+            "answer_similarity": 0.8824174947823029,
+            "combined_score": 0.7367724925291791
+          },
+          "score": 0.7367724925291791,
+          "params": {
+            "top_k": 5,
+            "similarity_threshold": 0.6001125833417066,
+            "temperature": 0.15714672716877634,
+            "top_p": 0.9150888472948853,
+            "max_tokens": 270,
+            "strictness": "high"
+          },
+          "success": true
+        },
+        "deepseek-r1:latest": {
+          "response": "<think>\nBueno, tengo que responder a la pregunta: \"¿Dónde es el punto de encuentro de desayunos?\" basándome en el contexto proporcionado. Primero, reviso los documentos para encontrar la información relevante.\n\nEn Documento 3, hay una sección titulada \"¿Dónde es?\" que menciona que el punto de encuentro siempre es la Porta de la Mar de Valencia. Además, se detallan las zonas a las que se reparten los alimentos, como Mestalla, El Carmen, etc., pero no mencionan la Porta de la Mar en ese contexto.\n\nTambién noto que en Documento 7, se habla de la realización de la actividad en diferentes zonas, pero no se menciona el punto de encuentro ni la Porta de la Mar.\n\nPor lo tanto, la información más precisa está en Documento 3, que claramente establece que el punto de encuentro para los desayunos es la Porta de la Mar de Valencia.\n</think>\n\nEl punto de encuentro de desayunos es la **Porta de la Mar de Valencia**.",
+          "latency": 10.803736209869385,
+          "metrics": {
+            "response_length": 914,
+            "has_response": 1.0,
+            "keyword_coverage": 0.6666666666666666,
+            "context_overlap": 0.4155844155844156,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.9995230593487603,
+            "context_precision": 0.3333333333,
+            "context_recall": 1.0,
+            "answer_correctness": 0.4721746560282757,
+            "answer_similarity": 0.8886986241131027,
+            "combined_score": 0.799726470350814
+          },
+          "score": 0.799726470350814,
+          "params": {
+            "top_k": 5,
+            "similarity_threshold": 0.6001125833417066,
+            "temperature": 0.15714672716877634,
+            "top_p": 0.9150888472948853,
+            "max_tokens": 270,
+            "strictness": "high"
+          },
+          "success": true
+        },
+        "gemma2:27b": {
+          "response": "El punto de encuentro siempre es la Porta de la Mar de Valencia. \n",
+          "latency": 12.984859704971313,
+          "metrics": {
+            "response_length": 66,
+            "has_response": 1.0,
+            "keyword_coverage": 0.3333333333333333,
+            "context_overlap": 1.0,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.8310509032413905,
+            "context_precision": 0.3333333333,
+            "context_recall": 1.0,
+            "answer_correctness": 0.4842801288625142,
+            "answer_similarity": 0.9371205154500568,
+            "combined_score": 0.8811361546350169
+          },
+          "score": 0.8811361546350169,
+          "params": {
+            "top_k": 5,
+            "similarity_threshold": 0.6001125833417066,
+            "temperature": 0.15714672716877634,
+            "top_p": 0.9150888472948853,
+            "max_tokens": 270,
+            "strictness": "high"
+          },
+          "success": true
+        },
+        "llama3.3:70b": {
+          "response": "El punto de encuentro siempre es la Porta de la Mar de Valencia.",
+          "latency": 24.440634965896606,
+          "metrics": {
+            "response_length": 64,
+            "has_response": 1.0,
+            "keyword_coverage": 0.3333333333333333,
+            "context_overlap": 1.0,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.8310509032413905,
+            "context_precision": 0.3333333333,
+            "context_recall": 1.0,
+            "answer_correctness": 0.4830822032009,
+            "answer_similarity": 0.9322779834642263,
+            "combined_score": 0.8796833950392678
+          },
+          "score": 0.8796833950392678,
+          "params": {
+            "top_k": 5,
+            "similarity_threshold": 0.6001125833417066,
+            "temperature": 0.15714672716877634,
+            "top_p": 0.9150888472948853,
+            "max_tokens": 270,
+            "strictness": "high"
+          },
+          "success": true
+        }
+      },
+      "winner": "gemma2:27b"
+    },
+    {
+      "question_id": 3,
+      "question": "¿A qué hora son los desayunos y las cenas solidarias?",
+      "expected_answer": "Los desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.",
+      "contexts": [
+        "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde (20:30).\n\n¿Cada cuánto se hace?\nNormalmente, la actividad se realiza una vez a la semana, pero lo mejor es que consultes el calendario de la comunidad de WhatsApp o preguntes a un miembro del staff.",
+        "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+        "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN\n\nLos desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión. Este voluntariado es uno de los primeros en nuestra asociación y, a la vez, de los que más nos representan como institución y por nuestra manera de hacer voluntariado, siendo jóvenes, cercanos y comprometidos.",
+        "¿Cómo me apunto?\nLa actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miércoles se publica por la comunidad de WhatsApp y por redes sociales un formulario para inscribirse.\n\n¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+        "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble\n\nLa factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad."
+      ],
+      "models": {
+        "qwen3:32b": {
+          "response": "<think>\nOkay, let's see. The user is asking about the time for the breakfast and dinner solidarity events. I need to check the documents provided.\n\nLooking at Document 1, there's a section that says \"¿A qué hora es?\" which translates to \"What time is it?\" The answer there states that breakfasts are at 8 AM and dinners at 8:30 PM (20:30). That seems straightforward. \n\nI should verify if any other documents mention the times. Document 4 mentions that the activity is always on Saturdays, but the specific times aren't repeated there. Document 5 talks about the purchase of food and pickup times for dinners, but again, the specific serving times are covered in Document 1. \n\nNo conflicting information in other documents. The answer should be the times given in Document 1. So the response is that breakfasts are at 8 AM and dinners at 8:30 PM.\n</think>\n\nLos desayunos solidarios son a las **8:00 de la mañana** y las cenas solidarias a las **20:30 horas** (ocho y media de la tarde). Esta información está claramente detallada en el Documento 1.",
+          "latency": 25.363330602645874,
+          "metrics": {
+            "response_length": 1048,
+            "has_response": 1.0,
+            "keyword_coverage": 0.75,
+            "context_overlap": 0.16101694915254236,
+            "faithfulness": 0.6666666666666666,
+            "answer_relevancy": 0.8900434595415855,
+            "context_precision": 0.9999999999,
+            "context_recall": 1.0,
+            "answer_correctness": 0.8179408551731744,
+            "answer_similarity": 0.8717728917647785,
+            "combined_score": 0.6729019240266086
+          },
+          "score": 0.6729019240266086,
+          "params": {
+            "top_k": 8,
+            "similarity_threshold": 0.5002336297523043,
+            "temperature": 0.4968846237164871,
+            "top_p": 0.9117481509627716,
+            "max_tokens": 413,
+            "strictness": "medium"
+          },
+          "success": true
+        },
+        "deepseek-r1:latest": {
+          "response": "<think>\nPrimero, reviso los documentos para encontrar información sobre las horas de los desayunos y cenas solidarias.\n\nEn el documento 1, se menciona que los desayunos ocurren a las 8 de la mañana. Además, se detallan las zonas en las que se reparten los alimentos, incluyendo Mestalla, el centro, El Carmen y el río.\n\nLuego, en el documento 2, se habla sobre cómo se compra la comida, mencionando que para los desayunos solidarios, la asociación se encargará de la compra, mientras que para las cenas solidarias, se contactan con restaurantes que proveen la comida de forma gratuita.\n\nEn el documento 4, se detallan los horarios de inscripción: actividades se realizan los sábados, y se publica un formulario a través de WhatsApp y redes sociales para inscribirse. No se menciona however las horas específicas de los desayunos y cenas solidarias.\n\nFinalmente, en el documento 5, se describen los productos comprados para los desayunos, pero no se mencionan las horas de las comidas.\n\nCombienndo todas esta información, la hora de los desayunos está claramente establecida en el documento 1 a las 8:00 AM. Sin embargo, no hay información suficiente sobre las horas exactas de las cenas solidarias.\n</think>\n\n**RESPUESTA:**\n\nLos desayunos se realizan a las **8:00 AM**, mientras que las cenas solidarias ocurren a las **19:30 (7:30 PM)**.",
+          "latency": 12.187677145004272,
+          "metrics": {
+            "response_length": 1338,
+            "has_response": 1.0,
+            "keyword_coverage": 0.5,
+            "context_overlap": 0.3888888888888889,
+            "faithfulness": 0.5,
+            "answer_relevancy": 0.8909976583771981,
+            "context_precision": 0.9999999999,
+            "context_recall": 1.0,
+            "answer_correctness": 0.9656506626342742,
+            "answer_similarity": 0.8626026505370972,
+            "combined_score": 0.6365585729389069
+          },
+          "score": 0.6365585729389069,
+          "params": {
+            "top_k": 8,
+            "similarity_threshold": 0.5002336297523043,
+            "temperature": 0.4968846237164871,
+            "top_p": 0.9117481509627716,
+            "max_tokens": 413,
+            "strictness": "medium"
+          },
+          "success": true
+        },
+        "gemma2:27b": {
+          "response": "Los desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde (20:30). \n",
+          "latency": 13.863168001174927,
+          "metrics": {
+            "response_length": 92,
+            "has_response": 1.0,
+            "keyword_coverage": 0.75,
+            "context_overlap": 1.0,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.8602570745721059,
+            "context_precision": 0.9999999999,
+            "context_recall": 1.0,
+            "answer_correctness": 0.8434837269843212,
+            "answer_similarity": 0.9739456857478863,
+            "combined_score": 0.9546837057243658
+          },
+          "score": 0.9546837057243658,
+          "params": {
+            "top_k": 8,
+            "similarity_threshold": 0.5002336297523043,
+            "temperature": 0.4968846237164871,
+            "top_p": 0.9117481509627716,
+            "max_tokens": 413,
+            "strictness": "medium"
+          },
+          "success": true
+        },
+        "llama3.3:70b": {
+          "response": "Los desayunos son a las 8 de la mañana y las cenas a las 20:30 (ocho y media de la tarde).",
+          "latency": 18.773937463760376,
+          "metrics": {
+            "response_length": 90,
+            "has_response": 1.0,
+            "keyword_coverage": 0.75,
+            "context_overlap": 0.8,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.943680935957921,
+            "context_precision": 0.9999999999,
+            "context_recall": 1.0,
+            "answer_correctness": 0.7442725497659012,
+            "answer_similarity": 0.9770901990636047,
+            "combined_score": 0.9156270597190814
+          },
+          "score": 0.9156270597190814,
+          "params": {
+            "top_k": 8,
+            "similarity_threshold": 0.5002336297523043,
+            "temperature": 0.4968846237164871,
+            "top_p": 0.9117481509627716,
+            "max_tokens": 413,
+            "strictness": "medium"
+          },
+          "success": true
+        }
+      },
+      "winner": "gemma2:27b"
+    }
+  ]
+}

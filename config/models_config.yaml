@@ -1,0 +1,23 @@
+# Configuración de modelos del servidor UPV
+# Endpoint: https://ollama.gti-ia.upv.es:443/api/generate
+
+models:
+  - name: "qwen3:32b"
+    endpoint: "https://ollama.gti-ia.upv.es:443/api/generate"
+    context_window: 4096
+    description: "Qwen 3 32B - Modelo multilingüe de alta calidad"
+
+  - name: "deepseek-r1:latest"
+    endpoint: "https://ollama.gti-ia.upv.es:443/api/generate"
+    context_window: 4096
+    description: "DeepSeek R1 - Modelo especializado en razonamiento"
+
+  - name: "gemma2:27b"
+    endpoint: "https://ollama.gti-ia.upv.es:443/api/generate"
+    context_window: 4096
+    description: "Gemma 2 27B - Modelo de Google optimizado"
+
+  - name: "llama3.3:70b"
+    endpoint: "https://ollama.gti-ia.upv.es:443/api/generate"
+    context_window: 2048
+    description: "Llama 3.3 70B - Modelo más grande y potente"

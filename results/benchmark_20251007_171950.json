@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-07T17:19:50.285020",
+    "total_questions": 3,
+    "total_time": 312.1259002685547,
+    "models": [
+      "qwen3:32b",
+      "deepseek-r1:latest",
+      "gemma2:27b",
+      "llama3.3:70b"
+    ]
+  },
+  "results": [
+    {
+      "question_id": 1,
+      "question": "¿Qué se hace en la actividad de desayunos?",
+      "expected_answer": "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles conversación y compañía.",
+      "contexts": [
+        "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble\n\nLa factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+        "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+        "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN\n\nLos desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión. Este voluntariado es uno de los primeros en nuestra asociación y, a la vez, de los que más nos representan como institución y por nuestra manera de hacer voluntariado, siendo jóvenes, cercanos y comprometidos.",
+        "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+        "Para la realización de la actividad, reunimos a todos los voluntarios en algún lugar concretado anteriormente. Allí, se explica la actividad y nos dividimos en grupos integrados por, por lo menos, un coordinador del staff y entre 4 y 9 voluntarios. Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad."
+      ],
+      "models": {
+        "qwen3:32b": {
+          "response": "<think>\nOkay, let's tackle this question. The user is asking, \"¿Qué se hace en la actividad de desayunos?\" which translates to \"What is done in the breakfast activity?\" I need to base my answer strictly on the provided documents. Let me go through each document to gather relevant information.\n\nStarting with Document 1: It mentions that the breakfast list includes items like valencianas, milk, small cups, sugar boxes, and soluble coffee. The payment is done via transfer. Also, for solidarity dinners, food is collected from collaborating restaurants about an hour before the event. But the question is about breakfast, so maybe the dinner info isn't relevant here.\n\nDocument 2 says that the association handles the breakfasts, while dinners are provided by restaurants. So the breakfast is organized by the association, which probably involves purchasing the items listed in Document 1.\n\nDocument 3 is an introduction about the project, emphasizing that breakfast and dinner activities are part of their core mission. It doesn't add specific details about the breakfast activity itself beyond the purpose.\n\nDocument 4 mentions that the activity duration depends on the day, number of people, and area. It usually takes 1.5 hours plus a voluntary breakfast that can last longer. Wait, but the question is about the breakfast activity. Maybe the \"posterior desayuno voluntario\" refers to the volunteers having breakfast after the activity? But the main breakfast activity is the one they do with the people in need.\n\nDocument 5 explains that volunteers gather in a predetermined place, are divided into groups with coordinators, and each group follows a route to distribute food and items. After finishing, they reunite to have breakfast together and discuss experiences. So during the activity, they distribute food (which would include the breakfast items from Document 1) and then have",
+          "latency": 27.03764295578003,
+          "metrics": {
+            "response_length": 1890,
+            "has_response": 1.0,
+            "keyword_coverage": 0.2857142857142857,
+            "context_overlap": 0.060109289617486336,
+            "combined_score": 0.3441755572903114
+          },
+          "score": 0.3441755572903114,
+          "params": {
+            "top_k": 

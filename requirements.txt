@@ -1,0 +1,49 @@
+# Core
+torch>=2.0.0
+transformers>=4.30.0
+sentence-transformers>=2.2.0
+
+# RAG
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-huggingface>=0.0.1
+langchain-ollama>=0.3.0  # Para usar Ollama con RAGAs (sin OpenAI)
+chromadb>=1.0.0  # Usando ChromaDB en lugar de FAISS por compatibilidad
+numpy<2.0  # Requerido para compatibilidad con algunas librerías
+
+# Evaluación
+rouge-score>=0.1.2
+bert-score>=0.3.13
+sacrebleu>=2.3.0
+
+# Optimización
+scikit-optimize>=0.9.0
+optuna>=3.0.0
+bayesian-optimization>=1.4.0
+
+# Interfaz
+streamlit>=1.30.0
+gradio>=4.0.0
+plotly>=5.17.0
+pandas>=2.0.0
+
+# Utils
+requests>=2.31.0
+aiohttp>=3.9.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+
+# Base de datos
+sqlalchemy>=2.0.0
+
+# Evaluación avanzada
+ragas>=0.3.0  # Framework para evaluación RAG
+
+# Visualización y UI
+tabulate>=0.9.0  # Tablas en terminal
+colorama>=0.4.6  # Colores en terminal
+
+# Otras dependencias
+numpy>=1.24.0
+scipy>=1.10.0
+urllib3>=2.0.0

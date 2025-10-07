@@ -1,0 +1,210 @@
+[
+  {
+    "id": 1,
+    "category": "DESAYUNOS",
+    "difficulty": "easy",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "expected_answer": "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles conversación y compañía.",
+    "keywords": ["voluntarios", "equipos", "Valencia", "desayunos", "personas sin hogar", "conversación", "compañía"]
+  },
+  {
+    "id": 2,
+    "category": "DESAYUNOS",
+    "difficulty": "easy",
+    "question": "¿Dónde es el punto de encuentro de desayunos?",
+    "expected_answer": "El punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí se reparten los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.",
+    "keywords": ["Porta de la Mar", "Valencia", "Mestalla", "centro", "El Carmen", "río"]
+  },
+  {
+    "id": 3,
+    "category": "DESAYUNOS",
+    "difficulty": "easy",
+    "question": "¿A qué hora son los desayunos y las cenas solidarias?",
+    "expected_answer": "Los desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.",
+    "keywords": ["8 de la mañana", "8:00", "ocho y media de la tarde", "20:30"]
+  },
+  {
+    "id": 4,
+    "category": "DESAYUNOS",
+    "difficulty": "medium",
+    "question": "¿Cada cuánto se hace la actividad de desayunos?",
+    "expected_answer": "Normalmente, la actividad se realiza una vez a la semana, pero lo mejor es que consultes el calendario de la comunidad de WhatsApp o preguntes a un miembro del staff.",
+    "keywords": ["una vez a la semana", "calendario", "WhatsApp", "staff"]
+  },
+  {
+    "id": 5,
+    "category": "DESAYUNOS",
+    "difficulty": "medium",
+    "question": "¿Cuánto dura la actividad de desayunos?",
+    "expected_answer": "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que ese se puede alargar lo que ellos quieran.",
+    "keywords": ["hora y media", "1.5 horas", "desayuno voluntario", "participantes"]
+  },
+  {
+    "id": 6,
+    "category": "DESAYUNOS",
+    "difficulty": "medium",
+    "question": "¿Cómo me apunto a desayunos solidarios?",
+    "expected_answer": "La actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miércoles se publica por la comunidad de WhatsApp y por redes sociales un formulario para inscribirse.",
+    "keywords": ["sábados", "miércoles", "WhatsApp", "redes sociales", "formulario", "inscribirse"]
+  },
+  {
+    "id": 7,
+    "category": "DESAYUNOS",
+    "difficulty": "easy",
+    "question": "¿Si me apunto un día tengo que ir al resto de desayunos?",
+    "expected_answer": "No. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+    "keywords": ["actividades puntuales", "no obligatorio", "sin compromiso"]
+  },
+  {
+    "id": 8,
+    "category": "DESAYUNOS",
+    "difficulty": "easy",
+    "question": "¿Puedo ir en el mismo grupo que mi amigo en desayunos?",
+    "expected_answer": "Claro. Ya en el propio formulario se te pregunta si vas a venir con algún amigo. Nosotros antes de la actividad hacemos un boceto de los grupos. En la actividad os dividimos por grupos pero no hay ningún problema si os queréis cambiar a otro, simplemente se menciona a un miembro del staff y no hay más problema.",
+    "keywords": ["formulario", "amigo", "grupos", "staff", "cambiar"]
+  },
+  {
+    "id": 9,
+    "category": "DESAYUNOS",
+    "difficulty": "medium",
+    "question": "¿Cómo se compra la comida para desayunos?",
+    "expected_answer": "De los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.",
+    "keywords": ["asociación", "restaurantes", "gratuita", "cenas"]
+  },
+  {
+    "id": 10,
+    "category": "COLES",
+    "difficulty": "medium",
+    "question": "¿Qué se hace en la actividad de coles?",
+    "expected_answer": "En actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad el voluntariado es más de clases enfocadas al repaso de deberes o de conceptos, o a la lectura de cuentos, realización de manualidades, etc.",
+    "keywords": ["refuerzo escolar", "colegio", "niños", "deberes", "cuentos", "manualidades"]
+  },
+  {
+    "id": 11,
+    "category": "COLES",
+    "difficulty": "easy",
+    "question": "¿Dónde es la actividad de coles?",
+    "expected_answer": "Es en el CEIP Antonio Ferrandis de la Coma, Valencia.",
+    "keywords": ["CEIP Antonio Ferrandis", "la Coma", "Valencia"]
+  },
+  {
+    "id": 12,
+    "category": "COLES",
+    "difficulty": "easy",
+    "question": "¿Qué días vais a coles?",
+    "expected_answer": "Lunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.",
+    "keywords": ["lunes", "martes", "miércoles", "jueves", "viernes", "15:30", "16:30"]
+  },
+  {
+    "id": 13,
+    "category": "COLES",
+    "difficulty": "easy",
+    "question": "¿Cuánto dura la actividad de coles?",
+    "expected_answer": "De 15:30 a 16:30, es decir, una hora.",
+    "keywords": ["15:30", "16:30", "una hora", "1 hora"]
+  },
+  {
+    "id": 14,
+    "category": "COLES",
+    "difficulty": "easy",
+    "question": "¿Qué edad tienen los niños en coles?",
+    "expected_answer": "Los niños van desde los tres años hasta sexto de primaria. Hay dos grupos de Infantil y tres de primaria. Siempre divididos por edades.",
+    "keywords": ["tres años", "sexto de primaria", "infantil", "primaria", "edades"]
+  },
+  {
+    "id": 15,
+    "category": "COLES",
+    "difficulty": "medium",
+    "question": "¿Cómo vamos hasta la Coma para la actividad de coles?",
+    "expected_answer": "Organizamos coches desde Valencia o alrededores para que todos los voluntarios tengan modo de ir.",
+    "keywords": ["coches", "Valencia", "alrededores", "transporte"]
+  },
+  {
+    "id": 16,
+    "category": "COLES",
+    "difficulty": "easy",
+    "question": "¿Quién paga la gasolina para ir a coles?",
+    "expected_answer": "De la gasolina se encarga la asociación.",
+    "keywords": ["gasolina", "asociación", "paga"]
+  },
+  {
+    "id": 17,
+    "category": "COLES",
+    "difficulty": "medium",
+    "question": "¿Necesito algún tipo de documentación para ir a coles?",
+    "expected_answer": "Sí, para empezar es indispensable tener el certificado de delitos sexuales en vigor, así como rellenar el seguro del voluntario.",
+    "keywords": ["certificado de delitos sexuales", "seguro del voluntario", "documentación"]
+  },
+  {
+    "id": 18,
+    "category": "COLES",
+    "difficulty": "easy",
+    "question": "¿Puedo elegir a qué grupo de niños ir en coles?",
+    "expected_answer": "Claro, intentamos que todos los voluntarios estén con el grupo de niños que más les apetezca, siempre priorizando que no haya ningún grupo que se quede vacío.",
+    "keywords": ["elegir", "grupo", "niños", "priorizar"]
+  },
+  {
+    "id": 19,
+    "category": "COLES",
+    "difficulty": "medium",
+    "question": "¿Qué otras actividades se hacen relacionadas con niños?",
+    "expected_answer": "Además de esta actividad semanal, a lo largo del año hacemos otras actividades puntuales como Llegada de los Reyes en Navidad o como el Día del Niño en verano. Este último consiste en llevar a niños de centros de acogida a Terra Mítica a pasar un gran día.",
+    "keywords": ["Reyes", "Navidad", "Día del Niño", "verano", "Terra Mítica", "centros de acogida"]
+  },
+  {
+    "id": 20,
+    "category": "RESIS",
+    "difficulty": "easy",
+    "question": "¿Dónde es la actividad de resis?",
+    "expected_answer": "En la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.",
+    "keywords": ["La Acollida", "Blasco Ibáñez", "Crevillente 22", "residencia"]
+  },
+  {
+    "id": 21,
+    "category": "RESIS",
+    "difficulty": "easy",
+    "question": "¿Qué días se hace la actividad de resis?",
+    "expected_answer": "Los miércoles de 17:30 a 18:30.",
+    "keywords": ["miércoles", "17:30", "18:30"]
+  },
+  {
+    "id": 22,
+    "category": "RESIS",
+    "difficulty": "medium",
+    "question": "¿Qué se hace en la actividad de resis?",
+    "expected_answer": "En este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes.",
+    "keywords": ["pasar tiempo", "residentes", "Acollida", "actividades", "alegría", "jóvenes"]
+  },
+  {
+    "id": 23,
+    "category": "RESIS",
+    "difficulty": "easy",
+    "question": "¿Qué tipo de actividades se realizan en resis?",
+    "expected_answer": "Meriendas, paseos, juegos de mesa, excursiones y muchas más.",
+    "keywords": ["meriendas", "paseos", "juegos de mesa", "excursiones"]
+  },
+  {
+    "id": 24,
+    "category": "GENERAL",
+    "difficulty": "hard",
+    "question": "¿Cuál es el objetivo principal de DNI?",
+    "expected_answer": "DNI busca despertar a la juventud y dejar el mundo un poquito mejor. Se enfoca en parar, mirar y ayudar al vecino con generosidad y alegría. No pretende irse muy lejos, sino meterse en el día a día de las personas que nos rodean.",
+    "keywords": ["juventud", "parar", "mirar", "ayudar", "generosidad", "alegría"]
+  },
+  {
+    "id": 25,
+    "category": "GENERAL",
+    "difficulty": "medium",
+    "question": "¿Qué significa Para-Mira-Ayuda?",
+    "expected_answer": "Son las tres palabras que guían la labor de los voluntarios de DNI. En un mundo que avanza a un ritmo frenético, es necesario detenerse (PARAR) para ser conscientes de aquellos que nos rodean, MIRAR con cariño y cercanía, y ofrecer nuestra AYUDA con generosidad y alegría.",
+    "keywords": ["parar", "mirar", "ayudar", "voluntarios", "guía"]
+  },
+  {
+    "id": 26,
+    "category": "GENERAL",
+    "difficulty": "hard",
+    "question": "¿Cómo se caracteriza el voluntariado de DNI?",
+    "expected_answer": "El voluntariado de DNI se caracteriza por ser joven, cercano y comprometido. Se enfoca en repartir ilusión, alegría y conversación, siendo auténticos y sin máscaras ni segundas intenciones. Hacen de lo ordinario un momentazo.",
+    "keywords": ["joven", "cercano", "comprometido", "ilusión", "alegría", "auténtico"]
+  }
+]
