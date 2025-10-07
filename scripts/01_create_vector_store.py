@@ -29,7 +29,7 @@ def create_vector_store():
     print("🧠 Creando embeddings...")
     # Modelo corregido - sin "ing" en paraphrase
     embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+        model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
         model_kwargs={'device': 'cuda'}  # o 'cpu' si no tienes GPU
     )
     

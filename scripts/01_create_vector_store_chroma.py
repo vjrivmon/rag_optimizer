@@ -19,8 +19,8 @@ def create_vector_store():
 
     print("✂️  Dividiendo en chunks...")
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=50,
+        chunk_size=300,
+        chunk_overlap=100,
         length_function=len
     )
     chunks = text_splitter.split_documents(documents)

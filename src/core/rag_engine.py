@@ -8,7 +8,7 @@ class ConfigurableRAGEngine:
     def __init__(self, vector_store_path: str):
         # Embeddings - modelo corregido
         self.embeddings = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+            model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
             model_kwargs={'device': 'cpu'}
         )
 
@@ -20,8 +20,8 @@ class ConfigurableRAGEngine:
 
         # Parámetros por defecto
         self.params = {
-            'top_k': 5,
-            'similarity_threshold': 0.6
+            'top_k': 8,
+            'similarity_threshold': 0.4
         }
 
     def update_params(self, new_params: Dict[str, Any]):
