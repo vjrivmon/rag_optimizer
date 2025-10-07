@@ -89,6 +89,22 @@ Features:
 - 🔍 Detalle por pregunta lado a lado
 - 📉 Evolución de scores
 
+### 4. Exportar Informe a PDF para Cliente
+
+```bash
+# Exportar resultados a PDF profesional
+python export_pdf.py results/benchmark_XXXXXX.json
+
+# O especificar archivo de salida
+python export_pdf.py results/benchmark_XXXXXX.json -o informe_cliente.pdf
+```
+
+El PDF incluye:
+- Tabla con pregunta, respuesta esperada y respuestas de cada modelo
+- Tiempos de respuesta por modelo
+- **Pensamiento de DeepSeek** (etiqueta `<think>`) visible en el PDF
+- Formato profesional orientado a cliente
+
 ## 📊 Métricas Implementadas
 
 ### RAGAs (Framework Especializado)

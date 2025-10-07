@@ -53,8 +53,24 @@ class LLMWrapper:
             result = response.json()
 
             # Ollama devuelve la respuesta en el campo 'response'
+            full_response = result.get('response', '')
+
+            # Para DeepSeek, extraer thinking y respuesta por separado
+            thinking = None
+            answer = full_response
+
+            if 'deepseek' in self.model_name.lower() and '<think>' in full_response:
+                start_think = full_response.find('<think>')
+                end_think = full_response.find('</think>')
+
+                if start_think != -1 and end_think != -1:
+                    thinking = full_response[start_think+7:end_think].strip()
+                    answer = full_response[end_think+8:].strip()
+
             return {
-                'response': result.get('response', ''),
+                'response': full_response,  # Respuesta completa (con <think> si existe)
+                'answer': answer,  # Solo la respuesta (sin <think>)
+                'thinking': thinking,  # Pensamiento de DeepSeek (None para otros modelos)
                 'model': self.model_name,
                 'latency': time.time() - start_time,
                 'success': True,
