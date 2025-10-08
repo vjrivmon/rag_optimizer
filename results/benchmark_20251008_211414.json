@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-08T21:14:14.091138",
+    "total_questions": 1,
+    "total_time": 545.6884326934814,
+    "models": [
+      "qwen3:32b",
+      "deepseek-r1:latest",
+      "gemma2:27b",
+      "llama3.3:70b"
+    ],
+    "ragas_backend": "ollama",
+    "ragas_model": "gemma2:27b",
+    "ragas_base_url": "https://ollama.gti-ia.upv.es:443",
+    "filter_thinking_tags": true
+  },
+  "results": [
+    {
+      "question_id": 1,
+      "question": "¿Qué se hace en la actividad de desayunos?",
+      "expected_answer": "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles conversación y compañía.",
+      "contexts": [
+        "¿Qué se hace en la actividad?\nLa actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles conversación y compañía.",
+        "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.",
+        "¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde (20:30).",
+        "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+        "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades."
+      ],
+      "models": {
+        "qwen3:32b": {
+          "response": "<think>\nOkay, let's see. The user is asking what happens in the breakfast activity. I need to look at the context provided.\n\nLooking at Documento 1, it says that volunteers meet at a gathering point and split into teams. Each team goes through an area in Valencia to distribute breakfasts or dinners to homeless people. The main point isn't just the food but the time spent with them, offering conversation and company. \n\nSo the answer should include that volunteers meet, split into teams, go to specific areas, distribute breakfasts, and emphasize the companionship. I should make sure to mention both the food and the social aspect. Also, check if other documents add anything relevant. Documento 2 talks about how the food is purchased, but the user's question is about what happens in the activity, so maybe not necessary here. Documento 3 mentions the time, but the question isn't about timing. So stick to Documento 1's info. \n\nNeed to present it clearly, maybe start with the main action, then the structure of the activity, and highlight the importance of companionship. Avoid adding extra details not in the context. Make sure the answer is concise and directly answers the question.\n</think>\n\nEn la actividad de desayunos, un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia para repartir desayunos a personas sin hogar. Además de entregar la comida, se enfatiza la importancia de compartir tiempo con ellas, ofreciendo conversación y compañía.",
+          "answer": "En la actividad de desayunos, un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia para repartir desayunos a personas sin hogar. Además de entregar la comida, se enfatiza la importancia de compartir tiempo con ellas, ofreciendo conversación y compañía.",
+          "latency": 29.44154143333435,
+          "metrics": {
+            "response_length": 322,
+            "has_response": 1.0,
+            "keyword_coverage": 1.0,
+            "context_overlap": 0.75,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.6650914698968724,
+            "context_precision": NaN,
+            "context_recall": 1.0,
+            "answer_correctness": 0.9322524168981907,
+            "answer_similarity": 0.9597788983619938,
+            "combined_score": NaN
+          },
+          "score": 0.0,
+          "params": {
+            "top_k": 7,
+            "similarity_threshold": 0.5550304369598491,
+            "temperature": 0.41187640010910787,
+            "top_p": 0.9096850157946487,
+            "max_tokens": 1557,
+            "strictness": "medium"
+          },
+          "success": true
+        },
+        "deepseek-r1:latest": {
+          "response": "<think>\nOkay, I need to answer the question \"¿Qué se hace en la actividad de desayunos?\" based on the provided context. Let me go through each document step by step.\n\nDoc 1 says that groups of volunteers meet at a point and split into teams. Each team goes around a Valencia area distributing breakfast or lunch to people without homes. The main thing isn't just the food but the time spent talking, offering conversation.\n\nDoc 2 explains how the food is bought. For breakfast solidaries, the association handles it, while evening meals are negotiated with restaurants for free meals.\n\nDoc 3 specifies times: breakfast at 8 AM and lunch around 6:30 PM (18:30).\n\nDoc 4 tells us how long the activity lasts. It's usually an hour and a half plus extra for a voluntary breakfast by participants, which can extend as needed.\n\nDoc 5 clarifies that joining an activity doesn't require attending subsequent ones; it's punctual.\n\nSo focusing on the desayunos (breakfast) part: Groups meet to distribute breakfast to people without homes. It emphasizes the time spent with them, offering conversation and companionship.\n</think>\n\nEn la actividad de desayunos, un grupo de voluntarios se reúne para distribuir desayunos a personas sin hogar. La principal meta no solo es proveer la comida, sino ofrecer una oportunidad para compartir tiempo y compañía con ellos.",
+          "answer": "En la actividad de desayunos, un grupo de voluntarios se reúne para distribuir desayunos a personas sin hogar. La principal meta no solo es proveer la comida, sino ofrecer una oportunidad para compartir tiempo y compañía con ellos.",
+          "latency": 23.68337106704712,
+          "metrics": {
+            "response_length": 231,
+            "has_response": 1.0,
+            "keyword_coverage": 0.5714285714285714,
+            "context_overlap": 0.6764705882352942,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.7482250440927277,
+            "context_precision": 0.9999999999,
+            "context_recall": 1.0,
+            "answer_correctness": 0.5754062859504049,
+            "answer_similarity": 0.8016251438016195,
+            "combined_score": 0.8531912643415661
+          },
+          "score": 0.8531912643415661,
+          "params": {
+            "top_k": 7,
+            "similarity_threshold": 0.5550304369598491,
+            "temperature": 0.41187640010910787,
+            "top_p": 0.9096850157946487,
+            "max_tokens": 1557,
+            "strictness": "medium"
+          },
+          "success": true
+        },
+        "gemma2:27b": {
+          "response": "En la actividad de desayunos, un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles conversación y compañía. \n",
+          "answer": "En la actividad de desayunos, un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles conversación y compañía. \n",
+          "latency": 18.395291805267334,
+          "metrics": {
+            "response_length": 319,
+            "has_response": 1.0,
+            "keyword_coverage": 1.0,
+            "context_overlap": 0.9772727272727273,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.6567063909256875,
+            "context_precision": NaN,
+            "context_recall": 1.0,
+            "answer_correctness": 0.9909745320189794,
+            "answer_similarity": 0.9638981280759179,
+            "combined_score": NaN
+          },
+          "score": 0.0,
+          "params": {
+            "top_k": 7,
+            "similarity_threshold": 0.5550304369598491,
+            "temperature": 0.41187640010910787,
+            "top_p": 0.9096850157946487,
+            "max_tokens": 370,
+            "strictness": "medium"
+          },
+          "success": true
+        },
+        "llama3.3:70b": {
+          "response": "La actividad consiste en que un grupo de voluntarios se reúne y se divide en equipos para recorrer una zona de Valencia repartiendo desayunos a personas sin hogar, compartiendo tiempo con ellos y ofreciéndoles conversación y compañía.",
+          "answer": "La actividad consiste en que un grupo de voluntarios se reúne y se divide en equipos para recorrer una zona de Valencia repartiendo desayunos a personas sin hogar, compartiendo tiempo con ellos y ofreciéndoles conversación y compañía.",
+          "latency": 15.3016197681427,
+          "metrics": {
+            "response_length": 234,
+            "has_response": 1.0,
+            "keyword_coverage": 1.0,
+            "context_overlap": 0.84375,
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.4591334621939112,
+            "context_precision": NaN,
+            "context_recall": 1.0,
+            "answer_correctness": 0.8367822084945595,
+            "answer_similarity": 0.9471288339782375,
+            "combined_score": NaN
+          },
+          "score": 0.0,
+          "params": {
+            "top_k": 7,
+            "similarity_threshold": 0.5550304369598491,
+            "temperature": 0.41187640010910787,
+            "top_p": 0.9096850157946487,
+            "max_tokens": 370,
+            "strictness": "medium"
+          },
+          "success": true
+        }
+      },
+      "winner": "deepseek-r1:latest"
+    }
+  ]
+}

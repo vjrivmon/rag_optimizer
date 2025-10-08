@@ -1,0 +1,105 @@
+ID,Pregunta,Modelo,Score,Faithfulness,Answer Relevancy,Context Precision,Context Recall,Answer Correctness,Answer Similarity,Latencia (s),Tiene <think>
+1,¿Qué se hace en la actividad de desayunos?,qwen3:32b,0.7674,1.0000,0.8615,0.2250,1.0000,0.8286,0.9143,31.79,Sí
+1,¿Qué se hace en la actividad de desayunos?,deepseek-r1:latest,0.5900,0.8182,0.0000,0.2250,1.0000,0.5651,0.8319,11.93,Sí
+1,¿Qué se hace en la actividad de desayunos?,gemma2:27b,0.9941,1.0000,0.9341,0.4250,1.0000,0.9374,0.9803,15.00,No
+1,¿Qué se hace en la actividad de desayunos?,llama3.3:70b,0.9033,0.8571,0.9537,0.2250,1.0000,0.8152,0.9532,24.84,No
+2,¿Dónde es el punto de encuentro de desayunos?,qwen3:32b,0.5745,0.5455,0.0000,0.5000,1.0000,0.4399,0.8366,25.76,Sí
+2,¿Dónde es el punto de encuentro de desayunos?,deepseek-r1:latest,0.6058,0.5556,0.0000,0.5000,1.0000,0.2982,0.7928,11.05,Sí
+2,¿Dónde es el punto de encuentro de desayunos?,gemma2:27b,0.8811,1.0000,0.8311,0.5000,1.0000,0.4843,0.9371,13.06,No
+2,¿Dónde es el punto de encuentro de desayunos?,llama3.3:70b,0.8797,1.0000,0.8311,0.5000,1.0000,0.4474,0.9323,18.59,No
+3,¿A qué hora son los desayunos y las cenas solidarias?,qwen3:32b,0.6574,0.6000,0.8875,1.0000,1.0000,0.9698,0.8790,26.77,Sí
+3,¿A qué hora son los desayunos y las cenas solidarias?,deepseek-r1:latest,0.6418,0.3333,0.8981,1.0000,1.0000,0.5206,0.8826,11.09,Sí
+3,¿A qué hora son los desayunos y las cenas solidarias?,gemma2:27b,0.9021,1.0000,0.8603,1.0000,1.0000,0.8428,0.9713,12.24,No
+3,¿A qué hora son los desayunos y las cenas solidarias?,llama3.3:70b,0.9149,1.0000,0.9428,1.0000,1.0000,0.5437,0.9747,18.94,No
+4,¿Cada cuánto se hace la actividad de desayunos?,qwen3:32b,0.8091,1.0000,0.0000,0.5000,1.0000,0.9718,0.8872,21.87,Sí
+4,¿Cada cuánto se hace la actividad de desayunos?,deepseek-r1:latest,0.8098,0.9412,0.0000,0.5000,1.0000,0.4612,0.8447,16.81,Sí
+4,¿Cada cuánto se hace la actividad de desayunos?,gemma2:27b,0.8411,1.0000,0.9084,0.5000,1.0000,0.6049,0.9194,14.50,No
+4,¿Cada cuánto se hace la actividad de desayunos?,llama3.3:70b,0.9150,1.0000,0.0000,0.4167,1.0000,0.9897,0.9590,27.50,No
+5,¿Cuánto dura la actividad de desayunos?,qwen3:32b,0.6634,1.0000,0.0000,1.0000,1.0000,0.3793,0.8507,26.60,Sí
+5,¿Cuánto dura la actividad de desayunos?,deepseek-r1:latest,0.6538,0.6667,0.0000,1.0000,1.0000,0.4131,0.8523,11.52,Sí
+5,¿Cuánto dura la actividad de desayunos?,gemma2:27b,0.4502,0.5000,0.0000,1.0000,1.0000,0.1877,0.7508,12.56,No
+5,¿Cuánto dura la actividad de desayunos?,llama3.3:70b,0.6772,0.6250,0.0000,1.0000,1.0000,0.4346,0.8814,34.90,No
+6,¿Cómo me apunto a desayunos solidarios?,qwen3:32b,0.7189,0.7500,0.9387,0.3333,1.0000,0.5950,0.8800,21.45,Sí
+6,¿Cómo me apunto a desayunos solidarios?,deepseek-r1:latest,0.7188,0.5000,0.0000,0.3333,1.0000,0.6475,0.8756,12.07,Sí
+6,¿Cómo me apunto a desayunos solidarios?,gemma2:27b,0.9983,1.0000,0.8198,0.3333,1.0000,0.9986,0.9945,17.27,No
+6,¿Cómo me apunto a desayunos solidarios?,llama3.3:70b,1.0000,1.0000,0.8198,0.3333,1.0000,1.0000,1.0000,18.42,No
+7,¿Si me apunto un día tengo que ir al resto de desayunos?,qwen3:32b,0.6882,0.9167,0.8917,0.9167,1.0000,0.4028,0.9053,30.40,Sí
+7,¿Si me apunto un día tengo que ir al resto de desayunos?,deepseek-r1:latest,0.6491,0.6667,0.0000,0.9167,1.0000,0.4954,0.8565,10.87,Sí
+7,¿Si me apunto un día tengo que ir al resto de desayunos?,gemma2:27b,0.8812,1.0000,0.8217,0.9167,1.0000,0.8844,0.9662,10.76,No
+7,¿Si me apunto un día tengo que ir al resto de desayunos?,llama3.3:70b,0.8313,1.0000,0.8851,0.9167,1.0000,0.8825,0.9585,26.59,No
+8,¿Puedo ir en el mismo grupo que mi amigo en desayunos?,qwen3:32b,0.7392,1.0000,0.8933,0.9429,1.0000,0.9667,0.8669,30.57,Sí
+8,¿Puedo ir en el mismo grupo que mi amigo en desayunos?,deepseek-r1:latest,0.7307,0.5333,0.0000,0.9762,1.0000,0.6838,0.8603,13.05,Sí
+8,¿Puedo ir en el mismo grupo que mi amigo en desayunos?,gemma2:27b,0.9927,1.0000,0.8864,0.9429,1.0000,0.8904,0.9903,14.20,No
+8,¿Puedo ir en el mismo grupo que mi amigo en desayunos?,llama3.3:70b,0.9016,0.8000,0.9490,0.9429,1.0000,0.6479,0.9553,27.32,No
+9,¿Cómo se compra la comida para desayunos?,qwen3:32b,0.7005,0.8000,0.8171,0.8333,1.0000,0.4010,0.8538,24.03,Sí
+9,¿Cómo se compra la comida para desayunos?,deepseek-r1:latest,0.4979,0.1429,0.9015,1.0000,1.0000,0.2115,0.8460,12.00,Sí
+9,¿Cómo se compra la comida para desayunos?,gemma2:27b,0.7544,1.0000,0.8364,1.0000,1.0000,0.2068,0.8270,13.39,No
+9,¿Cómo se compra la comida para desayunos?,llama3.3:70b,0.6036,0.4000,0.9032,1.0000,1.0000,0.6753,0.9015,25.22,No
+10,¿Qué se hace en la actividad de coles?,qwen3:32b,0.5992,0.8824,0.0000,0.5000,1.0000,0.3609,0.8121,31.17,Sí
+10,¿Qué se hace en la actividad de coles?,deepseek-r1:latest,0.7862,0.8333,0.0000,0.5000,1.0000,0.8003,0.8935,13.54,Sí
+10,¿Qué se hace en la actividad de coles?,gemma2:27b,0.9232,1.0000,0.8855,0.5000,1.0000,0.9959,0.9834,11.78,No
+10,¿Qué se hace en la actividad de coles?,llama3.3:70b,0.4207,0.0000,0.0000,0.5000,1.0000,0.2006,0.8025,18.68,No
+11,¿Dónde es la actividad de coles?,qwen3:32b,0.6693,0.6000,0.0000,0.2500,1.0000,0.7715,0.8361,26.14,Sí
+11,¿Dónde es la actividad de coles?,deepseek-r1:latest,0.7191,0.6000,0.0000,0.2500,1.0000,0.5920,0.8681,11.25,Sí
+11,¿Dónde es la actividad de coles?,gemma2:27b,0.9541,1.0000,0.8205,0.2500,1.0000,0.6105,0.9421,13.40,No
+11,¿Dónde es la actividad de coles?,llama3.3:70b,0.4853,0.4286,0.0000,0.2500,1.0000,0.1984,0.7937,27.39,No
+12,¿Qué días vais a coles?,qwen3:32b,0.5973,0.7647,0.0000,1.0000,1.0000,0.3703,0.8147,36.98,Sí
+12,¿Qué días vais a coles?,deepseek-r1:latest,0.7945,0.8500,0.7989,1.0000,1.0000,0.5257,0.8528,12.50,Sí
+12,¿Qué días vais a coles?,gemma2:27b,0.4321,0.0000,0.0000,1.0000,1.0000,0.1934,0.7738,12.63,No
+12,¿Qué días vais a coles?,llama3.3:70b,0.7993,1.0000,0.0000,1.0000,1.0000,0.3679,0.8714,31.64,No
+13,¿Cuánto dura la actividad de coles?,qwen3:32b,0.5849,0.6250,0.0000,1.0000,1.0000,0.3691,0.8096,31.72,Sí
+13,¿Cuánto dura la actividad de coles?,deepseek-r1:latest,0.5931,0.5714,0.0000,1.0000,1.0000,0.3911,0.8143,8.79,Sí
+13,¿Cuánto dura la actividad de coles?,gemma2:27b,0.3309,0.0000,0.0000,0.6667,1.0000,0.1924,0.7696,10.45,No
+13,¿Cuánto dura la actividad de coles?,llama3.3:70b,0.6600,1.0000,0.0000,1.0000,1.0000,0.1977,0.7908,19.08,No
+14,¿Qué edad tienen los niños en coles?,qwen3:32b,0.7996,1.0000,0.8835,1.0000,1.0000,0.6517,0.8927,25.03,Sí
+14,¿Qué edad tienen los niños en coles?,deepseek-r1:latest,0.7300,0.5556,0.0000,1.0000,1.0000,0.8534,0.9136,22.92,Sí
+14,¿Qué edad tienen los niños en coles?,gemma2:27b,0.9262,1.0000,0.9322,1.0000,1.0000,0.5385,0.9541,21.47,No
+14,¿Qué edad tienen los niños en coles?,llama3.3:70b,0.9892,1.0000,0.9215,1.0000,1.0000,0.9994,0.9975,19.57,No
+15,¿Cómo vamos hasta la Coma para la actividad de coles?,qwen3:32b,0.6112,0.5000,0.9011,1.0000,1.0000,0.5822,0.8289,24.14,Sí
+15,¿Cómo vamos hasta la Coma para la actividad de coles?,deepseek-r1:latest,0.7376,0.7273,0.0000,1.0000,1.0000,0.5359,0.8101,10.08,Sí
+15,¿Cómo vamos hasta la Coma para la actividad de coles?,gemma2:27b,0.7249,0.6667,0.0000,1.0000,1.0000,0.5112,0.8449,10.51,No
+15,¿Cómo vamos hasta la Coma para la actividad de coles?,llama3.3:70b,0.5315,0.5000,0.0000,1.0000,1.0000,0.1940,0.7759,20.77,No
+16,¿Quién paga la gasolina para ir a coles?,qwen3:32b,0.5745,0.4800,0.0000,1.0000,1.0000,0.7332,0.8153,32.80,Sí
+16,¿Quién paga la gasolina para ir a coles?,deepseek-r1:latest,0.7202,0.5833,0.0000,1.0000,1.0000,0.6192,0.8767,10.04,Sí
+16,¿Quién paga la gasolina para ir a coles?,gemma2:27b,0.8754,1.0000,0.8944,1.0000,1.0000,0.9795,0.9182,21.27,No
+16,¿Quién paga la gasolina para ir a coles?,llama3.3:70b,0.9500,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000,22.47,No
+17,¿Necesito algún tipo de documentación para ir a coles?,qwen3:32b,0.6627,0.6667,0.8259,1.0000,1.0000,0.8234,0.8936,22.24,Sí
+17,¿Necesito algún tipo de documentación para ir a coles?,deepseek-r1:latest,0.8075,0.9048,0.0000,1.0000,1.0000,0.2686,0.8243,11.00,Sí
+17,¿Necesito algún tipo de documentación para ir a coles?,gemma2:27b,0.9111,1.0000,0.8712,1.0000,1.0000,0.9914,0.9655,10.14,No
+17,¿Necesito algún tipo de documentación para ir a coles?,llama3.3:70b,0.8898,1.0000,0.0000,0.7500,1.0000,0.7225,0.8900,27.11,No
+18,¿Puedo elegir a qué grupo de niños ir en coles?,qwen3:32b,0.6953,0.7500,0.8931,0.9667,1.0000,0.9640,0.8560,25.88,Sí
+18,¿Puedo elegir a qué grupo de niños ir en coles?,deepseek-r1:latest,0.7783,0.9062,0.0000,0.9667,1.0000,0.9613,0.8450,13.34,Sí
+18,¿Puedo elegir a qué grupo de niños ir en coles?,gemma2:27b,0.8942,1.0000,0.9618,0.9667,1.0000,0.8301,0.9204,12.09,No
+18,¿Puedo elegir a qué grupo de niños ir en coles?,llama3.3:70b,0.9168,1.0000,0.9811,0.9667,1.0000,0.5304,0.9216,19.58,No
+19,¿Qué otras actividades se hacen relacionadas con niños?,qwen3:32b,0.6456,0.7857,0.0000,0.7595,1.0000,0.4331,0.8325,35.58,Sí
+19,¿Qué otras actividades se hacen relacionadas con niños?,deepseek-r1:latest,0.7551,0.8095,0.0000,0.7470,1.0000,0.3577,0.8308,18.74,Sí
+19,¿Qué otras actividades se hacen relacionadas con niños?,gemma2:27b,0.9461,1.0000,0.8911,0.7470,1.0000,0.9094,0.9710,12.88,No
+19,¿Qué otras actividades se hacen relacionadas con niños?,llama3.3:70b,0.9624,1.0000,0.8659,0.7595,1.0000,0.6728,0.9771,25.85,No
+20,¿Dónde es la actividad de resis?,qwen3:32b,0.6911,0.6667,0.8996,0.1667,1.0000,0.9573,0.8291,27.22,Sí
+20,¿Dónde es la actividad de resis?,deepseek-r1:latest,0.7037,0.7778,0.0000,0.1667,1.0000,0.1977,0.7907,10.55,Sí
+20,¿Dónde es la actividad de resis?,gemma2:27b,0.9521,1.0000,0.7815,0.1667,1.0000,0.9914,0.9654,10.98,No
+20,¿Dónde es la actividad de resis?,llama3.3:70b,0.7873,0.8333,0.0000,0.1667,1.0000,0.6034,0.9137,24.62,No
+21,¿Qué días se hace la actividad de resis?,qwen3:32b,0.6305,0.7333,0.0000,1.0000,1.0000,0.9444,0.7775,32.43,Sí
+21,¿Qué días se hace la actividad de resis?,deepseek-r1:latest,0.5943,0.5714,0.8747,1.0000,1.0000,0.3676,0.8037,8.55,Sí
+21,¿Qué días se hace la actividad de resis?,gemma2:27b,0.9958,1.0000,0.7688,1.0000,1.0000,0.9965,0.9861,10.58,No
+21,¿Qué días se hace la actividad de resis?,llama3.3:70b,0.6570,1.0000,0.0000,1.0000,1.0000,0.2003,0.8011,25.56,No
+22,¿Qué se hace en la actividad de resis?,qwen3:32b,0.6853,0.6000,0.0000,0.5000,1.0000,0.5105,0.8419,30.26,Sí
+22,¿Qué se hace en la actividad de resis?,deepseek-r1:latest,0.5674,0.4375,0.0000,0.5000,1.0000,0.3761,0.7987,13.07,Sí
+22,¿Qué se hace en la actividad de resis?,gemma2:27b,0.7304,0.6667,0.9277,0.5000,1.0000,0.8197,0.8790,14.95,No
+22,¿Qué se hace en la actividad de resis?,llama3.3:70b,0.8092,1.0000,0.0000,0.5000,1.0000,0.4598,0.8391,36.18,No
+23,¿Qué tipo de actividades se realizan en resis?,qwen3:32b,0.7757,1.0000,0.9083,0.6429,1.0000,0.6293,0.8028,33.00,Sí
+23,¿Qué tipo de actividades se realizan en resis?,deepseek-r1:latest,0.6869,0.8000,0.0000,0.6429,1.0000,0.8130,0.8521,12.51,Sí
+23,¿Qué tipo de actividades se realizan en resis?,gemma2:27b,0.9142,1.0000,0.9268,0.6429,1.0000,0.7716,0.9044,15.57,No
+23,¿Qué tipo de actividades se realizan en resis?,llama3.3:70b,0.8256,0.8750,0.8649,0.6429,1.0000,0.7104,0.8417,30.29,No
+24,¿Cuál es el objetivo principal de DNI?,qwen3:32b,0.6604,1.0000,0.9147,0.9029,1.0000,0.2149,0.8598,31.89,Sí
+24,¿Cuál es el objetivo principal de DNI?,deepseek-r1:latest,0.6917,0.4286,0.9147,0.9029,1.0000,0.4720,0.8880,13.67,Sí
+24,¿Cuál es el objetivo principal de DNI?,gemma2:27b,0.8463,1.0000,1.0000,0.9029,1.0000,0.2261,0.9044,13.36,No
+24,¿Cuál es el objetivo principal de DNI?,llama3.3:70b,0.6441,0.4286,0.0000,0.9500,1.0000,0.5469,0.9018,31.31,No
+25,¿Qué significa Para-Mira-Ayuda?,qwen3:32b,0.6059,1.0000,0.0000,1.0000,0.0000,0.3500,0.8001,20.94,Sí
+25,¿Qué significa Para-Mira-Ayuda?,deepseek-r1:latest,0.4379,0.3333,0.0000,1.0000,0.0000,0.2003,0.8011,13.94,Sí
+25,¿Qué significa Para-Mira-Ayuda?,gemma2:27b,0.6310,1.0000,0.0000,1.0000,0.0000,0.3818,0.8605,13.84,No
+25,¿Qué significa Para-Mira-Ayuda?,llama3.3:70b,0.4532,0.5000,0.0000,1.0000,0.0000,0.1902,0.7607,22.53,No
+26,¿Cómo se caracteriza el voluntariado de DNI?,qwen3:32b,0.6707,1.0000,0.8905,0.3873,0.3333,0.5125,0.8962,35.59,Sí
+26,¿Cómo se caracteriza el voluntariado de DNI?,deepseek-r1:latest,0.5496,0.5000,0.0000,0.5845,0.3333,0.3785,0.9142,13.72,Sí
+26,¿Cómo se caracteriza el voluntariado de DNI?,gemma2:27b,0.7754,0.8571,0.8747,0.5845,0.3333,0.4293,0.9673,16.50,No
+26,¿Cómo se caracteriza el voluntariado de DNI?,llama3.3:70b,0.8089,1.0000,1.0000,0.5845,0.3333,0.5393,0.9573,38.05,No

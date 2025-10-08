@@ -21,10 +21,12 @@ class ConfigurableRAGEngine:
             embedding_function=self.embeddings
         )
 
-        # Parámetros por defecto
+        # Parámetros por defecto (optimizados basados en benchmark #3)
         self.params = {
-            'top_k': 8,
-            'similarity_threshold': 0.4
+            'top_k': 10,  # Aumentado de 8 a 10 para más candidatos
+            'similarity_threshold': 0.35,  # Más permisivo para capturar más contexto
+            'semantic_weight': 0.6,  # Dar más peso a semantic para conceptos abstractos
+            'keyword_weight': 0.4   # Peso menor a BM25 keyword matching
         }
 
         # Configurar hybrid retrieval
@@ -50,12 +52,12 @@ class ConfigurableRAGEngine:
             search_kwargs={'k': int(self.params['top_k'])}
         )
 
-        # Ensemble retriever: combina ambos con pesos
-        # 0.5 = igual peso a semantic y keyword
-        # Ajustable: 0.6 semantic + 0.4 keyword si semantic es más importante
+        # Ensemble retriever: combina ambos con pesos configurables
+        # Semantic weight mayor (0.6) para preguntas conceptuales como "¿Qué significa...?"
+        # Keyword weight menor (0.4) para búsquedas literales
         self.hybrid_retriever = EnsembleRetriever(
             retrievers=[self.chroma_retriever, self.bm25_retriever],
-            weights=[0.5, 0.5]  # Peso igual para comenzar
+            weights=[self.params['semantic_weight'], self.params['keyword_weight']]
         )
 
     def update_params(self, new_params: Dict[str, Any]):
@@ -67,6 +69,13 @@ class ConfigurableRAGEngine:
             k_value = int(new_params['top_k'])  # Convertir numpy.int64 a int
             self.bm25_retriever.k = k_value
             self.chroma_retriever.search_kwargs['k'] = k_value
+
+        # Si cambian los pesos, recrear el hybrid retriever
+        if ('semantic_weight' in new_params or 'keyword_weight' in new_params) and self.use_hybrid:
+            self.hybrid_retriever = EnsembleRetriever(
+                retrievers=[self.chroma_retriever, self.bm25_retriever],
+                weights=[self.params['semantic_weight'], self.params['keyword_weight']]
+            )
     
     def retrieve(self, query: str) -> List[Dict[str, Any]]:
         """Recupera documentos relevantes usando hybrid retrieval (semantic + BM25)"""

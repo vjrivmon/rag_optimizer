@@ -1,0 +1,5 @@
+Modelo,Total Respuestas,Con <think>,% con <think>,Avg Relevancy Con <think>,Avg Relevancy Sin <think>,Penalización,% Penalización
+qwen3:32b,26,26,100.0%,0.4772,0.0000,-0.4772,0.0%
+deepseek-r1:latest,26,26,100.0%,0.1688,0.0000,-0.1688,0.0%
+gemma2:27b,26,0,0.0%,0.0000,0.7090,0.7090,100.0%
+llama3.3:70b,26,0,0.0%,0.0000,0.4199,0.4199,100.0%

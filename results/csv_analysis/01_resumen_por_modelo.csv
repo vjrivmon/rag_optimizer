@@ -1,0 +1,5 @@
+Modelo,Score Promedio,Correctas (≥0.8),Incompletas (0.5-0.8),Incorrectas (<0.5),Faithfulness,Answer Relevancy,Context Precision,Context Recall,Answer Correctness,Answer Similarity,Latencia Promedio (s),Respuestas con <think>
+qwen3:32b,0.6722,1/26,25/26,0/26,0.7949,0.4772,0.7433,0.9359,0.6205,0.8490,28.55,26/26
+deepseek-r1:latest,0.6750,2/26,22/26,2/26,0.6288,0.1688,0.7581,0.9359,0.5003,0.8469,12.64,26/26
+gemma2:27b,0.8253,18/26,5/26,3/26,0.8727,0.7090,0.7517,0.9359,0.6695,0.9172,13.67,0/26
+llama3.3:70b,0.7776,15/26,8/26,3/26,0.8172,0.4199,0.7463,0.9359,0.5681,0.8981,25.50,0/26

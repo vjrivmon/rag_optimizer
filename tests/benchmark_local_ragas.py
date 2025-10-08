@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 """
-Benchmark completo del sistema RAG con tabla final de comparación
-Incluye métricas RAGAs y análisis detallado
+Benchmark completo del sistema RAG con evaluación RAGAs LOCAL (Ollama)
+ALTERNATIVA a benchmark.py que usa OpenAI
+
+Diferencias:
+- Usa Ollama local (llama3.1:8b) para métricas RAGAs
+- Sin costos de API
+- Potencialmente más rápido (sin rate limits de OpenAI)
+- Solo 3 métricas RAGAs (answer_relevancy, context_recall, answer_similarity)
 """
 
 import yaml
@@ -47,20 +53,14 @@ def convert_numpy_types(obj):
 class BenchmarkRunner:
     """Ejecuta benchmark completo y genera tabla comparativa"""
 
-    def __init__(self, evaluator_config=None):
+    def __init__(self):
         self.results = []
         self.start_time = None
         self.end_time = None
-        self.evaluator_config = evaluator_config or {
-            'backend': 'dual',
-            'ollama_model': 'gemma2:27b',
-            'ollama_base_url': 'https://ollama.gti-ia.upv.es:443',
-            'filter_thinking_tags': True
-        }
 
     def setup(self):
         """Configura el sistema"""
-        print(f"{Fore.CYAN}🚀 BENCHMARK RAG AUTO-OPTIMIZER{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}🚀 BENCHMARK RAG AUTO-OPTIMIZER (Ollama Local){Style.RESET_ALL}")
         print("="*80)
 
         # Cargar configuración
@@ -84,55 +84,19 @@ class BenchmarkRunner:
             self.models.append(model)
             print(f"   ✓ {model_config['name']}")
 
-        # Evaluador
+        # Evaluador - USANDO OLLAMA LOCAL
         print(f"{Fore.GREEN}📊 Inicializando evaluador...{Style.RESET_ALL}")
-        backend = self.evaluator_config.get('backend', 'openai')
-        filter_thinking_tags = self.evaluator_config.get('filter_thinking_tags', True)
+        print(f"{Fore.YELLOW}   ⚠️  Modo: RAGAs con Ollama LOCAL (llama3.1:8b){Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}   ⚠️  Esto NO requiere OpenAI API key{Style.RESET_ALL}")
 
-        if backend == 'openai':
-            print("   🤝 Backend RAGAs: OpenAI (requiere API key)")
-            self.evaluator = HybridEvaluator(
-                use_ragas=True,
-                use_openai=True,
-                use_ollama=False,
-                filter_thinking_tags=filter_thinking_tags
-            )
-        elif backend == 'ollama':
-            ollama_model = self.evaluator_config.get('ollama_model', 'llama3.3:70b')
-            ollama_base_url = self.evaluator_config.get('ollama_base_url', 'https://ollama.gti-ia.upv.es:443')
-            print(f"   🤝 Backend RAGAs: Ollama ({ollama_model})")
-            print(f"   🌐 URL: {ollama_base_url}")
-            self.evaluator = HybridEvaluator(
-                use_ragas=True,
-                use_openai=False,
-                use_ollama=True,
-                ollama_model=ollama_model,
-                ollama_base_url=ollama_base_url,
-                filter_thinking_tags=filter_thinking_tags
-            )
-        elif backend == 'dual':
-            # Backend dual (Ollama + OpenAI) para 6 métricas completas
-            ollama_model = self.evaluator_config.get('ollama_model', 'gemma2:27b')
-            ollama_base_url = self.evaluator_config.get('ollama_base_url', 'https://ollama.gti-ia.upv.es:443')
-            self.evaluator = HybridEvaluator(
-                use_ragas=True,
-                use_openai=False,
-                use_ollama=False,
-                use_dual_backend=True,
-                ollama_model=ollama_model,
-                ollama_base_url=ollama_base_url,
-                filter_thinking_tags=filter_thinking_tags
-            )
-        elif backend == 'none':
-            print("   🤝 Backend RAGAs: desactivado (solo métricas básicas)")
-            self.evaluator = HybridEvaluator(
-                use_ragas=False,
-                filter_thinking_tags=filter_thinking_tags
-            )
-        else:
-            raise ValueError(f"Backend RAGAs desconocido: {backend}")
-
-        print(f"   ✂️  Filtro de thinking tags: {'ACTIVADO' if filter_thinking_tags else 'DESACTIVADO'}")
+        self.evaluator = HybridEvaluator(
+            use_ragas=True,
+            use_openai=False,           # ❌ NO usar OpenAI
+            use_ollama=True,            # ✅ Usar Ollama local
+            ollama_model="llama3.1:8b", # Modelo local (ya lo tienes instalado)
+            ollama_base_url="http://localhost:11434",  # Ollama local
+            filter_thinking_tags=True   # ✂️ Filtrar <think> tags
+        )
 
         # Optimizadores (con detección de modelos thinking)
         self.optimizers = {
@@ -217,37 +181,40 @@ class BenchmarkRunner:
             )
 
             if generation['success']:
-                # Usar 'answer' (limpio, sin thinking) para evaluación RAGAs
-                # 'response' contiene thinking tags que causan timeouts en servidor
-                answer = generation.get('answer', generation['response'])
-                full_response = generation['response']
+                response = generation['response']
                 latency = generation['latency']
 
-                # Evaluar con respuesta limpia (sin thinking tags)
-                metrics = self.evaluator.evaluate(
-                    question=question,
-                    answer=answer,
-                    contexts=contexts,
-                    ground_truth=expected,
-                    keywords=keywords
-                )
+                # Evaluar
+                try:
+                    metrics = self.evaluator.evaluate(
+                        question=question,
+                        answer=response,
+                        contexts=contexts,
+                        ground_truth=expected,
+                        keywords=keywords
+                    )
 
-                score = metrics['combined_score']
+                    score = metrics['combined_score']
 
-                # Validar score antes de reportar al optimizador
-                # Si score es NaN (error en evaluación OpenAI), usar 0.0 por defecto
-                if score is None or math.isnan(score):
-                    print(f"{Fore.YELLOW}⚠️  {latency:.1f}s (score: nan - Error en evaluación RAGAs){Style.RESET_ALL}")
-                    score = 0.0  # Score por defecto para evitar crash del optimizador
-                    # NO reportar al optimizador para evitar contaminar el modelo Bayesiano
-                else:
-                    # Reportar al optimizador solo si el score es válido
-                    optimizer.report(params, score)
-                    print(f"{Fore.GREEN}✓ {latency:.1f}s (score: {score:.3f}){Style.RESET_ALL}")
+                    # Validar score antes de reportar al optimizador
+                    # Si score es NaN (error en evaluación), usar 0.0 por defecto
+                    if score is None or math.isnan(score):
+                        print(f"{Fore.YELLOW}⚠️  {latency:.1f}s (score: nan - Error en evaluación RAGAs){Style.RESET_ALL}")
+                        score = 0.0  # Score por defecto para evitar crash del optimizador
+                        # NO reportar al optimizador para evitar contaminar el modelo Bayesiano
+                    else:
+                        # Reportar al optimizador solo si el score es válido
+                        optimizer.report(params, score)
+                        print(f"{Fore.GREEN}✓ {latency:.1f}s (score: {score:.3f}){Style.RESET_ALL}")
+
+                except Exception as e:
+                    # Si hay error en evaluación, usar métricas vacías
+                    print(f"{Fore.YELLOW}⚠️  {latency:.1f}s (Error en evaluación: {str(e)[:50]}){Style.RESET_ALL}")
+                    metrics = {}
+                    score = 0.0
 
                 model_results[model.model_name] = {
-                    'response': full_response,  # Respuesta completa (con thinking si existe)
-                    'answer': answer,           # Respuesta limpia (sin thinking)
+                    'response': response,
                     'latency': latency,
                     'metrics': metrics,
                     'score': score,
@@ -378,10 +345,7 @@ class BenchmarkRunner:
                 'total_questions': len(self.results),
                 'total_time': self.end_time - self.start_time if self.end_time and self.start_time else 0,
                 'models': [m.model_name for m in self.models],
-                'ragas_backend': self.evaluator_config.get('backend', 'openai'),
-                'ragas_model': self.evaluator_config.get('ollama_model') if self.evaluator_config.get('backend') == 'ollama' else None,
-                'ragas_base_url': self.evaluator_config.get('ollama_base_url') if self.evaluator_config.get('backend') == 'ollama' else None,
-                'filter_thinking_tags': self.evaluator_config.get('filter_thinking_tags', True)
+                'evaluator': 'ollama_local_llama3.1:8b'  # Indicar que usó Ollama local
             },
             'results': self.results
         }
@@ -389,7 +353,7 @@ class BenchmarkRunner:
         # Convertir tipos NumPy a tipos Python nativos
         output = convert_numpy_types(output)
 
-        filename = f"results/benchmark_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        filename = f"results/benchmark_local_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
 
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(output, f, ensure_ascii=False, indent=2)
@@ -404,33 +368,17 @@ def main():
 
     import argparse
 
-    parser = argparse.ArgumentParser(description='Ejecuta benchmark del sistema RAG')
+    parser = argparse.ArgumentParser(description='Ejecuta benchmark del sistema RAG con Ollama local')
     parser.add_argument('--max-questions', type=int, default=None,
                        help='Máximo número de preguntas a evaluar')
     parser.add_argument('--detailed', action='store_true',
                        help='Mostrar comparación detallada')
-    parser.add_argument('--ragas-backend', type=str, default='ollama',
-                       choices=['ollama', 'openai', 'dual', 'none'],
-                       help='Backend para métricas RAGAs (default: ollama - 6 métricas gratis)')
-    parser.add_argument('--ollama-model', type=str, default='gemma2:27b',
-                       help='Modelo Ollama para evaluación RAGAs (default: gemma2:27b)')
-    parser.add_argument('--ollama-url', type=str, default='https://ollama.gti-ia.upv.es:443',
-                       help='URL del servidor Ollama (default: https://ollama.gti-ia.upv.es:443)')
-    parser.add_argument('--no-thinking-filter', action='store_true',
-                       help='Desactivar filtrado de thinking tags <think>...</think>')
 
     args = parser.parse_args()
 
     try:
         # Crear y ejecutar benchmark
-        evaluator_cli_config = {
-            'backend': args.ragas_backend,
-            'ollama_model': args.ollama_model,
-            'ollama_base_url': args.ollama_url,
-            'filter_thinking_tags': not args.no_thinking_filter
-        }
-
-        runner = BenchmarkRunner(evaluator_config=evaluator_cli_config)
+        runner = BenchmarkRunner()
         runner.setup()
         runner.run_benchmark('data/evaluation_dataset.json', max_questions=args.max_questions)
 

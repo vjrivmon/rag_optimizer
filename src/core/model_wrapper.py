@@ -46,7 +46,7 @@ class LLMWrapper:
                 json=payload,
                 headers={'Content-Type': 'application/json'},
                 verify=False,  # Equivalente a -k en curl
-                timeout=120
+                timeout=300  # 5 minutos para modelos grandes (deepseek-r1, llama3.3:70b)
             )
             response.raise_for_status()
 
@@ -55,17 +55,31 @@ class LLMWrapper:
             # Ollama devuelve la respuesta en el campo 'response'
             full_response = result.get('response', '')
 
-            # Para DeepSeek, extraer thinking y respuesta por separado
+            # Para modelos con thinking (DeepSeek, Qwen), extraer thinking y respuesta por separado
             thinking = None
             answer = full_response
 
-            if 'deepseek' in self.model_name.lower() and '<think>' in full_response:
-                start_think = full_response.find('<think>')
-                end_think = full_response.find('</think>')
+            # Detectar si la respuesta tiene tags <think>
+            if '<think>' in full_response.lower():
+                start_think = full_response.lower().find('<think>')
+                end_think = full_response.lower().find('</think>')
 
-                if start_think != -1 and end_think != -1:
+                if end_think != -1:
+                    # Tag completo: <think>...</think>
+                    # Extraer thinking y respuesta limpia
                     thinking = full_response[start_think+7:end_think].strip()
                     answer = full_response[end_think+8:].strip()
+                else:
+                    # Tag sin cerrar (truncado): <think>...
+                    # Si hay texto antes del <think>, conservarlo
+                    if start_think > 10:  # Al menos 10 chars de texto útil antes
+                        answer = full_response[:start_think].strip()
+                        thinking = full_response[start_think+7:].strip()
+                    else:
+                        # Todo es thinking truncado, sin respuesta real
+                        # Marcar como error para que RAGAs lo detecte
+                        thinking = full_response
+                        answer = "[Respuesta truncada - solo thinking]"
 
             return {
                 'response': full_response,  # Respuesta completa (con <think> si existe)

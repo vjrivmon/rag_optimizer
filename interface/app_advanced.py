@@ -387,6 +387,326 @@ st.dataframe(
     }
 )
 
+# ============= SECCIÓN 9: COMPARADOR DE BENCHMARKS =============
+st.header("📈 Comparador de Benchmarks")
+
+st.info("🔍 Compara múltiples benchmarks para ver la evolución del sistema")
+
+# Listar todos los benchmarks disponibles
+results_dir = Path('results')
+all_benchmarks = sorted(results_dir.glob('benchmark_*.json'), key=lambda p: p.stat().st_mtime)
+
+if len(all_benchmarks) > 1:
+    # Selector de benchmarks a comparar
+    selected_files = st.multiselect(
+        "Selecciona benchmarks a comparar:",
+        all_benchmarks,
+        default=all_benchmarks[-3:] if len(all_benchmarks) >= 3 else all_benchmarks,
+        format_func=lambda p: p.name
+    )
+
+    if len(selected_files) >= 2:
+        # Cargar benchmarks seleccionados
+        benchmarks_data = []
+        for file_path in selected_files:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                bench_data = json.load(f)
+                benchmarks_data.append({
+                    'name': file_path.name,
+                    'data': bench_data,
+                    'timestamp': file_path.stat().st_mtime
+                })
+
+        # Ordenar por timestamp
+        benchmarks_data.sort(key=lambda x: x['timestamp'])
+
+        # Calcular métricas para cada benchmark
+        comparison_metrics = []
+        for idx, bench in enumerate(benchmarks_data, 1):
+            data = bench['data']
+            results_list = data['results']
+            models = data['metadata']['models']
+
+            # Context recall promedio
+            all_cr = []
+            for model in models:
+                for q in results_list:
+                    cr = q['models'][model]['metrics'].get('context_recall', 0)
+                    all_cr.append(cr)
+            avg_cr = sum(all_cr) / len(all_cr) if all_cr else 0
+
+            # Preguntas fallidas
+            failed = sum(1 for q in results_list
+                        if q['models'][models[0]]['metrics'].get('context_recall', 0) == 0)
+
+            # Scores por modelo
+            model_scores = {}
+            for model in models:
+                scores = [q['models'][model]['metrics'].get('combined_score', 0)
+                         for q in results_list]
+                model_scores[model] = sum(scores) / len(scores) if scores else 0
+
+            comparison_metrics.append({
+                'benchmark': f"#{idx}",
+                'name': bench['name'][:30] + '...' if len(bench['name']) > 30 else bench['name'],
+                'context_recall': avg_cr,
+                'success_rate': (len(results_list) - failed) / len(results_list) * 100,
+                'failed': failed,
+                'avg_chunks': sum(len(q['contexts']) for q in results_list) / len(results_list),
+                **{f'score_{model}': score for model, score in model_scores.items()}
+            })
+
+        # Crear DataFrame
+        df_comparison = pd.DataFrame(comparison_metrics)
+
+        # Gráfico de evolución de Context Recall
+        col1, col2 = st.columns(2)
+
+        with col1:
+            fig_cr = go.Figure()
+            fig_cr.add_trace(go.Scatter(
+                x=df_comparison['benchmark'],
+                y=df_comparison['context_recall'],
+                mode='lines+markers+text',
+                name='Context Recall',
+                text=[f"{val:.3f}" for val in df_comparison['context_recall']],
+                textposition='top center',
+                marker=dict(size=12, color='blue'),
+                line=dict(width=3)
+            ))
+            fig_cr.update_layout(
+                title="Context Recall Evolution",
+                xaxis_title="Benchmark",
+                yaxis_title="Score",
+                yaxis=dict(range=[0, 1]),
+                height=400
+            )
+            st.plotly_chart(fig_cr, use_container_width=True)
+
+        with col2:
+            fig_sr = go.Figure()
+            fig_sr.add_trace(go.Scatter(
+                x=df_comparison['benchmark'],
+                y=df_comparison['success_rate'],
+                mode='lines+markers+text',
+                name='Success Rate',
+                text=[f"{val:.1f}%" for val in df_comparison['success_rate']],
+                textposition='top center',
+                marker=dict(size=12, color='green'),
+                line=dict(width=3)
+            ))
+            fig_sr.update_layout(
+                title="Success Rate Evolution",
+                xaxis_title="Benchmark",
+                yaxis_title="Percentage",
+                yaxis=dict(range=[0, 100]),
+                height=400
+            )
+            st.plotly_chart(fig_sr, use_container_width=True)
+
+        # Gráfico de comparación de modelos
+        st.subheader("📊 Model Scores Comparison")
+
+        # Preparar datos para gráfico de modelos
+        model_cols = [col for col in df_comparison.columns if col.startswith('score_')]
+
+        if model_cols:
+            fig_models = go.Figure()
+
+            for col in model_cols:
+                model_name = col.replace('score_', '')
+                fig_models.add_trace(go.Scatter(
+                    x=df_comparison['benchmark'],
+                    y=df_comparison[col],
+                    mode='lines+markers',
+                    name=model_name,
+                    marker=dict(size=10),
+                    line=dict(width=2)
+                ))
+
+            fig_models.update_layout(
+                title="Model Scores Evolution",
+                xaxis_title="Benchmark",
+                yaxis_title="Combined Score",
+                height=500,
+                hovermode='x unified',
+                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+            )
+            st.plotly_chart(fig_models, use_container_width=True)
+
+        # Tabla comparativa
+        st.subheader("📋 Comparison Table")
+
+        # Formatear tabla para display
+        display_df = df_comparison.copy()
+        display_df['context_recall'] = display_df['context_recall'].apply(lambda x: f"{x:.3f}")
+        display_df['success_rate'] = display_df['success_rate'].apply(lambda x: f"{x:.1f}%")
+        display_df['avg_chunks'] = display_df['avg_chunks'].apply(lambda x: f"{x:.1f}")
+
+        # Formatear scores de modelos
+        for col in model_cols:
+            display_df[col] = display_df[col].apply(lambda x: f"{x:.3f}")
+
+        st.dataframe(display_df, use_container_width=True, hide_index=True)
+
+        # Calcular mejoras
+        if len(df_comparison) >= 2:
+            st.subheader("📈 Overall Improvements (First → Last)")
+
+            first = df_comparison.iloc[0]
+            last = df_comparison.iloc[-1]
+
+            col1, col2, col3, col4 = st.columns(4)
+
+            with col1:
+                cr_delta = last['context_recall'] - first['context_recall']
+                cr_pct = (cr_delta / first['context_recall']) * 100 if first['context_recall'] > 0 else 0
+                st.metric(
+                    "Context Recall",
+                    f"{last['context_recall']:.3f}",
+                    f"{cr_delta:+.3f} ({cr_pct:+.1f}%)"
+                )
+
+            with col2:
+                sr_delta = last['success_rate'] - first['success_rate']
+                st.metric(
+                    "Success Rate",
+                    f"{last['success_rate']:.1f}%",
+                    f"{sr_delta:+.1f}%"
+                )
+
+            with col3:
+                failed_delta = last['failed'] - first['failed']
+                st.metric(
+                    "Failed Questions",
+                    f"{int(last['failed'])}",
+                    f"{int(failed_delta):+d}"
+                )
+
+            with col4:
+                chunks_delta = last['avg_chunks'] - first['avg_chunks']
+                st.metric(
+                    "Avg Chunks",
+                    f"{last['avg_chunks']:.1f}",
+                    f"{chunks_delta:+.1f}"
+                )
+
+    else:
+        st.warning("⚠️ Selecciona al menos 2 benchmarks para comparar")
+
+else:
+    st.info("📊 Solo hay 1 benchmark disponible. Ejecuta más benchmarks para habilitar la comparación.")
+
+# ============= SECCIÓN 10: EXPORTADOR COMPLETO =============
+st.header("📥 Exportador de Resultados")
+
+st.info("💾 Exporta los resultados del benchmark actual con todas las métricas")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.subheader("PDF Export")
+    st.write("Exporta a PDF con formato profesional incluyendo:")
+    st.write("- ✅ 11 métricas completas (RAGAs + personalizadas)")
+    st.write("- ✅ Tabla de métricas por pregunta/modelo")
+    st.write("- ✅ Respuestas completas de cada modelo")
+    st.write("- ✅ Formato A3 landscape")
+
+    if st.button("📄 Generar PDF Completo", type="primary"):
+        # Ejecutar export_pdf.py
+        import subprocess
+        import datetime
+
+        timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+        output_file = f"results/benchmark_report_{timestamp}.pdf"
+
+        with st.spinner("Generando PDF..."):
+            try:
+                result = subprocess.run(
+                    ['python', 'export_pdf.py', f'results/{filename}', '-o', output_file],
+                    capture_output=True,
+                    text=True,
+                    timeout=60
+                )
+
+                if result.returncode == 0:
+                    st.success(f"✅ PDF generado: `{output_file}`")
+
+                    # Ofrecer descarga
+                    with open(output_file, 'rb') as f:
+                        pdf_data = f.read()
+
+                    st.download_button(
+                        label="⬇️ Descargar PDF",
+                        data=pdf_data,
+                        file_name=f"benchmark_report_{timestamp}.pdf",
+                        mime="application/pdf"
+                    )
+                else:
+                    st.error(f"❌ Error al generar PDF:\n{result.stderr}")
+
+            except Exception as e:
+                st.error(f"❌ Error: {str(e)}")
+
+with col2:
+    st.subheader("Excel Export")
+    st.write("Exporta todas las métricas a Excel para análisis:")
+    st.write("- ✅ Una hoja por modelo")
+    st.write("- ✅ Todas las 11 métricas")
+    st.write("- ✅ Formato tabla para análisis")
+
+    if st.button("📊 Generar Excel", type="primary"):
+        # Crear Excel con pandas
+        import datetime
+
+        timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+        output_file = f"results/benchmark_metrics_{timestamp}.xlsx"
+
+        with st.spinner("Generando Excel..."):
+            try:
+                # Crear Excel con múltiples hojas
+                with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
+                    # Hoja resumen
+                    df_summary.to_excel(writer, sheet_name='Summary', index=False)
+
+                    # Hoja por cada modelo
+                    for model_name in all_models:
+                        model_data = []
+
+                        for idx, r in enumerate(results_list, 1):
+                            if model_name in r['models']:
+                                model_result = r['models'][model_name]
+                                metrics = model_result['metrics']
+
+                                row = {
+                                    'Question_ID': idx,
+                                    'Question': r['question'],
+                                    'Score': model_result['score'],
+                                    'Latency': model_result['latency'],
+                                    **metrics
+                                }
+                                model_data.append(row)
+
+                        df_model = pd.DataFrame(model_data)
+                        df_model.to_excel(writer, sheet_name=model_name[:31], index=False)
+
+                st.success(f"✅ Excel generado: `{output_file}`")
+
+                # Ofrecer descarga
+                with open(output_file, 'rb') as f:
+                    excel_data = f.read()
+
+                st.download_button(
+                    label="⬇️ Descargar Excel",
+                    data=excel_data,
+                    file_name=f"benchmark_metrics_{timestamp}.xlsx",
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                )
+
+            except Exception as e:
+                st.error(f"❌ Error: {str(e)}")
+
 # Footer
 st.markdown("---")
 st.markdown("**📊 Sistema RAG Auto-Optimizer con RAGAs** | UPV - DNI Project")
+st.caption("v3.1 - Hybrid Retrieval + FAQ-Aware Chunks + Comparador + Exportador Completo")
