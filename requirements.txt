@@ -9,6 +9,7 @@ langchain-community>=0.0.20
 langchain-huggingface>=0.0.1
 langchain-ollama>=0.3.0  # Para usar Ollama con RAGAs (sin OpenAI)
 chromadb>=1.0.0  # Usando ChromaDB en lugar de FAISS por compatibilidad
+rank-bm25>=0.2.2  # BM25 keyword retrieval para hybrid search
 numpy<2.0  # Requerido para compatibilidad con algunas librerías
 
 # Evaluación

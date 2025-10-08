@@ -1,11 +1,14 @@
 from typing import List, Dict, Any
 from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.retrievers import BM25Retriever
+from langchain.retrievers import EnsembleRetriever
+from langchain.schema import Document
 
 class ConfigurableRAGEngine:
-    """Motor RAG con parámetros ajustables dinámicamente"""
+    """Motor RAG con parámetros ajustables dinámicamente y hybrid retrieval (semantic + BM25)"""
 
-    def __init__(self, vector_store_path: str):
+    def __init__(self, vector_store_path: str, use_hybrid: bool = True):
         # Embeddings - modelo corregido
         self.embeddings = HuggingFaceEmbeddings(
             model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
@@ -24,29 +27,69 @@ class ConfigurableRAGEngine:
             'similarity_threshold': 0.4
         }
 
+        # Configurar hybrid retrieval
+        self.use_hybrid = use_hybrid
+        if use_hybrid:
+            self._setup_hybrid_retrieval()
+
+    def _setup_hybrid_retrieval(self):
+        """Configura hybrid retrieval combinando ChromaDB (semantic) + BM25 (keyword)"""
+        # Obtener todos los documentos del vector store para BM25
+        all_data = self.vector_store.get()
+        documents = [
+            Document(page_content=content, metadata=metadata)
+            for content, metadata in zip(all_data['documents'], all_data['metadatas'])
+        ]
+
+        # Crear retriever BM25
+        self.bm25_retriever = BM25Retriever.from_documents(documents)
+        self.bm25_retriever.k = int(self.params['top_k'])  # Asegurar int nativo
+
+        # Crear retriever de ChromaDB - IMPORTANTE: k debe ser int nativo de Python
+        self.chroma_retriever = self.vector_store.as_retriever(
+            search_kwargs={'k': int(self.params['top_k'])}
+        )
+
+        # Ensemble retriever: combina ambos con pesos
+        # 0.5 = igual peso a semantic y keyword
+        # Ajustable: 0.6 semantic + 0.4 keyword si semantic es más importante
+        self.hybrid_retriever = EnsembleRetriever(
+            retrievers=[self.chroma_retriever, self.bm25_retriever],
+            weights=[0.5, 0.5]  # Peso igual para comenzar
+        )
+
     def update_params(self, new_params: Dict[str, Any]):
         """Actualiza parámetros"""
         self.params.update(new_params)
+
+        # Si cambia top_k, actualizar retrievers - SIEMPRE convertir a int nativo
+        if 'top_k' in new_params and self.use_hybrid:
+            k_value = int(new_params['top_k'])  # Convertir numpy.int64 a int
+            self.bm25_retriever.k = k_value
+            self.chroma_retriever.search_kwargs['k'] = k_value
     
     def retrieve(self, query: str) -> List[Dict[str, Any]]:
-        """Recupera documentos relevantes usando ChromaDB"""
+        """Recupera documentos relevantes usando hybrid retrieval (semantic + BM25)"""
 
-        # Búsqueda vectorial con ChromaDB
-        # Asegurar que k es un int nativo de Python
-        k = int(self.params['top_k'])
+        if self.use_hybrid:
+            # Usar hybrid retrieval
+            docs = self.hybrid_retriever.invoke(query)
+        else:
+            # Fallback a búsqueda vectorial pura
+            k = int(self.params['top_k'])
+            docs = self.vector_store.similarity_search(query, k=k)
 
-        # Usar similarity_search simple (sin scores de distancia L2)
-        # ChromaDB devuelve distancias L2 negativas que no funcionan bien con threshold
-        docs = self.vector_store.similarity_search(query, k=k)
-
-        # Convertir a formato esperado (sin filtrado por threshold)
-        # Los documentos ya vienen ordenados por similitud (más similar primero)
+        # Convertir a formato esperado
+        # Los documentos ya vienen ordenados por score combinado
+        # IMPORTANTE: Convertir top_k a int nativo para evitar errores con numpy types
+        top_k = int(self.params['top_k'])
         results = []
-        for i, doc in enumerate(docs):
+        for i, doc in enumerate(docs[:top_k]):
             results.append({
                 'content': doc.page_content,
                 'score': 1.0 - (i * 0.1),  # Score decreciente: 1.0, 0.9, 0.8, etc.
-                'source': doc.metadata.get('source', 'unknown')
+                'source': doc.metadata.get('source', 'unknown'),
+                'metadata': doc.metadata
             })
 
         return results
