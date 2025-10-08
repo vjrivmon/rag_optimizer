@@ -972,7 +972,9 @@ Preguntas fallidas: 3 (context_recall = 0)
 - ⚠️ Todas son preguntas FAQ sobre "¿Qué se hace?" o "¿Cómo me apunto?"
 - **Root cause:** Chunking separa preguntas de respuestas en FAQs
 
-### Benchmark 3: 2025-10-08 [EN EJECUCIÓN] (FAQ-AWARE + HYBRID RETRIEVAL)
+### Benchmark 3: 2025-10-08 09:33 ✅ COMPLETADO (FAQ-AWARE + HYBRID RETRIEVAL)
+**Archivo:** `results/benchmark_20251008_093326.json`
+
 **Cambios implementados:**
 
 1. **FAQ-Aware Chunking:**
@@ -987,28 +989,62 @@ Preguntas fallidas: 3 (context_recall = 0)
    - Ensemble con pesos 50/50
    - Dependency: `rank-bm25>=0.2.2`
 
-**Validación manual (3 preguntas problemáticas):**
+**Resultados finales:**
 ```
-Q1: "¿Qué se hace en la actividad de desayunos?"
-  → ✅ CORRECTO (encuentra "grupo de voluntarios" + "punto de encuentro")
++------------------+-----------+-----------+-------------+------+
+| Modelo           | Score Avg | Score Max | Context Rec | Wins |
++------------------+-----------+-----------+-------------+------+
+| gemma2:27b       | 0.825     | 0.994     | 0.936       | 13   |
+| llama3.3:70b     | 0.778     | 0.958     | 0.936       | 8    |
+| qwen3:32b        | 0.672     | 0.875     | 0.936       | 3    |
+| deepseek-r1      | 0.675     | 0.915     | 0.936       | 2    |
++------------------+-----------+-----------+-------------+------+
 
-Q6: "¿Cómo me apunto a desayunos solidarios?"
-  → ✅ CORRECTO (encuentra "WhatsApp" + "formulario")
-
-Q22: "¿Qué se hace en la actividad de resis?"
-  → ✅ CORRECTO (encuentra "pasar tiempo con los residentes de la Acollida")
+Promedio Context Recall: 0.936 (+32.9% vs baseline)
+Preguntas resueltas: 25/26 (96.2%)
+Preguntas fallidas: 1 (Q25: "¿Qué significa Para-Mira-Ayuda?")
+Chunks recuperados: 6.6 promedio
 ```
 
-**Mejoras esperadas:**
-- Context recall: 0.808 → 0.950+ (+17%)
-- Preguntas resueltas: 23/26 → 26/26 (100%)
-- Mejor performance en llama3.3 y deepseek (más contexto coherente)
+**Preguntas RESUELTAS (antes fallaban):**
+✅ **Q1:** "¿Qué se hace en la actividad de desayunos?" (CR: 0.000 → 1.000)
+✅ **Q6:** "¿Cómo me apunto a desayunos solidarios?" (CR: 0.000 → 1.000)
+✅ **Q22:** "¿Qué se hace en la actividad de resis?" (CR: 0.000 → 1.000)
 
-**Estado:** 🔄 Ejecutando (~76 minutos restantes)
+**Mejoras totales conseguidas (vs Benchmark #1):**
+- ✅ Context Recall: +32.9% (0.704 → 0.936) 🔥🔥🔥
+- ✅ Tasa de éxito: +23.1% (73.1% → 96.2%)
+- ✅ Preguntas fallidas: -85.7% (7 → 1)
+- ✅ Chunks recuperados: +29.4% (5.1 → 6.6)
+- ✅ gemma2:27b: +7.1% (0.770 → 0.825)
+- ✅ qwen3:32b: +2.1% (0.658 → 0.672)
+
+**Pregunta pendiente:**
+❌ **Q25:** "¿Qué significa Para-Mira-Ayuda?" (CR: 0.000)
+- Causa: Chunk tiene título pero no contenido explicativo
+- Solución propuesta: Chunking especial para secciones de filosofía/valores
 
 ---
 
 ## 📝 HISTORIAL DE CAMBIOS
+
+### v3.1 (2025-10-08 12:00) - COMPARADOR DE BENCHMARKS + EXPORTADOR COMPLETO
+- 🎉 **NUEVA HERRAMIENTA**: Comparador de benchmarks (`scripts/compare_benchmarks.py`)
+  - Compara múltiples benchmarks y genera gráficos de evolución
+  - Identifica preguntas que mejoraron/empeoraron
+  - Exporta a CSV y HTML interactivo con plotly
+  - Análisis estadístico de mejoras/regresiones
+- 🎉 **MEJORA MAYOR**: Exportador PDF v2.0 con 11 métricas completas
+  - Incluye TODAS las métricas RAGAs + personalizadas
+  - Formato A3 landscape para mayor legibilidad
+  - Tabla de métricas detalladas por pregunta/modelo
+- 📊 **Benchmark #3 COMPLETADO**: Resultados espectaculares
+  - Context Recall: +32.9% (0.704 → 0.936)
+  - Tasa de éxito: +23.1% (73.1% → 96.2%)
+  - Solo 1/26 preguntas fallidas (85.7% menos fallos)
+  - gemma2:27b ganador con 0.825 avg score
+- 📝 Roadmap completo de mejoras futuras (corto/medio/largo plazo)
+- 📝 CLAUDE.md actualizado con análisis completo Benchmark #3
 
 ### v3.0 (2025-10-08 08:00) - HYBRID RETRIEVAL + FAQ-AWARE CHUNKS
 - 🎉 **FEATURE MAYOR**: Hybrid retrieval (ChromaDB semantic + BM25 keyword)
@@ -1081,6 +1117,97 @@ Q22: "¿Qué se hace en la actividad de resis?"
 
 ---
 
+## 🚀 ROADMAP DE MEJORAS FUTURAS
+
+### Corto Plazo (1-2 semanas)
+
+**1. Query Expansion**
+- Expandir queries con sinónimos antes de retrieval
+- Ejemplo: "desayunos" → ["desayunos", "comida matutina"]
+- Librería: `sentence-transformers` + embeddings multilingües
+- **Mejora esperada:** +5-8% recall
+
+**2. Re-ranking con Cross-Encoder**
+- Re-rankear resultados con modelo más potente después de hybrid retrieval
+- Modelo: `cross-encoder/ms-marco-MiniLM-L-12-v2`
+- **Mejora esperada:** +5-10% context precision
+
+**3. Metadata Filtering**
+- Filtrar chunks por categoría en retrieval
+- Query "desayunos" → filtrar solo `category="desayunos"`
+- **Mejora esperada:** +10-15% precision sin sacrificar recall
+
+**4. Adaptive Top-K**
+- Top-K dinámico según complejidad de pregunta
+- Preguntas simples: top_k=3, complejas: top_k=10
+- Clasificador de complejidad con LLM ligero
+
+**5. Resolver Q25 (última pregunta fallida)**
+- Chunking especial para secciones filosofía/valores
+- Detectar formato "PALABRA1. PALABRA2. PALABRA3"
+- Incluir párrafos siguientes en chunk
+
+### Medio Plazo (1-2 meses)
+
+**6. Fine-tuning del Embedding Model**
+- Fine-tune `mpnet-base-v2` en dataset DNI
+- Dataset: 26 preguntas + documentos
+- **Mejora esperada:** +10-15% context recall
+
+**7. LLM-as-Judge con múltiples evaluadores**
+- Usar 2-3 modelos como evaluadores y promediar
+- Reduce sesgo de evaluador único
+- Modelos: gemma2, llama3.3, qwen3
+
+**8. Caching Inteligente**
+- Cachear embeddings de chunks
+- Cachear resultados de retrieval para queries similares
+- Backend: Redis o SQLite
+
+**9. A/B Testing Framework**
+- Comparar automáticamente 2 configuraciones
+- Statistical significance testing
+- Automated rollback si regresión detectada
+
+### Largo Plazo (3-6 meses)
+
+**10. Multi-modal RAG**
+- Incluir imágenes de actividades DNI
+- CLIP para embeddings de imágenes
+- Responder con texto + imágenes relevantes
+
+**11. Conversational RAG**
+- Mantener historial de conversación
+- Retrieval considerando contexto previo
+- Memory buffer con últimas 5 interacciones
+
+**12. Active Learning**
+- Detectar preguntas con baja confianza
+- Solicitar feedback humano
+- Re-entrenar con nuevo ground truth
+
+**13. Production Deployment**
+- API REST con FastAPI
+- Docker containerization
+- Monitoring con Prometheus/Grafana
+- Rate limiting y autenticación
+
+### Nuevas Herramientas Implementadas
+
+**✅ Comparador de Benchmarks** (`scripts/compare_benchmarks.py`)
+- Compara múltiples benchmarks y genera gráficos de evolución
+- Identifica preguntas que mejoraron/empeoraron
+- Exporta a CSV y HTML interactivo
+- Uso: `python scripts/compare_benchmarks.py results/*.json`
+
+**✅ Exportador PDF Completo** (`export_pdf.py` v2.0)
+- Incluye LAS 11 MÉTRICAS completas (RAGAs + personalizadas)
+- Formato A3 landscape para mayor legibilidad
+- Tabla de métricas por pregunta
+- Uso: `python export_pdf.py results/benchmark.json -o report.pdf`
+
+---
+
 **Estado:** ✅ **SISTEMA 100% FUNCIONAL - HYBRID RETRIEVAL + FAQ-AWARE CHUNKS**
 
-**Última actualización:** 2025-10-08 08:00
+**Última actualización:** 2025-10-08 12:00

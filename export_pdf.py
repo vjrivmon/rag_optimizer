@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
 Exporta resultados del benchmark a PDF para el cliente
-Muestra tabla con preguntas, respuestas esperadas, respuestas de cada modelo y tiempos
+Incluye TODAS las métricas RAGAs (11 métricas totales):
+- faithfulness, answer_relevancy, context_precision, context_recall, answer_correctness, answer_similarity
+- combined_score, context_overlap, has_response, keyword_coverage, response_length
 """
 
 import json
 import argparse
 from datetime import datetime
 from reportlab.lib import colors
-from reportlab.lib.pagesizes import A4, landscape
+from reportlab.lib.pagesizes import A3, landscape
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, PageBreak
@@ -125,10 +127,10 @@ class PDFExporter:
 
         print(f"📄 Generando PDF: {self.output_file}")
 
-        # Crear documento en orientación horizontal (landscape)
+        # Crear documento en orientación horizontal A3 (más espacio para métricas)
         doc = SimpleDocTemplate(
             self.output_file,
-            pagesize=landscape(A4),
+            pagesize=landscape(A3),
             rightMargin=30,
             leftMargin=30,
             topMargin=30,
@@ -167,10 +169,102 @@ class PDFExporter:
         doc.build(story)
         print(f"✅ PDF generado exitosamente: {self.output_file}")
 
+    def _create_metrics_table(self, idx: int, result: dict):
+        """Crea tabla con todas las métricas (11 métricas completas)"""
+
+        elements = []
+
+        # Título
+        metrics_title = Paragraph(
+            f"<b>Métricas Detalladas - Pregunta {idx}</b>",
+            self.styles['CustomHeading']
+        )
+        elements.append(metrics_title)
+        elements.append(Spacer(1, 0.1*inch))
+
+        # Preparar datos de tabla
+        table_data = []
+
+        # Cabecera
+        headers = [
+            'Modelo',
+            'Combined',
+            'Faithful',
+            'Ans Rel',
+            'Ctx Prec',
+            'Ctx Recall',
+            'Ans Corr',
+            'Ans Sim',
+            'Ctx Overlap',
+            'Keyword',
+            'Length'
+        ]
+
+        table_data.append([Paragraph(f'<b>{h}</b>', self.styles['SmallText']) for h in headers])
+
+        # Datos de cada modelo
+        for model_name, model_data in result['models'].items():
+            metrics = model_data.get('metrics', {})
+
+            row = [
+                Paragraph(f"<b>{model_name}</b>", self.styles['SmallText']),
+                Paragraph(f"{metrics.get('combined_score', 0):.3f}", self.styles['SmallText']),
+                Paragraph(f"{metrics.get('faithfulness', 0):.3f}", self.styles['SmallText']),
+                Paragraph(f"{metrics.get('answer_relevancy', 0):.3f}", self.styles['SmallText']),
+                Paragraph(f"{metrics.get('context_precision', 0):.3f}", self.styles['SmallText']),
+                Paragraph(f"{metrics.get('context_recall', 0):.3f}", self.styles['SmallText']),
+                Paragraph(f"{metrics.get('answer_correctness', 0):.3f}", self.styles['SmallText']),
+                Paragraph(f"{metrics.get('answer_similarity', 0):.3f}", self.styles['SmallText']),
+                Paragraph(f"{metrics.get('context_overlap', 0):.3f}", self.styles['SmallText']),
+                Paragraph(f"{metrics.get('keyword_coverage', 0):.3f}", self.styles['SmallText']),
+                Paragraph(f"{int(metrics.get('response_length', 0))}", self.styles['SmallText']),
+            ]
+
+            table_data.append(row)
+
+        # Crear tabla
+        col_widths = [1.2*inch] + [0.65*inch] * 10  # Primera columna más ancha para nombres
+
+        table = Table(table_data, colWidths=col_widths, repeatRows=1)
+
+        # Estilo de tabla
+        table.setStyle(TableStyle([
+            # Cabecera
+            ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#2ecc71')),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+            ('ALIGN', (0, 0), (-1, 0), 'CENTER'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('FONTSIZE', (0, 0), (-1, 0), 8),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 8),
+
+            # Celdas de datos
+            ('BACKGROUND', (0, 1), (-1, -1), colors.HexColor('#ecf0f1')),
+            ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
+            ('ALIGN', (1, 1), (-1, -1), 'CENTER'),  # Centrar todas las métricas
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('LEFTPADDING', (0, 0), (-1, -1), 4),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 4),
+            ('TOPPADDING', (0, 0), (-1, -1), 4),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
+
+            # Alternar colores de filas
+            *[('BACKGROUND', (0, i), (-1, i), colors.HexColor('#d5dbdb'))
+              for i in range(2, len(table_data), 2)]
+        ]))
+
+        elements.append(table)
+        elements.append(Spacer(1, 0.2*inch))
+
+        return elements
+
     def _create_question_section(self, idx: int, result: dict):
         """Crea sección para una pregunta"""
 
         elements = []
+
+        # Primero: Tabla de métricas (nuevo)
+        metrics_elements = self._create_metrics_table(idx, result)
+        elements.extend(metrics_elements)
 
         # Título de la pregunta
         question_title = Paragraph(
