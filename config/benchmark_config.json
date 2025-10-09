@@ -1,0 +1,136 @@
+{
+  "models": [
+    {
+      "name": "qwen3:32b",
+      "endpoint": "https://ollama.gti-ia.upv.es:443/api/generate",
+      "context_window": 32768
+    },
+    {
+      "name": "deepseek-r1:latest",
+      "endpoint": "https://ollama.gti-ia.upv.es:443/api/generate",
+      "context_window": 32768
+    },
+    {
+      "name": "gemma2:27b",
+      "endpoint": "https://ollama.gti-ia.upv.es:443/api/generate",
+      "context_window": 8192
+    },
+    {
+      "name": "llama3.3:70b",
+      "endpoint": "https://ollama.gti-ia.upv.es:443/api/generate",
+      "context_window": 128000
+    }
+  ],
+  "evaluator": {
+    "use_ragas": true,
+    "ollama_model": "gemma2:27b",
+    "ollama_base_url": "https://ollama.gti-ia.upv.es:443",
+    "filter_thinking_tags": true
+  },
+  "evaluation_questions": [
+    {
+      "question": "¿Qué se hace en la actividad de desayunos?",
+      "expected_answer": "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro, se dividen en equipos, y cada uno recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es la comida, sino el tiempo que se comparte con ellas (conversación, compañía)."
+    },
+    {
+      "question": "¿Dónde es el punto de encuentro de desayunos?",
+      "expected_answer": "El punto de encuentro para la actividad de desayunos es el Colegio El Pilar, ubicado en la Avenida de Blasco Ibáñez, 35."
+    },
+    {
+      "question": "¿A qué hora son los desayunos y las cenas solidarias?",
+      "expected_answer": "Los desayunos solidarios son los sábados por la mañana, con punto de encuentro a las 9:00. Las cenas solidarias son los jueves por la tarde, con punto de encuentro a las 20:00."
+    },
+    {
+      "question": "¿Cada cuánto se hace la actividad de desayunos?",
+      "expected_answer": "Los desayunos se realizan todos los sábados."
+    },
+    {
+      "question": "¿Cuánto dura la actividad de desayunos?",
+      "expected_answer": "La actividad dura aproximadamente una hora y media, más el tiempo del desayuno posterior opcional."
+    },
+    {
+      "question": "¿Cómo me apunto a desayunos solidarios?",
+      "expected_answer": "Para apuntarte, debes rellenar el formulario de la página web o contactar por WhatsApp."
+    },
+    {
+      "question": "¿Si me apunto un día tengo que ir al resto de desayunos?",
+      "expected_answer": "No, cada sábado puedes decidir si ir o no. No hay compromiso de asistencia regular."
+    },
+    {
+      "question": "¿Puedo ir en el mismo grupo que mi amigo en desayunos?",
+      "expected_answer": "Los grupos se forman al azar para que sea más enriquecedor, pero si tienes alguna preferencia puedes comentarlo."
+    },
+    {
+      "question": "¿Cómo se compra la comida para desayunos?",
+      "expected_answer": "La asociación se encarga de comprar la comida necesaria para los desayunos y paga la factura mediante transferencia bancaria."
+    },
+    {
+      "question": "¿Qué se hace en la actividad de coles?",
+      "expected_answer": "La actividad de coles consiste en dar apoyo escolar y jugar con niños del barrio de La Coma. Se ayuda con los deberes y se realizan actividades lúdicas."
+    },
+    {
+      "question": "¿Dónde es la actividad de coles?",
+      "expected_answer": "La actividad se realiza en el barrio de La Coma, Paterna."
+    },
+    {
+      "question": "¿Qué días vais a coles?",
+      "expected_answer": "La actividad de coles es los lunes."
+    },
+    {
+      "question": "¿Cuánto dura la actividad de coles?",
+      "expected_answer": "La actividad de coles dura toda la tarde."
+    },
+    {
+      "question": "¿Qué edad tienen los niños en coles?",
+      "expected_answer": "Los niños tienen entre 8 y 16 años."
+    },
+    {
+      "question": "¿Cómo vamos hasta la Coma para la actividad de coles?",
+      "expected_answer": "Se va en coche. Los voluntarios se organizan para compartir vehículo."
+    },
+    {
+      "question": "¿Cuántos voluntarios van a coles?",
+      "expected_answer": "Suelen ir 4-5 voluntarios."
+    },
+    {
+      "question": "¿Qué pasa si no hay suficientes voluntarios para coles?",
+      "expected_answer": "Se cancela la actividad de la semana si no hay suficientes voluntarios."
+    },
+    {
+      "question": "¿Qué se hace en la actividad de resis?",
+      "expected_answer": "En resis se acompaña a personas mayores en residencias, conversando con ellos y haciéndoles compañía."
+    },
+    {
+      "question": "¿Dónde es la actividad de resis?",
+      "expected_answer": "La actividad se realiza en las residencias Ballesol (Valterna) y ORPEA (Quart de Poblet)."
+    },
+    {
+      "question": "¿Qué día se hace la actividad de resis?",
+      "expected_answer": "La actividad de resis es los martes."
+    },
+    {
+      "question": "¿A qué hora es la actividad de resis?",
+      "expected_answer": "La actividad es por la tarde, de 17:00 a 19:00."
+    },
+    {
+      "question": "¿Cuánto dura la actividad de resis?",
+      "expected_answer": "La actividad dura aproximadamente 2 horas."
+    },
+    {
+      "question": "¿Cómo llegamos a las residencias?",
+      "expected_answer": "Cada voluntario va por su cuenta, aunque se puede organizar para compartir transporte."
+    },
+    {
+      "question": "¿Cuáles son las actividades principales de la asociación?",
+      "expected_answer": "Las tres actividades principales son: desayunos/cenas solidarias para personas sin hogar, apoyo escolar en La Coma (coles), y acompañamiento a mayores en residencias (resis)."
+    },
+    {
+      "question": "¿Cómo puedo colaborar como voluntario?",
+      "expected_answer": "Puedes colaborar apuntándote a cualquiera de las actividades a través del formulario web o contactando por WhatsApp. No hay compromiso de permanencia."
+    },
+    {
+      "question": "¿Hay que pagar alguna cuota para ser voluntario?",
+      "expected_answer": "No se menciona ninguna cuota obligatoria para ser voluntario."
+    }
+  ]
+}

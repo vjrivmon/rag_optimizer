@@ -143,12 +143,12 @@ class BenchmarkRunner:
         # Recuperar contexto
         docs = self.rag.retrieve(question)
 
-        # OPTIMIZACIÓN: Limitar a top 5 chunks truncados para evitar timeouts RAGAs
-        # Reduce carga en servidor Ollama para evaluación
-        contexts = [doc['content'][:400] for doc in docs[:5]]
-        context_text = self.rag.build_context(docs[:5])
+        # OPTIMIZACIÓN: Usar top 10 chunks truncados para mejor contexto
+        # Balance entre calidad de respuesta y carga en servidor Ollama
+        contexts = [doc['content'][:400] for doc in docs[:10]]
+        context_text = self.rag.build_context(docs[:10])
 
-        print(f"   📚 Contexto: {len(docs)} documentos recuperados, usando top 5 truncados")
+        print(f"   📚 Contexto: {len(docs)} documentos recuperados, usando top 10 truncados")
 
         # Resultados por modelo
         model_results = {}

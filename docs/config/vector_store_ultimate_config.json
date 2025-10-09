@@ -1,0 +1,8 @@
+{
+  "collection_name": "rag_collection_ultimate_v3",
+  "total_chunks": 90,
+  "special_chunks": 6,
+  "direct_chunks": 26,
+  "original_chunks": 58,
+  "embedding_model": "paraphrase-multilingual-mpnet-base-v2"
+}

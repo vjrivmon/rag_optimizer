@@ -63,7 +63,7 @@ def test_dual_backend():
     # Recuperar contexto
     print(f"{Fore.YELLOW}🔍 Recuperando contexto...{Style.RESET_ALL}")
     docs = rag.retrieve(question)
-    contexts = [doc['content'][:400] for doc in docs[:5]]
+    contexts = [doc['content'][:400] for doc in docs[:10]]
     print(f"   ✓ {len(contexts)} documentos recuperados\n")
 
     # Respuesta simulada (sin llamar a LLM de generación)

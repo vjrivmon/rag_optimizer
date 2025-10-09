@@ -116,10 +116,10 @@ class TargetedBenchmark:
             retrieved_docs = self.rag_engine.retrieve(q_data['question'])
             retrieval_time = time.time() - start_retrieval
 
-            # OPTIMIZACIÓN: Limitar contexto a top 5 chunks + truncar a 400 chars c/u
-            # Reduce drásticamente la carga en servidor Ollama para evitar timeouts
-            contexts = [doc['content'][:400] for doc in retrieved_docs[:5]]
-            print(f"{Fore.GREEN}   ✓ Recuperados {len(retrieved_docs)} chunks, usando top 5 truncados ({retrieval_time:.2f}s)")
+            # OPTIMIZACIÓN: Usar top 10 chunks + truncar a 400 chars c/u
+            # Balance entre calidad de respuesta y carga en servidor Ollama
+            contexts = [doc['content'][:400] for doc in retrieved_docs[:10]]
+            print(f"{Fore.GREEN}   ✓ Recuperados {len(retrieved_docs)} chunks, usando top 10 truncados ({retrieval_time:.2f}s)")
 
             # Mostrar preview de contextos
             print(f"\n{Fore.CYAN}📄 Preview de contextos recuperados:")
@@ -147,7 +147,7 @@ class TargetedBenchmark:
                 # Construir prompt RAG
                 prompt = llm.build_rag_prompt(
                     query=q_data['question'],
-                    context=self.rag_engine.build_context(retrieved_docs),
+                    context=self.rag_engine.build_context(retrieved_docs[:10]),
                     strictness='medium'
                 )
 

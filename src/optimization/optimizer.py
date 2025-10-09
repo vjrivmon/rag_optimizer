@@ -19,7 +19,7 @@ class ParameterOptimizer:
         if self.is_thinking_model:
             # Modelos thinking: necesitan 3x más tokens (70% thinking + 30% respuesta)
             max_tokens_range = Integer(1200, 2000, name='max_tokens')
-            print(f"   🧠 Modelo con thinking detectado: max_tokens=[1200, 2000]")
+            # print(f"   🧠 Modelo con thinking detectado: max_tokens=[1200, 2000]")
         else:
             # Modelos normales: rango estándar
             max_tokens_range = Integer(256, 512, name='max_tokens')

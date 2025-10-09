@@ -190,10 +190,10 @@ class BenchmarkRunner:
 
         # OPTIMIZACIÓN: Usar top 7 chunks truncados (punto óptimo)
         # Balance entre calidad y evitar dilución de contexto
-        contexts = [doc['content'][:400] for doc in docs[:10]]  # HOTFIX: Usar siempre top 10
-        context_text = self.rag.build_context(docs[:10])  # HOTFIX: Usar siempre top 10
+        contexts = [doc['content'][:400] for doc in docs[:7]]
+        context_text = self.rag.build_context(docs[:7])
 
-        print(f"   📚 Contexto: {len(docs)} documentos recuperados, usando top 10")
+        print(f"   📚 Contexto: {len(docs)} documentos recuperados, usando top 7 truncados")
 
         # Resultados por modelo
         model_results = {}

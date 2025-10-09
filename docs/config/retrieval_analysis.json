@@ -1,0 +1,18 @@
+{
+  "summary": {
+    "total": 26,
+    "good": 17,
+    "partial": 9,
+    "poor": 0,
+    "critical": 0
+  },
+  "good_questions": [
+    {
+      "question": "¿A qué hora son los desayunos y las cenas solidarias?",
+      "expected_keywords": [
+        "8 de la mañana",
+        "8:00",
+        "ocho y media de la tarde",
+        "20:30"
+      ],
+      "found_keywords": 

@@ -11,10 +11,14 @@ from ragas.metrics import (
 )
 from ragas.llms import LangchainLLMWrapper
 from ragas.run_config import RunConfig
-from langchain.embeddings import HuggingFaceEmbeddings
+try:
+    from langchain_huggingface import HuggingFaceEmbeddings
+except ImportError:
+    from langchain_community.embeddings import HuggingFaceEmbeddings
 import warnings
 import os
 import re
+import numpy as np
 from dotenv import load_dotenv
 
 # Cargar variables de entorno desde .env
@@ -106,6 +110,7 @@ except ImportError:
         OLLAMA_AVAILABLE = False
         ChatOllama = None
 
+
 class OllamaRAGASEvaluator:
     """Evaluador RAGAs usando modelos Ollama (SIN OpenAI API key)"""
 
@@ -113,15 +118,20 @@ class OllamaRAGASEvaluator:
         self,
         model_name: str = "gemma2:27b",
         base_url: str = "https://ollama.gti-ia.upv.es:443",
-        filter_thinking_tags: bool = True
+        filter_thinking_tags: bool = True,
+        metrics_subset: Optional[List[str]] = None
     ):
         """
         Args:
             model_name: Nombre del modelo Ollama a usar para evaluación
             base_url: URL del servidor Ollama
             filter_thinking_tags: Si True, elimina tags <think>...</think> antes de evaluar
+            metrics_subset: Lista opcional de métricas a usar (None = todas)
+                          Opciones: 'faithfulness', 'answer_relevancy', 'context_precision',
+                                   'context_recall', 'answer_correctness', 'answer_similarity'
         """
         self.filter_thinking_tags = filter_thinking_tags
+        self.metrics_subset = metrics_subset
         if not OLLAMA_AVAILABLE:
             raise ImportError(
                 "ChatOllama no está disponible. Instala langchain_ollama: "
@@ -144,13 +154,57 @@ class OllamaRAGASEvaluator:
         # Wrap para RAGAs
         self.evaluator_llm = LangchainLLMWrapper(self.ollama_llm)
 
-        # RunConfig con timeout extendido para context_precision
+        # Configurar métricas según subset o todas (ANTES de configurar RunConfig)
+        all_metrics_map = {
+            'faithfulness': faithfulness,
+            'answer_relevancy': answer_relevancy,
+            'context_precision': context_precision,
+            'context_recall': context_recall,
+            'answer_correctness': answer_correctness,
+            'answer_similarity': answer_similarity
+        }
+
+        if metrics_subset:
+            # Usar solo las métricas especificadas
+            self.metrics = [all_metrics_map[m] for m in metrics_subset
+                          if m in all_metrics_map]
+            if not self.metrics:
+                # Si no hay métricas válidas, usar las predeterminadas
+                self.metrics = [faithfulness, answer_similarity]
+        else:
+            # 6 métricas RAGAs completas (con timeout configurado)
+            self.metrics = [
+                faithfulness,          # Anti-alucinaciones
+                answer_relevancy,      # Relevancia de la respuesta
+                context_precision,     # Ranking de chunks (costosa, necesita timeout 120s)
+                context_recall,        # Calidad del retrieval (MUY IMPORTANTE)
+                answer_correctness,    # Precisión vs ground truth
+                answer_similarity      # Similitud semántica
+            ]
+
+        # RunConfig con timeout adaptativo según métricas seleccionadas
         # context_precision es la más costosa (N llamadas LLM, N=num_chunks)
-        # Test mostró que 3 de 4 modelos necesitan 78-105s → aumentamos a 180s (3 min)
+        # Ajustamos timeout según el modo
+        if metrics_subset and len(self.metrics) <= 2:
+            # Modo rápido: solo 2 métricas
+            timeout = 120
+            max_retries = 1
+            max_wait = 180
+        elif metrics_subset and len(self.metrics) <= 4:
+            # Modo normal: 4 métricas
+            timeout = 180
+            max_retries = 1
+            max_wait = 240
+        else:
+            # Modo completo: todas las métricas
+            timeout = 300
+            max_retries = 2
+            max_wait = 360
+
         self.run_config = RunConfig(
-            timeout=180,        # 3 minutos por métrica (vs 120s que era insuficiente)
-            max_retries=2,
-            max_wait=240
+            timeout=timeout,
+            max_retries=max_retries,
+            max_wait=max_wait
         )
 
         # Embeddings locales (sin OpenAI API key)
@@ -161,22 +215,13 @@ class OllamaRAGASEvaluator:
             encode_kwargs={'normalize_embeddings': True}
         )
 
-        # 6 métricas RAGAs completas (con timeout configurado)
-        self.metrics = [
-            faithfulness,          # Anti-alucinaciones
-            answer_relevancy,      # Relevancia de la respuesta
-            context_precision,     # Ranking de chunks (costosa, necesita timeout 120s)
-            context_recall,        # Calidad del retrieval (MUY IMPORTANTE)
-            answer_correctness,    # Precisión vs ground truth
-            answer_similarity      # Similitud semántica
-        ]
-
     def evaluate_single(
         self,
         question: str,
         answer: str,
         contexts: List[str],
-        ground_truth: Optional[str] = None
+        ground_truth: Optional[str] = None,
+        debug: bool = False
     ) -> Dict[str, float]:
         """
         Evalúa una respuesta individual usando Ollama
@@ -186,6 +231,7 @@ class OllamaRAGASEvaluator:
             answer: Respuesta del modelo (ya debe estar limpia, sin thinking tags)
             contexts: Lista de contextos recuperados
             ground_truth: Respuesta esperada/correcta
+            debug: Si True, muestra logging detallado de cada métrica
         """
 
         # FALLBACK: Si aún quedan thinking tags (respuestas truncadas), limpiar aquí
@@ -193,47 +239,175 @@ class OllamaRAGASEvaluator:
         if self.filter_thinking_tags and '<think>' in answer.lower():
             answer = clean_thinking_tags(answer)
 
-        # Crear dataset en formato RAGAs
-        data = {
-            'question': [question],
-            'answer': [answer],
-            'contexts': [contexts],
-        }
+        if debug:
+            print(f"\n      🔍 DEBUG RAGAs Ollama:")
+            print(f"         • Question: {question[:60]}...")
+            print(f"         • Answer length: {len(answer)} chars")
+            print(f"         • Contexts: {len(contexts)} chunks")
+            print(f"         • Ground truth: {'Yes' if ground_truth else 'No'}")
+            print(f"         • Metrics to evaluate: {len(self.metrics)}")
+            print(f"         • Evaluator LLM: {type(self.evaluator_llm).__name__}")
+            print(f"         • Embeddings: {type(self.embeddings).__name__}")
+            print(f"         • RunConfig timeout: {self.run_config.timeout}s")
 
-        if ground_truth:
-            data['ground_truth'] = [ground_truth]
-
-        dataset = Dataset.from_dict(data)
-
-        try:
-            # Evaluar con RAGAs usando Ollama LLM + embeddings locales + timeout configurado
-            result = evaluate(
-                dataset,
-                metrics=self.metrics,
-                llm=self.evaluator_llm,
-                embeddings=self.embeddings,      # Embeddings locales (sin OpenAI)
-                run_config=self.run_config       # Timeout 120s para context_precision
-            )
-
-            # Convertir resultados a diccionario
-            metrics_dict = {}
-            df = result.to_pandas()
-
-            # Extraer métricas
-            for col in df.columns:
-                if col not in ['question', 'answer', 'contexts', 'ground_truth']:
-                    value = df[col].iloc[0]
-                    try:
-                        metrics_dict[col] = float(value) if value is not None else 0.0
-                    except (ValueError, TypeError):
-                        # Si no se puede convertir a float, ignorar la columna
-                        continue
-
-            return metrics_dict
-
-        except Exception as e:
-            print(f"   ⚠️  Error en evaluación RAGAs con Ollama: {e}")
+        # Validaciones básicas
+        if not answer or len(answer.strip()) < 10:
+            if debug:
+                print(f"      ❌ Respuesta vacía o muy corta, omitiendo evaluación RAGAs")
             return {}
+
+        if not contexts or len(contexts) == 0:
+            if debug:
+                print(f"      ❌ No hay contextos, omitiendo evaluación RAGAs")
+            return {}
+
+        # Crear dataset en formato RAGAs
+        try:
+            data = {
+                'question': [question],
+                'answer': [answer],
+                'contexts': [contexts],
+            }
+
+            if ground_truth:
+                data['ground_truth'] = [ground_truth]
+
+            dataset = Dataset.from_dict(data)
+            if debug:
+                print(f"      ✅ Dataset creado correctamente")
+        except Exception as e:
+            if debug:
+                print(f"      ❌ Error creando dataset: {str(e)}")
+            return {}
+
+        # Evaluar métricas de forma individual para manejar errores granularmente
+        metrics_dict = {}
+        metrics_evaluated = 0
+        metrics_failed = 0
+
+        for metric_idx, metric in enumerate(self.metrics):
+            metric_name = metric.name if hasattr(metric, 'name') else str(metric)
+            if debug:
+                print(f"\n         📊 [{metric_idx+1}/{len(self.metrics)}] Evaluando métrica: {metric_name}")
+
+            try:
+                if debug:
+                    print(f"            ⏳ Iniciando evaluación...", end=' ', flush=True)
+
+                # Evaluar métrica individual
+                result = evaluate(
+                    dataset,
+                    metrics=[metric],  # Una métrica a la vez
+                    llm=self.evaluator_llm,
+                    embeddings=self.embeddings,
+                    run_config=self.run_config
+                )
+
+                if debug:
+                    print(f"✅ Evaluación completada")
+
+                # Extraer valor de la métrica
+                df = result.to_pandas()
+
+                if debug:
+                    print(f"            📋 DataFrame columns: {list(df.columns)}")
+                    print(f"            📋 DataFrame shape: {df.shape}")
+
+                metric_found = False
+                for col in df.columns:
+                    # Filtrar solo columnas de métricas válidas (excluir las que contienen datos no numéricos)
+                    if col not in ['question', 'answer', 'contexts', 'ground_truth', 'user_input',
+                                   'retrieved_contexts', 'response', 'reference']:
+                        value = df[col].iloc[0]
+                        if debug:
+                            print(f"            📈 Valor encontrado para '{col}': {value} (type: {type(value).__name__})")
+
+                        # Verificar que el valor sea numérico o convertible a float
+                        if isinstance(value, (int, float, np.integer, np.floating)):
+                            try:
+                                if value is None or (isinstance(value, float) and value != value):  # NaN check
+                                    metrics_dict[col] = 0.0
+                                    if debug:
+                                        print(f"            ⚠️ Valor nulo/NaN, usando 0.0")
+                                elif hasattr(value, 'item'):  # numpy types
+                                    metrics_dict[col] = float(value.item())
+                                    if debug:
+                                        print(f"            ✅ NumPy convertido: {metrics_dict[col]:.3f}")
+                                else:
+                                    metrics_dict[col] = float(value)
+                                    if debug:
+                                        print(f"            ✅ Float directo: {metrics_dict[col]:.3f}")
+                                metrics_evaluated += 1
+                                metric_found = True
+                                if debug:
+                                    print(f"            🎯 Métrica {col} guardada: {metrics_dict[col]:.3f}")
+                            except (ValueError, TypeError, AttributeError) as conv_err:
+                                metrics_dict[col] = 0.0
+                                metrics_failed += 1
+                                if debug:
+                                    print(f"            ❌ Error conversión: {conv_err}")
+                        else:
+                            if debug:
+                                print(f"            ⚠️ Columna '{col}' ignorada: tipo no numérico {type(value).__name__}")
+                            # No contar como error, simplemente ignorar columna no numérica
+                            continue
+                        break
+
+                if not metric_found:
+                    if debug:
+                        print(f"            ⚠️ No se encontró columna de métrica válida en el resultado")
+                    metrics_failed += 1
+
+            except Exception as e:
+                # Si una métrica falla, asignar 0.0 pero continuar con las demás
+                metrics_failed += 1
+                error_msg = str(e)
+                if debug:
+                    print(f"            ❌ Error en evaluación:")
+                    print(f"            └─ Tipo: {type(e).__name__}")
+                    print(f"            └─ Mensaje: {error_msg}")
+                    import traceback
+                    print(f"            └─ Traceback: {traceback.format_exc()}")
+                else:
+                    print(f"      ⚠️ {metric_name}: Error ({error_msg[:50]}...) - usando 0.0")
+
+                # Intentar obtener el nombre de la métrica para asignar 0.0
+                metric_key = None
+                if hasattr(metric, 'name'):
+                    metric_key = metric.name
+                else:
+                    # Casos especiales conocidos
+                    metric_str = str(metric).lower()
+                    if 'faithfulness' in metric_str:
+                        metric_key = 'faithfulness'
+                    elif 'answer_relevancy' in metric_str:
+                        metric_key = 'answer_relevancy'
+                    elif 'context_precision' in metric_str:
+                        metric_key = 'context_precision'
+                    elif 'context_recall' in metric_str:
+                        metric_key = 'context_recall'
+                    elif 'answer_correctness' in metric_str:
+                        metric_key = 'answer_correctness'
+                    elif 'answer_similarity' in metric_str:
+                        metric_key = 'answer_similarity'
+
+                if metric_key:
+                    metrics_dict[metric_key] = 0.0
+                    if debug:
+                        print(f"            📌 Métrica fallback asignada: {metric_key} = 0.0")
+
+        if debug:
+            print(f"\n      📊 RESUMEN RAGAs:")
+            print(f"      ✅ Métricas evaluadas: {metrics_evaluated}/{len(self.metrics)}")
+            print(f"      ❌ Métricas fallidas: {metrics_failed}/{len(self.metrics)}")
+            if metrics_dict:
+                print(f"      📈 Resultados finales:")
+                for metric_name, value in metrics_dict.items():
+                    print(f"         • {metric_name}: {value:.3f}")
+            else:
+                print(f"      ⚠️ WARNING: No se pudo evaluar ninguna métrica RAGAs!")
+
+        return metrics_dict
 
 
 class RAGASEvaluator:
@@ -419,7 +593,8 @@ class HybridEvaluator:
         use_dual_backend: bool = False,  # NUEVO: Usar ambos backends
         ollama_model: str = "llama3.3:70b",
         ollama_base_url: str = "https://ollama.gti-ia.upv.es:443",
-        filter_thinking_tags: bool = True
+        filter_thinking_tags: bool = True,
+        metrics_subset: Optional[List[str]] = None
     ):
         """
         Args:
@@ -430,6 +605,9 @@ class HybridEvaluator:
             ollama_model: Modelo Ollama para evaluación (solo si use_ollama=True)
             ollama_base_url: URL servidor Ollama (solo si use_ollama=True)
             filter_thinking_tags: Si True, elimina <think>...</think> antes de evaluar
+            metrics_subset: Lista de métricas a usar (None = todas)
+                          Opciones: 'faithfulness', 'answer_relevancy', 'context_precision',
+                                   'context_recall', 'answer_correctness', 'answer_similarity'
         """
         self.use_ragas = use_ragas
         self.use_dual_backend = use_dual_backend
@@ -440,13 +618,14 @@ class HybridEvaluator:
                 print(f"   🔀 Backend DUAL: Ollama + OpenAI (6 métricas completas)")
                 print(f"      🦙 Ollama ({ollama_model}): answer_relevancy, context_recall, answer_similarity")
                 print(f"      🤖 OpenAI (gpt-4o-mini): faithfulness, context_precision, answer_correctness")
-                print(f"   ✂️  Filtro de thinking tags: {'ACTIVADO' if filter_thinking_tags else 'DESACTIVADO'}")
+                # print(f"   ✂️  Filtro de thinking tags: {'ACTIVADO' if filter_thinking_tags else 'DESACTIVADO'}")
 
                 # Evaluador Ollama (métricas rápidas)
                 self.ollama_evaluator = OllamaRAGASEvaluator(
                     model_name=ollama_model,
                     base_url=ollama_base_url,
-                    filter_thinking_tags=filter_thinking_tags
+                    filter_thinking_tags=filter_thinking_tags,
+                    metrics_subset=['answer_relevancy', 'context_recall', 'answer_similarity']
                 )
 
                 # Evaluador OpenAI (solo métricas complejas que no saturan Ollama)
@@ -461,11 +640,12 @@ class HybridEvaluator:
             elif use_ollama:
                 # Solo Ollama para RAGAs (NO requiere OpenAI API key)
                 print(f"   🦙 Usando Ollama ({ollama_model}) para métricas RAGAs")
-                print(f"   ✂️  Filtro de thinking tags: {'ACTIVADO' if filter_thinking_tags else 'DESACTIVADO'}")
+                # print(f"   ✂️  Filtro de thinking tags: {'ACTIVADO' if filter_thinking_tags else 'DESACTIVADO'}")
                 self.ragas_evaluator = OllamaRAGASEvaluator(
                     model_name=ollama_model,
                     base_url=ollama_base_url,
-                    filter_thinking_tags=filter_thinking_tags
+                    filter_thinking_tags=filter_thinking_tags,
+                    metrics_subset=metrics_subset
                 )
                 self.ollama_evaluator = None
                 self.openai_evaluator = None
@@ -488,10 +668,14 @@ class HybridEvaluator:
         answer: str,
         contexts: List[str],
         ground_truth: Optional[str] = None,
-        keywords: Optional[List[str]] = None
+        keywords: Optional[List[str]] = None,
+        debug: bool = False
     ) -> Dict[str, float]:
         """
         Evaluación completa: métricas clásicas + RAGAs
+
+        Args:
+            debug: Si True, muestra logging detallado de evaluación RAGAs
 
         Returns:
             Dict con todas las métricas
@@ -536,7 +720,8 @@ class HybridEvaluator:
                     question=question,
                     answer=answer,
                     contexts=contexts,
-                    ground_truth=ground_truth
+                    ground_truth=ground_truth,
+                    debug=debug
                 )
 
                 # OpenAI: 3 métricas complejas (faithfulness, context_precision, answer_correctness)
@@ -554,12 +739,28 @@ class HybridEvaluator:
 
             elif self.ragas_evaluator:
                 # MODO ÚNICO: Solo un backend
-                ragas_metrics = self.ragas_evaluator.evaluate_single(
-                    question=question,
-                    answer=answer,
-                    contexts=contexts,
-                    ground_truth=ground_truth
-                )
+                # Verificar si el evaluator tiene el parámetro debug
+                if hasattr(self.ragas_evaluator, 'evaluate_single'):
+                    import inspect
+                    sig = inspect.signature(self.ragas_evaluator.evaluate_single)
+                    if 'debug' in sig.parameters:
+                        ragas_metrics = self.ragas_evaluator.evaluate_single(
+                            question=question,
+                            answer=answer,
+                            contexts=contexts,
+                            ground_truth=ground_truth,
+                            debug=debug
+                        )
+                    else:
+                        ragas_metrics = self.ragas_evaluator.evaluate_single(
+                            question=question,
+                            answer=answer,
+                            contexts=contexts,
+                            ground_truth=ground_truth
+                        )
+                else:
+                    ragas_metrics = {}
+
                 metrics.update(ragas_metrics)
 
         # 5. Score combinado

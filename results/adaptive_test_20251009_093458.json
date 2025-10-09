@@ -1,0 +1,112 @@
+{
+  "timestamp": "2025-10-09 09:34:58",
+  "results": [
+    {
+      "question_id": 11,
+      "question": "¿Dónde es la actividad de coles?",
+      "expected": "Es en el CEIP Antonio Ferrandis de la Coma, Valencia.",
+      "fixed": {
+        "chunks": 7,
+        "score": 0.9381295567194702,
+        "latency": 2.121126413345337
+      },
+      "adaptive": {
+        "chunks": 5,
+        "score": 0.9441863300995653,
+        "latency": 2.017760992050171,
+        "question_type": "simple",
+        "avg_relevance": 0.6
+      }
+    },
+    {
+      "question_id": 16,
+      "question": "¿Quién paga la gasolina para ir a coles?",
+      "expected": "De la gasolina se encarga la asociación.",
+      "fixed": {
+        "chunks": 7,
+        "score": 0.4003237269759393,
+        "latency": 1.6627249717712402
+      },
+      "adaptive": {
+        "chunks": 5,
+        "score": 0.814306630075519,
+        "latency": 1.5317304134368896,
+        "question_type": "simple",
+        "avg_relevance": 0.6075
+      }
+    },
+    {
+      "question_id": 20,
+      "question": "¿Dónde es la actividad de resis?",
+      "expected": "En la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.",
+      "fixed": {
+        "chunks": 7,
+        "score": 0.9364381080501448,
+        "latency": 2.070807695388794
+      },
+      "adaptive": {
+        "chunks": 5,
+        "score": 0.9585623133227881,
+        "latency": 2.0670080184936523,
+        "question_type": "simple",
+        "avg_relevance": 0.54
+      }
+    },
+    {
+      "question_id": 1,
+      "question": "¿Qué se hace en la actividad de desayunos?",
+      "expected": "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles conversación y compañía.",
+      "fixed": {
+        "chunks": 7,
+        "score": 0.4945543711642177,
+        "latency": 7.9488911628723145
+      },
+      "adaptive": {
+        "chunks": 7,
+        "score": 0.7669131423135674,
+        "latency": 2.1294686794281006,
+        "question_type": "complex",
+        "avg_relevance": 0.5592857142857143
+      }
+    },
+    {
+      "question_id": 6,
+      "question": "¿Cómo me apunto a desayunos solidarios?",
+      "expected": "La actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miércoles se publica por la comunidad de WhatsApp y por redes sociales un formulario para inscribirse.",
+      "fixed": {
+        "chunks": 7,
+        "score": 0.2733061333823241,
+        "latency": 1.4970641136169434
+      },
+      "adaptive": {
+        "chunks": 7,
+        "score": 0.2733061333823241,
+        "latency": 8.256490707397461,
+        "question_type": "complex",
+        "avg_relevance": 0.5057142857142857
+      }
+    },
+    {
+      "question_id": 25,
+      "question": "¿Qué significa Para-Mira-Ayuda?",
+      "expected": "Son las tres palabras que guían la labor de los voluntarios de DNI. En un mundo que avanza a un ritmo frenético, es necesario detenerse (PARAR) para ser conscientes de aquellos que nos rodean, MIRAR con cariño y cercanía, y ofrecer nuestra AYUDA con generosidad y alegría.",
+      "fixed": {
+        "chunks": 7,
+        "score": 0.7489613968488193,
+        "latency": 2.4836201667785645
+      },
+      "adaptive": {
+        "chunks": 8,
+        "score": 0.7953591917754752,
+        "latency": 2.65378475189209,
+        "question_type": "conceptual",
+        "avg_relevance": 0.40249999999999997
+      }
+    }
+  ],
+  "summary": {
+    "avg_fixed": 0.6319522155234859,
+    "avg_adaptive": 0.7587722901615398,
+    "improvement_pct": 20.06798481321896
+  }
+}

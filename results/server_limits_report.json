@@ -1,0 +1,65 @@
+{
+  "timestamp": "2025-10-09T17:02:01.169987",
+  "model": "gemma2:27b",
+  "endpoint": "https://ollama.gti-ia.upv.es:443/api/generate",
+  "max_workers_tested": 16,
+  "optimal_workers": 16,
+  "tests": [
+    {
+      "num_workers": 4,
+      "total_tasks": 4,
+      "success_count": 4,
+      "error_count": 0,
+      "success_rate": 1.0,
+      "avg_latency": 9.48760324716568,
+      "total_time": 16.74346399307251,
+      "error_types": {},
+      "timestamp": "2025-10-09T16:57:33.170431"
+    },
+    {
+      "num_workers": 6,
+      "total_tasks": 6,
+      "success_count": 6,
+      "error_count": 0,
+      "success_rate": 1.0,
+      "avg_latency": 28.764438311258953,
+      "total_time": 37.27768039703369,
+      "error_types": {},
+      "timestamp": "2025-10-09T16:58:40.448607"
+    },
+    {
+      "num_workers": 8,
+      "total_tasks": 8,
+      "success_count": 8,
+      "error_count": 0,
+      "success_rate": 1.0,
+      "avg_latency": 28.200700402259827,
+      "total_time": 44.16378688812256,
+      "error_types": {},
+      "timestamp": "2025-10-09T16:59:54.612580"
+    },
+    {
+      "num_workers": 12,
+      "total_tasks": 12,
+      "success_count": 12,
+      "error_count": 0,
+      "success_rate": 1.0,
+      "avg_latency": 16.82118872801463,
+      "total_time": 26.260700464248657,
+      "error_types": {},
+      "timestamp": "2025-10-09T17:00:50.873728"
+    },
+    {
+      "num_workers": 16,
+      "total_tasks": 16,
+      "success_count": 16,
+      "error_count": 0,
+      "success_rate": 1.0,
+      "avg_latency": 28.84150794148445,
+      "total_time": 40.295780420303345,
+      "error_types": {},
+      "timestamp": "2025-10-09T17:02:01.169901"
+    }
+  ],
+  "recommendation": "Usar max_workers=16 para garantizar estabilidad"
+}
