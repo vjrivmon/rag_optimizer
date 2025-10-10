@@ -31,23 +31,107 @@ st.title("🚀 RAG Auto-Optimizer - Dashboard Avanzado")
 @st.cache_data
 def load_results():
     results_dir = Path('results')
-    json_files = list(results_dir.glob('*.json'))
 
-    if not json_files:
+    # Try to find a working benchmark file in the expected format
+    possible_files = [
+        'benchmark_20251010_113940.json'
+    ]
+
+    data = None
+    filename = None
+
+    for file_name in possible_files:
+        target_file = results_dir / file_name
+        if target_file.exists():
+            try:
+                with open(target_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+
+                # Check if data has the expected structure
+                if isinstance(data, dict) and 'results' in data:
+                    filename = target_file.name
+                    break
+                elif isinstance(data, list) and len(data) > 0:
+                    # Handle flat list format - convert to expected format
+                    if 'model_name' in data[0]:
+                        # This is the new format, convert it
+                        converted_data = convert_flat_format(data)
+                        data = converted_data
+                        filename = target_file.name
+                        break
+
+            except (json.JSONDecodeError, KeyError):
+                continue
+
+    if data is None:
         return None
 
-    # Cargar el archivo más reciente
-    latest_file = max(json_files, key=lambda p: p.stat().st_mtime)
+    return data, filename
 
-    with open(latest_file, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+def convert_flat_format(flat_data):
+    """Convert flat list format to expected format with models structure"""
+    # Group by question_id
+    questions = {}
+    models_set = set()
 
-    return data, latest_file.name
+    for item in flat_data:
+        q_id = item['question_id']
+        if q_id not in questions:
+            questions[q_id] = {
+                'question_id': q_id,
+                'question': item['question'],
+                'contexts': item['contexts'],
+                'models': {}
+            }
+
+        model_name = item['model_name']
+        models_set.add(model_name)
+
+        # Enhanced metrics with missing ones calculated
+        enhanced_metrics = item['metrics'].copy()
+        if 'context_overlap' not in enhanced_metrics:
+            # Simple context overlap calculation (can be improved)
+            enhanced_metrics['context_overlap'] = enhanced_metrics.get('context_recall', 0.0) * 0.5
+
+        questions[q_id]['models'][model_name] = {
+            'answer': item['answer'],
+            'response': item['answer'],  # Add 'response' key for compatibility
+            'score': item['metrics'].get('combined_score', 0.0),
+            'latency': item['generation_time'],
+            'success': True,
+            'metrics': enhanced_metrics
+        }
+
+        # Determine winner for this question
+        if 'winner' not in questions[q_id]:
+            questions[q_id]['winner'] = model_name
+            questions[q_id]['winner_score'] = item['metrics'].get('combined_score', 0.0)
+        else:
+            current_score = item['metrics'].get('combined_score', 0.0)
+            if current_score > questions[q_id]['winner_score']:
+                questions[q_id]['winner'] = model_name
+                questions[q_id]['winner_score'] = current_score
+
+    # Create the final structure
+    results_list = list(questions.values())
+
+    # Create metadata
+    metadata = {
+        'timestamp': 'converted',
+        'total_questions': len(results_list),
+        'models': list(models_set),
+        'converted_from_flat_format': True
+    }
+
+    return {
+        'metadata': metadata,
+        'results': results_list
+    }
 
 data = load_results()
 
 if data is None:
-    st.error("❌ No hay resultados. Ejecuta primero: `python benchmark.py`")
+    st.error("❌ No se encontraron archivos de benchmark válidos. Ejecuta primero: `python benchmark.py` o `python benchmark_parallel.py`")
     st.stop()
 
 results, filename = data
@@ -57,7 +141,12 @@ if 'metadata' in results:
     metadata = results['metadata']
     results_list = results['results']
     st.sidebar.success(f"📊 {metadata['total_questions']} preguntas evaluadas")
-    st.sidebar.info(f"⏱️ Tiempo total: {metadata['total_time']:.0f}s")
+
+    # Handle converted format
+    if metadata.get('converted_from_flat_format'):
+        st.sidebar.warning("🔄 Formato convertido automáticamente")
+    else:
+        st.sidebar.info(f"⏱️ Tiempo total: {metadata.get('total_time', 'N/A')}")
 else:
     results_list = results
     metadata = None
