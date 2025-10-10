@@ -1,0 +1,226 @@
+[
+  {
+    "question_id": 1,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "En las actividades de desayunos, se realizan los siguientes pasos:\n\n1. **Preparación de Alimentos**: Se compra una lista de artículos específicos que incluye 6 paquetes de valencianas, 5 briks de leche semidesnatada, 4-5 packs de vasos pequeños, una caja de sobres de azúcar y un pa",
+    "contexts": [
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Qué tipo de actividades se realizan?\nDAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+      ". Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad."
+    ],
+    "generation_time": 14.059184312820435,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.9,
+      "context_precision": 0.7,
+      "context_recall": 0.6,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.7,
+      "combined_score": 0.755
+    }
+  },
+  {
+    "question_id": 1,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad.",
+    "contexts": [
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Qué tipo de actividades se realizan?\nDAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+      ". Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad."
+    ],
+    "generation_time": 13.965215682983398,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.9,
+      "context_precision": 0.7,
+      "context_recall": 0.6,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.7,
+      "combined_score": 0.755
+    }
+  },
+  {
+    "question_id": 1,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "Se reparte comida y enseres, y después los participantes pueden desayunar voluntariamente juntos. Normalmente, la actividad dura una hora y media más el posterior desayuno voluntario que se puede alargar lo que ellos quieran.",
+    "contexts": [
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Qué tipo de actividades se realizan?\nDAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+      ". Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad."
+    ],
+    "generation_time": 21.135876178741455,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 1,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "En la actividad de desayunos solidarios,",
+    "contexts": [
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Qué tipo de actividades se realizan?\nDAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+      ". Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad."
+    ],
+    "generation_time": 33.68943977355957,
+    "metrics": {
+      "faithfulness": 0.5,
+      "answer_relevancy": 0.5,
+      "context_precision": 0.5,
+      "context_recall": 0.5,
+      "answer_correctness": 0.5,
+      "answer_similarity": 0.5,
+      "combined_score": 0.5
+    }
+  },
+  {
+    "question_id": 2,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Dónde es el punto de encuentro de desayunos?",
+    "answer": "No tengo esa información.",
+    "contexts": [
+      "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde (20:30).",
+      "¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran."
+    ],
+    "generation_time": 10.771169185638428,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 2,
+    "model_name": "gemma2:27b",
+    "question": "¿Dónde es el punto de encuentro de desayunos?",
+    "answer": "El punto de encuentro siempre es la Porta de la Mar de Valencia.",
+    "contexts": [
+      "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde (20:30).",
+      "¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran."
+    ],
+    "generation_time": 10.466115236282349,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 2,
+    "model_name": "llama3.3:70b",
+    "question": "¿Dónde es el punto de encuentro de desayunos?",
+    "answer": "El punto de encuentro siempre es la Porta de la Mar de Valencia.",
+    "contexts": [
+      "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde (20:30).",
+      "¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran."
+    ],
+    "generation_time": 18.658557653427124,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 2,
+    "model_name": "qwen3:32b",
+    "question": "¿Dónde es el punto de encuentro de desayunos?",
+    "answer": "El punto de encuentro para los desayunos es la **Porta de la Mar de Valencia**, según se indica en el Documento 1.",
+    "contexts": [
+      "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde (20:30).",
+      "¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran."
+    ],
+    "generation_time": 29.521318435668945,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  }
+]

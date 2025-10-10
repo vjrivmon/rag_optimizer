@@ -29,44 +29,40 @@ st.title("🚀 RAG Auto-Optimizer - Dashboard Avanzado")
 
 # Cargar resultados
 @st.cache_data
-def load_results():
+def get_benchmark_files():
+    """Obtiene y cachea la lista de archivos de benchmark disponibles."""
     results_dir = Path('results')
+    # Ordenar por fecha de modificación para mostrar los más recientes primero
+    return sorted(
+        [f for f in results_dir.glob('benchmark_*.json')],
+        key=lambda p: p.stat().st_mtime,
+        reverse=True
+    )
 
-    # Try to find a working benchmark file in the expected format
-    possible_files = [
-        'benchmark_20251010_113940.json'
-    ]
+@st.cache_data
+def load_benchmark_data(file_path: Path):
+    """Carga y procesa un archivo de benchmark específico, cacheando el resultado."""
+    if not file_path or not file_path.exists():
+        return None, None
 
-    data = None
-    filename = None
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
 
-    for file_name in possible_files:
-        target_file = results_dir / file_name
-        if target_file.exists():
-            try:
-                with open(target_file, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
+        # Comprobar si los datos tienen la estructura esperada
+        if isinstance(data, dict) and 'results' in data:
+            return data, file_path.name
+        elif isinstance(data, list) and len(data) > 0:
+            # Manejar formato de lista plana - convertir al formato esperado
+            if 'model_name' in data[0]:
+                converted_data = convert_flat_format(data)
+                return converted_data, file_path.name
 
-                # Check if data has the expected structure
-                if isinstance(data, dict) and 'results' in data:
-                    filename = target_file.name
-                    break
-                elif isinstance(data, list) and len(data) > 0:
-                    # Handle flat list format - convert to expected format
-                    if 'model_name' in data[0]:
-                        # This is the new format, convert it
-                        converted_data = convert_flat_format(data)
-                        data = converted_data
-                        filename = target_file.name
-                        break
-
-            except (json.JSONDecodeError, KeyError):
-                continue
-
-    if data is None:
-        return None
-
-    return data, filename
+    except (json.JSONDecodeError, KeyError, IndexError):
+        # Capturar posibles errores al leer o parsear el JSON
+        return None, None
+    
+    return None, None
 
 def convert_flat_format(flat_data):
     """Convert flat list format to expected format with models structure"""
@@ -91,7 +87,8 @@ def convert_flat_format(flat_data):
         enhanced_metrics = item['metrics'].copy()
         if 'context_overlap' not in enhanced_metrics:
             # Simple context overlap calculation (can be improved)
-            enhanced_metrics['context_overlap'] = enhanced_metrics.get('context_recall', 0.0) * 0.5
+            context_recall_val = enhanced_metrics.get('context_recall')
+            enhanced_metrics['context_overlap'] = (context_recall_val or 0.0) * 0.5
 
         questions[q_id]['models'][model_name] = {
             'answer': item['answer'],
@@ -102,15 +99,14 @@ def convert_flat_format(flat_data):
             'metrics': enhanced_metrics
         }
 
-        # Determine winner for this question
-        if 'winner' not in questions[q_id]:
+        # Determine winner for this question, handling possible None values for scores
+        current_score = item['metrics'].get('combined_score')
+        current_score = current_score if current_score is not None else 0.0
+
+        # Set as winner if it's the first model or if it has a better score
+        if 'winner' not in questions[q_id] or current_score > (questions[q_id].get('winner_score') or 0.0):
             questions[q_id]['winner'] = model_name
-            questions[q_id]['winner_score'] = item['metrics'].get('combined_score', 0.0)
-        else:
-            current_score = item['metrics'].get('combined_score', 0.0)
-            if current_score > questions[q_id]['winner_score']:
-                questions[q_id]['winner'] = model_name
-                questions[q_id]['winner_score'] = current_score
+            questions[q_id]['winner_score'] = current_score
 
     # Create the final structure
     results_list = list(questions.values())
@@ -128,13 +124,32 @@ def convert_flat_format(flat_data):
         'results': results_list
     }
 
-data = load_results()
+# --- Lógica principal de la aplicación ---
 
-if data is None:
-    st.error("❌ No se encontraron archivos de benchmark válidos. Ejecuta primero: `python benchmark.py` o `python benchmark_parallel.py`")
+# 1. Obtener la lista de archivos
+all_benchmark_files = get_benchmark_files()
+
+if not all_benchmark_files:
+    st.error("❌ No se encontraron archivos de benchmark en la carpeta 'results'. Ejecuta primero: `python benchmark.py` o `python benchmark_parallel.py`")
     st.stop()
 
-results, filename = data
+# 2. Permitir al usuario seleccionar un archivo (fuera de la función cacheada)
+selected_file_path = st.sidebar.selectbox(
+    "Selecciona el archivo de benchmark a analizar:",
+    all_benchmark_files,
+    format_func=lambda p: p.name
+)
+
+if not selected_file_path:
+    st.stop()
+
+# 3. Cargar los datos del archivo seleccionado
+results, filename = load_benchmark_data(selected_file_path)
+
+if results is None:
+    st.error(f"❌ No se pudo cargar o parsear el archivo '{filename}'. Puede que esté corrupto o vacío.")
+    st.stop()
+
 
 # Si es el nuevo formato con metadata
 if 'metadata' in results:
@@ -498,13 +513,26 @@ if len(all_benchmarks) > 1:
         # Cargar benchmarks seleccionados
         benchmarks_data = []
         for file_path in selected_files:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                bench_data = json.load(f)
-                benchmarks_data.append({
-                    'name': file_path.name,
-                    'data': bench_data,
-                    'timestamp': file_path.stat().st_mtime
-                })
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    bench_data = json.load(f)
+                    
+                    # CORRECCIÓN: Convertir formato si es necesario, igual que en la carga principal
+                    if isinstance(bench_data, list) and len(bench_data) > 0 and 'model_name' in bench_data[0]:
+                        bench_data = convert_flat_format(bench_data)
+                    
+                    # Asegurarse de que el benchmark tiene el formato correcto antes de añadirlo
+                    if isinstance(bench_data, dict) and 'results' in bench_data:
+                        benchmarks_data.append({
+                            'name': file_path.name,
+                            'data': bench_data,
+                            'timestamp': file_path.stat().st_mtime
+                        })
+                    else:
+                        st.warning(f"⚠️ Saltando archivo de benchmark con formato no válido: {file_path.name}")
+            except (json.JSONDecodeError, KeyError, IndexError):
+                st.warning(f"⚠️ No se pudo cargar o procesar el archivo: {file_path.name}")
+
 
         # Ordenar por timestamp
         benchmarks_data.sort(key=lambda x: x['timestamp'])
@@ -513,26 +541,39 @@ if len(all_benchmarks) > 1:
         comparison_metrics = []
         for idx, bench in enumerate(benchmarks_data, 1):
             data = bench['data']
+            
+            # Asegurarse de que los datos tienen la estructura correcta
+            if 'results' not in data or 'metadata' not in data:
+                continue
+
             results_list = data['results']
             models = data['metadata']['models']
+            
+            if not results_list or not models:
+                continue
 
             # Context recall promedio
             all_cr = []
             for model in models:
                 for q in results_list:
-                    cr = q['models'][model]['metrics'].get('context_recall', 0)
-                    all_cr.append(cr)
+                    # CORRECCIÓN: Manejar el caso de que context_recall sea None
+                    cr = q['models'][model]['metrics'].get('context_recall')
+                    all_cr.append(cr if cr is not None else 0.0)
             avg_cr = sum(all_cr) / len(all_cr) if all_cr else 0
 
             # Preguntas fallidas
+            # CORRECCIÓN: Manejar el caso de que context_recall sea None para contar fallos
             failed = sum(1 for q in results_list
-                        if q['models'][models[0]]['metrics'].get('context_recall', 0) == 0)
+                        if (q['models'][models[0]]['metrics'].get('context_recall') or 0.0) == 0)
 
             # Scores por modelo
             model_scores = {}
             for model in models:
-                scores = [q['models'][model]['metrics'].get('combined_score', 0)
-                         for q in results_list]
+                # CORRECCIÓN: Manejar el caso de que combined_score sea None
+                scores = [
+                    (q['models'][model]['metrics'].get('combined_score') or 0.0)
+                    for q in results_list
+                ]
                 model_scores[model] = sum(scores) / len(scores) if scores else 0
 
             comparison_metrics.append({
