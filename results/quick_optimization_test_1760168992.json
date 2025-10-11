@@ -1,0 +1,24 @@
+[
+  {
+    "question_id": 22,
+    "question": "¿Qué se hace en la actividad de resis?",
+    "contexts_retrieved": 10,
+    "response": "En la actividad de resis se pasa tiempo con los residentes de la Acollida. A través de distintas actividades, se busca llevarles la alegría de los jóvenes. \n",
+    "generation_time": 11.423067808151245,
+    "keyword_matches": 3,
+    "is_truncated": false,
+    "has_no_info": false,
+    "optimization_type": "CRITICAL - Force context usage"
+  },
+  {
+    "question_id": 6,
+    "question": "¿Cómo me apunto a desayunos solidarios?",
+    "contexts_retrieved": 8,
+    "response": "Para apuntarte a los desayunos solidarios, debes esperar al miércoles anterior al sábado que quieres asistir. Ese día se publica por la comunidad de WhatsApp y por redes sociales un formulario para inscribirse. \n",
+    "generation_time": 2.528388261795044,
+    "keyword_matches": 3,
+    "is_truncated": false,
+    "has_no_info": false,
+    "optimization_type": "MEDIUM - Enhanced instructions"
+  }
+]

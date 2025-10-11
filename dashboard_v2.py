@@ -566,6 +566,31 @@ async def get_dashboard():
             </div>
         </div>
         
+        <!-- Live Events (Nueva sección) -->
+        <div class="section" id="live-events-section" style="display: none;">
+            <div class="section-header">🔴 Ejecución en Vivo</div>
+            
+            <!-- Current Question Card -->
+            <div id="current-question-card" style="display: none; background: var(--bg-card); border: 1px solid var(--accent); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Pregunta Actual</div>
+                    <div id="current-q-number" style="font-size: 0.875rem; color: var(--accent);"></div>
+                </div>
+                <div id="current-question-text" style="font-size: 1rem; color: var(--text-primary); margin-bottom: 1rem;"></div>
+                <div id="current-model" style="font-size: 0.875rem; color: var(--text-secondary);"></div>
+            </div>
+            
+            <!-- Live Log Console -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem;">
+                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Console de Eventos</div>
+                <div id="live-log-container" style="max-height: 400px; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 0.875rem;">
+                    <div style="color: var(--text-secondary); text-align: center; padding: 2rem;">
+                        Esperando eventos del benchmark...
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Models -->
         <div class="section">
             <div class="section-header">Modelos</div>
@@ -582,6 +607,9 @@ async def get_dashboard():
     <script>
         let ws = null;
         let reconnectTimeout = null;
+        let liveLogBuffer = [];
+        let maxLogEntries = 50;
+        let currentPhase = null;
         
         function connectWebSocket() {
             ws = new WebSocket(`ws://${window.location.host}/ws`);
@@ -595,8 +623,18 @@ async def get_dashboard():
             };
             
             ws.onmessage = function(event) {
-                const data = JSON.parse(event.data);
-                updateDashboard(data);
+                const message = JSON.parse(event.data);
+                
+                // Distinguir entre tipos de mensajes
+                if (message.type === 'stats_update') {
+                    updateDashboard(message.data);
+                } else if (message.type === 'event_history') {
+                    // Cargar historial de eventos
+                    message.data.events.forEach(evt => handleLiveEvent(evt));
+                } else {
+                    // Evento en tiempo real del benchmark
+                    handleLiveEvent(message);
+                }
             };
             
             ws.onerror = function(error) {
@@ -607,6 +645,138 @@ async def get_dashboard():
                 console.log('WebSocket desconectado, reintentando en 3s...');
                 reconnectTimeout = setTimeout(connectWebSocket, 3000);
             };
+        }
+        
+        function handleLiveEvent(event) {
+            const eventType = event.type;
+            const data = event.data;
+            const timestamp = new Date(event.timestamp).toLocaleTimeString();
+            
+            // Mostrar sección de eventos en vivo si hay actividad
+            const liveSection = document.getElementById('live-events-section');
+            if (liveSection) {
+                liveSection.style.display = 'block';
+            }
+            
+            // Manejar diferentes tipos de eventos
+            switch(eventType) {
+                case 'phase_start':
+                    currentPhase = data.phase;
+                    addLogEntry(`🚀 FASE ${data.phase === 'generation' ? '1: GENERACIÓN' : '2: EVALUACIÓN'} INICIADA`, 'info', timestamp);
+                    if (data.phase === 'generation') {
+                        addLogEntry(`   Preguntas: ${data.total_questions} | Modelos: ${data.total_models} | Total: ${data.total_responses}`, 'info', timestamp);
+                    } else {
+                        addLogEntry(`   Respuestas pendientes: ${data.total_pending} | Concurrencia: ${data.max_concurrent}`, 'info', timestamp);
+                    }
+                    break;
+                    
+                case 'question_start':
+                    addLogEntry(`📝 [${data.q_idx}/${data.total_questions}] P${data.question_id}: ${data.question}`, 'question', timestamp);
+                    // Actualizar tarjeta de pregunta actual
+                    updateCurrentQuestion(data);
+                    break;
+                    
+                case 'model_start':
+                    addLogEntry(`   🤖 ${data.model_name} procesando...`, 'model', timestamp);
+                    updateCurrentModel(data.model_name);
+                    break;
+                    
+                case 'model_complete':
+                    if (data.success) {
+                        const symbol = data.confidence >= 0.8 ? '✅' : '⚠️';
+                        const extra = data.is_problematic ? ' 🚨' : '';
+                        addLogEntry(`   ${symbol} ${data.model_name}: ${data.generation_time.toFixed(1)}s (${data.config_name}) Score=${data.confidence.toFixed(2)}${extra}`, 'success', timestamp);
+                        if (data.answer) {
+                            addLogEntry(`      Respuesta: ${data.answer}`, 'detail', timestamp);
+                        }
+                    } else {
+                        addLogEntry(`   ❌ ${data.model_name}: Error - ${data.error}`, 'error', timestamp);
+                    }
+                    break;
+                    
+                case 'evaluation_complete':
+                    if (data.success) {
+                        const score = data.metrics.combined_score.toFixed(3);
+                        addLogEntry(`   ✅ ${data.model_name}: Score ${score}`, 'success', timestamp);
+                        addLogEntry(`      F=${data.metrics.faithfulness.toFixed(2)} R=${data.metrics.answer_relevancy.toFixed(2)} P=${data.metrics.context_precision.toFixed(2)}`, 'detail', timestamp);
+                    } else {
+                        addLogEntry(`   ❌ ${data.model_name}: ${data.error}`, 'error', timestamp);
+                    }
+                    break;
+                    
+                case 'log':
+                    addLogEntry(data.message, data.level || 'info', timestamp);
+                    break;
+            }
+        }
+        
+        function addLogEntry(message, level, timestamp) {
+            // Colores según nivel
+            const colors = {
+                'info': 'var(--text-primary)',
+                'question': 'var(--accent)',
+                'model': 'var(--text-secondary)',
+                'success': 'var(--success)',
+                'error': 'var(--danger)',
+                'detail': 'var(--text-secondary)'
+            };
+            
+            const entry = {
+                message: message,
+                level: level,
+                timestamp: timestamp,
+                color: colors[level] || colors['info']
+            };
+            
+            liveLogBuffer.push(entry);
+            
+            // Mantener solo las últimas N entradas
+            if (liveLogBuffer.length > maxLogEntries) {
+                liveLogBuffer.shift();
+            }
+            
+            // Renderizar log
+            renderLiveLog();
+        }
+        
+        function renderLiveLog() {
+            const container = document.getElementById('live-log-container');
+            if (!container) return;
+            
+            if (liveLogBuffer.length === 0) {
+                container.innerHTML = '<div style="color: var(--text-secondary); text-align: center; padding: 2rem;">Esperando eventos del benchmark...</div>';
+                return;
+            }
+            
+            const html = liveLogBuffer.map(entry => {
+                return `<div style="color: ${entry.color}; padding: 0.25rem 0; border-bottom: 1px solid var(--border-color);">
+                    <span style="color: var(--text-secondary); font-size: 0.75rem;">[${entry.timestamp}]</span> ${entry.message}
+                </div>`;
+            }).join('');
+            
+            container.innerHTML = html;
+            
+            // Auto-scroll al final
+            container.scrollTop = container.scrollHeight;
+        }
+        
+        function updateCurrentQuestion(data) {
+            const card = document.getElementById('current-question-card');
+            const qNumber = document.getElementById('current-q-number');
+            const qText = document.getElementById('current-question-text');
+            
+            if (card && qNumber && qText) {
+                card.style.display = 'block';
+                qNumber.textContent = `P${data.question_id} [${data.q_idx}/${data.total_questions}]`;
+                qText.textContent = data.question;
+            }
+        }
+        
+        function updateCurrentModel(modelName) {
+            const modelDiv = document.getElementById('current-model');
+            if (modelDiv) {
+                modelDiv.textContent = `🤖 Modelo actual: ${modelName}`;
+            }
         }
         
         function updateDashboard(data) {
@@ -1009,30 +1179,90 @@ async def get_stats():
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
-    """WebSocket endpoint para streaming de actualizaciones"""
+    """WebSocket endpoint para streaming de actualizaciones y eventos en tiempo real"""
     await websocket.accept()
     connected_clients.append(websocket)
+    
+    # Registrar en el broadcaster para recibir eventos del benchmark
+    try:
+        from src.utils.event_broadcaster import get_broadcaster
+        broadcaster = get_broadcaster()
+        broadcaster.subscribe(websocket)
+    except Exception as e:
+        print(f"⚠️ No se pudo conectar al broadcaster: {e}")
+        broadcaster = None
     
     try:
         # Enviar actualización inicial inmediatamente
         stats = get_progress_stats()
-        await websocket.send_json(stats)
+        await websocket.send_json({
+            'type': 'stats_update',
+            'data': stats,
+            'timestamp': datetime.now().isoformat()
+        })
+        
+        # Enviar historial de eventos si hay broadcaster
+        last_event_timestamp = None
+        if broadcaster:
+            history = broadcaster.get_history()
+            if history:
+                await websocket.send_json({
+                    'type': 'event_history',
+                    'data': {'events': history},
+                    'timestamp': datetime.now().isoformat()
+                })
+                # Guardar último timestamp
+                if history:
+                    last_event_timestamp = history[-1].get('timestamp')
         
         # Loop de actualizaciones periódicas
+        # - Eventos nuevos cada 0.5s (polling rápido)
+        # - Stats cada 2s
+        stats_counter = 0
         while True:
-            await asyncio.sleep(2)  # Actualizar cada 2 segundos
-            stats = get_progress_stats()
-            await websocket.send_json(stats)
+            try:
+                await asyncio.sleep(0.5)
+                
+                # Enviar eventos nuevos si hay broadcaster
+                if broadcaster:
+                    # Recargar eventos desde archivo (comunicación entre procesos)
+                    broadcaster.reload_events_from_file()
+                    
+                    recent_events = broadcaster.get_recent_events(last_event_timestamp)
+                    if recent_events:
+                        # Enviar cada evento individualmente
+                        for event in recent_events:
+                            await websocket.send_json(event)
+                        # Actualizar último timestamp
+                        last_event_timestamp = recent_events[-1].get('timestamp')
+                
+                # Enviar stats cada 2 segundos (cada 4 iteraciones de 0.5s)
+                stats_counter += 1
+                if stats_counter >= 4:
+                    stats_counter = 0
+                    stats = get_progress_stats()
+                    await websocket.send_json({
+                        'type': 'stats_update',
+                        'data': stats,
+                        'timestamp': datetime.now().isoformat()
+                    })
+            except Exception as e:
+                print(f"⚠️ Error en loop WebSocket: {e}")
+                break
     
     except WebSocketDisconnect:
         if websocket in connected_clients:
             connected_clients.remove(websocket)
+        if broadcaster:
+            broadcaster.unsubscribe(websocket)
         print(f"Cliente desconectado. Quedan {len(connected_clients)} clientes")
     
     except Exception as e:
         print(f"Error en WebSocket: {e}")
         if websocket in connected_clients:
             connected_clients.remove(websocket)
+        if broadcaster:
+            broadcaster.unsubscribe(websocket)
 
 
 # ============================================================================

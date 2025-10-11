@@ -1,0 +1,144 @@
+{
+  "timestamp": "20251011_114814",
+  "summary": {
+    "total_tests": 4,
+    "successful_tests": 4,
+    "global_success_rate": 100.0,
+    "model_performance": {
+      "gemma2:27b": {
+        "success_rate": 1.0,
+        "successful": 2,
+        "total": 2
+      },
+      "qwen3:32b": {
+        "success_rate": 1.0,
+        "successful": 2,
+        "total": 2
+      }
+    }
+  },
+  "detailed_results": [
+    {
+      "model_name": "gemma2:27b",
+      "questions": [
+        {
+          "question_id": 11,
+          "question": "¿Dónde es la actividad de coles?",
+          "expected_answer": "Es en el CEIP Antonio Ferrandis de la Coma, Valencia.",
+          "generated_answer": "La actividad de coles se realiza en el **CEIP Antonio Ferrandis de la Coma, Valencia**. \n\n\n",
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "error_type": null,
+            "details": {
+              "has_correct_location": true,
+              "has_wrong_location": false,
+              "says_no_info": false
+            }
+          },
+          "config_used": {
+            "name": "coles_optimized",
+            "top_k": 15,
+            "similarity_threshold": 0.1
+          },
+          "retrieval_stats": {
+            "num_chunks": 15,
+            "relevant_chunks": 8
+          },
+          "quality_score": 0.9999999999999999,
+          "processing_time": 2.1542603969573975,
+          "used_fallback": false
+        },
+        {
+          "question_id": 20,
+          "question": "¿Dónde es la actividad de resis?",
+          "expected_answer": "En la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.",
+          "generated_answer": "La actividad de resis se realiza en la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22. \n",
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "error_type": null,
+            "details": {
+              "has_correct_location": true,
+              "has_wrong_location": false,
+              "says_no_info": false
+            }
+          },
+          "config_used": {
+            "name": "resis_optimized",
+            "top_k": 10,
+            "similarity_threshold": 0.1
+          },
+          "retrieval_stats": {
+            "num_chunks": 10,
+            "relevant_chunks": 3
+          },
+          "quality_score": 0.9999999999999999,
+          "processing_time": 2.173339366912842,
+          "used_fallback": false
+        }
+      ]
+    },
+    {
+      "model_name": "qwen3:32b",
+      "questions": [
+        {
+          "question_id": 11,
+          "question": "¿Dónde es la actividad de coles?",
+          "expected_answer": "Es en el CEIP Antonio Ferrandis de la Coma, Valencia.",
+          "generated_answer": "<think>\nOkay, let's see. The question is asking where the \"coles\" activity is. First, I need to figure out which part of the provided information refers to \"coles\". The term \"coles\" in Spanish can mean \"cabbages\" but in this context, it's more likely referring to an activity related to schools or educational activities, maybe a typo or slang.\n\nLooking through the information given, there are several entries. Let's go through them one by one.\n\nEntries [1] and [2] mention \"¿Dónde es?\" and answer \"Es el CEIP Antonio Ferrandis de la Coma Valencia\". Then [3] repeats the same location. The days mentioned are Monday to Friday from 15:30 to 16:30. The duration is an hour. The activity here seems to be related to a school setting, possibly a reinforcement activity for students, as mentioned in [6], which talks about \"actividades de",
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "error_type": null,
+            "details": {
+              "has_correct_location": true,
+              "has_wrong_location": false,
+              "says_no_info": false
+            }
+          },
+          "config_used": {
+            "name": "very_permissive",
+            "top_k": 15,
+            "similarity_threshold": 0.1
+          },
+          "retrieval_stats": {
+            "num_chunks": 15,
+            "relevant_chunks": 8
+          },
+          "quality_score": 0.9999999999999999,
+          "processing_time": 45.2078423500061,
+          "used_fallback": false
+        },
+        {
+          "question_id": 20,
+          "question": "¿Dónde es la actividad de resis?",
+          "expected_answer": "En la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.",
+          "generated_answer": "<think>\nOkay, let's tackle this question. The user is asking \"¿Dónde es la actividad de resis?\" which translates to \"Where is the 'resis' activity held?\" \n\nFirst, I need to look through the provided information. The user mentioned that I should base my answer solely on the given texts. Let me go through each of the provided entries.\n\nLooking at entry [3], there's a section titled \"===== RESIDENCIAS (RESIS) =====\". Under \"¿Dónde es?\" (Where is it?), it says: \"En la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\" So that's a direct answer. \n\nEntry [4] also mentions \"RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\" and again states the same location: \"En la residencia La Acollida, muy cerca de Bl",
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "error_type": null,
+            "details": {
+              "has_correct_location": true,
+              "has_wrong_location": false,
+              "says_no_info": false
+            }
+          },
+          "config_used": {
+            "name": "very_permissive",
+            "top_k": 15,
+            "similarity_threshold": 0.1
+          },
+          "retrieval_stats": {
+            "num_chunks": 15,
+            "relevant_chunks": 3
+          },
+          "quality_score": 0.9999999999999999,
+          "processing_time": 30.03655195236206,
+          "used_fallback": false
+        }
+      ]
+    }
+  ]
+}

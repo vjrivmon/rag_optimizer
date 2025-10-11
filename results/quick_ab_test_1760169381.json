@@ -1,0 +1,103 @@
+{
+  "test_metadata": {
+    "timestamp": 1760169381.6602533,
+    "cases_tested": 4,
+    "total_cases": 4
+  },
+  "results": [
+    {
+      "question_id": 22,
+      "question": "¿Qué se hace en la actividad de resis?",
+      "issue": "CRÍTICO - Info disponible pero no se usa",
+      "original": {
+        "response": "La información que has proporcionado no menciona qué se hace en la actividad de \"resis\". \n\nParece ser parte de un documento sobre \"Desayunos y Cenas S...",
+        "keywords_found": 1,
+        "generation_time": 3.0788509845733643,
+        "docs_retrieved": 10
+      },
+      "optimized": {
+        "response": "En la actividad de resis, vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de l...",
+        "keywords_found": 4,
+        "generation_time": 2.141148805618286,
+        "docs_retrieved": 6
+      },
+      "improvements": {
+        "keyword_improvement": 3,
+        "time_improvement": 0.9377021789550781,
+        "relative_improvement": 3.0
+      }
+    },
+    {
+      "question_id": 6,
+      "question": "¿Cómo me apunto a desayunos solidarios?",
+      "issue": "TIMEOUT - qwen3 se truncaba",
+      "original": {
+        "response": "Para apuntarte a los desayunos solidarios debes seguir estos pasos:\n\n1. **Esperar a que se publique el formulario:** La actividad se realiza todos los...",
+        "keywords_found": 3,
+        "generation_time": 5.146791696548462,
+        "docs_retrieved": 10
+      },
+      "optimized": {
+        "response": "Para apuntarte a los desayunos solidarios, debes estar atento el miércoles anterior al sábado en que se celebra la actividad.  Ese día se publica por ...",
+        "keywords_found": 3,
+        "generation_time": 2.543222665786743,
+        "docs_retrieved": 6
+      },
+      "improvements": {
+        "keyword_improvement": 0,
+        "time_improvement": 2.6035690307617188,
+        "relative_improvement": 0.0
+      }
+    },
+    {
+      "question_id": 14,
+      "question": "¿Qué edad tienen los niños en coles?",
+      "issue": "INFO NO USADA - deepseek decía no tener info",
+      "original": {
+        "response": "Aunque la información proporcionada describe las actividades de refuerzo escolar y menciona que los niños van desde los tres años hasta sexto de prima...",
+        "keywords_found": 2,
+        "generation_time": 3.388319253921509,
+        "docs_retrieved": 10
+      },
+      "optimized": {
+        "response": "Los niños en el colegio tienen edades desde los tres años hasta sexto de primaria. Hay dos grupos de Infantil y tres de primaria, siempre divididos po...",
+        "keywords_found": 2,
+        "generation_time": 2.0758602619171143,
+        "docs_retrieved": 6
+      },
+      "improvements": {
+        "keyword_improvement": 0,
+        "time_improvement": 1.3124589920043945,
+        "relative_improvement": 0.0
+      }
+    },
+    {
+      "question_id": 19,
+      "question": "¿Qué otras actividades se hacen relacionadas con niños?",
+      "issue": "TIMEOUT - qwen3 se truncaba",
+      "original": {
+        "response": "Basándonos en la información proporcionada, estas son algunas actividades relacionadas con niños que se hacen:\n\n\n**Actividades Regulares:**\n\n* **Merie...",
+        "keywords_found": 3,
+        "generation_time": 8.13650631904602,
+        "docs_retrieved": 10
+      },
+      "optimized": {
+        "response": "Además de la actividad semanal, se hacen otras actividades puntuales relacionadas con niños como la Llegada de los Reyes en Navidad y el Día del Niño ...",
+        "keywords_found": 3,
+        "generation_time": 2.787613868713379,
+        "docs_retrieved": 6
+      },
+      "improvements": {
+        "keyword_improvement": 0,
+        "time_improvement": 5.348892450332642,
+        "relative_improvement": 0.0
+      }
+    }
+  ],
+  "summary": {
+    "total_keyword_improvement": 3,
+    "total_time_improvement": 10.202622652053833,
+    "avg_relative_improvement": 0.75,
+    "success_rate": 1.0
+  }
+}

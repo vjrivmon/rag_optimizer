@@ -1,0 +1,2583 @@
+{
+  "benchmark_file": "results/benchmark_20251011_012920.json",
+  "total_entries": 103,
+  "model_timeout_analysis": {
+    "deepseek-r1:latest": {
+      "total_questions": 25,
+      "truncated_responses": 0,
+      "no_info_responses": 6,
+      "generation_times": [
+        17.364037036895752,
+        22.194973707199097,
+        13.311051368713379,
+        16.389454126358032,
+        16.818916082382202,
+        31.1227810382843,
+        15.954201698303223,
+        16.288209199905396,
+        17.43331503868103,
+        15.932809352874756,
+        22.795318603515625,
+        14.929516077041626,
+        15.723040103912354,
+        19.215483903884888,
+        13.141355514526367,
+        15.053281784057617,
+        13.901665449142456,
+        15.609717845916748,
+        20.98072838783264,
+        14.663491010665894,
+        14.013992071151733,
+        12.453933238983154,
+        19.8399178981781,
+        17.239136219024658,
+        14.646722078323364
+      ],
+      "avg_generation_time": 17.080681953430176,
+      "max_generation_time": 31.1227810382843,
+      "timeout_suspects": []
+    },
+    "gemma2:27b": {
+      "total_questions": 26,
+      "truncated_responses": 2,
+      "no_info_responses": 2,
+      "generation_times": [
+        13.293469190597534,
+        18.23865556716919,
+        15.324054479598999,
+        11.766207218170166,
+        13.119830131530762,
+        27.14096450805664,
+        16.272645235061646,
+        13.672146797180176,
+        18.929742574691772,
+        17.268126249313354,
+        17.804065227508545,
+        14.666993618011475,
+        14.589847803115845,
+        13.079443454742432,
+        15.244459629058838,
+        14.177383422851562,
+        15.404967784881592,
+        16.743820905685425,
+        15.230225563049316,
+        17.351135730743408,
+        12.044902563095093,
+        11.02147912979126,
+        12.052347898483276,
+        16.711875200271606,
+        19.417101860046387,
+        20.613914489746094
+      ],
+      "avg_generation_time": 15.814607932017399,
+      "max_generation_time": 27.14096450805664,
+      "timeout_suspects": [
+        {
+          "question_id": 13,
+          "generation_time": 14.589847803115845,
+          "answer_length": 31,
+          "answer_preview": "La actividad dura una hora. [3]"
+        },
+        {
+          "question_id": 16,
+          "generation_time": 14.177383422851562,
+          "answer_length": 47,
+          "answer_preview": "De la gasolina se encarga la asociación [2, 3]."
+        }
+      ]
+    },
+    "llama3.3:70b": {
+      "total_questions": 26,
+      "truncated_responses": 2,
+      "no_info_responses": 3,
+      "generation_times": [
+        23.62315845489502,
+        51.14504027366638,
+        30.091999292373657,
+        26.988702058792114,
+        23.18136429786682,
+        55.61457586288452,
+        28.734736442565918,
+        27.75202178955078,
+        34.68599057197571,
+        20.48114562034607,
+        30.56380844116211,
+        21.798469305038452,
+        31.205995559692383,
+        23.60269594192505,
+        32.54597806930542,
+        27.293538093566895,
+        25.92902445793152,
+        28.874586582183838,
+        29.8668270111084,
+        33.27973222732544,
+        21.628603219985962,
+        19.10001015663147,
+        21.208821058273315,
+        32.5488920211792,
+        27.63772439956665,
+        48.56911063194275
+      ],
+      "avg_generation_time": 29.921251993912918,
+      "max_generation_time": 55.61457586288452,
+      "timeout_suspects": [
+        {
+          "question_id": 12,
+          "generation_time": 21.798469305038452,
+          "answer_length": 47,
+          "answer_preview": "Lunes, martes, miércoles, jueves y viernes [3]."
+        },
+        {
+          "question_id": 21,
+          "generation_time": 21.628603219985962,
+          "answer_length": 35,
+          "answer_preview": "Los miércoles de 17:30 - 18:30 [3]."
+        }
+      ]
+    },
+    "qwen3:32b": {
+      "total_questions": 26,
+      "truncated_responses": 2,
+      "no_info_responses": 2,
+      "generation_times": [
+        32.5497305393219,
+        68.47308373451233,
+        45.96753406524658,
+        34.51226735115051,
+        39.66672205924988,
+        120.20606565475464,
+        46.8983199596405,
+        42.84910583496094,
+        51.32153916358948,
+        53.873337507247925,
+        89.23049545288086,
+        49.87128496170044,
+        40.52780222892761,
+        34.346062660217285,
+        57.8183228969574,
+        52.38594961166382,
+        42.637234687805176,
+        34.174208641052246,
+        58.584251403808594,
+        78.02382707595825,
+        54.2930645942688,
+        48.07031989097595,
+        31.757525205612183,
+        58.198466300964355,
+        56.81285810470581,
+        61.27691388130188
+      ],
+      "avg_generation_time": 53.24331897955675,
+      "max_generation_time": 120.20606565475464,
+      "timeout_suspects": [
+        {
+          "question_id": 6,
+          "generation_time": 120.20606565475464,
+          "answer_length": 36,
+          "answer_preview": "[Respuesta truncada - solo thinking]"
+        },
+        {
+          "question_id": 19,
+          "generation_time": 58.584251403808594,
+          "answer_length": 36,
+          "answer_preview": "[Respuesta truncada - solo thinking]"
+        },
+        {
+          "question_id": 6,
+          "model_name": "qwen3:32b",
+          "question": "¿Cómo me apunto a desayunos solidarios?",
+          "answer": "[Respuesta truncada - solo thinking]",
+          "contexts": [
+            "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+            "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+            "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.",
+            "¿Cómo me apunto?\nLa actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miércoles se publica por la comunidad de WhatsApp y por redes sociales un formulario para inscribirse.",
+            "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión. Este voluntariado es uno de los primeros en nuestra asociación y, a la vez, de los que más nos representan como institución y por nuestra manera de hacer voluntariado, siendo jóvenes, cercanos y",
+            "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+            "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+            "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+            "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+            "Depende un poco del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran."
+          ],
+          "generation_time": 120.20606565475464,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          }
+        }
+      ]
+    }
+  },
+  "question_difficulty_analysis": {
+    "1": {
+      "avg_score": 0.58,
+      "scores": [
+        0.595,
+        0.5750000000000001,
+        0.595,
+        0.5549999999999999
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.595,
+        "gemma2:27b": 0.5750000000000001,
+        "llama3.3:70b": 0.595,
+        "qwen3:32b": 0.5549999999999999
+      },
+      "question_text": "¿Qué se hace en la actividad de desayunos?",
+      "category": "",
+      "difficulty": "hard"
+    },
+    "2": {
+      "avg_score": 0.995,
+      "scores": [
+        0.99,
+        1.0,
+        1.0,
+        0.99
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.99,
+        "gemma2:27b": 1.0,
+        "llama3.3:70b": 1.0,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Dónde es el punto de encuentro de desayunos?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "3": {
+      "avg_score": 0.925,
+      "scores": [
+        0.7200000000000001,
+        0.99,
+        1.0,
+        0.99
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.7200000000000001,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 1.0,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿A qué hora son los desayunos y las cenas solidarias?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "4": {
+      "avg_score": 0.9675,
+      "scores": [
+        0.9,
+        0.99,
+        0.99,
+        0.99
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.9,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 0.99,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Cada cuánto se hace la actividad de desayunos?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "5": {
+      "avg_score": 0.8512500000000001,
+      "scores": [
+        0.455,
+        0.9700000000000001,
+        0.99,
+        0.99
+      ],
+      "failed_models": [
+        "deepseek-r1:latest"
+      ],
+      "successful_models": [
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.455,
+        "gemma2:27b": 0.9700000000000001,
+        "llama3.3:70b": 0.99,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Cuánto dura la actividad de desayunos?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "6": {
+      "avg_score": 0.7025,
+      "scores": [
+        0.8300000000000001,
+        0.99,
+        0.99,
+        0.0
+      ],
+      "failed_models": [
+        "qwen3:32b"
+      ],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.8300000000000001,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 0.99,
+        "qwen3:32b": 0.0
+      },
+      "question_text": "¿Cómo me apunto a desayunos solidarios?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "7": {
+      "avg_score": 0.9625,
+      "scores": [
+        0.88,
+        0.99,
+        0.99,
+        0.99
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.88,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 0.99,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Si me apunto un día tengo que ir al resto de desayunos?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "8": {
+      "avg_score": 0.99,
+      "scores": [
+        0.99,
+        0.99,
+        0.99,
+        0.99
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.99,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 0.99,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Puedo ir en el mismo grupo que mi amigo en desayunos?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "9": {
+      "avg_score": 0.6175,
+      "scores": [
+        0.30500000000000005,
+        0.7150000000000001,
+        0.625,
+        0.8250000000000001
+      ],
+      "failed_models": [
+        "deepseek-r1:latest"
+      ],
+      "successful_models": [
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.30500000000000005,
+        "gemma2:27b": 0.7150000000000001,
+        "llama3.3:70b": 0.625,
+        "qwen3:32b": 0.8250000000000001
+      },
+      "question_text": "¿Cómo se compra la comida para desayunos?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "10": {
+      "avg_score": 0.6375,
+      "scores": [
+        0.28,
+        1.0,
+        0.28,
+        0.99
+      ],
+      "failed_models": [
+        "deepseek-r1:latest",
+        "llama3.3:70b"
+      ],
+      "successful_models": [
+        "gemma2:27b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.28,
+        "gemma2:27b": 1.0,
+        "llama3.3:70b": 0.28,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Qué se hace en la actividad de coles?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "11": {
+      "avg_score": 0.6375,
+      "scores": [
+        0.28,
+        0.99,
+        0.28,
+        1.0
+      ],
+      "failed_models": [
+        "deepseek-r1:latest",
+        "llama3.3:70b"
+      ],
+      "successful_models": [
+        "gemma2:27b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.28,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 0.28,
+        "qwen3:32b": 1.0
+      },
+      "question_text": "¿Dónde es la actividad de coles?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "12": {
+      "avg_score": 0.7533333333333333,
+      "scores": [
+        0.28,
+        0.99,
+        0.99
+      ],
+      "failed_models": [
+        "gemma2:27b"
+      ],
+      "successful_models": [
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "gemma2:27b": 0.28,
+        "llama3.3:70b": 0.99,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Qué días vais a coles?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "13": {
+      "avg_score": 0.8125,
+      "scores": [
+        0.4600000000000001,
+        0.98,
+        0.8200000000000001,
+        0.99
+      ],
+      "failed_models": [
+        "deepseek-r1:latest"
+      ],
+      "successful_models": [
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.4600000000000001,
+        "gemma2:27b": 0.98,
+        "llama3.3:70b": 0.8200000000000001,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Cuánto dura la actividad de coles?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "14": {
+      "avg_score": 0.745,
+      "scores": [
+        0.0,
+        0.99,
+        1.0,
+        0.99
+      ],
+      "failed_models": [
+        "deepseek-r1:latest"
+      ],
+      "successful_models": [
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.0,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 1.0,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Qué edad tienen los niños en coles?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "15": {
+      "avg_score": 0.92125,
+      "scores": [
+        0.7150000000000001,
+        0.99,
+        0.99,
+        0.99
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.7150000000000001,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 0.99,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Cómo vamos hasta la Coma para la actividad de coles?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "16": {
+      "avg_score": 0.97875,
+      "scores": [
+        0.99,
+        1.0,
+        0.925,
+        1.0
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.99,
+        "gemma2:27b": 1.0,
+        "llama3.3:70b": 0.925,
+        "qwen3:32b": 1.0
+      },
+      "question_text": "¿Quién paga la gasolina para ir a coles?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "17": {
+      "avg_score": 0.8325,
+      "scores": [
+        0.35,
+        1.0,
+        0.99,
+        0.99
+      ],
+      "failed_models": [
+        "deepseek-r1:latest"
+      ],
+      "successful_models": [
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.35,
+        "gemma2:27b": 1.0,
+        "llama3.3:70b": 0.99,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Necesito algún tipo de documentación para ir a coles?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "18": {
+      "avg_score": 0.795,
+      "scores": [
+        0.28,
+        0.99,
+        0.9450000000000001,
+        0.9650000000000001
+      ],
+      "failed_models": [
+        "deepseek-r1:latest"
+      ],
+      "successful_models": [
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.28,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 0.9450000000000001,
+        "qwen3:32b": 0.9650000000000001
+      },
+      "question_text": "¿Puedo elegir a qué grupo de niños ir en coles?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "19": {
+      "avg_score": 0.7262500000000001,
+      "scores": [
+        0.915,
+        1.0,
+        0.99,
+        0.0
+      ],
+      "failed_models": [
+        "qwen3:32b"
+      ],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.915,
+        "gemma2:27b": 1.0,
+        "llama3.3:70b": 0.99,
+        "qwen3:32b": 0.0
+      },
+      "question_text": "¿Qué otras actividades se hacen relacionadas con niños?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "20": {
+      "avg_score": 0.995,
+      "scores": [
+        0.99,
+        1.0,
+        1.0,
+        0.99
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.99,
+        "gemma2:27b": 1.0,
+        "llama3.3:70b": 1.0,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Dónde es la actividad de resis?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "21": {
+      "avg_score": 0.6212500000000001,
+      "scores": [
+        0.28,
+        0.36500000000000005,
+        1.0,
+        0.8400000000000001
+      ],
+      "failed_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b"
+      ],
+      "successful_models": [
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.28,
+        "gemma2:27b": 0.36500000000000005,
+        "llama3.3:70b": 1.0,
+        "qwen3:32b": 0.8400000000000001
+      },
+      "question_text": "¿Qué días se hace la actividad de resis?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "22": {
+      "avg_score": 0.060000000000000005,
+      "scores": [
+        0.24000000000000002,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "failed_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "successful_models": [],
+      "model_scores": {
+        "deepseek-r1:latest": 0.24000000000000002,
+        "gemma2:27b": 0.0,
+        "llama3.3:70b": 0.0,
+        "qwen3:32b": 0.0
+      },
+      "question_text": "¿Qué se hace en la actividad de resis?",
+      "category": "",
+      "difficulty": "hard"
+    },
+    "23": {
+      "avg_score": 0.6725,
+      "scores": [
+        0.35,
+        0.99,
+        1.0,
+        0.35
+      ],
+      "failed_models": [
+        "deepseek-r1:latest",
+        "qwen3:32b"
+      ],
+      "successful_models": [
+        "gemma2:27b",
+        "llama3.3:70b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.35,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 1.0,
+        "qwen3:32b": 0.35
+      },
+      "question_text": "¿Qué tipo de actividades se realizan en resis?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "24": {
+      "avg_score": 0.9075,
+      "scores": [
+        0.6599999999999999,
+        0.99,
+        0.99,
+        0.99
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.6599999999999999,
+        "gemma2:27b": 0.99,
+        "llama3.3:70b": 0.99,
+        "qwen3:32b": 0.99
+      },
+      "question_text": "¿Cuál es el objetivo principal de DNI?",
+      "category": "",
+      "difficulty": "easy"
+    },
+    "25": {
+      "avg_score": 0.7225,
+      "scores": [
+        0.6900000000000001,
+        0.78,
+        0.7100000000000001,
+        0.7100000000000001
+      ],
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.6900000000000001,
+        "gemma2:27b": 0.78,
+        "llama3.3:70b": 0.7100000000000001,
+        "qwen3:32b": 0.7100000000000001
+      },
+      "question_text": "¿Qué significa Para-Mira-Ayuda?",
+      "category": "",
+      "difficulty": "medium"
+    },
+    "26": {
+      "avg_score": 0.61,
+      "scores": [
+        0.46,
+        0.6599999999999999,
+        0.705,
+        0.615
+      ],
+      "failed_models": [
+        "deepseek-r1:latest"
+      ],
+      "successful_models": [
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "model_scores": {
+        "deepseek-r1:latest": 0.46,
+        "gemma2:27b": 0.6599999999999999,
+        "llama3.3:70b": 0.705,
+        "qwen3:32b": 0.615
+      },
+      "question_text": "¿Cómo se caracteriza el voluntariado de DNI?",
+      "category": "",
+      "difficulty": "medium"
+    }
+  },
+  "retrieval_quality_analysis": {
+    "total_issues": 88,
+    "issues_by_type": {},
+    "issues_by_question": {},
+    "issues_by_model": {},
+    "detailed_issues": [
+      {
+        "question_id": 1,
+        "model": "deepseek-r1:latest",
+        "score": 0.595,
+        "answer_length": 279,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se r..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 1,
+        "model": "gemma2:27b",
+        "score": 0.5750000000000001,
+        "answer_length": 196,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se r..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 1,
+        "model": "llama3.3:70b",
+        "score": 0.595,
+        "answer_length": 166,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se r..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 1,
+        "model": "qwen3:32b",
+        "score": 0.5549999999999999,
+        "answer_length": 235,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se r..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 2,
+        "model": "deepseek-r1:latest",
+        "score": 0.99,
+        "answer_length": 79,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los ...",
+          "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 2,
+        "model": "gemma2:27b",
+        "score": 1.0,
+        "answer_length": 73,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los ...",
+          "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 2,
+        "model": "llama3.3:70b",
+        "score": 1.0,
+        "answer_length": 803,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los ...",
+          "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 2,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 80,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los ...",
+          "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 3,
+        "model": "deepseek-r1:latest",
+        "score": 0.7200000000000001,
+        "answer_length": 353,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.\n\n...",
+          "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se reco..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 3,
+        "model": "gemma2:27b",
+        "score": 0.99,
+        "answer_length": 101,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.\n\n...",
+          "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se reco..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 3,
+        "model": "llama3.3:70b",
+        "score": 1.0,
+        "answer_length": 92,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.\n\n...",
+          "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se reco..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 3,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 100,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.\n\n...",
+          "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se reco..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 4,
+        "model": "deepseek-r1:latest",
+        "score": 0.9,
+        "answer_length": 79,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Qué se hace en la actividad?",
+          "¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.\n\n..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 4,
+        "model": "gemma2:27b",
+        "score": 0.99,
+        "answer_length": 61,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Qué se hace en la actividad?",
+          "¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.\n\n..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 4,
+        "model": "llama3.3:70b",
+        "score": 0.99,
+        "answer_length": 73,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Qué se hace en la actividad?",
+          "¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.\n\n..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 4,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 197,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Qué se hace en la actividad?",
+          "¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.\n\n..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 5,
+        "model": "deepseek-r1:latest",
+        "score": 0.455,
+        "answer_length": 95,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cuánto dura la actividad?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se r..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 5,
+        "model": "gemma2:27b",
+        "score": 0.9700000000000001,
+        "answer_length": 71,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cuánto dura la actividad?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se r..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 5,
+        "model": "llama3.3:70b",
+        "score": 0.99,
+        "answer_length": 108,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cuánto dura la actividad?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se r..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 5,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 179,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cuánto dura la actividad?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se r..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 6,
+        "model": "qwen3:32b",
+        "score": 0.0,
+        "answer_length": 36,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en ...",
+          "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación mientras que en l..."
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "timeout_truncation"
+      },
+      {
+        "question_id": 7,
+        "model": "deepseek-r1:latest",
+        "score": 0.88,
+        "answer_length": 259,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo me apunto?\nLa actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miérco...",
+          "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se reco..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 7,
+        "model": "gemma2:27b",
+        "score": 0.99,
+        "answer_length": 289,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo me apunto?\nLa actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miérco...",
+          "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se reco..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 7,
+        "model": "llama3.3:70b",
+        "score": 0.99,
+        "answer_length": 251,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo me apunto?\nLa actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miérco...",
+          "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se reco..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 7,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 269,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo me apunto?\nLa actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miérco...",
+          "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se reco..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 8,
+        "model": "deepseek-r1:latest",
+        "score": 0.99,
+        "answer_length": 446,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Puedo ir en el mismo grupo que mi amigo?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide e..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 8,
+        "model": "gemma2:27b",
+        "score": 0.99,
+        "answer_length": 125,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Puedo ir en el mismo grupo que mi amigo?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide e..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 8,
+        "model": "llama3.3:70b",
+        "score": 0.99,
+        "answer_length": 293,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Puedo ir en el mismo grupo que mi amigo?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide e..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 8,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 385,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Puedo ir en el mismo grupo que mi amigo?",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide e..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 9,
+        "model": "deepseek-r1:latest",
+        "score": 0.30500000000000005,
+        "answer_length": 497,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en ...",
+          "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación mientras que en l..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 9,
+        "model": "gemma2:27b",
+        "score": 0.7150000000000001,
+        "answer_length": 356,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en ...",
+          "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación mientras que en l..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 9,
+        "model": "llama3.3:70b",
+        "score": 0.625,
+        "answer_length": 299,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en ...",
+          "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación mientras que en l..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 9,
+        "model": "qwen3:32b",
+        "score": 0.8250000000000001,
+        "answer_length": 699,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en ...",
+          "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación mientras que en l..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 10,
+        "model": "deepseek-r1:latest",
+        "score": 0.28,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños...",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "info_available_not_used"
+      },
+      {
+        "question_id": 10,
+        "model": "llama3.3:70b",
+        "score": 0.28,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños...",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "info_available_not_used"
+      },
+      {
+        "question_id": 11,
+        "model": "deepseek-r1:latest",
+        "score": 0.28,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércole...",
+          "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, mié..."
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "info_available_not_used"
+      },
+      {
+        "question_id": 11,
+        "model": "llama3.3:70b",
+        "score": 0.28,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércole...",
+          "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, mié..."
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "info_available_not_used"
+      },
+      {
+        "question_id": 12,
+        "model": "gemma2:27b",
+        "score": 0.28,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cómo me apunto?\nLa actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miérco...",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércole..."
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "info_available_not_used"
+      },
+      {
+        "question_id": 13,
+        "model": "deepseek-r1:latest",
+        "score": 0.4600000000000001,
+        "answer_length": 144,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cuánto dura la actividad?",
+          "¿Qué se hace en la actividad?",
+          "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, mié..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 13,
+        "model": "gemma2:27b",
+        "score": 0.98,
+        "answer_length": 31,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cuánto dura la actividad?",
+          "¿Qué se hace en la actividad?",
+          "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, mié..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 13,
+        "model": "llama3.3:70b",
+        "score": 0.8200000000000001,
+        "answer_length": 250,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cuánto dura la actividad?",
+          "¿Qué se hace en la actividad?",
+          "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, mié..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 13,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 58,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cuánto dura la actividad?",
+          "¿Qué se hace en la actividad?",
+          "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, mié..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 14,
+        "model": "deepseek-r1:latest",
+        "score": 0.0,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cuánto dura la actividad?\nDe 15:30 a 16:30\n\n¿Qué edad tienen los niños?\nLos niños van desde los tre...",
+          "¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.\n\n¿Qué edad tienen los niños?\nLos ni...",
+          "En actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difícile..."
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "info_available_not_used"
+      },
+      {
+        "question_id": 15,
+        "model": "deepseek-r1:latest",
+        "score": 0.7150000000000001,
+        "answer_length": 217,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércole..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 15,
+        "model": "gemma2:27b",
+        "score": 0.99,
+        "answer_length": 154,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércole..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 15,
+        "model": "llama3.3:70b",
+        "score": 0.99,
+        "answer_length": 229,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércole..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 15,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 511,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércole..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 16,
+        "model": "deepseek-r1:latest",
+        "score": 0.99,
+        "answer_length": 254,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 16,
+        "model": "gemma2:27b",
+        "score": 1.0,
+        "answer_length": 47,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 16,
+        "model": "llama3.3:70b",
+        "score": 0.925,
+        "answer_length": 217,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 16,
+        "model": "qwen3:32b",
+        "score": 1.0,
+        "answer_length": 489,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt...",
+          "¿Cómo vamos hasta la Coma?\nOrganizamos coches desde Valencia o alrededores para que todos los volunt..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 17,
+        "model": "deepseek-r1:latest",
+        "score": 0.35,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Quién paga la gasolina?\nDe la gasolina se encarga la asociación\n\n¿Necesito algún tipo de documentac...",
+          "¿Quién paga la gasolina?\nDe la gasolina se encarga la asociación.\n\n¿Necesito algún tipo de documenta...",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 17,
+        "model": "gemma2:27b",
+        "score": 1.0,
+        "answer_length": 132,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Quién paga la gasolina?\nDe la gasolina se encarga la asociación\n\n¿Necesito algún tipo de documentac...",
+          "¿Quién paga la gasolina?\nDe la gasolina se encarga la asociación.\n\n¿Necesito algún tipo de documenta...",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 17,
+        "model": "llama3.3:70b",
+        "score": 0.99,
+        "answer_length": 107,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Quién paga la gasolina?\nDe la gasolina se encarga la asociación\n\n¿Necesito algún tipo de documentac...",
+          "¿Quién paga la gasolina?\nDe la gasolina se encarga la asociación.\n\n¿Necesito algún tipo de documenta...",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 17,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 130,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Quién paga la gasolina?\nDe la gasolina se encarga la asociación\n\n¿Necesito algún tipo de documentac...",
+          "¿Quién paga la gasolina?\nDe la gasolina se encarga la asociación.\n\n¿Necesito algún tipo de documenta...",
+          "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 18,
+        "model": "deepseek-r1:latest",
+        "score": 0.28,
+        "answer_length": 71,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Puedo elegir a qué grupo de niños ir?\nClaro intentamos que todos los voluntarios estén con el grupo...",
+          "¿Puedo elegir a qué grupo de niños ir?\nClaro, intentamos que todos los voluntarios estén con el grup...",
+          "En actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difícile..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 18,
+        "model": "gemma2:27b",
+        "score": 0.99,
+        "answer_length": 208,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Puedo elegir a qué grupo de niños ir?\nClaro intentamos que todos los voluntarios estén con el grupo...",
+          "¿Puedo elegir a qué grupo de niños ir?\nClaro, intentamos que todos los voluntarios estén con el grup...",
+          "En actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difícile..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 18,
+        "model": "llama3.3:70b",
+        "score": 0.9450000000000001,
+        "answer_length": 91,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Puedo elegir a qué grupo de niños ir?\nClaro intentamos que todos los voluntarios estén con el grupo...",
+          "¿Puedo elegir a qué grupo de niños ir?\nClaro, intentamos que todos los voluntarios estén con el grup...",
+          "En actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difícile..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 18,
+        "model": "qwen3:32b",
+        "score": 0.9650000000000001,
+        "answer_length": 158,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Puedo elegir a qué grupo de niños ir?\nClaro intentamos que todos los voluntarios estén con el grupo...",
+          "¿Puedo elegir a qué grupo de niños ir?\nClaro, intentamos que todos los voluntarios estén con el grup...",
+          "En actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difícile..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 19,
+        "model": "qwen3:32b",
+        "score": 0.0,
+        "answer_length": 36,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "¿Qué se hace en la actividad?",
+          "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más."
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "timeout_truncation"
+      },
+      {
+        "question_id": 20,
+        "model": "deepseek-r1:latest",
+        "score": 0.99,
+        "answer_length": 121,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez...",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca d..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 20,
+        "model": "gemma2:27b",
+        "score": 1.0,
+        "answer_length": 124,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez...",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca d..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 20,
+        "model": "llama3.3:70b",
+        "score": 1.0,
+        "answer_length": 129,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez...",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca d..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 20,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 133,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez...",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca d..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 21,
+        "model": "deepseek-r1:latest",
+        "score": 0.28,
+        "answer_length": 57,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Cuánto dura la actividad?",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 21,
+        "model": "gemma2:27b",
+        "score": 0.36500000000000005,
+        "answer_length": 97,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Cuánto dura la actividad?",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 21,
+        "model": "llama3.3:70b",
+        "score": 1.0,
+        "answer_length": 35,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Cuánto dura la actividad?",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 21,
+        "model": "qwen3:32b",
+        "score": 0.8400000000000001,
+        "answer_length": 480,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Cuánto dura la actividad?",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 22,
+        "model": "deepseek-r1:latest",
+        "score": 0.24000000000000002,
+        "answer_length": 159,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Cuánto dura la actividad?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "low_score_with_info"
+      },
+      {
+        "question_id": 22,
+        "model": "gemma2:27b",
+        "score": 0.0,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Cuánto dura la actividad?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "info_available_not_used"
+      },
+      {
+        "question_id": 22,
+        "model": "llama3.3:70b",
+        "score": 0.0,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Cuánto dura la actividad?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "info_available_not_used"
+      },
+      {
+        "question_id": 22,
+        "model": "qwen3:32b",
+        "score": 0.0,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Cuánto dura la actividad?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+        ],
+        "has_info_in_contexts": true,
+        "uses_context_info": false,
+        "issue_type": "info_available_not_used"
+      },
+      {
+        "question_id": 23,
+        "model": "deepseek-r1:latest",
+        "score": 0.35,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más.",
+          "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más!!"
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 23,
+        "model": "gemma2:27b",
+        "score": 0.99,
+        "answer_length": 67,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más.",
+          "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más!!"
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 23,
+        "model": "llama3.3:70b",
+        "score": 1.0,
+        "answer_length": 79,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más.",
+          "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más!!"
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 23,
+        "model": "qwen3:32b",
+        "score": 0.35,
+        "answer_length": 54,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más.",
+          "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más!!"
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 24,
+        "model": "deepseek-r1:latest",
+        "score": 0.6599999999999999,
+        "answer_length": 645,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados,...",
+          "Trata de despertar a la juventud... y de paso dejar el mundo un poquito mejor de lo que está. DNI no..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 24,
+        "model": "gemma2:27b",
+        "score": 0.99,
+        "answer_length": 350,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados,...",
+          "Trata de despertar a la juventud... y de paso dejar el mundo un poquito mejor de lo que está. DNI no..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 24,
+        "model": "llama3.3:70b",
+        "score": 0.99,
+        "answer_length": 310,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados,...",
+          "Trata de despertar a la juventud... y de paso dejar el mundo un poquito mejor de lo que está. DNI no..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 24,
+        "model": "qwen3:32b",
+        "score": 0.99,
+        "answer_length": 666,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados,...",
+          "Trata de despertar a la juventud... y de paso dejar el mundo un poquito mejor de lo que está. DNI no..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 25,
+        "model": "deepseek-r1:latest",
+        "score": 0.6900000000000001,
+        "answer_length": 413,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 25,
+        "model": "gemma2:27b",
+        "score": 0.78,
+        "answer_length": 276,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 25,
+        "model": "llama3.3:70b",
+        "score": 0.7100000000000001,
+        "answer_length": 181,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 25,
+        "model": "qwen3:32b",
+        "score": 0.7100000000000001,
+        "answer_length": 445,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 26,
+        "model": "deepseek-r1:latest",
+        "score": 0.46,
+        "answer_length": 415,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "4. Llevar este voluntariado fuera de la asociación: a partir de la concienciación de los voluntarios...",
+          "Con niños, ancianos, cenas y desayunos solidarios, en recogidas de alimentos y de plásticos y demás ...",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 26,
+        "model": "gemma2:27b",
+        "score": 0.6599999999999999,
+        "answer_length": 389,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "4. Llevar este voluntariado fuera de la asociación: a partir de la concienciación de los voluntarios...",
+          "Con niños, ancianos, cenas y desayunos solidarios, en recogidas de alimentos y de plásticos y demás ...",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 26,
+        "model": "llama3.3:70b",
+        "score": 0.705,
+        "answer_length": 583,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "4. Llevar este voluntariado fuera de la asociación: a partir de la concienciación de los voluntarios...",
+          "Con niños, ancianos, cenas y desayunos solidarios, en recogidas de alimentos y de plásticos y demás ...",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      },
+      {
+        "question_id": 26,
+        "model": "qwen3:32b",
+        "score": 0.615,
+        "answer_length": 189,
+        "num_contexts": 10,
+        "contexts_preview": [
+          "4. Llevar este voluntariado fuera de la asociación: a partir de la concienciación de los voluntarios...",
+          "Con niños, ancianos, cenas y desayunos solidarios, en recogidas de alimentos y de plásticos y demás ...",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        ],
+        "has_info_in_contexts": false,
+        "uses_context_info": false,
+        "issue_type": "poor_retrieval"
+      }
+    ]
+  },
+  "model_performance_patterns": {
+    "deepseek-r1:latest": {
+      "scores_by_question": {
+        "1": 0.595,
+        "2": 0.99,
+        "3": 0.7200000000000001,
+        "4": 0.9,
+        "5": 0.455,
+        "6": 0.8300000000000001,
+        "7": 0.88,
+        "8": 0.99,
+        "9": 0.30500000000000005,
+        "10": 0.28,
+        "11": 0.28,
+        "13": 0.4600000000000001,
+        "14": 0.0,
+        "15": 0.7150000000000001,
+        "16": 0.99,
+        "17": 0.35,
+        "18": 0.28,
+        "19": 0.915,
+        "20": 0.99,
+        "21": 0.28,
+        "22": 0.24000000000000002,
+        "23": 0.35,
+        "24": 0.6599999999999999,
+        "25": 0.6900000000000001,
+        "26": 0.46
+      },
+      "times_by_question": {
+        "1": 17.364037036895752,
+        "2": 22.194973707199097,
+        "3": 13.311051368713379,
+        "4": 16.389454126358032,
+        "5": 16.818916082382202,
+        "6": 31.1227810382843,
+        "7": 15.954201698303223,
+        "8": 16.288209199905396,
+        "9": 17.43331503868103,
+        "10": 15.932809352874756,
+        "11": 22.795318603515625,
+        "13": 14.929516077041626,
+        "14": 15.723040103912354,
+        "15": 19.215483903884888,
+        "16": 13.141355514526367,
+        "17": 15.053281784057617,
+        "18": 13.901665449142456,
+        "19": 15.609717845916748,
+        "20": 20.98072838783264,
+        "21": 14.663491010665894,
+        "22": 14.013992071151733,
+        "23": 12.453933238983154,
+        "24": 19.8399178981781,
+        "25": 17.239136219024658,
+        "26": 14.646722078323364
+      },
+      "problematic_questions": [
+        9,
+        10,
+        11,
+        14,
+        17,
+        18,
+        21,
+        22,
+        23
+      ],
+      "excellent_questions": [
+        2,
+        8,
+        16,
+        19,
+        20
+      ],
+      "avg_score": 0.5842,
+      "avg_time": 17.080681953430176,
+      "consistency_score": 0.7018470750325152
+    },
+    "gemma2:27b": {
+      "scores_by_question": {
+        "1": 0.5750000000000001,
+        "2": 1.0,
+        "3": 0.99,
+        "4": 0.99,
+        "5": 0.9700000000000001,
+        "6": 0.99,
+        "7": 0.99,
+        "8": 0.99,
+        "9": 0.7150000000000001,
+        "10": 1.0,
+        "11": 0.99,
+        "12": 0.28,
+        "13": 0.98,
+        "14": 0.99,
+        "15": 0.99,
+        "16": 1.0,
+        "17": 1.0,
+        "18": 0.99,
+        "19": 1.0,
+        "20": 1.0,
+        "21": 0.36500000000000005,
+        "22": 0.0,
+        "23": 0.99,
+        "24": 0.99,
+        "25": 0.78,
+        "26": 0.6599999999999999
+      },
+      "times_by_question": {
+        "1": 13.293469190597534,
+        "2": 18.23865556716919,
+        "3": 15.324054479598999,
+        "4": 11.766207218170166,
+        "5": 13.119830131530762,
+        "6": 27.14096450805664,
+        "7": 16.272645235061646,
+        "8": 13.672146797180176,
+        "9": 18.929742574691772,
+        "10": 17.268126249313354,
+        "11": 17.804065227508545,
+        "12": 14.666993618011475,
+        "13": 14.589847803115845,
+        "14": 13.079443454742432,
+        "15": 15.244459629058838,
+        "16": 14.177383422851562,
+        "17": 15.404967784881592,
+        "18": 16.743820905685425,
+        "19": 15.230225563049316,
+        "20": 17.351135730743408,
+        "21": 12.044902563095093,
+        "22": 11.02147912979126,
+        "23": 12.052347898483276,
+        "24": 16.711875200271606,
+        "25": 19.417101860046387,
+        "26": 20.613914489746094
+      },
+      "problematic_questions": [
+        12,
+        21,
+        22
+      ],
+      "excellent_questions": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        23,
+        24
+      ],
+      "avg_score": 0.854423076923077,
+      "avg_time": 15.814607932017399,
+      "consistency_score": 0.7317563535772863
+    },
+    "llama3.3:70b": {
+      "scores_by_question": {
+        "1": 0.595,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 0.99,
+        "5": 0.99,
+        "6": 0.99,
+        "7": 0.99,
+        "8": 0.99,
+        "9": 0.625,
+        "10": 0.28,
+        "11": 0.28,
+        "12": 0.99,
+        "13": 0.8200000000000001,
+        "14": 1.0,
+        "15": 0.99,
+        "16": 0.925,
+        "17": 0.99,
+        "18": 0.9450000000000001,
+        "19": 0.99,
+        "20": 1.0,
+        "21": 1.0,
+        "22": 0.0,
+        "23": 1.0,
+        "24": 0.99,
+        "25": 0.7100000000000001,
+        "26": 0.705
+      },
+      "times_by_question": {
+        "1": 23.62315845489502,
+        "2": 51.14504027366638,
+        "3": 30.091999292373657,
+        "4": 26.988702058792114,
+        "5": 23.18136429786682,
+        "6": 55.61457586288452,
+        "7": 28.734736442565918,
+        "8": 27.75202178955078,
+        "9": 34.68599057197571,
+        "10": 20.48114562034607,
+        "11": 30.56380844116211,
+        "12": 21.798469305038452,
+        "13": 31.205995559692383,
+        "14": 23.60269594192505,
+        "15": 32.54597806930542,
+        "16": 27.293538093566895,
+        "17": 25.92902445793152,
+        "18": 28.874586582183838,
+        "19": 29.8668270111084,
+        "20": 33.27973222732544,
+        "21": 21.628603219985962,
+        "22": 19.10001015663147,
+        "23": 21.208821058273315,
+        "24": 32.5488920211792,
+        "25": 27.63772439956665,
+        "26": 48.56911063194275
+      },
+      "problematic_questions": [
+        10,
+        11,
+        22
+      ],
+      "excellent_questions": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24
+      ],
+      "avg_score": 0.8378846153846153,
+      "avg_time": 29.921251993912918,
+      "consistency_score": 0.7264084318663199
+    },
+    "qwen3:32b": {
+      "scores_by_question": {
+        "1": 0.5549999999999999,
+        "2": 0.99,
+        "3": 0.99,
+        "4": 0.99,
+        "5": 0.99,
+        "6": 0.0,
+        "7": 0.99,
+        "8": 0.99,
+        "9": 0.8250000000000001,
+        "10": 0.99,
+        "11": 1.0,
+        "12": 0.99,
+        "13": 0.99,
+        "14": 0.99,
+        "15": 0.99,
+        "16": 1.0,
+        "17": 0.99,
+        "18": 0.9650000000000001,
+        "19": 0.0,
+        "20": 0.99,
+        "21": 0.8400000000000001,
+        "22": 0.0,
+        "23": 0.35,
+        "24": 0.99,
+        "25": 0.7100000000000001,
+        "26": 0.615
+      },
+      "times_by_question": {
+        "1": 32.5497305393219,
+        "2": 68.47308373451233,
+        "3": 45.96753406524658,
+        "4": 34.51226735115051,
+        "5": 39.66672205924988,
+        "6": 120.20606565475464,
+        "7": 46.8983199596405,
+        "8": 42.84910583496094,
+        "9": 51.32153916358948,
+        "10": 53.873337507247925,
+        "11": 89.23049545288086,
+        "12": 49.87128496170044,
+        "13": 40.52780222892761,
+        "14": 34.346062660217285,
+        "15": 57.8183228969574,
+        "16": 52.38594961166382,
+        "17": 42.637234687805176,
+        "18": 34.174208641052246,
+        "19": 58.584251403808594,
+        "20": 78.02382707595825,
+        "21": 54.2930645942688,
+        "22": 48.07031989097595,
+        "23": 31.757525205612183,
+        "24": 58.198466300964355,
+        "25": 56.81285810470581,
+        "26": 61.27691388130188
+      },
+      "problematic_questions": [
+        6,
+        19,
+        22,
+        23
+      ],
+      "excellent_questions": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        24
+      ],
+      "avg_score": 0.796923076923077,
+      "avg_time": 53.24331897955675,
+      "consistency_score": 0.6629864188995437
+    }
+  },
+  "problematic_questions": [
+    {
+      "question_id": 22,
+      "question_text": "¿Qué se hace en la actividad de resis?",
+      "avg_score": 0.060000000000000005,
+      "failed_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "successful_models": [],
+      "difficulty": "hard",
+      "failure_rate": 1.0
+    },
+    {
+      "question_id": 1,
+      "question_text": "¿Qué se hace en la actividad de desayunos?",
+      "avg_score": 0.58,
+      "failed_models": [],
+      "successful_models": [
+        "deepseek-r1:latest",
+        "gemma2:27b",
+        "llama3.3:70b",
+        "qwen3:32b"
+      ],
+      "difficulty": "hard",
+      "failure_rate": 0.0
+    }
+  ],
+  "recommendations": [
+    "🚨 gemma2:27b: 2 respuestas truncadas. Aumentar timeout o ajustar parámetros de generación.",
+    "🚨 llama3.3:70b: 2 respuestas truncadas. Aumentar timeout o ajustar parámetros de generación.",
+    "🚨 qwen3:32b: 2 respuestas truncadas. Aumentar timeout o ajustar parámetros de generación.",
+    "⏰ qwen3:32b: Tiempo promedio alto (53.2s). Considerar optimización de prompts o reducción de contexts.",
+    "🔍 9 casos donde la información está disponible pero no se usa. Mejorar prompts para incentivar uso de contexts.",
+    "❓ Hay 2 preguntas consistentemente difíciles. Considerar expansión de queries o ajuste de retrieval."
+  ]
+}

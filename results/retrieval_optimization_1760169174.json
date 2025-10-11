@@ -1,0 +1,1217 @@
+{
+  "optimization_metadata": {
+    "timestamp": 1760169174.9813159,
+    "tested_questions": [
+      22,
+      6,
+      14,
+      19
+    ],
+    "total_tests": 4
+  },
+  "baseline_results": {
+    "Q22": {
+      "question": "¿Qué se hace en la actividad de resis?",
+      "keywords": [
+        "resis",
+        "acollida",
+        "residentes",
+        "pasar tiempo",
+        "actividades"
+      ],
+      "baseline": {
+        "docs_count": 10,
+        "relevance_score": 0.18,
+        "processing_time": 0.028429031372070312
+      },
+      "enhanced": {
+        "docs_count": 10,
+        "relevance_score": 0.18,
+        "processing_time": 0.0247952938079834
+      },
+      "improvement": 0.0
+    },
+    "Q6": {
+      "question": "¿Cómo me apunto a desayunos solidarios?",
+      "keywords": [
+        "miércoles",
+        "sábado",
+        "whatsapp",
+        "formulario",
+        "inscribirse"
+      ],
+      "baseline": {
+        "docs_count": 10,
+        "relevance_score": 0.12,
+        "processing_time": 0.022644519805908203
+      },
+      "enhanced": {
+        "docs_count": 8,
+        "relevance_score": 0.15,
+        "processing_time": 0.023022890090942383
+      },
+      "improvement": 0.03
+    },
+    "Q14": {
+      "question": "¿Qué edad tienen los niños en coles?",
+      "keywords": [
+        "tres años",
+        "sexto de primaria",
+        "infantil",
+        "primaria",
+        "edades"
+      ],
+      "baseline": {
+        "docs_count": 10,
+        "relevance_score": 0.2,
+        "processing_time": 0.021570682525634766
+      },
+      "enhanced": {
+        "docs_count": 10,
+        "relevance_score": 0.2,
+        "processing_time": 0.02151799201965332
+      },
+      "improvement": 0.0
+    },
+    "Q19": {
+      "question": "¿Qué otras actividades se hacen relacionadas con niños?",
+      "keywords": [
+        "reyes",
+        "navidad",
+        "día del niño",
+        "terra mítica",
+        "verano"
+      ],
+      "baseline": {
+        "docs_count": 10,
+        "relevance_score": 0.2,
+        "processing_time": 0.021465778350830078
+      },
+      "enhanced": {
+        "docs_count": 8,
+        "relevance_score": 0.25,
+        "processing_time": 0.02136540412902832
+      },
+      "improvement": 0.04999999999999999
+    }
+  },
+  "parameter_optimization": {
+    "Q22": {
+      "question": "¿Qué se hace en la actividad de resis?",
+      "tested_configs": [
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.32,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.32,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.32,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.32,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.32,
+          "docs_count": 5
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.2,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.2,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.2,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.2,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.2,
+          "docs_count": 8
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.18,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.18,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.18,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.18,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.18,
+          "docs_count": 10
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.18333333333333332,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.18333333333333332,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.18333333333333332,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.18333333333333332,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.18333333333333332,
+          "docs_count": 12
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.17333333333333334,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.17333333333333334,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.17333333333333334,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.17333333333333334,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.17333333333333334,
+          "docs_count": 15
+        }
+      ],
+      "best_config": {
+        "top_k": 5,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.32,
+        "docs_count": 5
+      },
+      "best_score": 0.32
+    },
+    "Q6": {
+      "question": "¿Cómo me apunto a desayunos solidarios?",
+      "tested_configs": [
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.2,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.2,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.2,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.2,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.2,
+          "docs_count": 5
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.15,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.15,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.15,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.15,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.15,
+          "docs_count": 8
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.12,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.12,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.12,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.12,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.12,
+          "docs_count": 10
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.1,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.1,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.1,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.1,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.1,
+          "docs_count": 12
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.08,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.08,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.08,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.08,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.08,
+          "docs_count": 15
+        }
+      ],
+      "best_config": {
+        "top_k": 5,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.2,
+        "docs_count": 5
+      },
+      "best_score": 0.2
+    },
+    "Q14": {
+      "question": "¿Qué edad tienen los niños en coles?",
+      "tested_configs": [
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.4,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.4,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.4,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.4,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.4,
+          "docs_count": 5
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.25,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.25,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.25,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.25,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.25,
+          "docs_count": 8
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.2,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.2,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.2,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.2,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.2,
+          "docs_count": 10
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.16666666666666666,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.16666666666666666,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.16666666666666666,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.16666666666666666,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.16666666666666666,
+          "docs_count": 12
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15
+        }
+      ],
+      "best_config": {
+        "top_k": 5,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.4,
+        "docs_count": 5
+      },
+      "best_score": 0.4
+    },
+    "Q19": {
+      "question": "¿Qué otras actividades se hacen relacionadas con niños?",
+      "tested_configs": [
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.2,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.2,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.2,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.2,
+          "docs_count": 5
+        },
+        {
+          "top_k": 5,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.2,
+          "docs_count": 5
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.25,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.25,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.25,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.25,
+          "docs_count": 8
+        },
+        {
+          "top_k": 8,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.25,
+          "docs_count": 8
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.2,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.2,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.2,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.2,
+          "docs_count": 10
+        },
+        {
+          "top_k": 10,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.2,
+          "docs_count": 10
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.16666666666666666,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.16666666666666666,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.16666666666666666,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.16666666666666666,
+          "docs_count": 12
+        },
+        {
+          "top_k": 12,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.16666666666666666,
+          "docs_count": 12
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.2,
+          "relevance_score": 0.14285714285714285,
+          "docs_count": 14
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.3,
+          "relevance_score": 0.14285714285714285,
+          "docs_count": 14
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.35,
+          "relevance_score": 0.14285714285714285,
+          "docs_count": 14
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.4,
+          "relevance_score": 0.14285714285714285,
+          "docs_count": 14
+        },
+        {
+          "top_k": 15,
+          "similarity_threshold": 0.5,
+          "relevance_score": 0.14285714285714285,
+          "docs_count": 14
+        }
+      ],
+      "best_config": {
+        "top_k": 8,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.25,
+        "docs_count": 8
+      },
+      "best_score": 0.25
+    }
+  },
+  "query_expansion": {
+    "Q22": {
+      "original_query": "¿Qué se hace en la actividad de resis?",
+      "keywords": [
+        "resis",
+        "acollida",
+        "residentes",
+        "pasar tiempo",
+        "actividades"
+      ],
+      "expanded_queries": [
+        "¿Qué se hace en la actividad de resis? acollida",
+        "residencia acollida actividades",
+        "¿Qué se hace en la actividad de resis? residentes",
+        "voluntariado personas mayores",
+        "actividades con residentes acollida"
+      ],
+      "comparisons": [
+        {
+          "query_type": "original",
+          "query": "¿Qué se hace en la actividad de resis?",
+          "relevance_score": 0.17333333333333334,
+          "docs_count": 15
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Qué se hace en la actividad de resis? acollida",
+          "relevance_score": 0.17333333333333334,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        {
+          "query_type": "expanded",
+          "query": "residencia acollida actividades",
+          "relevance_score": 0.26666666666666666,
+          "docs_count": 15,
+          "improvement": 0.09333333333333332
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Qué se hace en la actividad de resis? residentes",
+          "relevance_score": 0.2,
+          "docs_count": 15,
+          "improvement": 0.026666666666666672
+        },
+        {
+          "query_type": "expanded",
+          "query": "voluntariado personas mayores",
+          "relevance_score": 0.09333333333333334,
+          "docs_count": 15,
+          "improvement": -0.08
+        },
+        {
+          "query_type": "expanded",
+          "query": "actividades con residentes acollida",
+          "relevance_score": 0.30666666666666664,
+          "docs_count": 15,
+          "improvement": 0.1333333333333333
+        }
+      ]
+    },
+    "Q6": {
+      "original_query": "¿Cómo me apunto a desayunos solidarios?",
+      "keywords": [
+        "miércoles",
+        "sábado",
+        "whatsapp",
+        "formulario",
+        "inscribirse"
+      ],
+      "expanded_queries": [
+        "¿Cómo me apunto a desayunos solidarios? whatsapp",
+        "¿Cómo me apunto a desayunos solidarios? sábado",
+        "inscripción voluntariado comida",
+        "¿Cómo me apunto a desayunos solidarios? miércoles",
+        "formulario whatsapp comidas solidarias",
+        "apuntarse voluntario desayuno"
+      ],
+      "comparisons": [
+        {
+          "query_type": "original",
+          "query": "¿Cómo me apunto a desayunos solidarios?",
+          "relevance_score": 0.08,
+          "docs_count": 15
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Cómo me apunto a desayunos solidarios? whatsapp",
+          "relevance_score": 0.16,
+          "docs_count": 15,
+          "improvement": 0.08
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Cómo me apunto a desayunos solidarios? sábado",
+          "relevance_score": 0.10666666666666667,
+          "docs_count": 15,
+          "improvement": 0.026666666666666672
+        },
+        {
+          "query_type": "expanded",
+          "query": "inscripción voluntariado comida",
+          "relevance_score": 0.04,
+          "docs_count": 15,
+          "improvement": -0.04
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Cómo me apunto a desayunos solidarios? miércoles",
+          "relevance_score": 0.10666666666666667,
+          "docs_count": 15,
+          "improvement": 0.026666666666666672
+        },
+        {
+          "query_type": "expanded",
+          "query": "formulario whatsapp comidas solidarias",
+          "relevance_score": 0.14666666666666667,
+          "docs_count": 15,
+          "improvement": 0.06666666666666667
+        },
+        {
+          "query_type": "expanded",
+          "query": "apuntarse voluntario desayuno",
+          "relevance_score": 0.02666666666666667,
+          "docs_count": 15,
+          "improvement": -0.05333333333333333
+        }
+      ]
+    },
+    "Q14": {
+      "original_query": "¿Qué edad tienen los niños en coles?",
+      "keywords": [
+        "tres años",
+        "sexto de primaria",
+        "infantil",
+        "primaria",
+        "edades"
+      ],
+      "expanded_queries": [
+        "¿Qué edad tienen los niños en coles? infantil",
+        "¿Qué edad tienen los niños en coles? tres años",
+        "niños centros acogida actividades",
+        "¿Qué edad tienen los niños en coles? sexto de primaria",
+        "colegio refuerzo escolar",
+        "actividades infantiles voluntariado"
+      ],
+      "comparisons": [
+        {
+          "query_type": "original",
+          "query": "¿Qué edad tienen los niños en coles?",
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Qué edad tienen los niños en coles? infantil",
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Qué edad tienen los niños en coles? tres años",
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        {
+          "query_type": "expanded",
+          "query": "niños centros acogida actividades",
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Qué edad tienen los niños en coles? sexto de primaria",
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        {
+          "query_type": "expanded",
+          "query": "colegio refuerzo escolar",
+          "relevance_score": 0.06666666666666667,
+          "docs_count": 15,
+          "improvement": -0.06666666666666667
+        },
+        {
+          "query_type": "expanded",
+          "query": "actividades infantiles voluntariado",
+          "relevance_score": 0.06666666666666667,
+          "docs_count": 15,
+          "improvement": -0.06666666666666667
+        }
+      ]
+    },
+    "Q19": {
+      "original_query": "¿Qué otras actividades se hacen relacionadas con niños?",
+      "keywords": [
+        "reyes",
+        "navidad",
+        "día del niño",
+        "terra mítica",
+        "verano"
+      ],
+      "expanded_queries": [
+        "niños centros acogida actividades",
+        "¿Qué otras actividades se hacen relacionadas con niños? día del niño",
+        "¿Qué otras actividades se hacen relacionadas con niños? navidad",
+        "¿Qué otras actividades se hacen relacionadas con niños? reyes",
+        "colegio refuerzo escolar",
+        "actividades infantiles voluntariado"
+      ],
+      "comparisons": [
+        {
+          "query_type": "original",
+          "query": "¿Qué otras actividades se hacen relacionadas con niños?",
+          "relevance_score": 0.14285714285714285,
+          "docs_count": 14
+        },
+        {
+          "query_type": "expanded",
+          "query": "niños centros acogida actividades",
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15,
+          "improvement": -0.009523809523809518
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Qué otras actividades se hacen relacionadas con niños? día del niño",
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15,
+          "improvement": -0.009523809523809518
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Qué otras actividades se hacen relacionadas con niños? navidad",
+          "relevance_score": 0.18571428571428572,
+          "docs_count": 14,
+          "improvement": 0.04285714285714287
+        },
+        {
+          "query_type": "expanded",
+          "query": "¿Qué otras actividades se hacen relacionadas con niños? reyes",
+          "relevance_score": 0.18571428571428572,
+          "docs_count": 14,
+          "improvement": 0.04285714285714287
+        },
+        {
+          "query_type": "expanded",
+          "query": "colegio refuerzo escolar",
+          "relevance_score": 0.0,
+          "docs_count": 15,
+          "improvement": -0.14285714285714285
+        },
+        {
+          "query_type": "expanded",
+          "query": "actividades infantiles voluntariado",
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15,
+          "improvement": -0.009523809523809518
+        }
+      ]
+    }
+  },
+  "reranking_results": {
+    "Q22": {
+      "question": "¿Qué se hace en la actividad de resis?",
+      "keywords": [
+        "resis",
+        "acollida",
+        "residentes",
+        "pasar tiempo",
+        "actividades"
+      ],
+      "base_docs": 15,
+      "base_relevance": 0.17333333333333334,
+      "reranking_results": {
+        "keyword_priority": {
+          "relevance_score": 0.17333333333333334,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        "length_optimized": {
+          "relevance_score": 0.17333333333333334,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        "hybrid": {
+          "relevance_score": 0.17333333333333334,
+          "docs_count": 15,
+          "improvement": 0.0
+        }
+      }
+    },
+    "Q6": {
+      "question": "¿Cómo me apunto a desayunos solidarios?",
+      "keywords": [
+        "miércoles",
+        "sábado",
+        "whatsapp",
+        "formulario",
+        "inscribirse"
+      ],
+      "base_docs": 15,
+      "base_relevance": 0.08,
+      "reranking_results": {
+        "keyword_priority": {
+          "relevance_score": 0.08,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        "length_optimized": {
+          "relevance_score": 0.08,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        "hybrid": {
+          "relevance_score": 0.08,
+          "docs_count": 15,
+          "improvement": 0.0
+        }
+      }
+    },
+    "Q14": {
+      "question": "¿Qué edad tienen los niños en coles?",
+      "keywords": [
+        "tres años",
+        "sexto de primaria",
+        "infantil",
+        "primaria",
+        "edades"
+      ],
+      "base_docs": 15,
+      "base_relevance": 0.13333333333333333,
+      "reranking_results": {
+        "keyword_priority": {
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        "length_optimized": {
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15,
+          "improvement": 0.0
+        },
+        "hybrid": {
+          "relevance_score": 0.13333333333333333,
+          "docs_count": 15,
+          "improvement": 0.0
+        }
+      }
+    },
+    "Q19": {
+      "question": "¿Qué otras actividades se hacen relacionadas con niños?",
+      "keywords": [
+        "reyes",
+        "navidad",
+        "día del niño",
+        "terra mítica",
+        "verano"
+      ],
+      "base_docs": 14,
+      "base_relevance": 0.14285714285714285,
+      "reranking_results": {
+        "keyword_priority": {
+          "relevance_score": 0.14285714285714285,
+          "docs_count": 14,
+          "improvement": 0.0
+        },
+        "length_optimized": {
+          "relevance_score": 0.14285714285714285,
+          "docs_count": 14,
+          "improvement": 0.0
+        },
+        "hybrid": {
+          "relevance_score": 0.14285714285714285,
+          "docs_count": 14,
+          "improvement": 0.0
+        }
+      }
+    }
+  },
+  "improvements_summary": {
+    "Q22": {
+      "baseline_score": 0.18,
+      "optimization_score": 0.32,
+      "improvement": 0.14,
+      "best_config": {
+        "top_k": 5,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.32,
+        "docs_count": 5
+      }
+    },
+    "Q6": {
+      "baseline_score": 0.12,
+      "optimization_score": 0.2,
+      "improvement": 0.08000000000000002,
+      "best_config": {
+        "top_k": 5,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.2,
+        "docs_count": 5
+      }
+    },
+    "Q14": {
+      "baseline_score": 0.2,
+      "optimization_score": 0.4,
+      "improvement": 0.2,
+      "best_config": {
+        "top_k": 5,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.4,
+        "docs_count": 5
+      }
+    },
+    "Q19": {
+      "baseline_score": 0.2,
+      "optimization_score": 0.25,
+      "improvement": 0.04999999999999999,
+      "best_config": {
+        "top_k": 8,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.25,
+        "docs_count": 8
+      }
+    }
+  },
+  "recommended_configs": {
+    "global_config": {
+      "top_k": 6,
+      "similarity_threshold": 0.2
+    },
+    "by_question": {
+      "Q22": {
+        "top_k": 5,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.32,
+        "docs_count": 5
+      },
+      "Q6": {
+        "top_k": 5,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.2,
+        "docs_count": 5
+      },
+      "Q14": {
+        "top_k": 5,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.4,
+        "docs_count": 5
+      },
+      "Q19": {
+        "top_k": 8,
+        "similarity_threshold": 0.2,
+        "relevance_score": 0.25,
+        "docs_count": 8
+      }
+    }
+  },
+  "next_steps": [
+    "🔧 Refinar optimizaciones en preguntas con mejora baja",
+    "📈 Implementar re-ranking híbrido selectivo",
+    "⚡ Probar configuraciones intermedias",
+    "🎯 Configuración recomendada: top_k=6, threshold=0.2"
+  ],
+  "overall_success_rate": 1.0
+}

@@ -123,11 +123,46 @@ class DomainQueryExpander:
             # Filosofía y valores
             'para-mira-ayuda': [
                 'para mira ayuda', 'pma', 'filosofía dni', 'valores dni',
-                'misión dni', 'principios dni'
+                'misión dni', 'principios dni', 'lema dni', 'significado',
+                'qué significa', 'concepto', 'ideología', 'propósito'
+            ],
+            'para': [
+                'parar', 'detenerse', 'alto', 'parada', 'detener'
+            ],
+            'mira': [
+                'mirar', 'observar', 'ver', 'prestar atención', 'fijarse'
+            ],
+            'ayuda': [
+                'ayudar', 'apoyar', 'colaborar', 'asistir', 'socorrer'
             ],
             'solidaridad': [
                 'ayuda', 'apoyo', 'colaboración', 'compañerismo', 'hermandad',
                 'apoyo mutuo', 'ayuda mutua'
+            ],
+            # Nuevos términos críticos identificados en el análisis
+            'frecuencia': [
+                'cada cuánto', 'cada cuánto tiempo', 'con qué frecuencia', 'periódico',
+                'semanal', 'mensual', 'diario', 'regularmente', 'cuándo a la semana'
+            ],
+            'cuánto': [
+                'duración', 'tiempo', 'cuánto tiempo', 'cuántas horas',
+                'duración actividad', 'horario'
+            ],
+            'días': [
+                'qué días', 'cuándo', 'calendario', 'programación',
+                'agenda', 'fechas', 'horario'
+            ],
+            'anotarse': [
+                'apuntarse', 'inscribirse', 'registrarse', 'reservar plaza',
+                'reservar', 'confirmar asistencia', 'apuntar'
+            ],
+            'coste': [
+                'precio', 'dinero', 'pago', 'cuota', 'tarifa',
+                'gratuito', 'gratis', 'coste económico'
+            ],
+            'contacto': [
+                'contactar', 'comunicar', 'hablar', 'escribir', 'mandar mensaje',
+                'enviar mensaje', 'whatsapp', 'telefono', 'llamar'
             ]
         }
 
@@ -136,7 +171,12 @@ class DomainQueryExpander:
             'DNI': 'Damos Nuestra Ilusión',
             'PMA': 'Para Mira Ayuda',
             'CEIP': 'Centro de Educación Infantil y Primaria',
-            'UPV': 'Universitat Politècnica de València'
+            'UPV': 'Universitat Politècnica de València',
+            # Nuevas abreviaciones críticas identificadas
+            'coles': 'colegio',
+            'resis': 'residencia',
+            'desayunos': 'desayuno solidario',
+            'charlas': 'charla con abuelitos'
         }
 
         # Patrones de reformulación
