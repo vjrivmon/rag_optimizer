@@ -107,7 +107,7 @@ class LLMWrapper:
         context: str,
         strictness: str = 'high'
     ) -> str:
-        """Construye prompt RAG"""
+        """Construye prompt RAG con forzado de español para Qwen"""
         
         system_prompts = {
             'low': "Eres un asistente útil. Responde usando el contexto proporcionado.",
@@ -116,6 +116,10 @@ class LLMWrapper:
         }
         
         system = system_prompts.get(strictness, system_prompts['high'])
+        
+        # FORZAR ESPAÑOL PARA QWEN (problema detectado en chatbot)
+        if 'qwen' in self.model_name.lower():
+            system += "\n\n⚠️ IMPORTANTE: DEBES responder SIEMPRE en ESPAÑOL. NUNCA respondas en inglés ni otros idiomas."
         
         prompt = f"""{system}
 

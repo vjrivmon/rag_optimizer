@@ -1,0 +1,1228 @@
+{
+  "timestamp": "2025-10-11T18:10:17.891032",
+  "benchmark_type": "ensemble_quick_test",
+  "test_questions": [
+    11,
+    20,
+    25
+  ],
+  "models": [
+    "gemma2:27b",
+    "llama3.3:70b",
+    "qwen3:32b",
+    "deepseek-r1:latest"
+  ],
+  "strategies": [
+    "voting",
+    "weighted",
+    "routing",
+    "consensus"
+  ],
+  "total_questions": 3,
+  "results": [
+    {
+      "question": "¿Dónde es la actividad de coles?",
+      "question_id": 11,
+      "individual": [
+        {
+          "model_name": "gemma2:27b",
+          "question": "¿Dónde es la actividad de coles?",
+          "question_id": 11,
+          "answer": "La actividad de coles es en el **CEIP Antonio Ferrandis de la Coma, Valencia**. \n\n\n",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad, el voluntariado es más de clases enfocadas al repaso de deberes o de conceptos, o a la lectura de cuentos, realización de manualidades, etc.",
+            "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados, comprometidos, cercanos.\n\n¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "generation_time": 12.235654354095459,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "coles_optimized",
+            "top_k": 15,
+            "similarity_threshold": 0.1,
+            "semantic_weight": 0.6,
+            "keyword_weight": 0.4
+          },
+          "retrieval_stats": {
+            "num_chunks": 15,
+            "relevant_chunks": 8,
+            "query_used": "¿Dónde es la actividad de coles?",
+            "adaptive_temperature": 0.3,
+            "timeout_used": 22.5
+          }
+        },
+        {
+          "model_name": "llama3.3:70b",
+          "question": "¿Dónde es la actividad de coles?",
+          "question_id": 11,
+          "answer": "La actividad de coles se realiza en el CEIP Antonio Ferrandis de la Coma, Valencia.",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad, el voluntariado es más de clases enfocadas al repaso de deberes o de conceptos, o a la lectura de cuentos, realización de manualidades, etc.",
+            "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados, comprometidos, cercanos.\n\n¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "generation_time": 23.801474571228027,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "coles_optimized",
+            "top_k": 15,
+            "similarity_threshold": 0.1,
+            "semantic_weight": 0.6,
+            "keyword_weight": 0.4
+          },
+          "retrieval_stats": {
+            "num_chunks": 15,
+            "relevant_chunks": 8,
+            "query_used": "¿Dónde es la actividad de coles?",
+            "adaptive_temperature": 0.3,
+            "timeout_used": 37.5
+          }
+        },
+        {
+          "model_name": "qwen3:32b",
+          "question": "¿Dónde es la actividad de coles?",
+          "question_id": 11,
+          "answer": "<think>\nOkay, let's tackle this question. The user is asking where the \"coles\" activity is. First, I need to make sure I understand what \"coles\" refers to here. Since it's in Spanish, maybe it's short for \"colegios\" (schools) or \"colegas\" (colleagues), but in the context of the provided information, it's more likely related to an activity at a school.\n\nLooking through the information provided, there are multiple entries. Let's go through them one by one. \n\nIn entry [1], the question is about what the activity involves, but the answer isn't given there. Entry [2] says the activity is at CEIP Antonio Ferrandis de la Coma in Valencia. The days are mentioned as Monday to Friday from 15:30 to 16:30. Entry [3] repeats the same location: CEIP Antonio Ferrandis de la Coma, Valencia.",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad, el voluntariado es más de clases enfocadas al repaso de deberes o de conceptos, o a la lectura de cuentos, realización de manualidades, etc.",
+            "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados, comprometidos, cercanos.\n\n¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "generation_time": 29.642294883728027,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "qwen3:32b_adaptive",
+            "top_k": 15,
+            "similarity_threshold": 0.1,
+            "semantic_weight": 0.6,
+            "keyword_weight": 0.4
+          },
+          "retrieval_stats": {
+            "num_chunks": 15,
+            "relevant_chunks": 8,
+            "query_used": "¿Dónde es la actividad de coles?",
+            "adaptive_temperature": 0.2,
+            "timeout_used": 27.0
+          }
+        },
+        {
+          "model_name": "deepseek-r1:latest",
+          "question": "¿Dónde es la actividad de coles?",
+          "question_id": 11,
+          "answer": "<think>\nBueno, tengo que responder a la pregunta: \"Dónde es la actividad de coles?\" basándome exclusivamente en la información proporcionada.\n\nPrimero, reviso cada punto para encontrar la ubicación. Observo que hay varios puntos que mencionan la misma actividad de distribución de alimentos o desayunos, pero no mencionan directamente a los \"coles\". Sin embargo, hay un punto que habla sobre actividades de refuerzo escolar en un colegio, ayudando a niños con vidas difíciles. En este caso, el lieu es el CEIP Antonio Ferrandis de la Coma, Valencia.\n\nTambién hay otro punto que menciona que el punto de encuentro es la Porta de la Mar de Valencia, y desde allí repartimos alimentos a zonas específicas como Mestalla, el centro, El Carmen o el río. Pero esta información está relacionada con una actividad diferente,",
+          "contexts": [
+            "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30",
+            "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad, el voluntariado es más de clases enfocadas al repaso de deberes o de conceptos, o a la lectura de cuentos, realización de manualidades, etc.",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde.",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia. Desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde (20:30).",
+            "En actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad el voluntariado es más de clases más enfocadas a el repaso de deberes o de conceptos o a la lectura de cuentos, realización de manualidades etc.",
+            "JUSTIFICACIÓN\n\nEl proyecto \"Charlas con abuelitos\" es una respuesta a la falta de atención que se vive en gran parte de las residencias valencianas. Trata de llenar esa falta de atención a los ancianos que no es profesional, sino social y familiar."
+          ],
+          "generation_time": 21.796491384506226,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": false,
+            "confidence": 0.0,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "exact_search_adaptive",
+            "top_k": 25,
+            "similarity_threshold": 0.05,
+            "semantic_weight": 0.3,
+            "keyword_weight": 0.7
+          },
+          "retrieval_stats": {
+            "num_chunks": 75,
+            "unique_chunks": 28,
+            "filtered_chunks": 8,
+            "relevant_chunks": 6,
+            "queries_used": 5,
+            "adaptive_temperature": 0.5
+          }
+        }
+      ],
+      "ensemble": {
+        "voting": {
+          "answer": "La actividad de coles es en el **CEIP Antonio Ferrandis de la Coma, Valencia**. \n\n\n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b",
+            "qwen3:32b",
+            "deepseek-r1:latest"
+          ],
+          "selection_reason": "Empate en score (0.00) - usando tiebreaker gemma2:27b",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 12.235654354095459,
+          "all_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad, el voluntariado es más de clases enfocadas al repaso de deberes o de conceptos, o a la lectura de cuentos, realización de manualidades, etc.",
+            "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados, comprometidos, cercanos.\n\n¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "strategy": "voting",
+          "strategy_description": "Selecciona respuesta con mayor combined_score"
+        },
+        "weighted": {
+          "answer": "La actividad de coles es en el **CEIP Antonio Ferrandis de la Coma, Valencia**. \n\n\n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b",
+            "qwen3:32b",
+            "deepseek-r1:latest"
+          ],
+          "selection_reason": "Mejor score ponderado: 0.000 (score raw: 0.000, peso: 0.40)",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 12.235654354095459,
+          "weighted_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "raw_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "contributions": {
+            "gemma2:27b": "0.000 (peso: 0.40 × score: 0.000)",
+            "llama3.3:70b": "0.000 (peso: 0.25 × score: 0.000)",
+            "qwen3:32b": "0.000 (peso: 0.30 × score: 0.000)",
+            "deepseek-r1:latest": "0.000 (peso: 0.05 × score: 0.000)"
+          },
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad, el voluntariado es más de clases enfocadas al repaso de deberes o de conceptos, o a la lectura de cuentos, realización de manualidades, etc.",
+            "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados, comprometidos, cercanos.\n\n¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "strategy": "weighted",
+          "strategy_description": "Combina scores con pesos por rendimiento"
+        },
+        "routing": {
+          "answer": "La actividad de coles es en el **CEIP Antonio Ferrandis de la Coma, Valencia**. \n\n\n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b"
+          ],
+          "selection_reason": "Config especial P11: Pregunta factual problemática - modelos más precisos - Routing: mejor de modelos recomendados ['gemma2:27b', 'llama3.3:70b'] - score: 0.00",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 12.235654354095459,
+          "all_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "routing_type": "special",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad, el voluntariado es más de clases enfocadas al repaso de deberes o de conceptos, o a la lectura de cuentos, realización de manualidades, etc.",
+            "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados, comprometidos, cercanos.\n\n¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "strategy": "routing",
+          "strategy_description": "Routing inteligente por tipo de pregunta"
+        },
+        "consensus": {
+          "answer": "La actividad de coles es en el **CEIP Antonio Ferrandis de la Coma, Valencia**. \n\n\n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b",
+            "qwen3:32b",
+            "deepseek-r1:latest"
+          ],
+          "selection_reason": "Divergencia (stdev: 0.000, mean: 0.00) - fallback a gemma2:27b (más confiable)",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 12.235654354095459,
+          "consensus_stats": {
+            "mean_score": 0.0,
+            "stdev_score": 0.0,
+            "max_score": 0.0,
+            "min_score": 0.0,
+            "has_consensus": true,
+            "strategy_used": "fallback_gemma2"
+          },
+          "all_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad, el voluntariado es más de clases enfocadas al repaso de deberes o de conceptos, o a la lectura de cuentos, realización de manualidades, etc.",
+            "La actividad consiste en que un grupo de voluntarios se reúne en un punto de encuentro y se divide en equipos. Cada equipo recorre una zona de Valencia repartiendo desayunos o cenas a personas sin hogar. Lo más importante no es solo la comida, sino el tiempo que se comparte con ellos, ofreciéndoles",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados, comprometidos, cercanos.\n\n¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "strategy": "consensus",
+          "strategy_description": "Busca consenso o aplica fallback inteligente"
+        }
+      },
+      "summary": {
+        "total_models": 4,
+        "total_strategies": 4,
+        "total_time": 87.47621059417725
+      }
+    },
+    {
+      "question": "¿Dónde es la actividad de resis?",
+      "question_id": 20,
+      "individual": [
+        {
+          "model_name": "gemma2:27b",
+          "question": "¿Dónde es la actividad de resis?",
+          "question_id": 20,
+          "answer": "La actividad de resis se realiza en la residencia La Acollida, ubicada en la calle Crevillente 22, muy cerca de Blasco Ibáñez. \n\n\n",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DINÁMICA DE TRABAJO",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "generation_time": 11.97800588607788,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "resis_optimized",
+            "top_k": 10,
+            "similarity_threshold": 0.1,
+            "semantic_weight": 0.6,
+            "keyword_weight": 0.4
+          },
+          "retrieval_stats": {
+            "num_chunks": 10,
+            "relevant_chunks": 3,
+            "query_used": "¿Dónde es la actividad de resis?",
+            "adaptive_temperature": 0.3,
+            "timeout_used": 22.5
+          }
+        },
+        {
+          "model_name": "llama3.3:70b",
+          "question": "¿Dónde es la actividad de resis?",
+          "question_id": 20,
+          "answer": "La actividad de resis se lleva a cabo en la residencia La Acollida, ubicada muy cerca de Blasco Ibáñez en la calle Crevillente 22.",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DINÁMICA DE TRABAJO",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "generation_time": 25.785836696624756,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "resis_optimized",
+            "top_k": 10,
+            "similarity_threshold": 0.1,
+            "semantic_weight": 0.6,
+            "keyword_weight": 0.4
+          },
+          "retrieval_stats": {
+            "num_chunks": 10,
+            "relevant_chunks": 3,
+            "query_used": "¿Dónde es la actividad de resis?",
+            "adaptive_temperature": 0.3,
+            "timeout_used": 37.5
+          }
+        },
+        {
+          "model_name": "qwen3:32b",
+          "question": "¿Dónde es la actividad de resis?",
+          "question_id": 20,
+          "answer": "<think>\nOkay, let's tackle this question. The user is asking where the \"resis\" activity takes place. First, I need to look through the provided information to find the exact location.\n\nLooking at the information given, there are several entries. The key ones here are [2] and [3]. Both mention \"RESIDENCIAS (RESIS)\" and \"RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\". In both of these sections, the question \"¿Dónde es?\" is answered as \"En la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\" So that's the location. \n\nI should check if there's any conflicting information elsewhere. The other entries like [4] to [10] don't mention the location of the resis activity. They talk about other projects like breakfasts, logistics, and events, but not the",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DINÁMICA DE TRABAJO",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "4. RECOGIDA DE ALIMENTOS: Colaborando con bancos de alimentos\n5. RECOGIDA DE PLÁSTICOS: Cuidando el medio ambiente\n6. EVENTOS ESPECIALES: Como Llegada de Reyes, Día del Niño en Terra Mítica, etc.",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "generation_time": 61.29142236709595,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "permissive",
+            "top_k": 12,
+            "similarity_threshold": 0.15,
+            "semantic_weight": 0.7,
+            "keyword_weight": 0.3
+          },
+          "retrieval_stats": {
+            "num_chunks": 12,
+            "relevant_chunks": 3,
+            "query_used": "¿Dónde es la actividad de resis?",
+            "adaptive_temperature": 0.2,
+            "timeout_used": 27.0
+          }
+        },
+        {
+          "model_name": "deepseek-r1:latest",
+          "question": "¿Dónde es la actividad de resis?",
+          "question_id": 20,
+          "answer": "<think>\nOk, voy a intentar resolver esta pregunta usando la información proporcionada. La pregunta es: \"Dónde es la actividad de resis?\" Primero, necesito entender qué se refiere con \"resis\". Parece que hay una actividad llamada Resis, y también hay otra actividad relacionada con el voluntariado en la residencia La Acollida.\n\nReviso los textos proporcionados. En el texto número 2, se dice: \"Residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\" Luego, en el texto número 5, también se menciona lo mismo: \"En la residencia La Acollida...\". Entonces, sé que la actividad de Resis se realiza en esta residencia.\n\nSin embargo, hay otra actividad detallada en el texto número 9. Allí, se menciona que la actividad se realiza en el",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DINÁMICA DE TRABAJO",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "generation_time": 9.935370445251465,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 1.0,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "resis_optimized",
+            "top_k": 10,
+            "similarity_threshold": 0.1,
+            "semantic_weight": 0.6,
+            "keyword_weight": 0.4
+          },
+          "retrieval_stats": {
+            "num_chunks": 10,
+            "relevant_chunks": 3,
+            "query_used": "¿Dónde es la actividad de resis?",
+            "adaptive_temperature": 0.5,
+            "timeout_used": 30.0
+          }
+        }
+      ],
+      "ensemble": {
+        "voting": {
+          "answer": "La actividad de resis se realiza en la residencia La Acollida, ubicada en la calle Crevillente 22, muy cerca de Blasco Ibáñez. \n\n\n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b",
+            "qwen3:32b",
+            "deepseek-r1:latest"
+          ],
+          "selection_reason": "Empate en score (0.00) - usando tiebreaker gemma2:27b",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 11.97800588607788,
+          "all_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DINÁMICA DE TRABAJO",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "strategy": "voting",
+          "strategy_description": "Selecciona respuesta con mayor combined_score"
+        },
+        "weighted": {
+          "answer": "La actividad de resis se realiza en la residencia La Acollida, ubicada en la calle Crevillente 22, muy cerca de Blasco Ibáñez. \n\n\n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b",
+            "qwen3:32b",
+            "deepseek-r1:latest"
+          ],
+          "selection_reason": "Mejor score ponderado: 0.000 (score raw: 0.000, peso: 0.40)",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 11.97800588607788,
+          "weighted_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "raw_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "contributions": {
+            "gemma2:27b": "0.000 (peso: 0.40 × score: 0.000)",
+            "llama3.3:70b": "0.000 (peso: 0.25 × score: 0.000)",
+            "qwen3:32b": "0.000 (peso: 0.30 × score: 0.000)",
+            "deepseek-r1:latest": "0.000 (peso: 0.05 × score: 0.000)"
+          },
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DINÁMICA DE TRABAJO",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "strategy": "weighted",
+          "strategy_description": "Combina scores con pesos por rendimiento"
+        },
+        "routing": {
+          "answer": "La actividad de resis se realiza en la residencia La Acollida, ubicada en la calle Crevillente 22, muy cerca de Blasco Ibáñez. \n\n\n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b"
+          ],
+          "selection_reason": "Config especial P20: Pregunta factual problemática - modelos más precisos - Routing: mejor de modelos recomendados ['gemma2:27b', 'llama3.3:70b'] - score: 0.00",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 11.97800588607788,
+          "all_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "routing_type": "special",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DINÁMICA DE TRABAJO",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "strategy": "routing",
+          "strategy_description": "Routing inteligente por tipo de pregunta"
+        },
+        "consensus": {
+          "answer": "La actividad de resis se realiza en la residencia La Acollida, ubicada en la calle Crevillente 22, muy cerca de Blasco Ibáñez. \n\n\n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b",
+            "qwen3:32b",
+            "deepseek-r1:latest"
+          ],
+          "selection_reason": "Divergencia (stdev: 0.000, mean: 0.00) - fallback a gemma2:27b (más confiable)",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 11.97800588607788,
+          "consensus_stats": {
+            "mean_score": 0.0,
+            "stdev_score": 0.0,
+            "max_score": 0.0,
+            "min_score": 0.0,
+            "has_consensus": true,
+            "strategy_used": "fallback_gemma2"
+          },
+          "all_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "DINÁMICA DE TRABAJO",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, miércoles, jueves y viernes de 15:30 a 16:30.\n\n¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.",
+            "¿Dónde es?\nEl punto de encuentro siempre es la Porta de la Mar de Valencia desde ahí repartimos los alimentos por las zonas de Mestalla, el centro, El Carmen o el río entre otros.\n\n¿A qué hora es?\nLos desayunos son a las 8 de la mañana y las cenas a las ocho y media de la tarde."
+          ],
+          "strategy": "consensus",
+          "strategy_description": "Busca consenso o aplica fallback inteligente"
+        }
+      },
+      "summary": {
+        "total_models": 4,
+        "total_strategies": 4,
+        "total_time": 108.9909417629242
+      }
+    },
+    {
+      "question": "¿Qué significa Para-Mira-Ayuda?",
+      "question_id": 25,
+      "individual": [
+        {
+          "model_name": "gemma2:27b",
+          "question": "¿Qué significa Para-Mira-Ayuda?",
+          "question_id": 25,
+          "answer": "Basándome únicamente en la información proporcionada, **Para-Mira-Ayuda** parece ser el nombre de una iniciativa o proyecto. \n\n\nNo se proporciona una definición explícita de lo que significa. \n",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Qué otras actividades se hacen relacionadas con niños?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "JUSTIFICACIÓN",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN"
+          ],
+          "generation_time": 12.297003984451294,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 0.95,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "gemma2:27b_adaptive",
+            "top_k": 10,
+            "similarity_threshold": 0.2,
+            "semantic_weight": 0.6,
+            "keyword_weight": 0.4
+          },
+          "retrieval_stats": {
+            "num_chunks": 10,
+            "relevant_chunks": 0,
+            "query_used": "¿Qué significa Para-Mira-Ayuda?",
+            "adaptive_temperature": 0.3,
+            "timeout_used": 18.0
+          }
+        },
+        {
+          "model_name": "llama3.3:70b",
+          "question": "¿Qué significa Para-Mira-Ayuda?",
+          "question_id": 25,
+          "answer": "La información proporcionada no contiene una definición o explicación explícita de lo que significa \"Para-Mira-Ayuda\". Esta frase parece ser un título o encabezado, pero su significado no se detalla en los textos suministrados. Por lo tanto, basándome únicamente en la información disponible, no puedo proporcionar una respuesta clara sobre qué significa \"Para-Mira-Ayuda\".",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Qué otras actividades se hacen relacionadas con niños?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "JUSTIFICACIÓN",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN"
+          ],
+          "generation_time": 45.85892462730408,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 0.95,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "standard",
+            "top_k": 10,
+            "similarity_threshold": 0.2,
+            "semantic_weight": 0.6,
+            "keyword_weight": 0.4
+          },
+          "retrieval_stats": {
+            "num_chunks": 10,
+            "relevant_chunks": 0,
+            "query_used": "¿Qué significa Para-Mira-Ayuda?",
+            "adaptive_temperature": 0.3,
+            "timeout_used": 30.0
+          }
+        },
+        {
+          "model_name": "qwen3:32b",
+          "question": "¿Qué significa Para-Mira-Ayuda?",
+          "question_id": 25,
+          "answer": "<think>\nOkay, let's see. The user is asking what \"Para-Mira-Ayuda\" means. I need to look through the provided information to find the answer.\n\nLooking at the texts, the key part is in point [7], which says \"PARA. MIRA. AYUDA.\" under the section \"DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\". The other parts mention DNI, which is an acronym for \"Damos Nuestra Ilusión\". But the question is about \"Para-Mira-Ayuda\". \n\nThe information given doesn't explain what each part of \"Para-Mira-Ayuda\" stands for. It's just listed there. The other sections talk about activities in a residence, volunteer work, and other projects like breakfasts and dinners, but nothing directly explaining the three words. \n\nSo, based on the available info, the only mention is the phrase itself in [7]. Since",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados, comprometidos, cercanos.\n\n¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?",
+            "¿Qué otras actividades se hacen relacionadas con niños?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "JUSTIFICACIÓN",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+            "- AUTÉNTICOS: Sin máscaras ni segundas intenciones\n- ALEGRES: Repartimos ilusión y alegría por donde vamos\n- SENCILLOS: Hacemos de lo ordinario un momentazo",
+            "DNI busca dejar un mundo mejor, aspira a ayudar al vecino, no pretende irse muy lejos para conseguir hacer algo bueno, porque siempre tendremos a una persona cerca que nos está esperando. No pretende ser importante, sino meterse en tu día a día, habituarte a parar, enseñarte a mirar, con cariño y",
+            "PARA. MIRA. AYUDA.\n\nEstas son las tres palabras que guían la labor de nuestros voluntarios. En un mundo que avanza a un ritmo frenético, es necesario detenerse para ser conscientes de aquellos que nos rodean y estar dispuesto a ofrecer nuestra ayuda con generosidad y alegría.",
+            "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes."
+          ],
+          "generation_time": 20.121607542037964,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 0.95,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "qwen3:32b_adaptive",
+            "top_k": 15,
+            "similarity_threshold": 0.1,
+            "semantic_weight": 0.6,
+            "keyword_weight": 0.4
+          },
+          "retrieval_stats": {
+            "num_chunks": 15,
+            "relevant_chunks": 0,
+            "query_used": "¿Qué significa Para-Mira-Ayuda?",
+            "adaptive_temperature": 0.4,
+            "timeout_used": 21.599999999999998
+          }
+        },
+        {
+          "model_name": "deepseek-r1:latest",
+          "question": "¿Qué significa Para-Mira-Ayuda?",
+          "question_id": 25,
+          "answer": "<think>\nBueno, voy a intentar responder a esta pregunta usando solo la información proporcionada. Primero, necesito entender qué significa \"Para-Mira-Ayuda\" basándome exclusivamente en lo que está allí.\n\nReviso los textos del 7 al 10. Texto 7 dice: \"DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\". Esto me parece relacionado con DNI, pero no me dice directamente qué es \"Para-Mira-Ayuda\".\n\nTextos 4 y 5 hablan sobre los jóvenes de DNI, sus pasiones y comprometimientos. Texto 7 menciona quiénes somos, lo cual podría estar relacionado con la comunidad o el proyecto.\n\nSin embargo, no hay directamente una sección que explique \"Para-Mira-Ayuda\". Podría inferir que es una parte del proyecto relacionado con el desay",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados, comprometidos, cercanos.\n\n¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?",
+            "¿Qué otras actividades se hacen relacionadas con niños?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "JUSTIFICACIÓN",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+            "- AUTÉNTICOS: Sin máscaras ni segundas intenciones\n- ALEGRES: Repartimos ilusión y alegría por donde vamos\n- SENCILLOS: Hacemos de lo ordinario un momentazo",
+            "DNI busca dejar un mundo mejor, aspira a ayudar al vecino, no pretende irse muy lejos para conseguir hacer algo bueno, porque siempre tendremos a una persona cerca que nos está esperando. No pretende ser importante, sino meterse en tu día a día, habituarte a parar, enseñarte a mirar, con cariño y",
+            "PARA. MIRA. AYUDA.\n\nEstas son las tres palabras que guían la labor de nuestros voluntarios. En un mundo que avanza a un ritmo frenético, es necesario detenerse para ser conscientes de aquellos que nos rodean y estar dispuesto a ofrecer nuestra ayuda con generosidad y alegría.",
+            "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes."
+          ],
+          "generation_time": 9.235924243927002,
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "validation": {
+            "is_valid": true,
+            "confidence": 0.95,
+            "issues": [],
+            "protocol_used": "unknown"
+          },
+          "config_used": {
+            "name": "deepseek-r1:latest_adaptive",
+            "top_k": 15,
+            "similarity_threshold": 0.1,
+            "semantic_weight": 0.6,
+            "keyword_weight": 0.4
+          },
+          "retrieval_stats": {
+            "num_chunks": 15,
+            "relevant_chunks": 0,
+            "query_used": "¿Qué significa Para-Mira-Ayuda?",
+            "adaptive_temperature": 0.3,
+            "timeout_used": 24.0
+          }
+        }
+      ],
+      "ensemble": {
+        "voting": {
+          "answer": "Basándome únicamente en la información proporcionada, **Para-Mira-Ayuda** parece ser el nombre de una iniciativa o proyecto. \n\n\nNo se proporciona una definición explícita de lo que significa. \n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b",
+            "qwen3:32b",
+            "deepseek-r1:latest"
+          ],
+          "selection_reason": "Empate en score (0.00) - usando tiebreaker gemma2:27b",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 12.297003984451294,
+          "all_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Qué otras actividades se hacen relacionadas con niños?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "JUSTIFICACIÓN",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN"
+          ],
+          "strategy": "voting",
+          "strategy_description": "Selecciona respuesta con mayor combined_score"
+        },
+        "weighted": {
+          "answer": "Basándome únicamente en la información proporcionada, **Para-Mira-Ayuda** parece ser el nombre de una iniciativa o proyecto. \n\n\nNo se proporciona una definición explícita de lo que significa. \n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b",
+            "qwen3:32b",
+            "deepseek-r1:latest"
+          ],
+          "selection_reason": "Mejor score ponderado: 0.000 (score raw: 0.000, peso: 0.40)",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 12.297003984451294,
+          "weighted_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "raw_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "contributions": {
+            "gemma2:27b": "0.000 (peso: 0.40 × score: 0.000)",
+            "llama3.3:70b": "0.000 (peso: 0.25 × score: 0.000)",
+            "qwen3:32b": "0.000 (peso: 0.30 × score: 0.000)",
+            "deepseek-r1:latest": "0.000 (peso: 0.05 × score: 0.000)"
+          },
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Qué otras actividades se hacen relacionadas con niños?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "JUSTIFICACIÓN",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN"
+          ],
+          "strategy": "weighted",
+          "strategy_description": "Combina scores con pesos por rendimiento"
+        },
+        "routing": {
+          "answer": "Basándome únicamente en la información proporcionada, **Para-Mira-Ayuda** parece ser el nombre de una iniciativa o proyecto. \n\n\nNo se proporciona una definición explícita de lo que significa. \n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "llama3.3:70b",
+            "gemma2:27b"
+          ],
+          "selection_reason": "Synthesis P25: combinando llama3.3:70b, gemma2:27b - usando mejor: gemma2:27b",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 58.15592861175537,
+          "synthesis_mode": true,
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Qué otras actividades se hacen relacionadas con niños?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "JUSTIFICACIÓN",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN"
+          ],
+          "strategy": "routing",
+          "strategy_description": "Routing inteligente por tipo de pregunta"
+        },
+        "consensus": {
+          "answer": "Basándome únicamente en la información proporcionada, **Para-Mira-Ayuda** parece ser el nombre de una iniciativa o proyecto. \n\n\nNo se proporciona una definición explícita de lo que significa. \n",
+          "selected_from": "gemma2:27b",
+          "models_used": [
+            "gemma2:27b",
+            "llama3.3:70b",
+            "qwen3:32b",
+            "deepseek-r1:latest"
+          ],
+          "selection_reason": "Divergencia (stdev: 0.000, mean: 0.00) - fallback a gemma2:27b (más confiable)",
+          "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0,
+            "combined_score": 0.0
+          },
+          "generation_time": 12.297003984451294,
+          "consensus_stats": {
+            "mean_score": 0.0,
+            "stdev_score": 0.0,
+            "max_score": 0.0,
+            "min_score": 0.0,
+            "has_consensus": true,
+            "strategy_used": "fallback_gemma2"
+          },
+          "all_scores": {
+            "gemma2:27b": 0.0,
+            "llama3.3:70b": 0.0,
+            "qwen3:32b": 0.0,
+            "deepseek-r1:latest": 0.0
+          },
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Qué otras actividades se hacen relacionadas con niños?",
+            "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+            "DAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+            "DINÁMICA DE TRABAJO",
+            "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+            "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+            "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+            "JUSTIFICACIÓN",
+            "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN"
+          ],
+          "strategy": "consensus",
+          "strategy_description": "Busca consenso o aplica fallback inteligente"
+        }
+      },
+      "summary": {
+        "total_models": 4,
+        "total_strategies": 4,
+        "total_time": 87.51374435424805
+      }
+    }
+  ]
+}

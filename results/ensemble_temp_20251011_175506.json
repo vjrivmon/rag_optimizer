@@ -1,0 +1,49 @@
+{
+  "timestamp": "2025-10-11T17:14:51.374941",
+  "benchmark_type": "ensemble",
+  "models": [
+    "gemma2:27b",
+    "llama3.3:70b",
+    "qwen3:32b",
+    "deepseek-r1:latest"
+  ],
+  "strategies": [
+    "voting",
+    "weighted",
+    "routing",
+    "consensus"
+  ],
+  "total_questions": 26,
+  "results": [
+    {
+      "question": "¿Qué se hace en la actividad de desayunos?",
+      "question_id": 1,
+      "individual": [
+        {
+          "model_name": "gemma2:27b",
+          "question": "¿Qué se hace en la actividad de desayunos?",
+          "question_id": 1,
+          "answer": "En la actividad de desayunos se reparte comida a personas en la calle.",
+          "contexts": [
+            "¿Qué se hace en la actividad?",
+            "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+            "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+            "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+            "Depende un poco del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+            "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión. Este voluntariado es uno de los primeros en nuestra asociación y, a la vez, de los que más nos representan como institución y por nuestra manera de hacer voluntariado, siendo jóvenes, cercanos y",
+            "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+            "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes.",
+            "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes",
+            "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difíciles. Dependiendo de la edad, el voluntariado es más de clases enfocadas al repaso de deberes o de conceptos, o a la lectura de cuentos, realización de manualidades, etc."
+          ],
+          "generation_time": 9.67607855796814,
+          "metrics": {
+            "combined_score": 0.0,
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+            "answer_similarity": 0.0
+          },
+          "validation": 

@@ -1,0 +1,307 @@
+/*
+=========================================
+CHATBOT RAG - ANIMACIONES
+=========================================
+Animaciones suaves para indicador de "pensando"
+y transiciones de mensajes
+*/
+
+/* ============================================ */
+/* INDICADOR DE PENSANDO (TIPO CLAUDE) */
+/* ============================================ */
+
+.thinking-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--bot-bubble);
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  border-bottom-left-radius: 4px;
+  max-width: fit-content;
+  box-shadow: var(--shadow);
+}
+
+.thinking-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid var(--border-color);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+.thinking-text {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-secondary);
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+/* ============================================ */
+/* KEYFRAMES */
+/* ============================================ */
+
+/* Rotación del spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade in/out para el texto de pensando */
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Pulso para indicador de estado */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Slide in para mensajes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade out para ocultar card */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    max-height: 500px;
+  }
+  to {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+/* Modal slide in */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Bounce suave */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* ============================================ */
+/* ANIMACIÓN DE TYPING (OPCIONAL) */
+/* ============================================ */
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid var(--accent-color);
+  white-space: nowrap;
+  animation: typing 0.05s steps(1) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ============================================ */
+/* ANIMACIÓN DE PUNTOS SALTARINES */
+/* ============================================ */
+
+.dots-loading {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  animation: bounce 1.4s ease-in-out infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ============================================ */
+/* TRANSICIONES SUAVES */
+/* ============================================ */
+
+/* Transición para cambios de color */
+.color-transition {
+  transition: background-color 0.3s ease, 
+              border-color 0.3s ease,
+              color 0.3s ease;
+}
+
+/* Transición para hover */
+.hover-lift {
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ============================================ */
+/* ANIMACIÓN DE CARGA */
+/* ============================================ */
+
+.loading-bar {
+  width: 100%;
+  height: 3px;
+  background: var(--border-color);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.loading-bar::after {
+  content: '';
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: var(--accent-color);
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+/* ============================================ */
+/* ANIMACIÓN DE SHAKE (PARA ERRORES) */
+/* ============================================ */
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+/* ============================================ */
+/* ANIMACIÓN DE GLOW */
+/* ============================================ */
+
+.glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(66, 133, 244, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(66, 133, 244, 0.4),
+                0 0 30px rgba(66, 133, 244, 0.2);
+  }
+}
+
+/* ============================================ */
+/* ANIMACIÓN DE EXPAND/COLLAPSE */
+/* ============================================ */
+
+.expand-enter {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.expand-enter-active {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.expand-exit {
+  max-height: 500px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.expand-exit-active {
+  max-height: 0;
+  opacity: 0;
+}
+
