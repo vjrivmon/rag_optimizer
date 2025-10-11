@@ -19,7 +19,7 @@ class ConfigurableRAGEngine:
         self.vector_store = Chroma(
             persist_directory=vector_store_path,
             embedding_function=self.embeddings,
-            collection_name="rag_collection_fixed_v2"  # Usar colección v2 con FAQ optimizado
+            collection_name="langchain"  # Usar colección actual con 106 documentos
         )
 
         # Parámetros por defecto (optimizados basados en benchmark #3)

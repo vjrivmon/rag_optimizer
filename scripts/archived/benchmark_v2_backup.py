@@ -25,7 +25,6 @@ import json
 import sqlite3
 import time
 import re
-import numpy as np
 import os
 from datetime import datetime
 from pathlib import Path
