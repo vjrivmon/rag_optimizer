@@ -15,29 +15,75 @@ from fastapi import WebSocket
 
 def clean_thinking_tags(text: str) -> str:
     """
-    Elimina TODAS las etiquetas de razonamiento interno de los modelos.
-    Cubre DeepSeek R1, Qwen y otros formatos.
+    Elimina las etiquetas <think> y razonamiento en inglés de forma INTELIGENTE.
+    Preserva la respuesta válida en español.
     """
     if not text:
         return text
     
-    # Remover <think>...</think> (formato común)
+    original_text = text
+    
+    # 1. Remover bloques <think>...</think> completos
     text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL | re.IGNORECASE)
     
-    # Remover <thinking>...</thinking> (variante)
+    # 2. Remover <thinking>...</thinking>
     text = re.sub(r'<thinking>.*?</thinking>', '', text, flags=re.DOTALL | re.IGNORECASE)
     
-    # Remover <thought>...</thought>
-    text = re.sub(r'<thought>.*?</thought>', '', text, flags=re.DOTALL | re.IGNORECASE)
+    # 3. Si el texto empieza con razonamiento en inglés (sin tags o con tags abiertos)
+    # Detectar patrones típicos de razonamiento
+    english_reasoning_starts = [
+        'looking through the texts',
+        'looking at point',
+        'okay, let\'s tackle',
+        'first, ',
+        'so the answer is',
+        'but the user is asking',
+        'that seems like',
+        'they ask if',
+    ]
     
-    # Remover bloques de razonamiento sin tags pero con marcadores
-    # Ejemplo: "Okay, let's tackle this question..."
-    text = re.sub(r'^Okay, let\'s.*?(?=\n\n|\Z)', '', text, flags=re.DOTALL | re.IGNORECASE | re.MULTILINE)
+    text_lower = text.lower().strip()
+    starts_with_reasoning = any(text_lower.startswith(pattern) for pattern in english_reasoning_starts)
     
-    # Remover bloques que empiezan con "First, I'll" / "I need to"
-    text = re.sub(r'^(?:First|Okay|Alright|Let me|I need to|I\'ll).*?(?=\n\n|\Z)', '', text, flags=re.DOTALL | re.IGNORECASE | re.MULTILINE)
+    if starts_with_reasoning or text_lower.startswith('<think'):
+        # Buscar indicadores FUERTES de contenido español válido
+        spanish_indicators = [
+            (r'(?:Sí|Si|No), (?:puedes|se puede|está permitido)', 'Respuesta directa'),
+            (r'(?:La|El|Los|Las) (?:actividad|desayuno|formulario|grupo)', 'Sustantivo específico'),
+            (r'En (?:el|la) (?:punto|texto|formulario|actividad)', 'Referencia al texto'),
+            (r'Según (?:el|la) (?:información|texto)', 'Referencia'),
+            (r'Claro\.', 'Afirmación'),
+            (r'Bueno,', 'Inicio de explicación'),
+        ]
+        
+        for pattern, desc in spanish_indicators:
+            match = re.search(pattern, text, re.IGNORECASE)
+            if match:
+                # Encontrado inicio de contenido español
+                text = text[match.start():]
+                print(f"   🔍 Detectado inicio español: {desc} en posición {match.start()}")
+                break
     
-    return text.strip()
+    # 4. Limpiar espacios múltiples y saltos de línea al inicio
+    text = text.strip()
+    text = re.sub(r'^\n+', '', text)
+    
+    # 5. SEGURIDAD: Si después de limpiar queda vacío o muy corto, devolver original
+    if len(text.strip()) < 30:
+        print(f"   ⚠️ WARNING: Filtro dejó texto muy corto ({len(text.strip())} chars), usando original")
+        return original_text
+    
+    # 6. Verificar que la respuesta filtrada tiene sentido (no es solo inglés)
+    # Si más del 50% son palabras en inglés comunes, probablemente falló el filtro
+    english_words = ['the', 'is', 'and', 'or', 'but', 'they', 'you', 'that', 'this', 'looking', 'point']
+    words = text.lower().split()[:20]  # Primeras 20 palabras
+    english_count = sum(1 for word in words if word in english_words)
+    
+    if len(words) > 5 and english_count > len(words) * 0.4:
+        print(f"   ⚠️ WARNING: Respuesta filtrada parece ser mayormente inglés, usando original")
+        return original_text
+    
+    return text
 
 
 def clean_response(text: str) -> str:
@@ -146,8 +192,19 @@ class InteractiveChatHandler:
             
             total_time = time.time() - start_time
             
+            # DEBUG: Ver respuesta ANTES de limpiar
+            raw_answer = result['answer']
+            print(f"\n🔍 DEBUG - Respuesta RAW (primeros 300 chars):")
+            print(f"{raw_answer[:300]}")
+            print(f"\n🔍 Contiene <think>? {('<think>' in raw_answer.lower())}")
+            
             # Limpiar respuesta (eliminar markdown y asteriscos)
-            cleaned_answer = clean_response(result['answer'])
+            cleaned_answer = clean_response(raw_answer)
+            
+            # DEBUG: Ver respuesta DESPUÉS de limpiar
+            print(f"\n🔍 DEBUG - Respuesta LIMPIA (primeros 300 chars):")
+            print(f"{cleaned_answer[:300]}")
+            print(f"\n🔍 Contiene <think>? {('<think>' in cleaned_answer.lower())}")
             
             # Logging detallado en consola
             print(f"\n{'='*80}")

@@ -305,11 +305,15 @@ class ChatApp {
         welcomeMsg.style.display = 'none';
       }
       
-      // Detener animación de placeholder
+      // Detener animación de placeholder y restaurar estático
       if (this.placeholderInterval) {
         clearTimeout(this.placeholderInterval);
         this.placeholderInterval = null;
       }
+      
+      // Restaurar placeholder estático
+      const input = document.getElementById('question-input');
+      input.placeholder = 'Escribe tu pregunta...';
       
       this.isFirstMessage = false;
     }

@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/vicente/Practicas/rag_optimizer_complete/rag_optimizer/logs/.d86ee30e1c4002b33f9c3dba94e5c3e266b48e77-audit.json",
+    "files": [
+        {
+            "date": 1761054998731,
+            "name": "/home/vicente/Practicas/rag_optimizer_complete/rag_optimizer/logs/mcp-puppeteer-2025-10-21.log",
+            "hash": "72b49a9affab91320dee109ef3a5b27e4600ebfaa41cd4c0e1131244bf82a263"
+        }
+    ],
+    "hashType": "sha256"
+}

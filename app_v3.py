@@ -31,7 +31,8 @@ from interface.qualitative_evaluator import (
 )
 from interface.export_professional import (
     export_to_excel,
-    generate_markdown_report
+    generate_markdown_report,
+    export_to_pdf
 )
 
 # ============================================================================
@@ -849,7 +850,7 @@ def main():
         documentación del proyecto.
         """)
         
-        col1, col2 = st.columns(2)
+        col1, col2, col3 = st.columns(3)
         
         with col1:
             st.subheader("📊 Exportar a Excel")
@@ -874,6 +875,34 @@ def main():
                 st.success("✅ Excel generado correctamente!")
         
         with col2:
+            st.subheader("📄 Exportar a PDF")
+            st.markdown("""
+            El reporte PDF incluye:
+            - **Portada** con información general
+            - **Resumen ejecutivo** con métricas agregadas
+            - **Análisis por modelo** con tablas comparativas
+            - **Guía de métricas RAGAs** explicadas
+            - **Tabla completa** de preguntas, respuestas esperadas, respuestas de cada modelo y tiempos
+            - **Conclusiones** y recomendaciones
+            """)
+            
+            if st.button("📄 Generar PDF", type="primary"):
+                with st.spinner("Generando reporte PDF profesional..."):
+                    try:
+                        pdf_buffer = export_to_pdf(enriched_data, dataset, qual_stats)
+                        
+                        st.download_button(
+                            label="⬇️ Descargar PDF",
+                            data=pdf_buffer,
+                            file_name=f"rag_evaluation_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
+                            mime="application/pdf"
+                        )
+                        st.success("✅ PDF generado correctamente!")
+                    except Exception as e:
+                        st.error(f"❌ Error al generar PDF: {str(e)}")
+                        st.info("Asegúrate de tener instaladas las dependencias: pip install reportlab matplotlib")
+        
+        with col3:
             st.subheader("📝 Exportar a Markdown")
             st.markdown("""
             El reporte Markdown incluye:

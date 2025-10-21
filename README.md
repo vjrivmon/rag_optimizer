@@ -116,8 +116,12 @@ streamlit run interface/app_v3.py
 Características del Dashboard v3:
 - 📈 **Análisis cualitativo completo**: Comparación pregunta por pregunta
 - 📊 **Evaluación automática**: Clasificación Correcta ✅ / Incompleta ⚠️ / Incorrecta ❌
-- 📤 **Exportación profesional**: Excel (4 sheets) + Markdown con análisis completo
+- 📤 **Exportación profesional**: Excel (4 sheets) + PDF profesional + Markdown
+  - **PDF incluye**: Tabla comparativa completa con preguntas 1-26, respuestas esperadas, respuestas de cada modelo y tiempos
+  - **Excel incluye**: Análisis detallado por modelo y pregunta con todas las métricas
+  - **Markdown incluye**: Reporte completo en formato texto
 - 🔥 **Heatmap interactivo** con filtros y gráficas de distribución
+- 📖 **Guía de métricas RAGAs**: Explicación detallada de cada métrica con histogramas
 
 ### 4. Benchmark RAG Original
 
