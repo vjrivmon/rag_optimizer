@@ -22,12 +22,12 @@ class ConfigurableRAGEngine:
             collection_name="langchain"  # Usar colección actual con 106 documentos
         )
 
-        # Parámetros por defecto (optimizados basados en benchmark #3)
+        # Parámetros por defecto (optimizados para FAQ chunks Q:/A:)
         self.params = {
             'top_k': 10,  # Aumentado de 8 a 10 para más candidatos
-            'similarity_threshold': 0.35,  # Más permisivo para capturar más contexto
-            'semantic_weight': 0.6,  # Dar más peso a semantic para conceptos abstractos
-            'keyword_weight': 0.4   # Peso menor a BM25 keyword matching
+            'similarity_threshold': 0.30,  # Más permisivo para capturar más contexto
+            'semantic_weight': 0.5,  # Balance entre semantic y keyword
+            'keyword_weight': 0.5   # Más peso a BM25 para priorizar coincidencias exactas (Q:)
         }
 
         # Configurar hybrid retrieval

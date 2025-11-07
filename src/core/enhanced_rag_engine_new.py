@@ -371,6 +371,146 @@ class EnhancedRAGEngineNew:
         print(f"   🚨 Último recurso: búsqueda híbrida exacta para P{question_id}")
         return self._fallback_exact_search(question, question_id)
 
+    def calculate_confidence_score(self, chunks: List[Any], answer: str, question: str) -> float:
+        """
+        Calcula confidence score DINÁMICO basado en la calidad del retrieval y respuesta.
+        
+        Args:
+            chunks: Chunks recuperados (pueden ser dict o Document objects)
+            answer: Respuesta generada
+            question: Pregunta original
+            
+        Returns:
+            float: Confidence score entre 0.0 y 1.0
+        """
+        import numpy as np
+        
+        # Factores de confidence con pesos específicos
+        weighted_scores = []
+        
+        # 1. Número de chunks recuperados (peso: 0.15)
+        if len(chunks) > 0:
+            # Escala: 0-5 chunks = bajo, 5-10 = medio, 10+ = alto
+            if len(chunks) >= 10:
+                chunk_score = 0.9
+            elif len(chunks) >= 5:
+                chunk_score = 0.7
+            else:
+                chunk_score = 0.5
+            weighted_scores.append((chunk_score, 0.15))
+        
+        # 2. Similarity scores si están disponibles (peso: 0.25)
+        similarity_scores = []
+        for chunk in chunks:
+            if isinstance(chunk, dict):
+                if 'score' in chunk:
+                    # ChromaDB usa distancias (menor = mejor)
+                    similarity = 1.0 - min(chunk['score'], 1.0)
+                    similarity_scores.append(similarity)
+                elif 'metadata' in chunk and 'score' in chunk['metadata']:
+                    similarity = 1.0 - min(chunk['metadata']['score'], 1.0)
+                    similarity_scores.append(similarity)
+        
+        if similarity_scores:
+            avg_similarity = np.mean(similarity_scores)
+            weighted_scores.append((avg_similarity, 0.25))
+        else:
+            # Si no hay scores, usar heurística de overlap de contenido
+            overlap_score = self._calculate_content_overlap(chunks, answer, question)
+            weighted_scores.append((overlap_score, 0.25))
+        
+        # 3. Longitud y completitud de respuesta (peso: 0.20)
+        answer_len = len(answer.strip())
+        if answer_len > 200:
+            length_score = 0.9  # Respuesta detallada
+        elif answer_len > 100:
+            length_score = 0.75  # Respuesta media
+        elif answer_len > 50:
+            length_score = 0.6  # Respuesta corta pero válida
+        else:
+            length_score = 0.3  # Muy corta, posiblemente incompleta
+        weighted_scores.append((length_score, 0.20))
+        
+        # 4. Keywords de la pregunta en la respuesta (peso: 0.15)
+        # Filtrar stopwords comunes del español
+        stopwords = {'el', 'la', 'de', 'que', 'y', 'a', 'en', 'un', 'ser', 'se', 'no', 'hay', 'por', 'con', 'su', 'para', 'es'}
+        question_words = set(word.lower() for word in question.split() if word.lower() not in stopwords and len(word) > 2)
+        answer_words = set(word.lower() for word in answer.split() if word.lower() not in stopwords and len(word) > 2)
+        
+        if question_words:
+            keyword_overlap = len(question_words & answer_words) / len(question_words)
+            # Bonus si tiene keywords relevantes como nombres propios
+            if any(word.istitle() for word in answer.split()):
+                keyword_overlap = min(keyword_overlap + 0.1, 1.0)
+            weighted_scores.append((keyword_overlap, 0.15))
+        else:
+            weighted_scores.append((0.5, 0.15))
+        
+        # 5. Ausencia de frases de incertidumbre (peso: 0.15)
+        negative_phrases = [
+            'no sé', 'no se', 'no tengo información', 'no puedo', 
+            'no dispongo', 'desconozco', 'no está claro', 'no encuentro'
+        ]
+        has_negative = any(phrase in answer.lower() for phrase in negative_phrases)
+        uncertainty_score = 0.2 if has_negative else 0.95
+        weighted_scores.append((uncertainty_score, 0.15))
+        
+        # 6. Especificidad de la respuesta (peso: 0.10)
+        # Medir si la respuesta tiene detalles específicos (números, horarios, lugares)
+        specificity_patterns = [r'\d+:\d+', r'\d+\s*(€|euros)', r'\d+\s*horas?', r'[A-Z][a-zá-ú]+\s+[A-Z]']
+        import re
+        specificity_count = sum(1 for pattern in specificity_patterns if re.search(pattern, answer))
+        specificity_score = min(specificity_count / 2.0, 0.95)  # Máximo 2 patrones para 0.95
+        weighted_scores.append((specificity_score, 0.10))
+        
+        # Calcular confidence final con ponderación
+        if weighted_scores:
+            confidence = sum(score * weight for score, weight in weighted_scores) / sum(weight for _, weight in weighted_scores)
+        else:
+            confidence = 0.5  # Default medium confidence
+        
+        # Aplicar threshold mínimo y máximo
+        confidence = max(0.3, min(confidence, 0.95))
+        
+        # DEBUG: mostrar componentes del confidence
+        print(f"   📊 Confidence breakdown:")
+        print(f"      - Chunks: {len(chunks)}")
+        print(f"      - Answer length: {answer_len} chars")
+        print(f"      - Has negative: {has_negative}")
+        print(f"      - Specificity: {specificity_count} patterns")
+        print(f"      → Final confidence: {round(confidence, 3)}")
+        
+        return round(confidence, 3)
+    
+    def _calculate_content_overlap(self, chunks: List[Any], answer: str, question: str) -> float:
+        """
+        Calcula overlap entre chunks recuperados y la respuesta generada.
+        Útil cuando no hay similarity scores disponibles.
+        """
+        # Extraer contenido de chunks
+        chunk_texts = []
+        for chunk in chunks:
+            if isinstance(chunk, dict):
+                chunk_texts.append(chunk.get('content', str(chunk)))
+            elif hasattr(chunk, 'page_content'):
+                chunk_texts.append(chunk.page_content)
+            else:
+                chunk_texts.append(str(chunk))
+        
+        # Unir todo el contenido de chunks
+        all_chunk_content = ' '.join(chunk_texts).lower()
+        answer_lower = answer.lower()
+        
+        # Contar palabras de la respuesta que aparecen en los chunks
+        answer_words = set(word for word in answer_lower.split() if len(word) > 3)
+        if not answer_words:
+            return 0.5
+        
+        words_in_chunks = sum(1 for word in answer_words if word in all_chunk_content)
+        overlap_ratio = words_in_chunks / len(answer_words)
+        
+        return min(overlap_ratio, 0.9)  # Cap at 0.9
+    
     def _try_with_config(self, question: str, question_id: int,
                         config: RetrievalConfig) -> Dict[str, Any]:
         """Intenta procesar con una configuración específica"""
@@ -392,6 +532,9 @@ class EnhancedRAGEngineNew:
 
         # Validar respuesta
         validation = self._validate_answer(answer, question, question_id, chunk_contents)
+        
+        # Calcular confidence score
+        confidence_score = self.calculate_confidence_score(chunks, answer, question)
 
         return {
             'question': question,
@@ -400,6 +543,7 @@ class EnhancedRAGEngineNew:
             'contexts': chunk_contents,
             'config_used': config,
             'validation': validation,
+            'confidence': confidence_score,  # NUEVO: Confidence score
             'retrieval_stats': {
                 'num_chunks': len(chunks),
                 'relevant_chunks': self._count_relevant_chunks(chunk_contents, question_id)
@@ -464,30 +608,47 @@ class EnhancedRAGEngineNew:
         }
 
     def _generate_answer(self, question: str, contexts: List[str]) -> str:
-        """Genera respuesta usando los contextos proporcionados"""
+        """Genera respuesta usando los contextos proporcionados con prompt mejorado"""
 
-        prompt = f"""Basado ÚNICAMENTE en la siguiente información proporcionada, responde a la pregunta.
+        # PROMPT MEJORADO basado en análisis de benchmark real
+        # **MUY ESTRICTO**: Solo usar contexto proporcionado, NO conocimiento externo
+        prompt = f"""Eres el asistente virtual oficial de DNI (Damos Nuestra Ilusión), una asociación de jóvenes voluntarios en Valencia con el lema PARA. MIRA. AYUDA.
 
-PREGUNTA: {question}
+CONTEXTO DE DNI:
+DNI tiene 3 proyectos activos ÚNICAMENTE: 1) Desayunos Solidarios (personas sin hogar), 2) Charlas con Abuelitos RESIS (residencia L'Acollida), 3) Refuerzo Escolar COLES (niños). Más de 400 voluntarios activos, enfocados en jóvenes 18-25 años.
+
+⚠️ ADVERTENCIA CRÍTICA: DNI NO tiene proyectos de kayak, ni de DANA, ni Rehabilitar Valencia, ni ningún otro proyecto medioambiental o de desastres naturales. SOLO los 3 proyectos mencionados arriba.
+
+---
 
 INFORMACIÓN DISPONIBLE:
 """
 
         for i, context in enumerate(contexts[:10], 1):  # Limitar a top 10
-            prompt += f"\n[{i}] {context}"
+            prompt += f"\n[{i}] {context}\n"
 
-        prompt += """
+        prompt += f"""
+---
 
-INSTRUCCIONES:
-1. Busca la respuesta exacta en los textos proporcionados
-2. Responde de manera clara y concisa
-3. Si la información no está en los textos, indícalo claramente
-4. NO inventes información que no esté en los textos
+PREGUNTA DEL USUARIO:
+{question}
 
-RESPUESTA:"""
+---
+
+INSTRUCCIONES CRÍTICAS PARA TU RESPUESTA:
+1. **MUY IMPORTANTE**: Responde SOLO con información de los textos proporcionados arriba. NO uses tu conocimiento externo o pre-entrenado.
+2. Si la pregunta es sobre proyectos que NO aparecen en los textos (ej: kayak, DANA, Rehabilitar Valencia), responde: "No tengo información sobre ese proyecto. DNI se enfoca en Desayunos Solidarios, Residencias (RESIS) y Refuerzo Escolar (COLES). ¿Te gustaría saber más sobre alguno de estos?"
+3. Sé preciso, claro y amigable (tono joven pero profesional)
+4. Si tienes información parcial de los textos, compártela y menciona contacto directo
+5. Usa bullet points para listas (proyectos, horarios, pasos)
+6. Menciona contactos cuando sea apropiado: WhatsApp (962 025 978 / 647 440 275), Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==)
+7. NO inventes información - si no está en los textos, di que no lo sabes
+8. Si la pregunta está fuera de alcance (clima, precios de vivienda, etc.), redirige amablemente a los temas de DNI
+
+TU RESPUESTA (precisa, amigable, basada SOLO en los textos proporcionados):"""
 
         try:
-            response = self.model.generate(prompt=prompt, temperature=0.3, max_tokens=200)
+            response = self.model.generate(prompt=prompt, temperature=0.2, max_tokens=300)
 
             if isinstance(response, dict):
                 return response.get('response', str(response))
@@ -919,31 +1080,48 @@ RESPUESTA:"""
         }
 
     def _generate_answer_adaptive(self, question: str, contexts: List[str], temperature: float) -> str:
-        """Genera respuesta usando los contextos proporcionados con temperatura adaptativa"""
+        """Genera respuesta usando los contextos proporcionados con temperatura adaptativa y prompt mejorado"""
 
-        prompt = f"""Basado ÚNICAMENTE en la siguiente información proporcionada, responde a la pregunta.
+        # PROMPT MEJORADO basado en análisis de benchmark real
+        # **MUY ESTRICTO**: Solo usar contexto proporcionado, NO conocimiento externo
+        prompt = f"""Eres el asistente virtual oficial de DNI (Damos Nuestra Ilusión), una asociación de jóvenes voluntarios en Valencia con el lema PARA. MIRA. AYUDA.
 
-PREGUNTA: {question}
+CONTEXTO DE DNI:
+DNI tiene 3 proyectos activos ÚNICAMENTE: 1) Desayunos Solidarios (personas sin hogar), 2) Charlas con Abuelitos RESIS (residencia L'Acollida), 3) Refuerzo Escolar COLES (niños). Más de 400 voluntarios activos, enfocados en jóvenes 18-25 años.
+
+⚠️ ADVERTENCIA CRÍTICA: DNI NO tiene proyectos de kayak, ni de DANA, ni Rehabilitar Valencia, ni ningún otro proyecto medioambiental o de desastres naturales. SOLO los 3 proyectos mencionados arriba.
+
+---
 
 INFORMACIÓN DISPONIBLE:
 """
 
         for i, context in enumerate(contexts[:10], 1):  # Limitar a top 10
-            prompt += f"\n[{i}] {context}"
+            prompt += f"\n[{i}] {context}\n"
 
-        prompt += """
+        prompt += f"""
+---
 
-INSTRUCCIONES:
-1. Busca la respuesta exacta en los textos proporcionados
-2. Responde de manera clara y concisa
-3. Si la información no está en los textos, indícalo claramente
-4. NO inventes información que no esté en los textos
-5. Sé específico y da detalles concretos si están disponibles
+PREGUNTA DEL USUARIO:
+{question}
 
-RESPUESTA:"""
+---
+
+INSTRUCCIONES CRÍTICAS PARA TU RESPUESTA:
+1. **MUY IMPORTANTE**: Responde SOLO con información de los textos proporcionados arriba. NO uses tu conocimiento externo o pre-entrenado.
+2. Si la pregunta es sobre proyectos que NO aparecen en los textos (ej: kayak, DANA, Rehabilitar Valencia), responde: "No tengo información sobre ese proyecto. DNI se enfoca en Desayunos Solidarios, Residencias (RESIS) y Refuerzo Escolar (COLES). ¿Te gustaría saber más sobre alguno de estos?"
+3. Sé preciso, claro y amigable (tono joven pero profesional)
+4. Si tienes información parcial de los textos, compártela y menciona contacto directo
+5. Usa bullet points para listas (proyectos, horarios, pasos)
+6. Menciona contactos cuando sea apropiado: WhatsApp (962 025 978 / 647 440 275), Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==)
+7. NO inventes información - si no está en los textos, di que no lo sabes
+8. Si la pregunta está fuera de alcance (clima, precios de vivienda, etc.), redirige amablemente a los temas de DNI
+9. Sé específico y da detalles concretos (horarios, lugares, nombres) si están disponibles
+
+TU RESPUESTA (precisa, amigable, basada SOLO en los textos proporcionados):"""
 
         try:
-            response = self.model.generate(prompt=prompt, temperature=temperature, max_tokens=200)
+            response = self.model.generate(prompt=prompt, temperature=temperature, max_tokens=300)
 
             if isinstance(response, dict):
                 return response.get('response', str(response))

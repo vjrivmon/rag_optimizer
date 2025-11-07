@@ -1,0 +1,219 @@
+{
+  "timestamp": 1762429046,
+  "date": "2025-11-06T12:37:26.662807",
+  "configuration": {
+    "llm_model": "gemma2:27b",
+    "ragas_model": "gemma2:27b",
+    "server": "https://ollama.gti-ia.upv.es:443",
+    "embeddings": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+    "num_metrics": 6
+  },
+  "summary": {
+    "total_questions": 10,
+    "successful": 10,
+    "failed": 0,
+    "avg_response_time": 5.829445862770081,
+    "avg_eval_time": 102.52179589271546,
+    "avg_contexts": 10.0
+  },
+  "ragas_metrics_avg": {
+    "faithfulness": 0.8158333333333333,
+    "answer_relevancy": 0.7543252233637698,
+    "context_precision": 0.7209719387527628,
+    "context_recall": 1.0,
+    "answer_correctness": 0.513260960257943,
+    "answer_similarity": 0.6817251597130909
+  },
+  "results": [
+    {
+      "question_id": 1,
+      "question": "¿Qué es DNI?",
+      "answer": "¡Hola! 👋 DNI (Damos Nuestra Ilusión) somos una asociación de jóvenes voluntarios en Valencia con el lema \"PARA. MIRA. AYUDA\". \n\nEn resumen, somos más de 400 voluntarios que nos apasiona ayudar a quienes lo necesitan.  \n\n¿Qué hacemos?\n\n* **Desayunos Solidarios:** Damos desayunos a personas sin hogar.\n* **Charlas con Abuelitos (RESIS):** Visitamos y compartimos tiempo con los residentes de la residencia L'Acollida.\n* **Refuerzo Escolar (COLES):** Ayudamos a niños con sus estudios.\n\nSi quieres saber más sobre nosotros, puedes visitarnos en Instagram (@dnivalenciaa) o contactarnos por WhatsApp al 962 025 978 / 647 440 275. ¡Estamos encantados de conocerte! 😊",
+      "ground_truth": "DNI (Damos Nuestra Ilusión) es una asociación de jóvenes voluntarios en Valencia con el lema PARA. MIRA. AYUDA. Tienen más de 400 voluntarios activos.",
+      "category": "general",
+      "response_time": 8.205442190170288,
+      "eval_time": 109.85922503471375,
+      "contexts_count": 10,
+      "ragas_metrics": {
+        "faithfulness": 0.8333333333333334,
+        "answer_relevancy": 0.5741504599635942,
+        "context_precision": 0.8329931972670116,
+        "context_recall": 1.0,
+        "answer_correctness": 0.4925134929095871,
+        "answer_similarity": 0.7700539716383484
+      },
+      "success": true
+    },
+    {
+      "question_id": 2,
+      "question": "¿Cuál es el lema de DNI?",
+      "answer": "¡Hola! El lema de DNI es \"**Contagiamos ilusión, compartimos esperanza**\". \n\n¿Te gustaría saber más sobre nuestra filosofía \"PARA. MIRA. AYUDA.\"? 😊  Puedes encontrar más información en nuestra web o contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa).\n",
+      "ground_truth": "El lema de DNI es PARA. MIRA. AYUDA., que significa: PARA (detente), MIRA (observa con empatía), AYUDA (actúa).",
+      "category": "general",
+      "response_time": 4.583009958267212,
+      "eval_time": 87.51574277877808,
+      "contexts_count": 10,
+      "ragas_metrics": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8973888547455582,
+        "context_precision": 0.4444444444296296,
+        "context_recall": 1.0,
+        "answer_correctness": 0.14395675025326776,
+        "answer_similarity": 0.575827001013071
+      },
+      "success": true
+    },
+    {
+      "question_id": 3,
+      "question": "¿Cuándo son los desayunos solidarios?",
+      "answer": "¡Hola! Los desayunos solidarios suelen ser los fines de semana (sábados o domingos) por la mañana temprano, típicamente entre las 9:00-12:00h. La hora exacta varía según la zona donde vayamos y la coordinación con las personas sin hogar.\n\nSi quieres saber la hora exacta de la próxima actividad, te recomiendo unirte a nuestro grupo de WhatsApp (962 025 978 / 647 440 275) o seguirnos en Instagram (@dnivalenciaa). ¡Allí publicamos toda la información! 😉\n\n\n",
+      "ground_truth": "Los desayunos solidarios se realizan casi todas las semanas, típicamente los fines de semana (sábados o domingos) por la mañana entre las 9:00-12:00h.",
+      "category": "desayunos",
+      "response_time": 6.18924617767334,
+      "eval_time": 135.57013964653015,
+      "contexts_count": 10,
+      "ragas_metrics": {
+        "faithfulness": 0.625,
+        "answer_relevancy": 0.9355856467008059,
+        "context_precision": 0.5053968253867175,
+        "context_recall": 1.0,
+        "answer_correctness": 0.5421890847092262,
+        "answer_similarity": 0.7841409542215203
+      },
+      "success": true
+    },
+    {
+      "question_id": 4,
+      "question": "¿Dónde es el punto de encuentro para desayunos?",
+      "answer": "¡Hola! El punto de encuentro para los desayunos solidarios siempre es la **Porta de la Mar** de Valencia. \n\nDesde allí nos dividimos en equipos y vamos a diferentes zonas de la ciudad como Mestalla, el centro, El Carmen o el río.\n\nSi quieres saber más detalles sobre la próxima salida, te recomiendo unirte a nuestro grupo de WhatsApp (962 025 978 / 647 440 275) o seguirnos en Instagram (@dnivalenciaa). ¡Te esperamos! 😊\n\n\n",
+      "ground_truth": "El punto de encuentro para desayunos solidarios es la Porta de la Mar en Valencia.",
+      "category": "desayunos",
+      "response_time": 5.865747690200806,
+      "eval_time": 96.66210532188416,
+      "contexts_count": 10,
+      "ragas_metrics": {
+        "faithfulness": 0.6666666666666666,
+        "answer_relevancy": 0.727301065399387,
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0,
+        "answer_correctness": 0.4923976045619548,
+        "answer_similarity": 0.769590418247819
+      },
+      "success": true
+    },
+    {
+      "question_id": 5,
+      "question": "¿Qué días son las visitas a la residencia?",
+      "answer": "¡Hola! Las visitas a la residencia se hacen todos los miércoles de 17:30 a 18:30.  \n\nPara confirmar detalles de la próxima sesión, consulta el grupo de WhatsApp o contacta al 962 025 978. 😊\n\n\n",
+      "ground_truth": "Las visitas a la residencia L'Acollida son todos los miércoles de 5:30 a 6:30 de la tarde (17:30-18:30h).",
+      "category": "resis",
+      "response_time": 3.9545700550079346,
+      "eval_time": 99.98612236976624,
+      "contexts_count": 10,
+      "ragas_metrics": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9164043224826978,
+        "context_precision": 0.5666666666525,
+        "context_recall": 1.0,
+        "answer_correctness": 0.6457322420213361,
+        "answer_similarity": 0.582928968085344
+      },
+      "success": true
+    },
+    {
+      "question_id": 6,
+      "question": "¿Dónde está la residencia L'Acollida?",
+      "answer": "¡Hola! La residencia L'Acollida está ubicada en la calle Crevillente 22, muy cerca de la Avenida Blasco Ibáñez en Valencia. 😊  \n\nSi quieres saber más sobre las actividades que hacemos allí con los abuelitos (RESIS), puedes consultar el grupo de WhatsApp o llamar al 962 025 978. ¡Te esperamos! 👋",
+      "ground_truth": "La residencia L'Acollida está en la calle Crevillente 22, cerca de la Avenida Blasco Ibáñez en Valencia.",
+      "category": "resis",
+      "response_time": 4.5189268589019775,
+      "eval_time": 97.5583279132843,
+      "contexts_count": 10,
+      "ragas_metrics": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8527066755455742,
+        "context_precision": 0.8273809523691327,
+        "context_recall": 1.0,
+        "answer_correctness": 0.595133845436548,
+        "answer_similarity": 0.6662496674604778
+      },
+      "success": true
+    },
+    {
+      "question_id": 7,
+      "question": "¿Qué se hace en refuerzo escolar?",
+      "answer": "¡Hola! En el Refuerzo Escolar (COLES) ayudamos a niños que viven realidades difíciles con sus deberes y estudios. \n\n* Trabajamos en grupos pequeños o sesiones individuales, adaptándonos al nivel de cada niño.\n* No solo ayudamos con matemáticas o lengua, sino que fomentamos su desarrollo integral: autoestima, hábitos de estudio, motivación.\n\nPara saber más sobre cómo participar, puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Estamos deseando conocerte! 😊\n\n\n",
+      "ground_truth": "En refuerzo escolar (COLES) se ayuda a niños en riesgo de exclusión con sus deberes y estudios, trabajando en grupos pequeños o sesiones individuales.",
+      "category": "coles",
+      "response_time": 5.968942403793335,
+      "eval_time": 99.61804676055908,
+      "contexts_count": 10,
+      "ragas_metrics": {
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.47177658507275216,
+        "context_precision": 0.7048611110934896,
+        "context_recall": 1.0,
+        "answer_correctness": 0.5928395220326872,
+        "answer_similarity": 0.6570723738450343
+      },
+      "success": true
+    },
+    {
+      "question_id": 8,
+      "question": "¿Cómo puedo unirme a DNI?",
+      "answer": "¡Es genial que quieras unirte a DNI! Es muy fácil:\n\n* Contacta con nosotros por WhatsApp al 962 025 978 o al 647 440 275. Te añadiremos a nuestros grupos de coordinación.\n* También puedes seguirnos en Instagram @dnivalenciaa donde publicamos todas las actividades.\n\n¡Ven a una actividad, preséntate y ya serás parte de DNI! 💙  \n\n\n",
+      "ground_truth": "Para unirte a DNI, contacta por WhatsApp al 962 025 978 o al 647 440 275, o síguelos en Instagram @dnivalenciaa.",
+      "category": "contacto",
+      "response_time": 5.100132465362549,
+      "eval_time": 90.84268498420715,
+      "contexts_count": 10,
+      "ragas_metrics": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8180150233629244,
+        "context_precision": 0.9111111110928889,
+        "context_recall": 1.0,
+        "answer_correctness": 0.704924024602275,
+        "answer_similarity": 0.8196960984090997
+      },
+      "success": true
+    },
+    {
+      "question_id": 9,
+      "question": "¿Hay límite de edad para ser voluntario?",
+      "answer": "¡Hola! En DNI no hay límite de edad para participar, aunque la mayoría somos jóvenes.  Si tienes ilusión y ganas de ayudar, eres bienvenido/a. \n\nPara saber más sobre cómo funciona el voluntariado juvenil en DNI, puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Estaremos encantados de ayudarte! 💙\n",
+      "ground_truth": "DNI está enfocado a jóvenes de 18 a 25 años. Si tienes 17 y estás cerca de cumplir 18, se puede valorar.",
+      "category": "general",
+      "response_time": 8.016563892364502,
+      "eval_time": 103.10631084442139,
+      "contexts_count": 10,
+      "ragas_metrics": {
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.725349124344946,
+        "context_precision": 0.5333333333155555,
+        "context_recall": 1.0,
+        "answer_correctness": 0.4058953143375727,
+        "answer_similarity": 0.6235812573502908
+      },
+      "success": true
+    },
+    {
+      "question_id": 10,
+      "question": "¿Las actividades son gratuitas?",
+      "answer": "¡Claro que sí! Participar en las actividades de DNI es totalmente gratuito. No cobramos cuotas obligatorias. Todas las actividades (desayunos solidarios, visitas a la residencia, refuerzo escolar) son sin coste para los voluntarios.  \n\nSi tienes dificultades económicas, háblanos y encontramos soluciones. ¡Nadie se queda fuera por dinero! 😊 \n\n¿Te gustaría saber más sobre alguno de nuestros proyectos? Puedes contactarnos por WhatsApp al 962 025 978 / 647 440 275 o por Instagram (@dnivalenciaa).\n",
+      "ground_truth": "Sí, participar en las actividades de DNI es totalmente gratuito. No se cobran cuotas obligatorias.",
+      "category": "contacto",
+      "response_time": 5.891876935958862,
+      "eval_time": 104.49925327301025,
+      "contexts_count": 10,
+      "ragas_metrics": {
+        "faithfulness": 0.8333333333333334,
+        "answer_relevancy": 0.6245744760194586,
+        "context_precision": 0.8835317460207018,
+        "context_recall": 1.0,
+        "answer_correctness": 0.5170277217149759,
+        "answer_similarity": 0.5681108868599036
+      },
+      "success": true
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "total_preguntas": 20,
+  "metricas": {
+    "calidad": "18/20",
+    "porcentaje_calidad": "90.0%",
+    "avg_confidence": 0.8549999999999999,
+    "std_confidence": 0.285,
+    "avg_tiempo": 9.724674606323243
+  },
+  "mejoras": {
+    "calidad": "-4.0%",
+    "confidence": "-0.061",
+    "confidence_std": "NUEVO - antes era fijo en 0.95"
+  },
+  "resultados": [
+    {
+      "id": 1,
+      "pregunta": "¿Qué es DNI?",
+      "respuesta": "¡Hola! 👋 Me alegra que te interese DNI. \n\nDNI significa \"Damos Nuestra Ilusión\" y somos una asociación de jóvenes voluntarios en Valencia con el lema \"PARA. MIRA. AYUDA\".  \n\nEn resumen, somos más de 400 voluntarios activos que nos apasiona ayudar a nuestra comunidad.  \n\n¿Qué hacemos? Pues tenemos varios proyectos:\n\n* **Desayunos Solidarios:** Damos desayunos (y cenas) a personas sin hogar casi todas las semanas.\n* **Charlas con Abuelitos:** Visitamos residencias de ancianos 3 días a la semana para pasar tiempo con ellos.\n* **Refuerzo Escolar:** Ayudamos a niños en riesgo de exclusión con su tarea de lunes a viernes de 15:30 a 16:30.\n* **Recogida de Plásticos:** Limpiamos el entorno usando kayak. ¡Es una forma divertida de cuidar el medio ambiente!\n* **Rehabilitar Valencia:** Estamos apoyando activamente a las personas afectadas por la DANA en Horta Sud.\n\nSi quieres saber más sobre nosotros, puedes visitarnos en Instagram (@dnivalenciaa) o escribirnos por WhatsApp al 962 025 978 / 647 440 275. ¡Estamos deseando conocerte! 😊",
+      "confidence": 0.95,
+      "tiempo": 11.250282049179077,
+      "longitud": 1038,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Cuál es la filosofía de DNI?",
+      "respuesta": "¡Hola! La filosofía de DNI se resume en nuestro lema: **PARA. MIRA. AYUDA.** \n\n* **PARA:** Detente en tu día a día y observa tu alrededor.\n* **MIRA:** Con empatía a las personas que te rodean.\n* **AYUDA:** Actúa de forma directa para mejorar la vida de otros.\n\nCreemos en el voluntariado sin burocracia, basado en la ilusión de jóvenes de 18-25 años que quieren generar impacto social real.  \n\n¿Te interesa saber más sobre cómo vivir esta filosofía? ¡Escríbenos por WhatsApp (962 025 978 / 647 440 275) o síguenos en Instagram (@dnivalenciaa)! 😊\n",
+      "confidence": 0.95,
+      "tiempo": 7.033593654632568,
+      "longitud": 546,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Cómo puedo unirme?",
+      "respuesta": "¡Genial que te interese unirte a DNI! Es muy fácil 😊\n\nPara unirte, simplemente contáctanos por WhatsApp al 962 025 978 o al 647 440 275. Te añadiremos a nuestros grupos de coordinación donde publicamos todas las actividades. También puedes seguirnos en Instagram @dnivalenciaa para estar al día.\n\n¡Te unes, te presentas en la primera actividad que te interese y ya eres parte de DNI! 💙  \n",
+      "confidence": 0.95,
+      "tiempo": 5.17389702796936,
+      "longitud": 388,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Hay límite de edad?",
+      "respuesta": "¡Hola! 👋  En DNI creemos que el voluntariado es para todos. \n\nAunque nuestro enfoque principal está en jóvenes de 18 a 25 años, no hay un límite de edad estricto. Si tienes ganas de ayudar y compartir tu ilusión, ¡serás bienvenido/a! 😊\n\nSi tienes menos de 18 años o más de 25, contáctanos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa) para ver cómo podemos colaborar juntos. ¡Tenemos muchas formas de participar! 🎉\n\n\n",
+      "confidence": 0.95,
+      "tiempo": 5.686373233795166,
+      "longitud": 440,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Es gratis?",
+      "respuesta": "¡Hola! 👋  Entiendo que quieres saber si participar en DNI es gratis. ¡Y la respuesta es SÍ! 🎉\n\n* Participar en todas nuestras actividades es totalmente gratuito. \n* No cobramos cuotas de membresía ni por asistir a las actividades.\n* Para algunos proyectos específicos (como kayak), puede haber un coste simbólico por el alquiler del material, pero siempre avisamos con antelación y es opcional.\n\nSi tienes alguna duda o quieres saber más sobre nuestros proyectos, ¡no dudes en contactarnos! Puedes escribirnos por WhatsApp al 962 025 978 / 647 440 275 o seguirnos en Instagram (@dnivalenciaa). 😊\n\n\n",
+      "confidence": 0.95,
+      "tiempo": 6.058089017868042,
+      "longitud": 598,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Qué proyectos tenéis?",
+      "respuesta": "¡Hola! En DNI tenemos 5 proyectos principales:\n\n* **Desayunos y Cenas Solidarios:** para personas sin hogar. Se hacen casi todas las semanas.\n* **Charlas con Abuelitos:** visitamos a los residentes de la residencia L'Acollida los martes, jueves y sábados.\n* **Refuerzo Escolar:**  apoyamos a niños en una biblioteca tutorizada. Este proyecto requiere más regularidad por el vínculo con los niños.\n* **Recogida de Plásticos en Kayak:** en Marina de Valencia, se realiza en junio y septiembre.\n* **Rehabilitar Valencia:** apoyamos a las personas afectadas por la DANA en Horta Sud. Este es nuestro proyecto actual prioritario.\n\n¿Te interesa algún proyecto en particular? ¡Escríbenos por WhatsApp (962 025 978 o 647 440 275) para más información! También puedes seguirnos en Instagram (@dnivalenciaa). 😊\n\n\n",
+      "confidence": 0.95,
+      "tiempo": 8.685935735702515,
+      "longitud": 803,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 7,
+      "pregunta": "desayunos solidarios",
+      "respuesta": "¡Hola! Me alegra que te interese los desayunos solidarios. Es una actividad genial para empezar a colaborar con DNI. \n\nAquí tienes información importante:\n\n* **¿Qué se hace?** Se reparten desayunos (o cenas) a personas sin hogar en zonas de Valencia. Lo más importante es compartir tiempo, conversación y compañía con ellos.\n* **¿Cuándo son?** Los desayunos son los sábados a las 8 de la mañana. Las cenas son a las 20:30.\n* **¿Cómo me apunto?**  El miércoles anterior al sábado se publica un formulario en WhatsApp (962 025 978 / 647 440 275) y redes sociales (@dnivalenciaa).\n\nRecuerda que puedes apuntarte a un desayuno sin compromiso, no necesitas ir a todos. ¡Te esperamos!\n\nSi tienes más dudas sobre cómo funciona la actividad, contacta con nosotros por WhatsApp o Instagram. 😊",
+      "confidence": 0.95,
+      "tiempo": 8.532989501953125,
+      "longitud": 783,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 8,
+      "pregunta": "horario abuelitos",
+      "respuesta": "¡Hola! 👋 Me alegra que te interese pasar tiempo con los abuelitos. 😊\n\nLas visitas a la residencia L'Acollida se hacen tres días a la semana:\n\n* Martes\n* Jueves\n* Sábados\n\nEl horario suele ser por la tarde (17:00-19:00h), pero puede variar un poco según la temporada. Para confirmar el horario exacto de la próxima sesión, te recomiendo que consultes el grupo de WhatsApp o contactes al 962 025 978.\n\n¡Espero verte pronto haciendo sonreír a los abuelitos! 😄",
+      "confidence": 0.95,
+      "tiempo": 5.941459655761719,
+      "longitud": 456,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 9,
+      "pregunta": "¿Dónde es el refuerzo escolar?",
+      "respuesta": "¡Hola! El refuerzo escolar se realiza en el CEIP Antonio Ferrandis de la Coma, en Valencia.  📚 \n\nSi quieres saber más detalles sobre horarios específicos o cómo apuntarte, puedes contactarnos al 647 440 275. ¡Te esperamos! 😊\n\n\n",
+      "confidence": 0.95,
+      "tiempo": 3.3017759323120117,
+      "longitud": 227,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 10,
+      "pregunta": "ayuda DANA",
+      "respuesta": "¡Hola! 👋 Entiendo que quieres saber cómo ayudar con la DANA. \n\nEn DNI lanzamos el proyecto \"Rehabilitar Valencia\" para apoyar a las personas afectadas en Horta Sud.  \n\nAquí tienes información sobre cómo puedes colaborar:\n\n* **Brigadas de voluntarios:** Nos encargamos de limpiar zonas afectadas, repartir alimentos y ropa, y ofrecer apoyo emocional a las familias.\n* **Campaña de crowdfunding:** Estamos recaudando fondos en GoFundMe para poder seguir ayudando. Puedes encontrar más detalles en nuestro Instagram @dnivalenciaa.\n\nPara saber los horarios y puntos de encuentro exactos de las próximas jornadas de ayuda, te recomiendo unirte al grupo de WhatsApp: 962 025 978 / 647 440 275. ¡Allí encontrarás toda la información actualizada! 😊\n\n\n",
+      "confidence": 0.95,
+      "tiempo": 7.157634496688843,
+      "longitud": 743,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 11,
+      "pregunta": "whatsapp",
+      "respuesta": "¡Hola! 👋  Parece que quieres saber más sobre cómo contactarnos por WhatsApp. ¡Genial! \n\nPuedes escribirnos a estos números:\n\n* 962 025 978\n* 647 440 275\n\nEs la forma más rápida de obtener información y unirte como voluntario. Te responderemos enseguida y te añadiremos a los grupos de coordinación. 😉 ¡Te esperamos! 💙",
+      "confidence": 0.0,
+      "tiempo": 31.62247896194458,
+      "longitud": 317,
+      "num_chunks": 7,
+      "calidad": false,
+      "es_util": false
+    },
+    {
+      "id": 12,
+      "pregunta": "instagram",
+      "respuesta": "¡Hola! 👋  Nos alegra que te interese DNI. \n\nNuestra red social principal es Instagram: @dnivalenciaa. Allí encontrarás fotos de nuestras actividades, convocatorias de nuevos proyectos, historias inspiradoras de voluntarios y todo lo que pasa en DNI. ¡Síguenos para estar al día!\n\nTambién usamos WhatsApp intensivamente para la coordinación directa entre voluntarios.\n\n\n¿Tienes alguna otra pregunta sobre DNI o nuestros proyectos? 😊  \n",
+      "confidence": 0.95,
+      "tiempo": 4.215307235717773,
+      "longitud": 434,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 13,
+      "pregunta": "¿Cómo os contacto?",
+      "respuesta": "¡Hola! 👋  Para contactarnos puedes hacerlo de varias maneras:\n\n* **WhatsApp:** Escríbenos al 962 025 978 o al 647 440 275. ¡Es la forma más rápida y directa!\n* **Instagram:** Envíanos un mensaje directo a @dnivalenciaa.\n* **Web:** Visita nuestra página web damosnuestrailusionvlc.org donde encontrarás más información sobre DNI.\n\n¡Esperamos tener noticias tuyas pronto! 💙 \n\n\n",
+      "confidence": 0.95,
+      "tiempo": 5.433424711227417,
+      "longitud": 375,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 14,
+      "pregunta": "¿Qué tiempo hará mañana?",
+      "respuesta": "¡Hola! 👋 Entiendo que quieres saber qué tiempo hará mañana. \n\nLamentablemente, como asistente virtual de DNI, no tengo acceso a información meteorológica.  \n\nSi te interesa saber más sobre nuestros proyectos de voluntariado, ¡estaré encantado de ayudarte! 😊\n\nAquí tienes algunos ejemplos de lo que hacemos:\n\n* **Desayunos Solidarios:** Repartiendo desayunos o cenas a personas sin hogar en Valencia.\n* **Charlas con Abuelitos:** Visitando una residencia para compartir tiempo y conversación con los residentes.\n* **Refuerzo Escolar:** Ayudando a niños con sus tareas escolares.\n* **Recogida de Plásticos:** Limpiando playas y zonas naturales en kayak.\n* **Rehabilitar Valencia:** Colaborando en la reconstrucción tras las inundaciones causadas por la DANA en la Horta Sud.\n\nPara más información sobre nuestros proyectos, horarios o cómo unirte a nosotros, puedes contactarnos a través de nuestro WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Esperamos verte pronto! 😄",
+      "confidence": 0.95,
+      "tiempo": 9.381103277206421,
+      "longitud": 988,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 15,
+      "pregunta": "cómo me apunto",
+      "respuesta": "¡Genial que quieras unirte a DNI! Somos una comunidad increíble de jóvenes que buscan hacer la diferencia.  \n\nPara apuntarte, lo mejor es que nos contactes directamente. Puedes escribirnos por WhatsApp al 962 025 978 o al 647 440 275, o enviarnos un mensaje directo a través de nuestro Instagram @dnivalenciaa. ¡Estaremos encantados de darte toda la información que necesites y ayudarte a empezar tu experiencia voluntaria con DNI! 💙\n\nRecuerda que en DNI:\n\n* **Somos AUTÉNTICOS:** Sin máscaras ni segundas intenciones\n* **SOMOS ALEGRES:** Repartimos ilusión y alegría por donde vamos\n* **SOMOS SENCILLOS:** Hacemos de lo ordinario un momentazo\n\n\n¡Te esperamos!",
+      "confidence": 0.95,
+      "tiempo": 6.984121799468994,
+      "longitud": 660,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 16,
+      "pregunta": "HOLA",
+      "respuesta": "¡Hola! 👋  \n\nBienvenido a DNI, ¡nos alegra que te interese! Somos una asociación de jóvenes voluntarios en Valencia con el lema PARA. MIRA. AYUDA. \n\n¿Qué te gustaría saber sobre nosotros? Tenemos cinco proyectos principales:\n\n* **Desayunos Solidarios:** Ayudamos a personas sin hogar ofreciendo desayunos y cenas casi todas las semanas.\n* **Charlas con Abuelitos:** Visitamos residencias de ancianos tres días por semana para compartir tiempo y alegría con ellos.\n* **Refuerzo Escolar:** Damos apoyo escolar tutorizado a niños en riesgo de exclusión.\n* **Recogida de Plásticos:** Limpiamos el entorno usando kayak para recoger plásticos del agua.\n* **Rehabilitar Valencia:** Apoyamos a las personas afectadas por la DANA en Horta Sud.\n\nSi quieres saber más sobre alguno de nuestros proyectos, o cómo unirte a nosotros como voluntario, ¡no dudes en preguntarme! 😊 También puedes encontrarnos en Instagram (@dnivalenciaa) o contactarnos por WhatsApp (962 025 978 / 647 440 275).\n\n¿Qué te interesa saber de DNI?  \n",
+      "confidence": 0.95,
+      "tiempo": 9.781713008880615,
+      "longitud": 1010,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 17,
+      "pregunta": "gracias",
+      "respuesta": "¡De nada! 😊 Me alegra que te haya sido útil la información. \n\n¿Tienes alguna otra pregunta sobre DNI o nuestros proyectos de voluntariado?  \n\nRecuerda que puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram @dnivalenciaa si necesitas más detalles. ¡Estamos aquí para ayudarte! 💙",
+      "confidence": 0.95,
+      "tiempo": 4.154534101486206,
+      "longitud": 299,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 18,
+      "pregunta": "¿Qué hace DNI para ayudar a la comunidad?",
+      "respuesta": "¡Hola! En DNI nos apasiona ayudar a nuestra comunidad de diferentes maneras.  Aquí tienes algunos ejemplos de lo que hacemos:\n\n* **Desayunos Solidarios:** Brindamos desayunos y cenas a personas sin hogar casi todas las semanas.\n* **Charlas con Abuelitos:** Visitamos residencias de ancianos tres días por semana para compartir tiempo de calidad y compañía.\n* **Refuerzo Escolar:** Ofrecemos tutorías personalizadas a niños en riesgo de exclusión.\n* **Recogida de Plásticos:** Realizamos actividades de limpieza ambiental utilizando kayak para recoger plásticos de las aguas.\n* **Rehabilitar Valencia:** Estamos apoyando activamente a los afectados por la DANA en Horta Sud.\n\nSi quieres saber más sobre cómo puedes unirte a nosotros y ser parte del cambio, ¡no dudes en contactarnos! Puedes escribirnos por WhatsApp al 962 025 978 o 647 440 275, o seguirnos en Instagram @dnivalenciaa. 💙\n\n\n",
+      "confidence": 0.95,
+      "tiempo": 8.970112562179565,
+      "longitud": 889,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 19,
+      "pregunta": "¿Puedo participar en varios proyectos?",
+      "respuesta": "¡Claro que sí! En DNI puedes participar en todos los proyectos que te interesen. Muchos voluntarios hacen desayunos algunos fines de semana, visitan abuelitos entre semana y puntualmente se apuntan al kayak. \n\nLa única excepción es el refuerzo escolar, que requiere más regularidad por el vínculo con los niños.\n\n¿Te interesa algún proyecto en particular? ¡Cuéntame más! 😊  \n",
+      "confidence": 0.95,
+      "tiempo": 4.405015707015991,
+      "longitud": 375,
+      "num_chunks": 10,
+      "calidad": true,
+      "es_util": true
+    },
+    {
+      "id": 20,
+      "pregunta": "¿Qué necesito para ser voluntario?",
+      "respuesta": "¡Hola! Es genial que te interese el voluntariado con DNI.  \n\nEn DNI somos más de 400 jóvenes entre 18 y 25 años que nos apasiona ayudar a nuestra comunidad. Tenemos cinco proyectos principales:\n\n* **Desayunos Solidarios:** Ayudamos a personas sin hogar.\n* **Charlas con Abuelitos:** Visitamos una residencia para compartir tiempo con los mayores.\n* **Refuerzo Escolar:** Damos apoyo escolar a niños que lo necesitan.\n* **Recogida de Plásticos:** Limpiamos playas y ríos en kayak.\n* **Rehabilitar Valencia:** Colaboramos en la recuperación de zonas afectadas por la DANA en Horta Sud.\n\nPara saber qué necesitas para ser voluntario en un proyecto específico, te recomiendo que contactes con nosotros a través de nuestro Instagram (@dnivalenciaa) o al teléfono 962 025 978. ¡Estaremos encantados de ayudarte!\n\n\n",
+      "confidence": 0.0,
+      "tiempo": 40.72365045547485,
+      "longitud": 808,
+      "num_chunks": 1,
+      "calidad": false,
+      "es_util": false
+    }
+  ]
+}

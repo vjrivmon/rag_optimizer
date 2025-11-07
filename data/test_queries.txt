@@ -1,0 +1,114 @@
+# Queries de Prueba para Testing del Chatbot DNI
+
+## BÁSICAS (deben responder con alta confianza)
+
+¿Qué es DNI?
+Cuéntame sobre DNI
+Qué hace DNI
+Quiénes sois
+Cuál es la filosofía de DNI
+
+## CÓMO PARTICIPAR (alta demanda)
+
+¿Cómo puedo unirme?
+quiero ser voluntario
+cómo me apunto
+que necesito para ser voluntario
+hay que pagar algo
+
+## PROYECTOS
+
+¿Qué proyectos tenéis?
+proyectos con niños
+actividades con ancianos
+desayunos solidarios
+kayak
+ayuda DANA
+
+## HORARIOS Y UBICACIONES
+
+¿Cuándo son las actividades?
+horario abuelitos
+donde es el refuerzo escolar
+cuando kayak
+
+## CONTACTO
+
+¿Cómo os contacto?
+tenéis whatsapp
+instagram
+puedo donar
+
+## MENSAJES GENÉRICOS (testing del intent classifier)
+
+hola
+buenos días
+info
+ayuda
+gracias
+adiós
+no entiendo
+quiero ayudar
+
+## PREGUNTAS CONCATENADAS (testing de contexto complejo)
+
+¿Qué proyectos tenéis y cuándo puedo empezar?
+¿Cómo me apunto y cuánto cuesta?
+¿Dónde es el refuerzo escolar y qué días hay?
+¿Puedo ir solo o tengo que llevar amigos?
+
+## PREGUNTAS AMBIGUAS (testing de manejo de incertidumbre)
+
+me interesa
+dime más
+información
+vale
+
+## PREGUNTAS FUERA DE SCOPE (deben responder educadamente que no tienen info)
+
+¿Dónde está la catedral de Valencia?
+¿Cuánto cuesta un piso en Valencia?
+¿Qué tiempo hará mañana?
+¿Cómo llego a la playa?
+
+## VARIACIONES DE FORMULACIÓN (robustez)
+
+¿Cómo hago para apuntarme?
+¿De qué forma puedo unirme?
+¿Cuál es el proceso de inscripción?
+¿Qué tengo que hacer para participar?
+
+¿Cuántos años hay que tener?
+¿Qué edad necesito?
+¿Hay límite de edad?
+¿Puedo ir si tengo 17 años?
+
+¿Sale dinero?
+¿Hay que pagar?
+¿Es gratis?
+¿Cuánto cuesta?
+
+## PREGUNTAS CON TYPOS (testing de robustez a errores)
+
+como me apnto
+proyectos de boluntariado
+horario abuelitps
+whatsap
+
+## PREGUNTAS EN MAYÚSCULAS (normalización)
+
+HOLA
+¿QUÉ ES DNI?
+QUIERO SER VOLUNTARIO
+
+---
+
+## RESULTADOS ESPERADOS
+
+**Alta confianza (>0.7)**: Preguntas básicas, proyectos, contacto, horarios
+**Media confianza (0.4-0.7)**: Preguntas concatenadas, ambiguas
+**Baja confianza (<0.4)**: Fuera de scope, typos severos
+
+**Intent classification correcta**: Mensajes genéricos deben mapear a respuestas predefinidas
+**Manejo de errores**: Preguntas fuera de scope deben redirigir a contacto humano
+**Robustez**: Variaciones y typos menores no deben afectar la respuesta

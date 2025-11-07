@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNI Valencia - Asistente Virtual</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/static/css/widget.css?v=20250107j">
+    <link rel="stylesheet" href="/static/css/chat.css?v=20250107j">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
+</head>
+<body>
+    <!-- Página completamente blanca -->
+
+    <!-- Botón flotante (corazón azul DNI) -->
+    <button id="chat-widget-button" class="widget-button" aria-label="Abrir chat de DNI">
+        <svg class="heart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  fill="currentColor"/>
+        </svg>
+        <span class="pulse-ring"></span>
+    </button>
+
+    <!-- Ventana de chat (oculta inicialmente) -->
+    <div id="chat-window" class="chat-window hidden">
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="header-content">
+                <svg class="header-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                          fill="currentColor"/>
+                </svg>
+                <h3>Asistente DNI</h3>
+            </div>
+            <button id="export-chat" class="export-button" aria-label="Exportar conversación" title="Exportar conversación">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 12V2M8 12L5 9M8 12L11 9M14 12V14H2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Exportar
+            </button>
+            <button id="close-chat" class="close-button" aria-label="Cerrar chat">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Área de mensajes -->
+        <div id="messages-area" class="messages-area">
+            <!-- Mensaje de bienvenida -->
+            <div class="welcome-message" id="welcome-message">
+                <div class="welcome-icon">👋</div>
+                <h4>¡Hola!</h4>
+                <p>Soy tu asistente de <strong>DNI Voluntariado</strong>. Puedo ayudarte con información sobre nuestros proyectos, cómo participar, horarios y más.</p>
+                <p class="welcome-hint">Selecciona una pregunta o escribe la tuya:</p>
+            </div>
+        </div>
+
+        <!-- Indicador de "escribiendo" -->
+        <div id="typing-indicator" class="typing-indicator hidden">
+            <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span class="typing-text">Pensando...</span>
+        </div>
+
+        <!-- Área de sugerencias de preguntas -->
+        <div id="suggestions-area" class="suggestions-area">
+            <button class="suggestion-chip" data-question="¿Qué es DNI?">¿Qué es DNI?</button>
+            <button class="suggestion-chip" data-question="¿Cómo me apunto?">¿Cómo me apunto?</button>
+            <button class="suggestion-chip" data-question="Horarios desayunos">Horarios desayunos</button>
+        </div>
+
+        <!-- Input de pregunta -->
+        <div class="chat-input-area">
+            <textarea
+                id="user-input"
+                placeholder="Escribe tu pregunta aquí..."
+                rows="1"
+                maxlength="500"
+            ></textarea>
+            <button id="send-button" class="send-button" aria-label="Enviar pregunta">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/websocket.js?v=20250107j"></script>
+    <script src="/static/js/chat.js?v=20250107j"></script>
+    <script src="/static/js/widget.js?v=20250107j"></script>
+</body>
+</html>

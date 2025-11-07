@@ -1,0 +1,115 @@
+/*
+====================================
+WIDGET FLOTANTE - ESTILOS
+====================================
+Botón flotante con corazón azul DNI
+*/
+
+:root {
+  /* Colores corporativos DNI (de damosnuestrailusionvlc.org) */
+  --dni-blue: #5B7FDB;
+  --dni-blue-dark: #4A63C2;
+  --dni-blue-light: #8B9FE8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  background: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Botón flotante */
+.widget-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  background: var(--dni-blue);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 9999;
+  color: white;
+}
+
+.widget-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  background: var(--dni-blue-dark);
+}
+
+.widget-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.heart-icon {
+  width: 32px;
+  height: 32px;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Animación del corazón */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(1.1);
+  }
+  20%, 40% {
+    transform: scale(1);
+  }
+}
+
+/* Anillo de pulso */
+.pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--dni-blue-light);
+  border-radius: 50%;
+  animation: pulse 2s ease-out infinite;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  .widget-button {
+    bottom: 16px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+  }
+  
+  .heart-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
