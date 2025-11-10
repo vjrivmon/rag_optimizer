@@ -499,31 +499,78 @@ async def websocket_chat(websocket: WebSocket):
             
             response_time = time.time() - start_time
             response_id = f"{session_id}_{int(time.time()*1000)}"
-            
-            # Obtener confidence del resultado (puede estar en varios lugares)
+
+            # ✨ NUEVO: Capturar métricas detalladas
+            chunks = result.get('contexts', [])  # Para confidence/alerts (strings)
+            raw_chunks = result.get('raw_chunks', chunks)  # Para metadata (objetos Document)
+            answer = result.get('answer', '')
+
+            print(f"[DEBUG] result keys: {list(result.keys())}")
+            print(f"[DEBUG] 'raw_chunks' in result: {'raw_chunks' in result}")
+            print(f"[DEBUG] raw_chunks type: {type(raw_chunks)}")
+            if raw_chunks:
+                print(f"[DEBUG] raw_chunks[0] type: {type(raw_chunks[0])}")
+                if isinstance(raw_chunks[0], dict):
+                    print(f"[DEBUG] raw_chunks[0] keys: {list(raw_chunks[0].keys())}")
+
+            # 1. Confidence con breakdown detallado
+            confidence_data = None
             confidence = None
-            
-            # 1. Intentar obtener de result['validation'].confidence
-            if 'validation' in result and hasattr(result['validation'], 'confidence'):
-                confidence = result['validation'].confidence
-                print(f"   ✅ Confidence obtenido de validation: {confidence:.3f}")
-            
-            # 2. Si no, intentar result['confidence']
-            elif 'confidence' in result:
-                confidence = result['confidence']
-                print(f"   ✅ Confidence obtenido de result: {confidence:.3f}")
-            
-            # 3. Último recurso: calcular manualmente
+
+            if chunks and hasattr(state.rag_engine, 'calculate_confidence_with_breakdown'):
+                confidence_data = state.rag_engine.calculate_confidence_with_breakdown(chunks, answer, question)
+                confidence = confidence_data['confidence']
+                print(f"   ✅ Confidence con breakdown: {confidence:.3f}")
             else:
-                print(f"   ⚠️ Confidence no encontrado, calculando manualmente...")
-                chunks = result.get('contexts', [])
-                answer = result.get('answer', '')
-                if chunks and hasattr(state.rag_engine, 'calculate_confidence_score'):
+                # Fallback al método antiguo
+                if 'validation' in result and hasattr(result['validation'], 'confidence'):
+                    confidence = result['validation'].confidence
+                elif 'confidence' in result:
+                    confidence = result['confidence']
+                elif chunks and hasattr(state.rag_engine, 'calculate_confidence_score'):
                     confidence = state.rag_engine.calculate_confidence_score(chunks, answer, question)
-                    print(f"   ✅ Confidence calculado manualmente: {confidence:.3f}")
                 else:
                     confidence = 0.5
-                    print(f"   ⚠️ Usando fallback: {confidence:.3f}")
+                print(f"   ✅ Confidence (fallback): {confidence:.3f}")
+
+            # 2. Top 3 chunks con información detallada
+            top_chunks_info = []
+            if raw_chunks and hasattr(state.rag_engine, 'extract_top_chunks_info'):
+                top_chunks_info = state.rag_engine.extract_top_chunks_info(raw_chunks, top_n=3)
+                print(f"   📚 Top 3 chunks extraídos con detalles")
+
+            # 3. Contexto conversacional detectado
+            context_info = None
+            if hasattr(state.conversational_rag, 'context_tracker') and hasattr(state.conversational_rag, 'session_store'):
+                try:
+                    session_history = state.conversational_rag.session_store.get_session_history(session_id)
+                    messages = session_history.messages
+                    if messages and len(messages) >= 2:
+                        context_info = state.conversational_rag.context_tracker.extract_context_from_history(messages)
+                        if context_info:
+                            print(f"   📍 Contexto: {context_info.get('active_project', 'N/A')} (conf: {context_info.get('confidence', 0):.2f})")
+                except Exception as e:
+                    print(f"   ⚠️ Error extrayendo contexto: {e}")
+
+            # 4. Detectar alertas automáticas
+            alerts = []
+            if hasattr(state.rag_engine, 'detect_response_alerts'):
+                alerts = state.rag_engine.detect_response_alerts(
+                    answer=answer,
+                    question=question,
+                    confidence=confidence,
+                    chunks=chunks,
+                    context_info=context_info
+                )
+
+                # Log de alertas críticas
+                critical_alerts = [a for a in alerts if a['level'] in ['error', 'warning']]
+                if critical_alerts:
+                    print(f"   ⚠️ {len(critical_alerts)} alertas detectadas:")
+                    for alert in critical_alerts:
+                        print(f"      [{alert['level'].upper()}] {alert['message']}")
+                else:
+                    print(f"   ✅ Sin alertas - Sistema OK")
             
             # Preparar answer_text Y LIMPIAR citas [número]
             import re
@@ -622,7 +669,7 @@ async def websocket_chat(websocket: WebSocket):
                 })
                 await asyncio.sleep(0.05)  # 50ms entre chunks para efecto de escritura
             
-            # Enviar respuesta completa al final
+            # Enviar respuesta completa al final con métricas detalladas
             await websocket.send_json({
                 "type": "complete",
                 "response": {
@@ -632,7 +679,14 @@ async def websocket_chat(websocket: WebSocket):
                     "response_time": round(response_time, 2),
                     "response_id": response_id,
                     "suggestions": suggestions,
-                    "sources": sources
+                    "sources": sources,
+                    # ✨ NUEVOS CAMPOS DETALLADOS
+                    "confidence_breakdown": confidence_data,  # Breakdown completo del confidence
+                    "top_chunks": top_chunks_info,  # Top 3 chunks con scores y fuentes
+                    "context_info": context_info,  # Contexto conversacional detectado
+                    "alerts": alerts,  # Alertas automáticas del sistema
+                    "question_original": question,  # Pregunta original para referencia
+                    "chunks_count": len(chunks)  # Total de chunks consultados
                 }
             })
         

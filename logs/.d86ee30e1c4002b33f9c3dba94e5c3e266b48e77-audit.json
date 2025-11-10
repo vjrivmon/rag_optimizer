@@ -24,6 +24,11 @@
             "date": 1762513557087,
             "name": "/home/vicente/Practicas/rag_optimizer_complete/rag_optimizer/logs/mcp-puppeteer-2025-11-07.log",
             "hash": "f0c63c1ce91993aadee7f35df2d5cde574ff0f46b9ed7465c719264cf6326726"
+        },
+        {
+            "date": 1762774605417,
+            "name": "/home/vicente/Practicas/rag_optimizer_complete/rag_optimizer/logs/mcp-puppeteer-2025-11-10.log",
+            "hash": "301babab757e9c8b75176eb8c5dfeb05af874ea07a840fc5ecd2c36af9c0b83b"
         }
     ],
     "hashType": "sha256"

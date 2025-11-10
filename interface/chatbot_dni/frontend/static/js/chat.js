@@ -468,13 +468,20 @@ class ChatApp {
             });
         }
 
-        // Finalizar mensaje streaming
+        // Finalizar mensaje streaming con TODA la metadata detallada
         this.finishStreamingMessage({
             confidence: response.confidence,
             responseId: response.response_id,
             sources: response.sources || [],
             logs: [...this.currentQuestionLogs],  // Guardar logs en metadata
-            suggestions: response.suggestions || []  // NUEVO: Guardar sugerencias en metadata
+            suggestions: response.suggestions || [],  // Guardar sugerencias en metadata
+            // ✨ NUEVOS CAMPOS DETALLADOS
+            confidence_breakdown: response.confidence_breakdown || null,
+            top_chunks: response.top_chunks || [],
+            context_info: response.context_info || null,
+            alerts: response.alerts || [],
+            chunks_count: response.chunks_count || 0,
+            question_original: response.question_original || this.currentQuestion
         });
 
         // Actualizar sugerencias
@@ -596,7 +603,7 @@ class ChatApp {
 
                 // Añadir metadata para mensajes del bot
                 if (msg.type === 'bot' && msg.metadata) {
-                    // Confidence
+                    // Confidence general
                     if (msg.metadata.confidence !== undefined) {
                         content += `  Confidence: ${(msg.metadata.confidence * 100).toFixed(0)}%\n`;
                     }
@@ -609,17 +616,111 @@ class ChatApp {
                         content += `  Feedback: No proporcionado\n`;
                     }
 
-                    // NUEVO: Añadir logs de consola si existen
-                    if (msg.metadata.logs && msg.metadata.logs.length > 0) {
-                        content += '\n  --- LOGS DEL PROCESAMIENTO ---\n';
-                        msg.metadata.logs.forEach(log => {
-                            const logTimestamp = new Date(log.timestamp).toLocaleTimeString('es-ES');
-                            content += `  [${logTimestamp}] ${log.text}\n`;
+                    // ✨ NUEVO: Confidence Breakdown (6 factores)
+                    if (msg.metadata.confidence_breakdown) {
+                        const breakdown = msg.metadata.confidence_breakdown;
+                        content += '\n  --- CONFIDENCE BREAKDOWN ---\n';
+                        content += `  Confidence final: ${(breakdown.confidence * 100).toFixed(1)}%\n`;
+                        content += `  Formula: ${breakdown.formula}\n`;
+                        content += `  Factores (${breakdown.total_factors}):\n`;
+
+                        if (breakdown.breakdown) {
+                            Object.entries(breakdown.breakdown).forEach(([factor, data]) => {
+                                const factorName = factor.replace('_', ' ').toUpperCase();
+
+                                // Extraer score según el factor (diferentes campos para diferentes factores)
+                                let score;
+                                if (data.score !== undefined) {
+                                    score = (data.score * 100).toFixed(0);
+                                } else if (data.avg_score !== undefined) {
+                                    score = (data.avg_score * 100).toFixed(0);
+                                } else if (data.overlap_ratio !== undefined) {
+                                    score = (data.overlap_ratio * 100).toFixed(0);
+                                } else {
+                                    score = 'N/A';
+                                }
+
+                                const weight = (data.weight * 100).toFixed(0);
+                                const contribution = (data.contribution * 100).toFixed(1);
+                                content += `    - ${factorName}: ${score}% (peso: ${weight}%, contribucion: ${contribution}%)\n`;
+
+                                // Detalles adicionales por factor
+                                if (data.count !== undefined) content += `      Valor: ${data.count}\n`;
+                                if (data.chars !== undefined) content += `      Longitud: ${data.chars} chars\n`;
+                                if (data.overlap_count !== undefined && data.question_words !== undefined) {
+                                    content += `      Keywords: ${data.overlap_count}/${data.question_words}\n`;
+                                }
+                                if (data.patterns_found !== undefined) {
+                                    if (Array.isArray(data.patterns_found)) {
+                                        content += `      Patrones: ${data.patterns_found.join(', ')}\n`;
+                                    } else {
+                                        content += `      Patrones: ${data.patterns_found}\n`;
+                                    }
+                                }
+                                if (data.has_negative_phrases !== undefined) {
+                                    content += `      Sin negativos: ${!data.has_negative_phrases}\n`;
+                                }
+                            });
+                        }
+                        content += '  ' + '-'.repeat(30) + '\n';
+                    }
+
+                    // ✨ NUEVO: Top 3 Chunks con scores y fuentes
+                    if (msg.metadata.top_chunks && msg.metadata.top_chunks.length > 0) {
+                        content += '\n  --- TOP CHUNKS RECUPERADOS ---\n';
+                        content += `  Total chunks consultados: ${msg.metadata.chunks_count || msg.metadata.top_chunks.length}\n`;
+                        msg.metadata.top_chunks.forEach((chunk, idx) => {
+                            content += `\n  Chunk ${chunk.rank || idx + 1}:\n`;
+                            if (chunk.score !== null) {
+                                content += `    Score: ${(chunk.score * 100).toFixed(1)}%\n`;
+                            }
+                            content += `    Fuente: ${chunk.source}\n`;
+                            if (chunk.location) {
+                                content += `    Ubicacion: Lineas ${chunk.location}\n`;
+                            }
+                            content += `    Contenido: "${chunk.content}"\n`;
                         });
                         content += '  ' + '-'.repeat(30) + '\n';
                     }
 
-                    // NUEVO: Añadir sugerencias si existen
+                    // ✨ NUEVO: Contexto conversacional detectado
+                    if (msg.metadata.context_info) {
+                        const ctx = msg.metadata.context_info;
+                        if (ctx.active_project || ctx.active_topic) {
+                            content += '\n  --- CONTEXTO DETECTADO ---\n';
+                            if (ctx.active_project) {
+                                content += `  Proyecto activo: ${ctx.active_project}\n`;
+                                content += `  Confianza proyecto: ${(ctx.project_score * 100).toFixed(0)}%\n`;
+                            }
+                            if (ctx.active_topic) {
+                                content += `  Tema detectado: ${ctx.active_topic.replace('_', ' ')}\n`;
+                                content += `  Confianza tema: ${(ctx.topic_score * 100).toFixed(0)}%\n`;
+                            }
+                            content += `  Confianza total: ${(ctx.confidence * 100).toFixed(0)}%\n`;
+                            if (ctx.summary) {
+                                content += `  Resumen: ${ctx.summary}\n`;
+                            }
+                            content += '  ' + '-'.repeat(30) + '\n';
+                        }
+                    }
+
+                    // ✨ NUEVO: Alertas del sistema
+                    if (msg.metadata.alerts && msg.metadata.alerts.length > 0) {
+                        content += '\n  --- ALERTAS DEL SISTEMA ---\n';
+                        msg.metadata.alerts.forEach((alert, idx) => {
+                            const severity = alert.severity ? ` [${alert.severity.toUpperCase()}]` : '';
+                            content += `  ${idx + 1}.${severity} ${alert.type}\n`;
+                            content += `     ${alert.message}\n`;
+                            if (alert.recommendation) {
+                                content += `     Recomendacion: ${alert.recommendation}\n`;
+                            }
+                        });
+                        content += '  ' + '-'.repeat(30) + '\n';
+                    }
+
+                    // LOGS DEL PROCESAMIENTO: ELIMINADOS - No aportan valor para debugging
+
+                    // Sugerencias si existen
                     if (msg.metadata.suggestions && msg.metadata.suggestions.length > 0) {
                         content += '\n  --- SUGERENCIAS PROPUESTAS ---\n';
                         msg.metadata.suggestions.forEach((suggestion, idx) => {

@@ -15,19 +15,37 @@ class WidgetController {
     
     init() {
         console.log('🔵 Inicializando Widget Controller...');
-        
+
         // Event listeners
         this.widgetButton.addEventListener('click', () => this.toggleChat());
         this.closeButton.addEventListener('click', () => this.closeChat());
-        
+
         // Conectar WebSocket cuando se abre por primera vez
         this.widgetButton.addEventListener('click', () => {
             if (!window.chatWebSocket.isConnected) {
                 window.chatWebSocket.connect();
             }
         }, { once: true });
-        
+
+        // Cerrar chat al hacer clic fuera
+        document.addEventListener('click', (e) => this.handleOutsideClick(e));
+
         console.log('✅ Widget Controller inicializado');
+    }
+
+    handleOutsideClick(event) {
+        // Solo procesar si el chat está abierto
+        if (!this.isOpen) return;
+
+        // Verificar si el clic fue fuera del chat y del botón
+        const clickedInsideChat = this.chatWindow.contains(event.target);
+        const clickedButton = this.widgetButton.contains(event.target);
+
+        // Si el clic fue fuera del chat y no fue en el botón, cerrar
+        if (!clickedInsideChat && !clickedButton) {
+            this.closeChat();
+            console.log('🔴 Chat cerrado por clic fuera');
+        }
     }
     
     toggleChat() {
@@ -39,7 +57,8 @@ class WidgetController {
     }
     
     openChat() {
-        this.chatWindow.classList.remove('hidden');
+        // Remover clases de cierre si existen
+        this.chatWindow.classList.remove('hidden', 'closing');
         this.widgetButton.style.display = 'none';
         this.isOpen = true;
 
@@ -49,7 +68,7 @@ class WidgetController {
         // Focus en el input
         setTimeout(() => {
             document.getElementById('user-input').focus();
-        }, 300);
+        }, 400);
 
         console.log('💬 Chat abierto');
     }
@@ -69,12 +88,27 @@ class WidgetController {
             // No es crítico, el chat funciona igual con las sugerencias hardcodeadas
         }
     }
-    
+
     closeChat() {
-        this.chatWindow.classList.add('hidden');
-        this.widgetButton.style.display = 'flex';
+        // Aplicar animación de cierre
+        this.chatWindow.classList.add('closing');
         this.isOpen = false;
-        
+
+        // Esperar a que termine la animación (300ms) antes de ocultar
+        setTimeout(() => {
+            this.chatWindow.classList.add('hidden');
+            this.chatWindow.classList.remove('closing');
+
+            // Mostrar botón con animación suave
+            this.widgetButton.style.display = 'flex';
+            this.widgetButton.classList.add('show');
+
+            // Remover clase de animación después de que termine
+            setTimeout(() => {
+                this.widgetButton.classList.remove('show');
+            }, 400);
+        }, 300);
+
         console.log('🔴 Chat cerrado');
     }
 }

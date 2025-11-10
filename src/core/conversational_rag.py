@@ -20,6 +20,8 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
 
+from src.core.context_tracker import ContextTracker
+
 
 class InMemorySessionStore:
     """
@@ -83,7 +85,7 @@ class ConversationalRAGEngine:
     ):
         """
         Inicializa el motor conversacional.
-        
+
         Args:
             base_rag_engine: Engine RAG base (ej: EnhancedRAGEngineNew)
             model_wrapper: Wrapper del modelo LLM
@@ -92,7 +94,8 @@ class ConversationalRAGEngine:
         self.base_rag = base_rag_engine
         self.model = model_wrapper
         self.session_store = InMemorySessionStore()
-        
+        self.context_tracker = ContextTracker()  # 🆕 Nuevo tracker de contexto
+
         # System prompt default para DNI
         self.system_prompt = system_prompt or """Eres el asistente virtual de DNI (Damos Nuestra Ilusión), una asociación de voluntariado juvenil en Valencia.
 
@@ -106,11 +109,12 @@ Responde de forma amigable, clara y concisa. Si no tienes información específi
 
 Basándote en este contexto recuperado, responde a la pregunta del usuario:
 {context}"""
-        
+
         # Crear prompts
         self._setup_prompts()
-        
+
         print("✅ Conversational RAG Engine inicializado")
+        print("   ✓ Context Tracker activo")
     
     def _setup_prompts(self):
         """Configura los prompts para history-aware retrieval"""
@@ -157,28 +161,39 @@ Ejemplos:
         # Obtener historial de la sesión
         session_history = self.session_store.get_session_history(session_id)
         messages = session_history.messages
-        
-        # Añadir contexto conversacional al query (NO reformular, solo añadir contexto)
+
+        # 🆕 NUEVO: Extraer contexto conversacional inteligente
+        context_info = None
         query_for_retrieval = query
+
         if messages and len(messages) >= 2:
-            # Obtener el último par pregunta-respuesta para contexto
-            last_question = None
-            last_answer = None
-            
-            for msg in reversed(messages):
-                if msg.type == 'ai' and last_answer is None:
-                    last_answer = str(msg.content)[:150]  # Limitar contexto
-                elif msg.type == 'human' and last_question is None:
-                    last_question = str(msg.content)
-                    
-                if last_question and last_answer:
-                    break
-            
-            if last_question and last_answer:
-                print(f"   📚 Contexto previo: '{last_question[:50]}...'")
-                # Añadir contexto al query sin reformular completamente
-                query_for_retrieval = f"Contexto: Estábamos hablando de: {last_question}. Nueva pregunta: {query}"
-        
+            # Usar el context tracker para obtener contexto inteligente
+            context_info = self.context_tracker.extract_context_from_history(messages)
+
+            # 🆕 THRESHOLD AUMENTADO: Requiere confianza >= 0.6 (antes 0.3)
+            # Esto evita falsos positivos cuando el asistente menciona proyectos en listas
+            CONTEXT_CONFIDENCE_THRESHOLD = 0.6
+
+            if context_info and context_info['confidence'] >= CONTEXT_CONFIDENCE_THRESHOLD:
+                # Enriquecer query con contexto detectado
+                enriched_query = self.context_tracker.enrich_query_with_context(query, context_info)
+
+                # Log del contexto detectado
+                print(f"   📚 Contexto detectado:")
+                print(f"      → Proyecto: {context_info['active_project'] or 'N/A'} (score: {context_info.get('project_score', 0):.2f})")
+                print(f"      → Tema: {context_info['active_topic'] or 'N/A'} (score: {context_info.get('topic_score', 0):.2f})")
+                print(f"      → Confianza: {context_info['confidence']:.2f}")
+
+                if enriched_query != query:
+                    print(f"   🔄 Query enriquecida: '{enriched_query}'")
+                    query_for_retrieval = enriched_query
+                else:
+                    print(f"   ℹ️ Query no necesita enriquecimiento")
+            else:
+                if context_info:
+                    print(f"   ℹ️ Contexto detectado pero confianza baja ({context_info.get('confidence', 0):.2f} < {CONTEXT_CONFIDENCE_THRESHOLD})")
+                    print(f"      → No se enriquece la query - se procesa como pregunta independiente")
+
         # Determinar si hay contexto conversacional ANTES de procesar
         has_context = len(messages) > 0
 
@@ -223,7 +238,13 @@ Ejemplos:
             if has_context:
                 # Si ya hay conversación, NO usar "Hola" repetidamente
                 # Ser más explícito en las instrucciones
-                system_prompt = """Eres el asistente virtual de DNI (Damos Nuestra Ilusión).
+
+                # 🆕 NUEVO: Añadir contexto conversacional al prompt
+                context_note = ""
+                if context_info and context_info['confidence'] >= 0.6:
+                    context_note = self.context_tracker.get_context_summary_for_llm(context_info)
+
+                system_prompt = f"""Eres el asistente virtual de DNI (Damos Nuestra Ilusión).
 
 ⚠️⚠️⚠️ REGLA CRÍTICA - PROHIBIDO SALUDAR ⚠️⚠️⚠️
 Esta es una conversación en curso. El usuario YA recibió un saludo.
@@ -243,14 +264,15 @@ EJEMPLOS INCORRECTOS (PROHIBIDOS):
 ❌ "Buenas. DNI es..."
 ❌ "¡Hola! Entiendo tu pregunta..."
 
+{context_note}
 Responde basándote ÚNICAMENTE en el contexto proporcionado.
 Si el contexto no contiene la información, di que no tienes esa información específica.
 Sé preciso, detallado y cita información relevante del contexto.
 
 Contexto:
-{context}
+{{context}}
 
-Pregunta: {question}
+Pregunta: {{question}}
 
 Respuesta (COMIENZA DIRECTAMENTE con el contenido, SIN NINGÚN SALUDO):"""
             else:
@@ -286,7 +308,8 @@ Respuesta (saludo breve + contenido):"""
                 'question': query,
                 'answer': answer,
                 'contexts': chunk_contents,
-                'confidence': confidence
+                'confidence': confidence,
+                'raw_chunks': chunks  # ✨ NUEVO: chunks originales con metadata
             }
 
         # POST-PROCESAMIENTO: Eliminar saludos si hay contexto conversacional

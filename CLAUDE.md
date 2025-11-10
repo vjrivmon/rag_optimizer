@@ -1,23 +1,24 @@
-# 📊 CLAUDE.md - Estado del Proyecto RAG Auto-Optimizer v3.2
+# 📊 CLAUDE.md - Estado del Proyecto RAG Auto-Optimizer v3.3
 
-**Última actualización:** 2025-11-07
+**Última actualización:** 2025-11-10
 **Estado:** ✅ **CHATBOT DNI PRODUCTION-READY CON RAG AVANZADO**
 
 ---
 
 ## 🎯 RESUMEN EJECUTIVO
 
-### **Sistema Actual: Chatbot DNI v3.2 (2025-11-07)**
+### **Sistema Actual: Chatbot DNI v3.3 (2025-11-10)**
 
 **Chatbot DNI** es un asistente virtual inteligente para la asociación de voluntarios DNI (Damos Nuestra Ilusión) en Valencia. Implementa RAG avanzado con:
 
 - ✅ **Confidence dinámico** basado en 6 factores (0.30-0.95)
-- ✅ **Contexto conversacional** preservado entre preguntas
+- ✅ **Contexto conversacional avanzado** con ventana deslizante de 4 interacciones
+- ✅ **ContextTracker inteligente** detecta proyectos DNI y enriquece queries
 - ✅ **RAG avanzado** siempre activo (10-15 chunks, validación adaptativa)
 - ✅ **Vector store optimizado** con 263 chunks (197 FAQ + 66 regulares)
 - ✅ **69 preguntas sugeridas** personalizadas por contexto
 - ✅ **UI profesional** con colores corporativos DNI (#5B7FDB)
-- ✅ **Exportación completa** de conversaciones con feedback
+- ✅ **Exportación completa** sin NaN ni fuentes desconocidas
 
 ### **Modelos LLM (Servidor UPV Ollama)**
 
@@ -31,9 +32,11 @@
 |---------|-------|--------|
 | **Tasa de éxito** | 94% (79/84 preguntas) | ✅ |
 | **Confidence variabilidad** | 0.30-0.95 (dinámico) | ✅ |
-| **Contexto preservado** | 95%+ | ✅ |
+| **Contexto preservado** | 100% (conversaciones críticas) | ✅ |
+| **Persistencia contexto multi-turn** | 60% (6/10 preguntas implícitas) | ✅ |
 | **Tiempo respuesta** | 1-3 segundos | ✅ |
 | **Total chunks** | 263 (197 FAQ) | ✅ |
+| **Export sin valores inválidos** | 100% | ✅ |
 
 ---
 
@@ -48,9 +51,10 @@
 | **v2.1** | 2025-10-11 | Optimización de parámetros | 0.855 | +4.3% |
 | **v3.0** | 2025-10-11 | Voting Strategy (Ensemble) | 0.872 | +2.0% |
 | **v3.1** | 2025-10-12 | Consensus + Chatbot base | 0.903 | +3.6% |
-| **v3.2** | 2025-11-07 | **Chatbot DNI completo** | 0.94 | +4.1% |
+| **v3.2** | 2025-11-07 | Chatbot DNI completo | 0.94 | +4.1% |
+| **v3.3** | 2025-11-10 | **Context Tracker + Export fixes** | 0.94 | = |
 
-**Mejora total:** +22.1% desde v1.0 hasta v3.2
+**Mejora total:** +22.1% desde v1.0 hasta v3.3
 
 ### **Chatbot DNI v3.2 - Arreglos Críticos (2025-11-05/07)**
 
@@ -95,11 +99,63 @@ INSTRUCCIONES:
 ..."""
 ```
 
+### **Chatbot DNI v3.3 - Mejoras de Calidad (2025-11-10)**
+
+#### **1. Sistema de Rastreo de Contexto (Context Tracker)**
+
+**Problema:** Pérdida de contexto en preguntas implícitas multi-turn
+**Ejemplo crítico:** Usuario pregunta sobre desayunos, luego "¿quién compra los alimentos?" → Sistema respondía sobre desayunos Y cenas
+
+**Solución implementada:**
+- ✅ **ContextTracker** nuevo módulo especializado (`src/core/context_tracker.py`)
+- ✅ **Ventana deslizante** de 4 interacciones (vs 1 anterior)
+- ✅ **Detección de proyectos DNI** con scoring ponderado por recencia
+- ✅ **Query enrichment** automático: `[Contexto: Desayunos Solidarios] query`
+- ✅ **Extracción de tema** conversacional (horarios, contacto, ubicación)
+
+**Resultados:**
+- Tasa de éxito conversación crítica: 60% → **100%** (+67%)
+- Contexto preservado en 10 preguntas implícitas: **60%** global
+- Benchmark automatizado: `tests/benchmark_context_persistence.py`
+
+#### **2. Arreglo de Exportación (3 Iteraciones Sucesivas)**
+
+**Problema:** Exportaciones con valores `NaN` y fuentes `"unknown"`/`"documento desconocido"`
+
+**Iteración 1 - Frontend (chat.js):**
+- ❌ Problema: Campos incorrectos del confidence breakdown
+- ✅ Solución: Manejo robusto de múltiples campos (score, avg_score, overlap_ratio)
+- ✅ Resultado: Sin NaN en SIMILARITY y KEYWORDS
+
+**Iteración 2 - Backend extract_top_chunks_info:**
+- ❌ Problema: Solo buscaba source en metadata
+- ✅ Solución: Buscar en chunk['source'] primero, luego metadata
+- ⚠️ Resultado: Tests pasaban, pero chatbot real seguía fallando
+
+**Iteración 3 - Adaptive Processing Path (DEFINITIVO):**
+- ❌ Problema: `_try_with_config_adaptive` no incluía 'raw_chunks' en resultado
+- ✅ Solución: Agregar `'raw_chunks': chunks` en return (línea 1460)
+- ✅ Test de debug: `test_debug_chunks_flow.py` reveló el problema real
+- ✅ Resultado: **100% fuentes reales** (07_desayunos_logistica.txt, 01_faq_dni.txt)
+
+**Lección aprendida:** Tests de integración pueden pasar mientras producción falla si no simulan el código path exacto
+
+#### **3. Nuevos Tests Creados**
+
+**Tests de contexto:**
+- ✅ `tests/benchmark_context_persistence.py` - 5 conversaciones, 10 preguntas implícitas
+- ✅ `tests/test_context_persistence.py` - Test unitario de ContextTracker
+
+**Tests de exportación:**
+- ✅ `tests/test_integration_export.py` - Integración completa con RAG
+- ✅ `tests/test_export_format.py` - Validación de formato export
+- ✅ `tests/test_debug_chunks_flow.py` - Simula flujo exacto del chatbot (clave!)
+
 ---
 
 ## 🏗️ ARQUITECTURA DEL SISTEMA
 
-### **Chatbot DNI v3.2 - Stack Completo**
+### **Chatbot DNI v3.3 - Stack Completo**
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -121,7 +177,9 @@ INSTRUCCIONES:
                          │
           ┌──────────────▼────────────────┐
           │  ConversationalRAG            │
-          │  • Contexto por prefijo        │
+          │  • ContextTracker inteligente  │ (v3.3 NUEVO)
+          │  • Ventana deslizante 4 turns  │
+          │  • Query enrichment automático │
           │  • question_id=0 FORZADO       │
           │  • Historial de conversación   │
           └──────────────┬────────────────┘
@@ -166,10 +224,21 @@ INSTRUCCIONES:
 - Feedback system (JSONL + metadata local)
 
 #### **ConversationalRAG** (`src/core/conversational_rag.py`)
+- **ContextTracker** integrado (v3.3) - detección inteligente de proyectos DNI
+- **Ventana deslizante** de 4 interacciones (vs 1 en v3.2)
+- **Query enrichment** automático basado en contexto detectado
 - **Prefijo contextual** preserva tema (NO reformulación agresiva)
 - **question_id=0 FORZADO** → RAG avanzado SIEMPRE activo
 - Historial de conversación por sesión
 - Fallback mejorado (10 chunks, temperature=0.2)
+
+#### **ContextTracker** (`src/core/context_tracker.py` - NUEVO v3.3)
+- **Detección de proyectos DNI** con scoring ponderado por recencia
+- **6 proyectos detectables:** Desayunos, RESIS, COLES, DANA, Kayak, General
+- **Extracción de tema** conversacional (horarios, contacto, ubicación, etc.)
+- **Enriquecimiento de queries** ambiguas con contexto detectado
+- **Confianza multi-factor:** combina project_confidence + topic_confidence
+- **Ventana configurable:** Por defecto 4 interacciones (8 mensajes)
 
 #### **EnhancedRAGEngineNew** (`src/core/enhanced_rag_engine_new.py`)
 - **Confidence dinámico** basado en 6 factores:
@@ -376,8 +445,9 @@ rag_optimizer/
 │
 ├── 📁 src/
 │   ├── core/
-│   │   ├── conversational_rag.py         # RAG conversacional (v3.2)
-│   │   ├── enhanced_rag_engine_new.py    # Confidence dinámico (v3.2)
+│   │   ├── conversational_rag.py         # RAG conversacional (v3.3)
+│   │   ├── context_tracker.py            # 🆕 Rastreo contexto (v3.3)
+│   │   ├── enhanced_rag_engine_new.py    # Confidence dinámico (v3.3)
 │   │   ├── rag_engine.py                 # Hybrid search (v3.2)
 │   │   ├── intent_classifier.py          # Clasificación intents
 │   │   ├── question_suggester.py         # 69 preguntas (v3.2)
@@ -415,7 +485,12 @@ rag_optimizer/
 │   └── benchmark_ragas_dni.py            # 🆕 RAGAs evaluation
 │
 ├── 📁 tests/
-│   ├── test_chatbot_automated.py         # 🆕 Testing automatizado
+│   ├── test_chatbot_automated.py         # Testing automatizado
+│   ├── benchmark_context_persistence.py  # 🆕 Benchmark contexto (v3.3)
+│   ├── test_context_persistence.py       # 🆕 Test unitario contexto (v3.3)
+│   ├── test_integration_export.py        # 🆕 Test integración export (v3.3)
+│   ├── test_debug_chunks_flow.py         # 🆕 Test debug flujo chatbot (v3.3)
+│   ├── test_export_format.py             # 🆕 Test formato export (v3.3)
 │   └── ...
 │
 └── 📁 results/
@@ -429,17 +504,21 @@ rag_optimizer/
 
 ### **Mejoras Planificadas (Short-term)**
 
+- [ ] **Context decay** (degradación temporal de contexto tras 5+ preguntas off-topic)
+- [ ] **Detección de cambio de tema** explícita ("cambiando de tema", etc.)
+- [ ] **Aumentar información vector store** (más detalles RESIS y COLES)
 - [ ] **Evaluación humana** integrada (usuarios califican respuestas)
-- [ ] **A/B Testing** automático de prompts
-- [ ] **Dashboard en tiempo real** con métricas live
-- [ ] **Contexto multi-sesión** (recordar usuario entre días)
+- [ ] **A/B Testing** automático de prompts (v3.2 vs v3.3)
 
 ### **Mejoras Planificadas (Medium-term)**
 
+- [ ] **Multi-proyecto support** (saltar entre proyectos en misma conversación)
+- [ ] **Contexto cross-sesión** (persistir contexto entre sesiones con Redis/PostgreSQL)
 - [ ] **Fine-tuning de gemma2** específico para DNI
 - [ ] **Multimodalidad** (imágenes, PDFs escaneados)
 - [ ] **Multi-idioma** (valenciano, inglés)
 - [ ] **API REST** para integración externa
+- [ ] **Dashboard en tiempo real** con métricas live
 
 ### **Mejoras Planificadas (Long-term)**
 
@@ -547,19 +626,19 @@ Este proyecto está bajo la **Licencia MIT**.
 
 ```bibtex
 @misc{rag_optimizer_chatbot_dni_2025,
-  title={Chatbot DNI v3.2: RAG Avanzado para Asociación de Voluntarios},
+  title={Chatbot DNI v3.3: RAG Avanzado con Context Tracking para Asociación de Voluntarios},
   author={Vicente},
   year={2025},
   institution={Universitat Politècnica de València},
-  note={Sistema RAG con confidence dinámico, contexto conversacional y 94% tasa de éxito}
+  note={Sistema RAG con confidence dinámico, context tracking inteligente, exportación perfecta y 94% tasa de éxito}
 }
 ```
 
 ---
 
-**Estado Final:** ✅ **CHATBOT DNI v3.2 - PRODUCTION-READY**
+**Estado Final:** ✅ **CHATBOT DNI v3.3 - PRODUCTION-READY**
 
-**Última actualización:** 2025-11-07
-**Próxima versión:** v3.3 (evaluación humana + A/B testing)
+**Última actualización:** 2025-11-10
+**Próxima versión:** v3.4 (context decay + multi-proyecto support + A/B testing)
 
 **Mantenido por:** Vicente - Universitat Politècnica de València

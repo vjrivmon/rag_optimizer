@@ -1,0 +1,303 @@
+{
+  "timestamp": "2025-11-10T13:01:26.257682",
+  "overall_success_rate": 60.0,
+  "total_implicit_questions": 10,
+  "total_successful": 6,
+  "conversations": [
+    {
+      "conversation_id": "conv_desayunos_1",
+      "conversation_name": "Desayunos Solidarios - Información Básica",
+      "total_questions": 4,
+      "implicit_questions": 3,
+      "successful": 3,
+      "success_rate": 100.0,
+      "results": [
+        {
+          "question": "¿Cómo me puedo apuntar a la actividad de desayunos solidarios?",
+          "answer": "¡Hola! Me alegra que te interese participar en los Desayunos Solidarios de DNI. \n\nPara apuntarte a esta actividad, sigue estos pasos:\n\n* **Revisa los anuncios:** Cada miércoles, si hay actividad ese sábado, publicamos un formulario de inscripción por la comunidad de WhatsApp y nuestras redes sociales.\n* **Completa el formulario:**  El formulario te permitirá registrarte para participar en el Desayuno Solidario de ese sábado. \n\nRecuerda que los Desayunos Solidarios son actividades puntuales, así que puedes apuntarte solo a las que puedas asistir sin compromiso.\n\nSi tienes más preguntas sobre la actividad, puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==). ¡Esperamos verte pronto!",
+          "context_explicit": true,
+          "expected_project": "Desayunos Solidarios",
+          "maintains_context": true,
+          "keyword_score": 1.0,
+          "found_keywords": [
+            "desayuno",
+            "formulario",
+            "miércoles",
+            "sábado"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "✅"
+        },
+        {
+          "question": "¿Cuánto dura la actividad?",
+          "answer": "La actividad de Desayunos Solidarios suele durar alrededor de una hora y media. \n\nRecuerda que lo más importante es compartir tiempo con las personas sin hogar, escuchar sus historias y hacerles sentir acompañados. 😊\n\nSi quieres saber más sobre la logística (punto de encuentro, zonas a recorrer), te recomiendo unirte a nuestra comunidad de WhatsApp (962 025 978 / 647 440 275) o seguirnos en Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==). ¡Allí publicamos toda la información sobre las actividades!",
+          "context_explicit": false,
+          "expected_project": "Desayunos Solidarios",
+          "maintains_context": true,
+          "keyword_score": 0.4,
+          "found_keywords": [
+            "desayuno",
+            "hora"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "✅"
+        },
+        {
+          "question": "¿y qué se hace?",
+          "answer": "En los Desayunos Solidarios, un grupo de voluntarios se reúne, se divide en equipos y recorre zonas de Valencia repartiendo desayunos o cenas a personas sin hogar. \n\nLo más importante es compartir tiempo con ellos, conversar, escuchar sus historias y hacerles sentir acompañados. Cada desayuno dura unas 2-3 horas. ¡Es una experiencia muy transformadora!\n\nSi quieres saber más sobre cómo apuntarte, te recomiendo que visites nuestra comunidad de WhatsApp (962 025 978 / 647 440 275) o nuestro Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==). ¡Allí encontrarás toda la información! 😊",
+          "context_explicit": false,
+          "expected_project": "Desayunos Solidarios",
+          "maintains_context": true,
+          "keyword_score": 0.4,
+          "found_keywords": [
+            "desayuno",
+            "personas"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "✅"
+        },
+        {
+          "question": "¿quién compra los alimentos?",
+          "answer": "Sobre quién compra los alimentos, la respuesta es:\n\n* **DNI se encarga de comprar los alimentos para los desayunos solidarios.**  \n* Algunos alimentos son donados por bares solidarios, pero si necesitamos algo más específico lo compramos nosotros mismos.\n\nSi quieres saber más sobre cómo funciona el voluntariado en Desayunos Solidarios, puedes contactarnos por WhatsApp al 962 025 978 o al 647 440 275. ¡También estamos en Instagram como @dnivalenciaa! 😊",
+          "context_explicit": false,
+          "expected_project": "Desayunos Solidarios",
+          "maintains_context": true,
+          "keyword_score": 0.75,
+          "found_keywords": [
+            "desayuno",
+            "dni",
+            "compra"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": true,
+          "status": "✅"
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_desayunos_2",
+      "conversation_name": "Desayunos Solidarios - Horarios y Ubicación",
+      "total_questions": 3,
+      "implicit_questions": 2,
+      "successful": 1,
+      "success_rate": 50.0,
+      "results": [
+        {
+          "question": "¿Cuándo son los desayunos solidarios?",
+          "answer": "¡Hola! Los desayunos solidarios suelen ser los fines de semana (sábados o domingos) por la mañana temprano, típicamente entre las 9:00-12:00h.\n\nLa hora exacta varía según la zona donde vayamos y la coordinación con las personas sin hogar. Nos gusta madrugar un poco para llegar cuando la gente está despertando. 😉\n\nTe avisaremos con antelación del punto de encuentro y hora exacta en el grupo de WhatsApp. ¡Apúntate! \n\nSi quieres saber más sobre cómo apuntarte, puedes consultar el formulario que publicamos los miércoles en WhatsApp y redes sociales.\n\n\n",
+          "context_explicit": true,
+          "expected_project": "Desayunos Solidarios",
+          "maintains_context": true,
+          "keyword_score": 0.6666666666666666,
+          "found_keywords": [
+            "sábado",
+            "mañana"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "✅"
+        },
+        {
+          "question": "¿Dónde quedamos?",
+          "answer": "Para los Desayunos Solidarios nos reunimos en Puerta de la Mar. Desde allí salimos juntos a recorrer diferentes zonas de Valencia.  \n\n¿Te gustaría saber más sobre cómo funcionan los desayunos? ¡Escríbenos por WhatsApp (962 025 978 / 647 440 275) o síguenos en Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==)! 😊",
+          "context_explicit": false,
+          "expected_project": "Desayunos Solidarios",
+          "maintains_context": false,
+          "keyword_score": 0.0,
+          "found_keywords": [],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "❌"
+        },
+        {
+          "question": "¿Qué pasa si llueve?",
+          "answer": "Entiendo tu pregunta sobre los Desayunos Solidarios. \n\nNormalmente seguimos adelante con el reparto de desayunos incluso si llueve, ya que las personas sin hogar siguen necesitando nuestra ayuda.  Siempre avisamos con antelación por el grupo de WhatsApp en caso de que haya cambios.\n\nSi quieres saber más detalles sobre cómo funcionan los Desayunos Solidarios o apuntarte a la próxima actividad, puedes contactarnos por WhatsApp al 962 025 978 / 647 440 275. ¡Te esperamos! 😊",
+          "context_explicit": false,
+          "expected_project": "Desayunos Solidarios",
+          "maintains_context": true,
+          "keyword_score": 0.5,
+          "found_keywords": [
+            "desayuno",
+            "avisa"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "✅"
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_resis_1",
+      "conversation_name": "Charlas con Abuelitos (RESIS) - Información Básica",
+      "total_questions": 3,
+      "implicit_questions": 2,
+      "successful": 0,
+      "success_rate": 0.0,
+      "results": [
+        {
+          "question": "¿Cómo funcionan las charlas con abuelitos en la residencia?",
+          "answer": "¡Hola! Las charlas con abuelitos son una actividad muy especial dentro de DNI. \n\nSe trata de visitar a los residentes de la residencia L'Acollida todos los miércoles de 17:30 a 18:30 para pasar un rato agradable con ellos.  \n\n* **¿Qué hacemos?**  \n    * Paseos por el jardín\n    * Juegos de mesa (parchís, cartas, dominó)\n    * Conversaciones sobre sus historias de vida\n    * Lectura de periódicos\n    * Cantar canciones antiguas\n    * Manualidades simples\n    * Simplemente hacerles compañía\n\nLo más importante es que se sientan escuchados y valorados. Buscamos crear un vínculo de amistad y confianza, como el que tendrías con tus abuelos. \n\nSi quieres saber más sobre esta actividad o sobre DNI en general, puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==). ¡Estamos encantados de tenerte en nuestra familia DNI!\n\n\n",
+          "context_explicit": true,
+          "expected_project": "Charlas con Abuelitos",
+          "maintains_context": true,
+          "keyword_score": 1.0,
+          "found_keywords": [
+            "abuelito",
+            "residencia",
+            "l'acollida",
+            "charlas"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "✅"
+        },
+        {
+          "question": "¿Qué días vais?",
+          "answer": "En DNI vamos a las residencias (RESIS) los **miércoles de 17:30 a 18:30** para hacer charlas con los abuelitos.  \n\nSi quieres saber más sobre el proyecto o cómo participar, puedes contactarnos por WhatsApp al 962 025 978 / 647 440 275 o seguirnos en Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==). ¡Te esperamos! 😊",
+          "context_explicit": false,
+          "expected_project": "Charlas con Abuelitos",
+          "maintains_context": false,
+          "keyword_score": 0.3333333333333333,
+          "found_keywords": [
+            "residencia"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "❌"
+        },
+        {
+          "question": "¿Qué tipo de conversaciones se tienen?",
+          "answer": "Durante los repartos de Desayunos Solidarios, buscamos tener charlas normales y cercanas.  Escuchamos a las personas, preguntamos por su día, compartimos historias o simplemente les acompañamos.\n\nLo más importante es escuchar con respeto y tratarlos con cariño. 😊 \n\nSi quieres saber más sobre cómo funciona el voluntariado en DNI, puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==). ¡Estamos encantados de contarte más!",
+          "context_explicit": false,
+          "expected_project": "Charlas con Abuelitos",
+          "maintains_context": false,
+          "keyword_score": 0.25,
+          "found_keywords": [
+            "escuchar"
+          ],
+          "wrong_projects": [
+            "desayunos solidarios (Desayunos Solidarios)"
+          ],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "❌"
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_coles_1",
+      "conversation_name": "Refuerzo Escolar (COLES) - Información Básica",
+      "total_questions": 3,
+      "implicit_questions": 2,
+      "successful": 1,
+      "success_rate": 50.0,
+      "results": [
+        {
+          "question": "¿Cómo funciona el refuerzo escolar COLES?",
+          "answer": "¡Hola! El refuerzo escolar COLES es un programa genial donde ayudamos a niños en riesgo de exclusión con sus deberes y estudios. 📚\n\n* Trabajamos en grupos pequeños o sesiones individuales, adaptándonos al nivel de cada niño.\n* No solo les ayudamos con matemáticas o lengua, sino que también fomentamos su desarrollo integral: autoestima, hábitos de estudio y motivación. 💪\n* Para generar un buen vínculo con los niños, se requiere un compromiso más regular (idealmente 1-2 veces por semana).\n\nLas actividades pueden variar según la edad:\n\n* **Niños más pequeños:** Lectura de cuentos, realización de manualidades. 🎨\n* **Niños más grandes:** Repaso de deberes o de conceptos.\n\nSi quieres saber más sobre horarios, ubicación o cómo unirte como voluntario, ¡escríbenos por WhatsApp (962 025 978 / 647 440 275) o síguenos en Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==)! 😊\n\n\n",
+          "context_explicit": true,
+          "expected_project": "Refuerzo Escolar",
+          "maintains_context": true,
+          "keyword_score": 1.0,
+          "found_keywords": [
+            "refuerzo",
+            "escolar",
+            "coles",
+            "niños",
+            "deberes"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "✅"
+        },
+        {
+          "question": "¿Qué días se hace?",
+          "answer": "El Refuerzo Escolar (COLES) se hace de lunes a viernes. \n\n*  Horario: De 15:30 a 16:30.\n\nSi quieres saber más sobre el Refuerzo Escolar o nuestros otros proyectos, puedes contactarnos por WhatsApp al 962 025 978 / 647 440 275 o visitarnos en Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==). ¡Estamos aquí para ayudarte! 😊",
+          "context_explicit": false,
+          "expected_project": "Refuerzo Escolar",
+          "maintains_context": false,
+          "keyword_score": 0.0,
+          "found_keywords": [],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "❌"
+        },
+        {
+          "question": "¿Necesito ser bueno en matemáticas?",
+          "answer": "Entiendo tu pregunta. No te preocupes, no necesitas ser un experto en matemáticas para participar en el Refuerzo Escolar (COLES). \n\nLo importante es tener ganas de ayudar y conectar con los niños.  En DNI creemos en aprender haciendo, así que te guiaremos en cada paso del proceso.\n\nPara proyectos como COLES, te daremos pautas específicas, pero siempre de forma accesible y práctica.\n\nSi tienes más dudas sobre el Refuerzo Escolar o cualquier otro proyecto de DNI, ¡no dudes en contactarnos! Estamos aquí para ayudarte. Puedes escribirnos por WhatsApp al 962 025 978 / 647 440 275 o seguirnos en Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==). ¡Esperamos verte pronto! 😊",
+          "context_explicit": false,
+          "expected_project": "Refuerzo Escolar",
+          "maintains_context": true,
+          "keyword_score": 0.75,
+          "found_keywords": [
+            "refuerzo",
+            "matemáticas",
+            "ayudar"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "✅"
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_compromiso_1",
+      "conversation_name": "Compromiso de Asistencia - Caso General",
+      "total_questions": 2,
+      "implicit_questions": 1,
+      "successful": 1,
+      "success_rate": 100.0,
+      "results": [
+        {
+          "question": "Me gustaría participar en los desayunos solidarios, pero tengo una duda",
+          "answer": "¡Genial que quieras participar en los desayunos solidarios! Es una actividad muy gratificante. \n\nPara resolver tu duda, necesito saber qué te preocupa.  ¿Podrías contarme a qué se refiere? \n\nMientras tanto, puedo darte información general sobre cómo funcionan:\n\n* **¿Cuándo?** Casi todos los sábados.\n* **¿Cómo me apunto?** El miércoles anterior al sábado se publica un formulario de inscripción en la comunidad de WhatsApp y en redes sociales.\n* **¿Qué hago?** Preparamos bocadillos, café, zumo y fruta para repartir a personas sin hogar. Lo más importante es compartir tiempo con ellos, conversar y escuchar sus historias.\n\nSi tienes alguna otra pregunta sobre los desayunos solidarios, ¡no dudes en preguntar! \n\nTambién puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==). 😊",
+          "context_explicit": true,
+          "expected_project": "Desayunos Solidarios",
+          "maintains_context": true,
+          "keyword_score": 1.0,
+          "found_keywords": [
+            "desayuno",
+            "participar",
+            "duda"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "✅"
+        },
+        {
+          "question": "¿Si me apunto un día tengo que ir el resto?",
+          "answer": "Entiendo tu pregunta.  Los desayunos solidarios son lo que llamamos actividades puntuales en DNI. \n\n* Eso significa que puedes apuntarte un día sin compromiso de tener que ir a las siguientes actividades. \n\nSi quieres saber más sobre cómo funciona la actividad, te recomiendo echar un vistazo a la información que publicamos los miércoles en nuestra comunidad de WhatsApp y redes sociales. ¡Te esperamos! 😊\n\nPuedes contactarnos por:\n* WhatsApp: 962 025 978 / 647 440 275\n* Instagram: [@dnivalenciaa](https://www.instagram.com/dnivalenciaa?igsh=MWRicTFocW5jODN6NQ==)",
+          "context_explicit": false,
+          "expected_project": "Desayunos Solidarios",
+          "maintains_context": true,
+          "keyword_score": 0.75,
+          "found_keywords": [
+            "desayuno",
+            "compromiso",
+            "apuntar"
+          ],
+          "wrong_projects": [],
+          "confidence": 0.0,
+          "is_critical": false,
+          "status": "✅"
+        }
+      ]
+    }
+  ]
+}

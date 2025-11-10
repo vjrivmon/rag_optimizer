@@ -481,7 +481,408 @@ class EnhancedRAGEngineNew:
         print(f"      → Final confidence: {round(confidence, 3)}")
         
         return round(confidence, 3)
-    
+
+    def calculate_confidence_with_breakdown(self, chunks: List[Any], answer: str, question: str) -> Dict[str, Any]:
+        """
+        Calcula confidence score con breakdown detallado de cada factor.
+
+        Args:
+            chunks: Chunks recuperados
+            answer: Respuesta generada
+            question: Pregunta original
+
+        Returns:
+            Dict con confidence y breakdown detallado
+        """
+        import numpy as np
+        import re
+
+        breakdown = {}
+        weighted_scores = []
+        answer_len = len(answer.strip())
+
+        # 1. Número de chunks recuperados (peso: 0.15)
+        if len(chunks) >= 10:
+            chunk_score = 0.9
+        elif len(chunks) >= 5:
+            chunk_score = 0.7
+        else:
+            chunk_score = 0.5
+        weighted_scores.append((chunk_score, 0.15))
+        breakdown['chunks'] = {
+            'count': len(chunks),
+            'score': chunk_score,
+            'weight': 0.15,
+            'contribution': chunk_score * 0.15
+        }
+
+        # 2. Similarity scores / content overlap (peso: 0.25)
+        similarity_scores = []
+        for chunk in chunks:
+            if isinstance(chunk, dict):
+                if 'score' in chunk:
+                    similarity = 1.0 - min(chunk['score'], 1.0)
+                    similarity_scores.append(similarity)
+                elif 'metadata' in chunk and 'score' in chunk['metadata']:
+                    similarity = 1.0 - min(chunk['metadata']['score'], 1.0)
+                    similarity_scores.append(similarity)
+
+        if similarity_scores:
+            avg_similarity = np.mean(similarity_scores)
+            weighted_scores.append((avg_similarity, 0.25))
+            breakdown['similarity'] = {
+                'avg_score': round(avg_similarity, 3),
+                'weight': 0.25,
+                'contribution': avg_similarity * 0.25,
+                'method': 'similarity_scores'
+            }
+        else:
+            overlap_score = self._calculate_content_overlap(chunks, answer, question)
+            weighted_scores.append((overlap_score, 0.25))
+            breakdown['similarity'] = {
+                'avg_score': round(overlap_score, 3),
+                'weight': 0.25,
+                'contribution': overlap_score * 0.25,
+                'method': 'content_overlap'
+            }
+
+        # 3. Longitud y completitud (peso: 0.20)
+        if answer_len > 200:
+            length_score = 0.9
+            length_quality = 'detallada'
+        elif answer_len > 100:
+            length_score = 0.75
+            length_quality = 'media'
+        elif answer_len > 50:
+            length_score = 0.6
+            length_quality = 'corta'
+        else:
+            length_score = 0.3
+            length_quality = 'muy_corta'
+        weighted_scores.append((length_score, 0.20))
+        breakdown['answer_length'] = {
+            'chars': answer_len,
+            'score': length_score,
+            'quality': length_quality,
+            'weight': 0.20,
+            'contribution': length_score * 0.20
+        }
+
+        # 4. Keywords overlap (peso: 0.15)
+        stopwords = {'el', 'la', 'de', 'que', 'y', 'a', 'en', 'un', 'ser', 'se', 'no', 'hay', 'por', 'con', 'su', 'para', 'es'}
+        question_words = set(word.lower() for word in question.split() if word.lower() not in stopwords and len(word) > 2)
+        answer_words = set(word.lower() for word in answer.split() if word.lower() not in stopwords and len(word) > 2)
+
+        if question_words:
+            keyword_overlap = len(question_words & answer_words) / len(question_words)
+            if any(word.istitle() for word in answer.split()):
+                keyword_overlap = min(keyword_overlap + 0.1, 1.0)
+            weighted_scores.append((keyword_overlap, 0.15))
+            breakdown['keywords'] = {
+                'question_words': len(question_words),
+                'overlap_count': len(question_words & answer_words),
+                'overlap_ratio': round(keyword_overlap, 3),
+                'weight': 0.15,
+                'contribution': keyword_overlap * 0.15
+            }
+        else:
+            weighted_scores.append((0.5, 0.15))
+            breakdown['keywords'] = {
+                'question_words': 0,
+                'overlap_count': 0,
+                'overlap_ratio': 0.5,
+                'weight': 0.15,
+                'contribution': 0.5 * 0.15
+            }
+
+        # 5. Ausencia de incertidumbre (peso: 0.15)
+        negative_phrases = [
+            'no sé', 'no se', 'no tengo información', 'no puedo',
+            'no dispongo', 'desconozco', 'no está claro', 'no encuentro'
+        ]
+        has_negative = any(phrase in answer.lower() for phrase in negative_phrases)
+        uncertainty_score = 0.2 if has_negative else 0.95
+        weighted_scores.append((uncertainty_score, 0.15))
+        breakdown['uncertainty'] = {
+            'has_negative_phrases': has_negative,
+            'score': uncertainty_score,
+            'weight': 0.15,
+            'contribution': uncertainty_score * 0.15
+        }
+
+        # 6. Especificidad (peso: 0.10)
+        specificity_patterns = [
+            (r'\d+:\d+', 'horarios'),
+            (r'\d+\s*(€|euros)', 'precios'),
+            (r'\d+\s*horas?', 'duraciones'),
+            (r'[A-Z][a-zá-ú]+\s+[A-Z]', 'nombres_propios')
+        ]
+        specificity_matches = []
+        for pattern, name in specificity_patterns:
+            if re.search(pattern, answer):
+                specificity_matches.append(name)
+
+        specificity_count = len(specificity_matches)
+        specificity_score = min(specificity_count / 2.0, 0.95)
+        weighted_scores.append((specificity_score, 0.10))
+        breakdown['specificity'] = {
+            'patterns_found': specificity_matches,
+            'count': specificity_count,
+            'score': specificity_score,
+            'weight': 0.10,
+            'contribution': specificity_score * 0.10
+        }
+
+        # Calcular confidence final
+        if weighted_scores:
+            confidence = sum(score * weight for score, weight in weighted_scores) / sum(weight for _, weight in weighted_scores)
+        else:
+            confidence = 0.5
+
+        confidence = max(0.3, min(confidence, 0.95))
+
+        return {
+            'confidence': round(confidence, 3),
+            'breakdown': breakdown,
+            'total_factors': 6,
+            'formula': 'weighted_average'
+        }
+
+    def extract_top_chunks_info(self, chunks: List[Any], top_n: int = 3) -> List[Dict[str, Any]]:
+        """
+        Extrae información detallada de los top N chunks.
+
+        Args:
+            chunks: Lista de chunks recuperados
+            top_n: Número de chunks a retornar
+
+        Returns:
+            Lista de dicts con información detallada de cada chunk
+        """
+        chunks_info = []
+
+        for i, chunk in enumerate(chunks[:top_n]):
+            chunk_data = {
+                'rank': i + 1,
+                'content': '',
+                'score': None,
+                'source': 'documento desconocido',
+                'location': None
+            }
+
+            # Extraer contenido
+            if isinstance(chunk, dict):
+                chunk_data['content'] = chunk.get('content', chunk.get('page_content', str(chunk)))[:300]
+
+                # Extraer score
+                if 'score' in chunk:
+                    chunk_data['score'] = round(1.0 - min(chunk['score'], 1.0), 3)  # Convertir distancia a similarity
+                elif 'metadata' in chunk and 'score' in chunk['metadata']:
+                    chunk_data['score'] = round(1.0 - min(chunk['metadata']['score'], 1.0), 3)
+
+                # Extraer source (intentar PRIMERO en nivel principal, luego en metadata)
+                source = None
+
+                # 1. Intentar en el nivel principal del dict (agregado por retrieve())
+                if 'source' in chunk and chunk['source'] and chunk['source'] != 'unknown':
+                    source = chunk['source']
+
+                # 2. Si no, intentar en metadata
+                if not source and 'metadata' in chunk:
+                    metadata = chunk['metadata']
+                    source = metadata.get('source') or metadata.get('file') or metadata.get('filename')
+
+                # Limpiar y asignar
+                if source:
+                    # Limpiar el path si es muy largo (solo el nombre del archivo)
+                    if '/' in str(source):
+                        source = str(source).split('/')[-1]
+                    chunk_data['source'] = source
+
+                # Intentar extraer ubicación
+                if 'metadata' in chunk:
+                    metadata = chunk['metadata']
+                    if 'line_start' in metadata and 'line_end' in metadata:
+                        chunk_data['location'] = f"Líneas {metadata['line_start']}-{metadata['line_end']}"
+                    elif 'type' in metadata:
+                        chunk_type = metadata['type']
+                        if chunk_type == 'faq' and 'question' in metadata:
+                            chunk_data['location'] = f"FAQ: {metadata['question'][:50]}"
+                        elif chunk_type == 'faq' and 'category' in metadata:
+                            chunk_data['location'] = f"FAQ ({metadata['category']})"
+                        else:
+                            chunk_data['location'] = f"Tipo: {chunk_type}"
+
+            elif hasattr(chunk, 'page_content'):
+                # Este es el caso más común (LangChain Document)
+                chunk_data['content'] = chunk.page_content[:300]
+
+                if hasattr(chunk, 'metadata'):
+                    metadata = chunk.metadata
+
+                    # Intentar varios campos para source
+                    source = metadata.get('source') or metadata.get('file') or metadata.get('filename')
+                    if source:
+                        # Limpiar el path si es muy largo (solo el nombre del archivo)
+                        if '/' in str(source):
+                            source = str(source).split('/')[-1]
+                        chunk_data['source'] = source
+
+                    # Intentar extraer ubicación (líneas) si existe
+                    if 'line_start' in metadata and 'line_end' in metadata:
+                        chunk_data['location'] = f"Líneas {metadata['line_start']}-{metadata['line_end']}"
+                    # Si no hay line_start/end, mostrar el tipo de chunk
+                    elif 'type' in metadata:
+                        chunk_type = metadata['type']
+                        if chunk_type == 'faq' and 'question' in metadata:
+                            chunk_data['location'] = f"FAQ: {metadata['question'][:50]}"
+                        elif chunk_type == 'faq' and 'category' in metadata:
+                            chunk_data['location'] = f"FAQ ({metadata['category']})"
+                        else:
+                            chunk_data['location'] = f"Tipo: {chunk_type}"
+                    elif 'category' in metadata:
+                        chunk_data['location'] = f"Categoría: {metadata['category']}"
+
+            else:
+                # String o tipo desconocido
+                content = str(chunk)
+                chunk_data['content'] = content[:300]
+
+                # Intentar extraer source del contenido si es un string con formato específico
+                # Esto es un fallback para casos donde no hay metadata
+                if 'source:' in content.lower():
+                    import re
+                    match = re.search(r'source:\s*([^\n]+)', content, re.IGNORECASE)
+                    if match:
+                        chunk_data['source'] = match.group(1).strip()
+
+            chunks_info.append(chunk_data)
+
+        return chunks_info
+
+    def detect_response_alerts(self, answer: str, question: str, confidence: float,
+                               chunks: List[Any], context_info: Dict[str, Any] = None) -> List[Dict[str, str]]:
+        """
+        Detecta problemas potenciales en la respuesta.
+
+        Args:
+            answer: Respuesta generada
+            question: Pregunta original
+            confidence: Score de confidence
+            chunks: Chunks recuperados
+            context_info: Información de contexto conversacional
+
+        Returns:
+            Lista de alertas detectadas
+        """
+        alerts = []
+
+        # 1. Respuesta menciona múltiples proyectos DNI
+        projects = {
+            'Desayunos Solidarios': ['desayuno', 'desayunos solidarios'],
+            'Charlas con Abuelitos': ['abuelito', 'abuelitos', 'resis', 'residencia'],
+            'Refuerzo Escolar': ['refuerzo escolar', 'coles', 'escolares'],
+            'DANA': ['dana', 'rehabilitar valencia'],
+            'Kayak': ['kayak', 'plástico', 'plásticos']
+        }
+
+        answer_lower = answer.lower()
+        projects_mentioned = []
+        for project_name, keywords in projects.items():
+            if any(kw in answer_lower for kw in keywords):
+                projects_mentioned.append(project_name)
+
+        if len(projects_mentioned) > 1:
+            expected_project = context_info.get('active_project') if context_info else None
+            if expected_project and expected_project in projects_mentioned:
+                # Hay un proyecto esperado y se menciona, pero también otros
+                alerts.append({
+                    'level': 'warning',
+                    'type': 'multiple_projects',
+                    'message': f'Respuesta menciona múltiples proyectos: {", ".join(projects_mentioned)}',
+                    'detail': f'Proyecto esperado: {expected_project}. Riesgo: Confusión al usuario'
+                })
+            else:
+                alerts.append({
+                    'level': 'warning',
+                    'type': 'multiple_projects',
+                    'message': f'Respuesta menciona múltiples proyectos: {", ".join(projects_mentioned)}',
+                    'detail': 'Sin proyecto esperado claro. Puede ser confuso para el usuario'
+                })
+
+        # 2. Confidence bajo sin fallback activado
+        if confidence < 0.5:
+            # Verificar si la respuesta tiene fallback a redes sociales
+            has_fallback = any(phrase in answer_lower for phrase in ['whatsapp', 'instagram', 'contactar', 'redes sociales'])
+            if not has_fallback:
+                alerts.append({
+                    'level': 'warning',
+                    'type': 'low_confidence_no_fallback',
+                    'message': f'Confidence bajo ({confidence:.2f}) sin fallback a redes sociales',
+                    'detail': 'Acción recomendada: Revisar si se debe añadir información de contacto'
+                })
+
+        # 3. Frases de incertidumbre
+        negative_phrases = ['no sé', 'no se', 'no tengo información', 'no puedo', 'desconozco']
+        found_negatives = [phrase for phrase in negative_phrases if phrase in answer_lower]
+        if found_negatives:
+            alerts.append({
+                'level': 'info',
+                'type': 'uncertainty_detected',
+                'message': f'Respuesta contiene frases de incertidumbre: {", ".join(found_negatives)}',
+                'detail': 'El modelo no está seguro de la respuesta. Considerar mejorar el vector store'
+            })
+
+        # 4. Respuesta muy corta con alta confidence
+        if len(answer.strip()) < 80 and confidence > 0.8:
+            alerts.append({
+                'level': 'info',
+                'type': 'short_high_confidence',
+                'message': f'Respuesta muy corta ({len(answer)} chars) pero alta confidence ({confidence:.2f})',
+                'detail': 'Revisar si la respuesta es realmente completa'
+            })
+
+        # 5. Pocos chunks recuperados
+        if len(chunks) < 3:
+            alerts.append({
+                'level': 'warning',
+                'type': 'few_chunks',
+                'message': f'Solo {len(chunks)} chunks recuperados',
+                'detail': 'Puede indicar problemas en el retrieval. Considerar ajustar thresholds'
+            })
+
+        # 6. Contexto detectado pero chunks no relacionados
+        if context_info and context_info.get('active_project'):
+            expected_project = context_info['active_project']
+            chunks_text = ' '.join([str(c) for c in chunks[:3]])  # Analizar top 3 chunks
+            chunks_lower = chunks_text.lower()
+
+            # Verificar si los chunks hablan del proyecto esperado
+            project_keywords = {
+                'Desayunos Solidarios': ['desayuno'],
+                'Charlas con Abuelitos': ['abuelito', 'residencia', 'resis'],
+                'Refuerzo Escolar': ['refuerzo', 'escolar', 'coles']
+            }.get(expected_project, [])
+
+            if project_keywords and not any(kw in chunks_lower for kw in project_keywords):
+                alerts.append({
+                    'level': 'error',
+                    'type': 'context_mismatch',
+                    'message': f'Contexto esperado ({expected_project}) NO coincide con chunks recuperados',
+                    'detail': 'Los chunks no contienen información sobre el proyecto esperado. Posible fallo en el retrieval'
+                })
+
+        # Si no hay alertas, añadir confirmación
+        if not alerts:
+            alerts.append({
+                'level': 'success',
+                'type': 'all_ok',
+                'message': 'Todo OK - No se detectaron problemas',
+                'detail': None
+            })
+
+        return alerts
+
     def _calculate_content_overlap(self, chunks: List[Any], answer: str, question: str) -> float:
         """
         Calcula overlap entre chunks recuperados y la respuesta generada.
@@ -541,6 +942,7 @@ class EnhancedRAGEngineNew:
             'question_id': question_id,
             'answer': answer,
             'contexts': chunk_contents,
+            'raw_chunks': chunks,  # ✨ NUEVO: chunks originales con metadata completa
             'config_used': config,
             'validation': validation,
             'confidence': confidence_score,  # NUEVO: Confidence score
@@ -597,6 +999,7 @@ class EnhancedRAGEngineNew:
             'question_id': question_id,
             'answer': answer,
             'contexts': filtered_chunks,
+            'raw_chunks': chunks,  # ✨ NUEVO: chunks originales con metadata completa
             'config_used': RetrievalConfig("exact_search", 25, 0.05, 0.3, 0.7),
             'validation': validation,
             'retrieval_stats': {
@@ -1030,6 +1433,7 @@ TU RESPUESTA (precisa, amigable, basada SOLO en los textos proporcionados):"""
                 'question_id': question_id,
                 'answer': answer,
                 'contexts': chunk_contents,
+                'raw_chunks': chunks,  # ✨ NUEVO: chunks originales con metadata completa
                 'config_used': config,
                 'validation': validation,
                 'retrieval_stats': {
