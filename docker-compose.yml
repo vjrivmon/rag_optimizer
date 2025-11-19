@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # PostgreSQL 16 for Telegram chatbot with persistent memory
+  postgres:
+    image: postgres:16-alpine
+    container_name: rag-telegram-postgres
+    restart: unless-stopped
+    ports:
+      - "5434:5432"  # Different port to avoid conflict (5434 instead of 5432)
+    environment:
+      POSTGRES_DB: chatbot_dni
+      POSTGRES_USER: chatbot_user
+      POSTGRES_PASSWORD: chatbot_password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chatbot_user -d chatbot_dni"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - rag_network
+
+  # Redis (optional, for caching)
+  redis:
+    image: redis:7-alpine
+    container_name: rag-telegram-redis
+    restart: unless-stopped
+    ports:
+      - "6380:6379"  # Different port to avoid conflict
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - rag_network
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  rag_network:
+    driver: bridge
