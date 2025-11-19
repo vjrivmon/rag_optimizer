@@ -13,6 +13,7 @@ Este es el handler principal que:
 
 import os
 import asyncio
+import re
 from pathlib import Path
 from telegram import Update
 from telegram.ext import ContextTypes
@@ -23,8 +24,54 @@ from ...core.persistent_context_tracker import PersistentContextTracker
 from ...core.conversational_rag import ConversationalRAGEngine
 from ...core.model_wrapper import LLMWrapper
 from ...core.enhanced_rag_engine_new import EnhancedRAGEngineNew
+from ...core.intent_classifier import IntentClassifier
 from ...database.models import MessageRoleEnum
 from ..keyboards import get_feedback_keyboard
+
+
+# ============================================================================
+# UTILIDADES DE FORMATO TELEGRAM
+# ============================================================================
+
+def markdown_to_html(text: str) -> str:
+    """
+    Convierte markdown básico a HTML para Telegram.
+
+    Telegram con parse_mode='HTML' soporta:
+    - <b>negrita</b>
+    - <i>cursiva</i>
+    - <a href="url">texto</a>
+    - <code>código</code>
+
+    Args:
+        text: Texto con markdown (**negrita**, *cursiva*, [texto](url))
+
+    Returns:
+        Texto con HTML
+    """
+    # 1. Convertir **negrita** → <b>negrita</b>
+    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
+
+    # 2. Convertir [texto](url) → <a href="url">texto</a>
+    text = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', text)
+
+    # 3. Convertir `código` → <code>código</code>
+    text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
+
+    # 4. Convertir *cursiva* → <i>cursiva</i>
+    # IMPORTANTE: NO convertir asteriscos en listas de viñetas
+    # Estrategia: Solo NO convertir si está EXACTAMENTE al inicio de línea seguido de espacio
+    # Primero, marcar las viñetas temporalmente para no tocarlas
+    text = re.sub(r'^(\* )', r'<<<BULLET>>>', text, flags=re.MULTILINE)
+    text = re.sub(r'\n(\* )', r'\n<<<BULLET>>>', text)
+
+    # Ahora convertir TODAS las cursivas restantes
+    text = re.sub(r'(?<!\*)\*([^\*\n]+?)\*(?!\*)', r'<i>\1</i>', text)
+
+    # Restaurar las viñetas
+    text = text.replace('<<<BULLET>>>', '* ')
+
+    return text
 
 
 # ============================================================================
@@ -63,7 +110,10 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     """
     Handler principal para mensajes de usuario.
 
-    Integra todo el pipeline: RAG + persistencia + context tracking.
+    Flujo optimizado:
+    1. Clasificar intent (greeting/goodbye/thanks/help/question)
+    2. Si es greeting/goodbye/thanks/help → Responder inmediatamente (SIN RAG, SIN contexto)
+    3. Si es question → Aplicar contexto + RAG
     """
     user = update.effective_user
     message_text = update.message.text
@@ -73,7 +123,15 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         return
 
     # ============================================================================
-    # 1. SETUP SERVICES
+    # 1. CLASIFICACIÓN DE INTENT (ANTES DE TODO)
+    # ============================================================================
+
+    intent_classifier = IntentClassifier()
+    intent_result = intent_classifier.classify(message_text)
+    intent_type = intent_result.intent  # ← IntentResult es un dataclass, usar .intent no ['intent']
+
+    # ============================================================================
+    # 2. SETUP SERVICES
     # ============================================================================
 
     user_service = UserService()
@@ -96,8 +154,44 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     )
 
     # ============================================================================
-    # 2. RECUPERAR CONTEXTO CONVERSACIONAL (RECIENTE + HISTÓRICO)
+    # 3. MANEJO RÁPIDO DE GREETINGS/GOODBYES (SIN RAG)
     # ============================================================================
+
+    if intent_type in ['greeting', 'goodbye', 'thanks', 'help']:
+        # Respuesta predefinida inmediata (NO usar RAG)
+        response_text = markdown_to_html(intent_result.predefined_response)
+
+        # Guardar mensaje del usuario
+        await message_service.save_message(
+            conversation_id=conversation.id,
+            role=MessageRoleEnum.USER,
+            content=message_text,
+            telegram_message_id=update.message.message_id,
+        )
+
+        # Guardar respuesta del bot
+        await message_service.save_message(
+            conversation_id=conversation.id,
+            role=MessageRoleEnum.ASSISTANT,
+            content=intent_result.predefined_response,
+            confidence_score=1.0,  # Máxima confianza para respuestas predefinidas
+            retrieval_metadata={'intent': intent_type, 'fast_response': True},
+        )
+
+        # Enviar respuesta inmediata
+        await update.message.reply_text(
+            response_text,
+            parse_mode='HTML'
+        )
+
+        # Log success
+        print(f"✅ Fast response ({intent_type}) | User: {user.id}")
+        return  # ← SALIR AQUÍ, NO continuar con RAG
+
+    # ============================================================================
+    # 4. RECUPERAR CONTEXTO CONVERSACIONAL (SOLO PARA PREGUNTAS REALES)
+    # ============================================================================
+    # Si llegamos aquí, es una PREGUNTA REAL que necesita RAG
 
     # Get recent messages (últimas 8 mensajes = 4 interacciones)
     recent_messages = await message_service.get_conversation_history(
@@ -136,11 +230,22 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     enriched_query = context_info['enriched_query']
 
     # ============================================================================
-    # 3. PROCESAR CON RAG ENGINE
+    # 5. PROCESAR CON RAG ENGINE (con indicador de progreso)
     # ============================================================================
 
-    # Send "typing..." indicator
-    await update.message.chat.send_action("typing")
+    # Función helper para mantener "typing..." activo durante procesamiento largo
+    async def keep_typing(chat, stop_event):
+        """Mantiene el indicador typing activo cada 4 segundos"""
+        while not stop_event.is_set():
+            try:
+                await chat.send_action("typing")
+                await asyncio.sleep(4)  # Telegram typing dura ~5s, renovar cada 4s
+            except Exception:
+                break
+
+    # Iniciar typing indicator
+    typing_stop = asyncio.Event()
+    typing_task = asyncio.create_task(keep_typing(update.message.chat, typing_stop))
 
     try:
         # Usar RAG engine global (ya inicializado)
@@ -155,12 +260,21 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             question_id=0  # Forzar RAG avanzado siempre
         )
 
+        # Detener typing indicator
+        typing_stop.set()
+        await typing_task
+
         answer = rag_result.get('answer', 'Lo siento, no pude generar una respuesta.')
         confidence = rag_result.get('confidence', 0.5)
         sources = rag_result.get('sources', [])
         retrieval_metadata = rag_result.get('metadata', {})
 
     except Exception as e:
+        # Detener typing indicator en caso de error
+        typing_stop.set()
+        if typing_task and not typing_task.done():
+            await typing_task
+
         # Error handling - fallback response
         answer = (
             "❌ Lo siento, ocurrió un error al procesar tu pregunta.\n\n"
@@ -176,7 +290,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         print(f"❌ RAG Error: {e}")
 
     # ============================================================================
-    # 4. GUARDAR MENSAJES EN BASE DE DATOS
+    # 6. GUARDAR MENSAJES EN BASE DE DATOS
     # ============================================================================
 
     # Save user message
@@ -205,7 +319,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     await conversation_service.update_conversation_timestamp(conversation.id)
 
     # ============================================================================
-    # 5. CREAR SNAPSHOT SI ES NECESARIO
+    # 7. CREAR SNAPSHOT SI ES NECESARIO
     # ============================================================================
 
     # Get current message count
@@ -223,7 +337,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     )
 
     # ============================================================================
-    # 6. ENVIAR RESPUESTA AL USUARIO
+    # 8. ENVIAR RESPUESTA AL USUARIO
     # ============================================================================
 
     # Build response text (sin emojis de debug ni info de contexto)
@@ -231,7 +345,10 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
     # Add sources if available (opcional - comentar si no se quiere mostrar)
     if sources and len(sources) > 0:
-        response_text += f"\n\n📚 _Fuentes: {', '.join(sources[:3])}_"
+        response_text += f"\n\n📚 <i>Fuentes: {', '.join(sources[:3])}</i>"
+
+    # Convertir markdown a HTML para Telegram
+    response_text = markdown_to_html(response_text)
 
     # Send response with feedback keyboard
     # Usar parse_mode='HTML' para formato correcto en Telegram

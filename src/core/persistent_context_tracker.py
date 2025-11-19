@@ -94,7 +94,35 @@ class PersistentContextTracker(ContextTracker):
         conversation_id: int,
     ) -> Dict:
         """
-        Obtiene contexto activo combinando reciente + histórico.
+        Obtiene contexto activo con estrategia ANTI-CONTAMINACIÓN.
+
+        NUEVA ESTRATEGIA v4.1 (2025-11-19):
+        =====================================
+
+        PROBLEMA IDENTIFICADO:
+        - Contexto histórico contaminaba conversaciones activas
+        - Usuario hablaba de Desayunos → Luego de RESIS → Sistema seguía con Desayunos
+        - Cache histórico se "enganchaba" incluso con nuevo contexto
+
+        SOLUCIÓN IMPLEMENTADA:
+
+        1. **CONVERSACIÓN ACTIVA (2+ mensajes):**
+           - NUNCA usar contexto histórico (sin cache)
+           - SOLO usar contexto reciente de la conversación actual
+           - Esto previene contaminación de temas antiguos
+
+        2. **PRIMERA INTERACCIÓN (0-1 mensajes):**
+           - SI puede usar contexto histórico
+           - Útil para "continuar donde lo dejamos"
+
+        3. **DETECCIÓN DE CAMBIO DE TEMA:**
+           - Si recent_confidence > 0.3, usar SOLO contexto reciente
+           - Umbral bajado de 0.5 a 0.3 (más sensible a cambios)
+
+        RESULTADO ESPERADO:
+        - Usuario: "Cuéntame de desayunos" → Bot habla de desayunos
+        - Usuario: "¿Cómo me apunto a RESIS?" → Bot habla SOLO de RESIS
+        - SIN contaminación de Desayunos en segunda pregunta
 
         Args:
             conversation_history: Lista de mensajes recientes (LangChain format)
@@ -108,7 +136,7 @@ class PersistentContextTracker(ContextTracker):
             - active_topic: Tema general
             - confidence: Confianza combinada (0-1)
             - enriched_query: Query enriquecida con contexto
-            - source: 'recent' | 'historical' | 'combined'
+            - source: 'recent' | 'historical' | 'combined' | 'active_conversation'
         """
         # 1. Obtener contexto reciente (ventana deslizante)
         recent_context = self.extract_context_from_history(
@@ -116,14 +144,40 @@ class PersistentContextTracker(ContextTracker):
             window_size=self.window_size
         )
 
-        # 2. Obtener snapshots históricos (últimos N días)
+        # 2. ANTI-CONTAMINACIÓN: Detectar si estamos en conversación ACTIVA
+        # Si hay 2+ mensajes en historial, estamos en conversación activa
+        # → NO recuperar snapshots históricos (evitar cache contaminado)
+        is_active_conversation = len(conversation_history) >= 2
+
+        if is_active_conversation:
+            # CONVERSACIÓN ACTIVA → Usar SOLO contexto reciente
+            # NO mirar snapshots históricos para evitar contaminación
+            enriched_query = self.enrich_query_with_context(
+                query=current_query,
+                context_info=recent_context
+            )
+
+            return {
+                'active_project': recent_context.get('active_project'),
+                'active_topic': recent_context.get('active_topic'),
+                'confidence': recent_context.get('confidence', 0.0),
+                'enriched_query': enriched_query,
+                'source': 'active_conversation',  # Nueva fuente: conversación activa
+                'recent_context': recent_context,
+                'historical_snapshots': 0,  # No se consultaron snapshots
+                'anti_contamination': True,  # Flag para debugging
+                'reason': f'Active conversation ({len(conversation_history)} messages), ignoring historical cache'
+            }
+
+        # 3. PRIMERA INTERACCIÓN: Recuperar snapshots históricos
+        # Solo si NO estamos en conversación activa
         historical_snapshots = await self.context_service.get_recent_snapshots(
             user_id=user_id,
             days=self.history_days,
             limit=10,
         )
 
-        # 3. Si no hay historial, usar solo contexto reciente
+        # 4. Si no hay historial, usar solo contexto reciente
         if not historical_snapshots:
             enriched_query = self.enrich_query_with_context(
                 query=current_query,
@@ -140,13 +194,40 @@ class PersistentContextTracker(ContextTracker):
                 'historical_snapshots': None,
             }
 
-        # 4. Merge contextos con exponential decay
+        # 5. DETECCIÓN DE CAMBIO DE TEMA (umbral bajado: 0.5 → 0.3)
+        # Si el contexto reciente tiene un proyecto detectado,
+        # priorizar completamente el contexto reciente
+        recent_confidence = recent_context.get('confidence', 0.0)
+        recent_project = recent_context.get('active_project')
+
+        # UMBRAL BAJADO: 0.3 (más sensible a cambios de tema)
+        if recent_project and recent_confidence > 0.3:
+            # Usuario está hablando de un tema específico AHORA
+            # → Ignorar contexto histórico completamente
+            enriched_query = self.enrich_query_with_context(
+                query=current_query,
+                context_info=recent_context
+            )
+
+            return {
+                'active_project': recent_project,
+                'active_topic': recent_context.get('active_topic'),
+                'confidence': recent_confidence,
+                'enriched_query': enriched_query,
+                'source': 'recent_override',  # Indicador de que se priorizó reciente
+                'recent_context': recent_context,
+                'historical_snapshots': len(historical_snapshots),
+                'override_reason': f'Recent context detected (confidence {recent_confidence:.2f}), ignoring historical'
+            }
+
+        # 6. Si contexto reciente es muy débil Y no hay conversación activa,
+        # hacer merge con histórico (caso raro: primera pregunta muy ambigua)
         merged_project, merged_confidence = self._merge_contexts(
             recent_context=recent_context,
             historical_snapshots=historical_snapshots,
         )
 
-        # 5. Crear contexto combinado
+        # 7. Crear contexto combinado
         combined_context = {
             'active_project': merged_project,
             'active_topic': recent_context.get('active_topic'),  # Topic siempre de contexto reciente
@@ -156,7 +237,7 @@ class PersistentContextTracker(ContextTracker):
             'summary': f"Proyecto: {merged_project}" if merged_project else None,
         }
 
-        # 6. Enriquecer query con contexto combinado
+        # 8. Enriquecer query con contexto combinado
         enriched_query = self.enrich_query_with_context(
             query=current_query,
             context_info=combined_context
