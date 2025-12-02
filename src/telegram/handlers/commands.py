@@ -42,20 +42,20 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 
 Soy tu asistente virtual para todo sobre nuestros proyectos de voluntariado en Valencia.
 
-**Proyectos DNI:**
+<b>Proyectos DNI:</b>
 🍞 Desayunos Solidarios (sábados, personas sin hogar)
 👴 Charlas con Abuelitos (residencia L'Acollida)
 📚 Refuerzo Escolar COLES (niños)
 🏗️ Rehabilitar Valencia (apoyo DANA - Horta Sud)
 🚣 Recogida de Plásticos (kayak en río)
 
-**Comandos disponibles:**
+<b>Comandos disponibles:</b>
 /help - Ver ayuda completa
 /reset - Reiniciar conversación
 /history - Ver tu historial
 /delete_my_data - Eliminar tus datos (GDPR)
 
-**¿En qué puedo ayudarte hoy?**
+<b>¿En qué puedo ayudarte hoy?</b>
 Pregúntame sobre horarios, ubicaciones, requisitos o cómo participar 😊
 
 PARA. MIRA. AYUDA. ❤️
@@ -69,33 +69,33 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     Handler para /help - Mostrar ayuda completa.
     """
     help_text = """
-📖 **Ayuda - Chatbot DNI**
+📖 <b>Ayuda - Chatbot DNI</b>
 
-**Cómo usar el bot:**
+<b>Cómo usar el bot:</b>
 1. Simplemente escríbeme tu pregunta
 2. Te responderé con información de nuestros documentos oficiales
 3. Puedes darme feedback con los botones 👍/👎
 
-**Ejemplos de preguntas:**
+<b>Ejemplos de preguntas:</b>
 - "¿Qué día son los desayunos solidarios?"
 - "¿Cómo me apunto a RESIS?"
 - "¿Dónde está el punto de encuentro?"
 - "¿Qué requisitos hay para participar?"
 - "¿Cuánto tiempo duran las actividades?"
 
-**Comandos disponibles:**
+<b>Comandos disponibles:</b>
 /start - Iniciar conversación
 /help - Mostrar esta ayuda
 /reset - Reiniciar contexto (nueva conversación)
 /history - Ver tu historial de conversaciones
 /delete_my_data - Eliminar todos tus datos (GDPR)
 
-**Contacto directo DNI:**
+<b>Contacto directo DNI:</b>
 📧 Email: info@asociaciondni.org
 📱 Instagram: @AsociacionDNI
 📍 Ubicación: Carrer de Sagunt, 177, Valencia
 
-**Privacidad:**
+<b>Privacidad:</b>
 - Tus conversaciones se guardan para mejorar el servicio
 - Puedes eliminar tus datos en cualquier momento con /delete_my_data
 - No compartimos tu información con terceros
@@ -192,7 +192,7 @@ async def history_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         return
 
     # Build history text
-    history_text = "📚 **Tu historial reciente:**\n\n"
+    history_text = "📚 <b>Tu historial reciente:</b>\n\n"
 
     for i, conv in enumerate(conversations, 1):
         # Get message count
@@ -208,7 +208,7 @@ async def history_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         # Project
         project = conv.project_context.value.capitalize()
 
-        history_text += f"**{i}. Conversación** ({status})\n"
+        history_text += f"<b>{i}. Conversación</b> ({status})\n"
         history_text += f"   📁 Proyecto: {project}\n"
         history_text += f"   💬 Mensajes: {msg_count}\n"
         history_text += f"   📅 Creada: {created}\n"
@@ -242,13 +242,13 @@ async def delete_my_data_command(update: Update, context: ContextTypes.DEFAULT_T
 
     # Show confirmation dialog
     confirmation_text = (
-        "⚠️ **Eliminar todos tus datos**\n\n"
+        "⚠️ <b>Eliminar todos tus datos</b>\n\n"
         "Esto eliminará permanentemente:\n"
         "- Todas tus conversaciones\n"
         "- Todos tus mensajes\n"
         "- Todos tus snapshots de contexto\n"
         "- Todo tu historial de feedback\n\n"
-        "**Esta acción NO se puede deshacer.**\n\n"
+        "<b>Esta acción NO se puede deshacer.</b>\n\n"
         "¿Estás segur@?"
     )
 

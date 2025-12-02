@@ -1051,7 +1051,8 @@ INSTRUCCIONES CRÍTICAS PARA TU RESPUESTA:
 TU RESPUESTA (precisa, amigable, basada SOLO en los textos proporcionados):"""
 
         try:
-            response = self.model.generate(prompt=prompt, temperature=0.2, max_tokens=300)
+            # Timeout de 90s para EC2->UPV (suficiente para latencia alta)
+            response = self.model.generate(prompt=prompt, temperature=0.2, max_tokens=300, timeout=90)
 
             if isinstance(response, dict):
                 return response.get('response', str(response))
@@ -1525,7 +1526,8 @@ INSTRUCCIONES CRÍTICAS PARA TU RESPUESTA:
 TU RESPUESTA (precisa, amigable, basada SOLO en los textos proporcionados):"""
 
         try:
-            response = self.model.generate(prompt=prompt, temperature=temperature, max_tokens=300)
+            # Timeout de 90s para EC2->UPV (suficiente para latencia alta)
+            response = self.model.generate(prompt=prompt, temperature=temperature, max_tokens=300, timeout=90)
 
             if isinstance(response, dict):
                 return response.get('response', str(response))

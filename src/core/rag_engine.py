@@ -4,6 +4,8 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.retrievers import BM25Retriever
 from langchain.retrievers import EnsembleRetriever
 from langchain.schema import Document
+import chromadb
+from chromadb.config import Settings
 
 class ConfigurableRAGEngine:
     """Motor RAG con parámetros ajustables dinámicamente y hybrid retrieval (semantic + BM25)"""
@@ -15,11 +17,21 @@ class ConfigurableRAGEngine:
             model_kwargs={'device': 'cpu'}
         )
 
-        # Cargar vector store desde ChromaDB
+        # Fix: Usar PersistentClient directamente para evitar problemas con Rust bindings
+        chroma_client = chromadb.PersistentClient(
+            path=vector_store_path,
+            settings=Settings(
+                anonymized_telemetry=False,
+                allow_reset=True
+            )
+        )
+
+        # Cargar vector store desde ChromaDB con cliente explícito
         self.vector_store = Chroma(
             persist_directory=vector_store_path,
             embedding_function=self.embeddings,
-            collection_name="langchain"  # Usar colección actual con 106 documentos
+            collection_name="langchain",  # Usar colección actual con 106 documentos
+            client=chroma_client  # Usar cliente persistente explícito
         )
 
         # Parámetros por defecto (optimizados para FAQ chunks Q:/A:)
