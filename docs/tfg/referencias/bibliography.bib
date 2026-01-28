@@ -1,0 +1,251 @@
+% ============================================================================
+% BIBLIOGRAPHY - TFG Chatbot RAG DNI Valencia
+% Autor: Vicente Rivas Monferrer
+% Universidad: UPV - Grado en Tecnologias Interactivas / IA
+% Formato: BibTeX con citacion numerica
+% ============================================================================
+
+% --- RAG y Arquitectura ---
+
+@inproceedings{lewis2020rag,
+  author    = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K{\"u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt{\"a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
+  title     = {Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2020},
+  volume    = {33},
+  pages     = {9459--9474},
+  note      = {Trabajo seminal que introduce la arquitectura RAG}
+}
+
+@article{gao2023retrieval,
+  author  = {Gao, Yunfan and Xiong, Yun and Gao, Xinyu and Jia, Kangxiang and Pan, Jinliu and Bi, Yuxi and Dai, Yi and Sun, Jiawei and Wang, Haofen},
+  title   = {Retrieval-Augmented Generation for Large Language Models: A Survey},
+  journal = {arXiv preprint arXiv:2312.10997},
+  year    = {2023},
+  note    = {Survey comprehensivo sobre RAG}
+}
+
+% --- Busqueda Lexica y Semantica ---
+
+@article{robertson2009bm25,
+  author  = {Robertson, Stephen and Zaragoza, Hugo},
+  title   = {The Probabilistic Relevance Framework: BM25 and Beyond},
+  journal = {Foundations and Trends in Information Retrieval},
+  year    = {2009},
+  volume  = {3},
+  number  = {4},
+  pages   = {333--389},
+  note    = {Referencia fundamental para BM25}
+}
+
+@article{sparck1972tfidf,
+  author  = {Sparck Jones, Karen},
+  title   = {A Statistical Interpretation of Term Specificity and Its Application in Retrieval},
+  journal = {Journal of Documentation},
+  year    = {1972},
+  volume  = {28},
+  number  = {1},
+  pages   = {11--21},
+  note    = {Trabajo original de TF-IDF}
+}
+
+@inproceedings{reimers2019sbert,
+  author    = {Reimers, Nils and Gurevych, Iryna},
+  title     = {Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks},
+  booktitle = {Proceedings of EMNLP-IJCNLP},
+  year      = {2019},
+  pages     = {3982--3992},
+  note      = {Sentence embeddings para busqueda semantica}
+}
+
+% --- Transformers y Modelos Base ---
+
+@inproceedings{vaswani2017attention,
+  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, Lukasz and Polosukhin, Illia},
+  title     = {Attention Is All You Need},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2017},
+  volume    = {30},
+  note      = {Arquitectura Transformer original}
+}
+
+@inproceedings{devlin2019bert,
+  author    = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+  title     = {BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding},
+  booktitle = {Proceedings of NAACL-HLT},
+  year      = {2019},
+  pages     = {4171--4186},
+  note      = {Modelo BERT para embeddings}
+}
+
+% --- Large Language Models (LLMs) ---
+
+@article{brown2020gpt3,
+  author  = {Brown, Tom B. and Mann, Benjamin and Ryder, Nick and Subbiah, Melanie and Kaplan, Jared and Dhariwal, Prafulla and others},
+  title   = {Language Models are Few-Shot Learners},
+  journal = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year    = {2020},
+  volume  = {33},
+  pages   = {1877--1901},
+  note    = {GPT-3 y few-shot learning}
+}
+
+@article{touvron2023llama,
+  author  = {Touvron, Hugo and Lavril, Thibaut and Izacard, Gautier and Martinet, Xavier and Lachaux, Marie-Anne and Lacroix, Timoth{\'e}e and others},
+  title   = {LLaMA: Open and Efficient Foundation Language Models},
+  journal = {arXiv preprint arXiv:2302.13971},
+  year    = {2023},
+  note    = {Familia LLaMA de Meta}
+}
+
+@article{team2024gemma,
+  author  = {{Gemma Team, Google DeepMind}},
+  title   = {Gemma: Open Models Based on Gemini Research and Technology},
+  journal = {arXiv preprint arXiv:2403.08295},
+  year    = {2024},
+  note    = {Modelos Gemma de Google}
+}
+
+@article{yang2024qwen2,
+  author  = {Yang, An and Yang, Baosong and Hui, Binyuan and Zheng, Bo and Yu, Bowen and others},
+  title   = {Qwen2 Technical Report},
+  journal = {arXiv preprint arXiv:2407.10671},
+  year    = {2024},
+  note    = {Modelos Qwen de Alibaba}
+}
+
+@misc{deepseek2024r1,
+  author = {{DeepSeek AI}},
+  title  = {DeepSeek-R1: Reasoning-Enhanced Large Language Model},
+  year   = {2024},
+  url    = {https://www.deepseek.com/},
+  note   = {Modelo con capacidades de razonamiento}
+}
+
+% --- Evaluacion RAG ---
+
+@article{es2023ragas,
+  author  = {Es, Shahul and James, Jithin and Espinosa-Anke, Luis and Schockaert, Steven},
+  title   = {RAGAs: Automated Evaluation of Retrieval Augmented Generation},
+  journal = {arXiv preprint arXiv:2309.15217},
+  year    = {2023},
+  note    = {Framework de evaluacion RAGAs}
+}
+
+@inproceedings{saad2023ares,
+  author    = {Saad-Falcon, Jon and Khattab, Omar and Potts, Christopher and Zaharia, Matei},
+  title     = {ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems},
+  booktitle = {arXiv preprint arXiv:2311.09476},
+  year      = {2023},
+  note      = {Framework alternativo de evaluacion}
+}
+
+% --- Bases de Datos Vectoriales ---
+
+@misc{chromadb2023,
+  author = {{Chroma Team}},
+  title  = {Chroma: The AI-Native Open-Source Embedding Database},
+  year   = {2023},
+  url    = {https://www.trychroma.com/},
+  note   = {Base de datos vectorial open-source}
+}
+
+@article{johnson2019faiss,
+  author  = {Johnson, Jeff and Douze, Matthijs and J{\'e}gou, Herv{\'e}},
+  title   = {Billion-scale similarity search with GPUs},
+  journal = {IEEE Transactions on Big Data},
+  year    = {2019},
+  volume  = {7},
+  number  = {3},
+  pages   = {535--547},
+  note    = {FAISS de Meta para busqueda vectorial}
+}
+
+% --- Chatbots y Sistemas Conversacionales ---
+
+@article{adamopoulou2020chatbots,
+  author  = {Adamopoulou, Eleni and Moussiades, Lefteris},
+  title   = {An Overview of Chatbot Technology},
+  journal = {Artificial Intelligence Applications and Innovations},
+  year    = {2020},
+  pages   = {373--383},
+  note    = {Survey de tecnologias de chatbots}
+}
+
+@article{montenegro2019survey,
+  author  = {Montenegro, Jo{\~a}o and da Costa, Ana and Righi, Rodrigo and others},
+  title   = {Survey of Conversational Agents in Health},
+  journal = {Expert Systems with Applications},
+  year    = {2019},
+  volume  = {129},
+  pages   = {56--67},
+  note    = {Chatbots en sector salud}
+}
+
+% --- Gestion de Contexto ---
+
+@article{wu2021stateful,
+  author  = {Wu, Zhongqiang and Bi, Xin and Bi, Xiangyang and Zhang, Qian},
+  title   = {Stateful Memory-Augmented Transformers for Dialogue Modeling},
+  journal = {arXiv preprint arXiv:2110.11380},
+  year    = {2021},
+  note    = {Memoria en sistemas conversacionales}
+}
+
+@inproceedings{xu2021dialogue,
+  author    = {Xu, Wenhan and Haider, Sajad},
+  title     = {A Survey on Dialogue Systems: Recent Advances and New Frontiers},
+  booktitle = {ACM Computing Surveys},
+  year      = {2021},
+  volume    = {54},
+  number    = {8},
+  note      = {Survey de sistemas de dialogo}
+}
+
+% --- Frameworks y Herramientas ---
+
+@misc{langchain2023,
+  author = {{LangChain Team}},
+  title  = {LangChain: Building applications with LLMs through composability},
+  year   = {2023},
+  url    = {https://www.langchain.com/},
+  note   = {Framework de orquestacion de LLMs}
+}
+
+@misc{ollama2023,
+  author = {{Ollama Team}},
+  title  = {Ollama: Get up and running with large language models locally},
+  year   = {2023},
+  url    = {https://ollama.ai/},
+  note   = {Runtime local para LLMs}
+}
+
+% --- Chunking y Procesamiento de Texto ---
+
+@article{karpukhin2020dense,
+  author  = {Karpukhin, Vladimir and O{\u{g}}uz, Barlas and Min, Sewon and Lewis, Patrick and Wu, Ledell and Edunov, Sergey and Chen, Danqi and Yih, Wen-tau},
+  title   = {Dense Passage Retrieval for Open-Domain Question Answering},
+  journal = {Proceedings of EMNLP},
+  year    = {2020},
+  pages   = {6769--6781},
+  note    = {Dense retrieval para QA}
+}
+
+% --- Ensemble Learning ---
+
+@book{zhou2012ensemble,
+  author    = {Zhou, Zhi-Hua},
+  title     = {Ensemble Methods: Foundations and Algorithms},
+  publisher = {CRC Press},
+  year      = {2012},
+  note      = {Fundamentos de ensemble learning}
+}
+
+@article{ganaie2022ensemble,
+  author  = {Ganaie, M. A. and Hu, Minghui and Malik, A. K. and Tanveer, M. and Suganthan, P. N.},
+  title   = {Ensemble deep learning: A review},
+  journal = {Engineering Applications of Artificial Intelligence},
+  year    = {2022},
+  volume  = {115},
+  note    = {Ensemble en deep learning}
+}

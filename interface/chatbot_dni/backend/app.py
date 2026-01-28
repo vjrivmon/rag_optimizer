@@ -42,6 +42,9 @@ from src.core.feedback_system import FeedbackSystem
 from src.core.conversational_rag import ConversationalRAGEngine
 from src.core.question_suggester import QuestionSuggester
 
+# Security SDK
+from vicente_rag.security import InjectionDetector, Sanitizer, RiskScorer
+
 
 # ============================================================================
 # CONFIGURACIÓN DE LA APP
@@ -53,14 +56,34 @@ app = FastAPI(
     version="3.0.0"
 )
 
-# CORS para desarrollo
+# CORS - restricted origins
+_cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:8000,http://127.0.0.1:8000").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[o.strip() for o in _cors_origins],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
+
+
+# Security middleware - headers
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
+from starlette.responses import Response
+
+
+class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        response: Response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-XSS-Protection"] = "1; mode=block"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        return response
+
+
+app.add_middleware(SecurityHeadersMiddleware)
 
 # Montar archivos estáticos
 frontend_path = Path(__file__).parent.parent / "frontend"
@@ -98,6 +121,10 @@ class AppState:
         self.feedback_system = None
         self.question_suggester = None
         self.server_status = "disconnected"
+        # Security
+        self.injection_detector = InjectionDetector()
+        self.sanitizer = Sanitizer(max_length=5000)
+        self.risk_scorer = RiskScorer()
         self.question_counter = 0
 
 state = AppState()
@@ -358,17 +385,44 @@ async def websocket_chat(websocket: WebSocket):
         # Recibir pregunta del cliente
         data = await websocket.receive_json()
         
-        question = data.get('question', '').strip()
+        raw_question = data.get('question', '').strip()
         session_id = data.get('session_id') or f"session_{uuid.uuid4().hex[:12]}"
-        
-        if not question:
+
+        if not raw_question:
             await websocket.send_json({
                 "type": "error",
                 "error": "Pregunta vacía"
             })
             await websocket.close()
             return
-        
+
+        # --- Security: sanitize input ---
+        question = state.sanitizer.sanitize_strict(raw_question)
+
+        # --- Security: detect prompt injection ---
+        injection_result = state.injection_detector.detect(question, use_semantic=False)
+        if injection_result.is_injection:
+            print(f"   🛡️ Injection detected: {injection_result.matched_patterns[:3]}")
+            await websocket.send_json({
+                "type": "complete",
+                "response": {
+                    "answer": "Lo siento, no puedo procesar esa solicitud. ¿Puedo ayudarte con algo sobre DNI Voluntariado?",
+                    "confidence": 0.0,
+                    "response_time_ms": 0,
+                    "intent": "blocked",
+                    "response_id": f"blocked_{uuid.uuid4().hex[:8]}",
+                    "suggestions": [],
+                    "sources": [],
+                }
+            })
+            await websocket.close()
+            return
+
+        # --- Security: risk scoring (log only, don't block medium) ---
+        risk_result = state.risk_scorer.calculate(question)
+        if risk_result.level in ("high", "critical"):
+            print(f"   ⚠️ High risk input: {risk_result.level} ({risk_result.score:.2f}), factors: {risk_result.factors}")
+
         state.question_counter += 1
         question_id = state.question_counter
         

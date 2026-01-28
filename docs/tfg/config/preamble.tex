@@ -1,0 +1,111 @@
+% ============================================================================
+% CONFIGURACION LATEX - TRABAJO FIN DE GRADO
+% Universidad Politecnica de Valencia - GTI
+% ============================================================================
+
+\documentclass[12pt, a4paper, oneside]{article}
+
+% --- Codificacion y idioma ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% --- Geometria de pagina ---
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm]{geometry}
+
+% --- Fuentes ---
+\usepackage{mathptmx}
+
+% --- Colores ---
+\usepackage[dvipsnames]{xcolor}
+\definecolor{upvblue}{RGB}{0, 85, 165}
+
+% --- Graficos ---
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{figuras/}}
+
+% --- Tablas ---
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+
+% --- Listas ---
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, itemsep=2pt}
+
+% --- Matematicas ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% --- Codigo fuente ---
+\usepackage{listings}
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{gray!10},
+  keywordstyle=\color{upvblue}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{OliveGreen},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  numbersep=5pt,
+  xleftmargin=15pt
+}
+
+% --- Encabezados ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Trabajo Fin de Grado}}
+\fancyhead[R]{\small\textit{Vicente Rivas Monferrer}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Titulos ---
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries\color{upvblue}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{upvblue}}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\color{upvblue}}{\thesubsubsection.}{0.5em}{}
+
+% --- Espaciado ---
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+% --- Hipervinculos ---
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=upvblue,
+  citecolor=upvblue,
+  urlcolor=upvblue
+}
+
+% --- Bibliografia ---
+\usepackage[numbers,sort&compress]{natbib}
+
+% --- Metadatos ---
+\title{
+    \vspace{-1cm}
+    {\large Universitat Polit\`ecnica de Val\`encia}\\
+    {\small Grado en Tecnolog\'ias Interactivas}\\[1cm]
+    {\Huge\bfseries Trabajo Fin de Grado}\\[0.5cm]
+    {\Large Desarrollo de un Chatbot Conversacional}\\
+    {\Large con RAG para DNI Valencia}\\[0.3cm]
+    {\large (Damos Nuestra Ilusi\'on)}
+}
+
+\author{
+    \textbf{Vicente Rivas Monferrer}\\[0.3cm]
+    4\textsuperscript{o} Curso GTI\\[0.5cm]
+    \textit{Entidad:} C\'atedra ENIA-UPV
+}
+
+\date{
+    Curso 2025--2026\\[0.3cm]
+    Valencia, Enero 2026
+}

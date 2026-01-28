@@ -13,6 +13,7 @@ Este es el handler principal que:
 
 import os
 import asyncio
+import html
 import re
 from pathlib import Path
 from telegram import Update
@@ -28,14 +29,29 @@ from ...core.intent_classifier import IntentClassifier
 from ...database.models import MessageRoleEnum
 from ..keyboards import get_feedback_keyboard
 
+# Security SDK
+from vicente_rag.security import InjectionDetector, Sanitizer
+
+# Module-level security instances
+_injection_detector = InjectionDetector()
+_sanitizer = Sanitizer(max_length=5000)
+
 
 # ============================================================================
 # UTILIDADES DE FORMATO TELEGRAM
 # ============================================================================
 
+def _validate_url(url: str) -> bool:
+    """Only allow http:// and https:// URLs."""
+    return url.startswith("http://") or url.startswith("https://")
+
+
 def markdown_to_html(text: str) -> str:
     """
     Convierte markdown básico a HTML para Telegram.
+
+    Security: escapa HTML del contenido antes de convertir markdown,
+    y valida URLs para prevenir javascript: y data: injection.
 
     Telegram con parse_mode='HTML' soporta:
     - <b>negrita</b>
@@ -47,21 +63,29 @@ def markdown_to_html(text: str) -> str:
         text: Texto con markdown (**negrita**, *cursiva*, [texto](url))
 
     Returns:
-        Texto con HTML
+        Texto con HTML seguro
     """
+    # Security: escape HTML entities first to prevent injection
+    text = html.escape(text, quote=False)
+
     # 1. Convertir **negrita** → <b>negrita</b>
     text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
 
-    # 2. Convertir [texto](url) → <a href="url">texto</a>
-    text = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', text)
+    # 2. Convertir [texto](url) → <a href="url">texto</a> (only safe URLs)
+    def _safe_link(match):
+        link_text = match.group(1)
+        url = match.group(2)
+        if _validate_url(url):
+            return f'<a href="{url}">{link_text}</a>'
+        return link_text  # strip unsafe link, keep text
+
+    text = re.sub(r'\[(.+?)\]\((.+?)\)', _safe_link, text)
 
     # 3. Convertir `código` → <code>código</code>
     text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
 
     # 4. Convertir *cursiva* → <i>cursiva</i>
     # IMPORTANTE: NO convertir asteriscos en listas de viñetas
-    # Estrategia: Solo NO convertir si está EXACTAMENTE al inicio de línea seguido de espacio
-    # Primero, marcar las viñetas temporalmente para no tocarlas
     text = re.sub(r'^(\* )', r'<<<BULLET>>>', text, flags=re.MULTILINE)
     text = re.sub(r'\n(\* )', r'\n<<<BULLET>>>', text)
 
@@ -116,10 +140,25 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     3. Si es question → Aplicar contexto + RAG
     """
     user = update.effective_user
-    message_text = update.message.text
+    raw_text = update.message.text
 
-    if not message_text or not message_text.strip():
-        await update.message.reply_text("⚠️ Por favor envía un mensaje válido.")
+    if not raw_text or not raw_text.strip():
+        await update.message.reply_text("Por favor envía un mensaje válido.")
+        return
+
+    # ============================================================================
+    # 0. SECURITY: SANITIZE + INJECTION DETECTION
+    # ============================================================================
+
+    message_text = _sanitizer.sanitize_strict(raw_text)
+
+    injection_result = _injection_detector.detect(message_text, use_semantic=False)
+    if injection_result.is_injection:
+        print(f"   [SECURITY] Injection detected from user {user.id}: {injection_result.matched_patterns[:3]}")
+        await update.message.reply_text(
+            "Lo siento, no puedo procesar esa solicitud. "
+            "¿Puedo ayudarte con algo sobre DNI Voluntariado?"
+        )
         return
 
     # ============================================================================
