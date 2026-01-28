@@ -1,0 +1,35 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/vicente/Practicas/rag_optimizer_complete/rag_optimizer/logs/.d86ee30e1c4002b33f9c3dba94e5c3e266b48e77-audit.json",
+    "files": [
+        {
+            "date": 1762169787896,
+            "name": "/home/vicente/Practicas/rag_optimizer_complete/rag_optimizer/logs/mcp-puppeteer-2025-11-03.log",
+            "hash": "57718dcba992dbbf3677655ebf365ea1140ce779bcb649c1ed4a08df4fcf465c"
+        },
+        {
+            "date": 1762353837575,
+            "name": "/home/vicente/Practicas/rag_optimizer_complete/rag_optimizer/logs/mcp-puppeteer-2025-11-05.log",
+            "hash": "ed9d60e99cee94c11b0e5873010601f565af8b473ab32e73ae719cd1e6b8ff6a"
+        },
+        {
+            "date": 1762424563306,
+            "name": "/home/vicente/Practicas/rag_optimizer_complete/rag_optimizer/logs/mcp-puppeteer-2025-11-06.log",
+            "hash": "f4abbb1e5bca10bf3b644f8517a1129eb10c5f594a5c559fc5df0a708f08d15d"
+        },
+        {
+            "date": 1762513557087,
+            "name": "/home/vicente/Practicas/rag_optimizer_complete/rag_optimizer/logs/mcp-puppeteer-2025-11-07.log",
+            "hash": "f0c63c1ce91993aadee7f35df2d5cde574ff0f46b9ed7465c719264cf6326726"
+        },
+        {
+            "date": 1762774605417,
+            "name": "/home/vicente/Practicas/rag_optimizer_complete/rag_optimizer/logs/mcp-puppeteer-2025-11-10.log",
+            "hash": "301babab757e9c8b75176eb8c5dfeb05af874ea07a840fc5ecd2c36af9c0b83b"
+        }
+    ],
+    "hashType": "sha256"
+}

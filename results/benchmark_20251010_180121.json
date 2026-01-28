@@ -1,0 +1,2214 @@
+[
+  {
+    "question_id": 1,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "[Respuesta truncada - solo thinking]",
+    "contexts": [
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Qué tipo de actividades se realizan?\nDAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+      ". Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad."
+    ],
+    "generation_time": 13.836233615875244,
+    "metrics": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null,
+      "answer_correctness": null,
+      "answer_similarity": null,
+      "combined_score": null
+    }
+  },
+  {
+    "question_id": 1,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad.",
+    "contexts": [
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Qué tipo de actividades se realizan?\nDAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+      ". Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad."
+    ],
+    "generation_time": 14.143378496170044,
+    "metrics": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null,
+      "answer_correctness": null,
+      "answer_similarity": null,
+      "combined_score": null
+    }
+  },
+  {
+    "question_id": 1,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "En la actividad de desayunos, se reparte comida a personas en la calle. Después de repartir la comida y enseres, los participantes se reúnen para desayunar juntos de forma voluntaria. Normalmente, la actividad dura una hora y media más el tiempo que los participantes quieran dedicar al desayuno posterior.",
+    "contexts": [
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Qué tipo de actividades se realizan?\nDAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+      ". Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad."
+    ],
+    "generation_time": 28.204527378082275,
+    "metrics": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null,
+      "answer_correctness": null,
+      "answer_similarity": null,
+      "combined_score": null
+    }
+  },
+  {
+    "question_id": 1,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "En la actividad de desayunos solidarios, se realiza lo siguiente:  \n1. **Reparto de comida y enseres**: Los participantes recorren rutas prev",
+    "contexts": [
+      "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cuánto dura la actividad?\nDepende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se reparta. Normalmente solemos estimar que la actividad dura una hora y media más el posterior desayuno voluntario de los propios participantes que se puede alargar lo que ellos quieran.",
+      "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en las cenas solidarias contactamos con restaurantes que nos ceden la comida de forma gratuita.\n\n===== REFUERZO ESCOLAR (COLES) =====",
+      "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión",
+      "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI llamamos actividades puntuales: son voluntariados a los que te puedes apuntar un día sin la necesidad de que tengas que ir a las próximas actividades.",
+      "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5 briks de leche semidesnatada\n- 4-5 packs de vasos pequeños\n- Caja de sobres de azúcar\n- Paquete de café soluble",
+      "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los viernes o sábados por la noche (cena solidaria). Para su realización se colabora con distintos restaurantes e instituciones que nos proporcionan la comida y los enseres a repartir en cada actividad.",
+      "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se recoge la comida de restaurantes colaboradores aproximadamente 1 hora antes de la actividad.",
+      "¿Qué tipo de actividades se realizan?\nDAMOS NUESTRA ILUSIÓN (DNI) - QUIÉNES SOMOS\n\nPARA. MIRA. AYUDA.",
+      ". Cada grupo recorre una de las rutas que tenemos preparadas y, al acabar de repartir la comida y enseres, todos los grupos se reúnen de nuevo para desayunar/cenar juntos y comentar las distintas situaciones vividas durante la actividad."
+    ],
+    "generation_time": 36.42985486984253,
+    "metrics": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null,
+      "answer_correctness": null,
+      "answer_similarity": null,
+      "combined_score": null
+    }
+  },
+  {
+    "question_id": 2,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Dónde es el punto de encuentro de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.057599544525146484,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 2,
+    "model_name": "gemma2:27b",
+    "question": "¿Dónde es el punto de encuentro de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.05099940299987793,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 2,
+    "model_name": "llama3.3:70b",
+    "question": "¿Dónde es el punto de encuentro de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0414280891418457,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 2,
+    "model_name": "qwen3:32b",
+    "question": "¿Dónde es el punto de encuentro de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0578155517578125,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 3,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿A qué hora son los desayunos y las cenas solidarias?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.004390716552734375,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 0.8
+    }
+  },
+  {
+    "question_id": 3,
+    "model_name": "gemma2:27b",
+    "question": "¿A qué hora son los desayunos y las cenas solidarias?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003398895263671875,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 0.8
+    }
+  },
+  {
+    "question_id": 3,
+    "model_name": "llama3.3:70b",
+    "question": "¿A qué hora son los desayunos y las cenas solidarias?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0030586719512939453,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 0.8
+    }
+  },
+  {
+    "question_id": 3,
+    "model_name": "qwen3:32b",
+    "question": "¿A qué hora son los desayunos y las cenas solidarias?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003456592559814453,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 0.8
+    }
+  },
+  {
+    "question_id": 4,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Cada cuánto se hace la actividad de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003367900848388672,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 4,
+    "model_name": "gemma2:27b",
+    "question": "¿Cada cuánto se hace la actividad de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0033330917358398438,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 4,
+    "model_name": "llama3.3:70b",
+    "question": "¿Cada cuánto se hace la actividad de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0037822723388671875,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 4,
+    "model_name": "qwen3:32b",
+    "question": "¿Cada cuánto se hace la actividad de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003705263137817383,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 5,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Cuánto dura la actividad de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003540515899658203,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.79
+    }
+  },
+  {
+    "question_id": 5,
+    "model_name": "gemma2:27b",
+    "question": "¿Cuánto dura la actividad de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003293275833129883,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.89
+    }
+  },
+  {
+    "question_id": 5,
+    "model_name": "llama3.3:70b",
+    "question": "¿Cuánto dura la actividad de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0032396316528320312,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.89
+    }
+  },
+  {
+    "question_id": 5,
+    "model_name": "qwen3:32b",
+    "question": "¿Cuánto dura la actividad de desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003150463104248047,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.89
+    }
+  },
+  {
+    "question_id": 6,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Cómo me apunto a desayunos solidarios?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.050881147384643555,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 6,
+    "model_name": "gemma2:27b",
+    "question": "¿Cómo me apunto a desayunos solidarios?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.04947185516357422,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 6,
+    "model_name": "llama3.3:70b",
+    "question": "¿Cómo me apunto a desayunos solidarios?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.04171037673950195,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 6,
+    "model_name": "qwen3:32b",
+    "question": "¿Cómo me apunto a desayunos solidarios?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.052693843841552734,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 7,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Si me apunto un día tengo que ir al resto de desayunos?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0035326480865478516,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.5,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.075
+    }
+  },
+  {
+    "question_id": 7,
+    "model_name": "gemma2:27b",
+    "question": "¿Si me apunto un día tengo que ir al resto de desayunos?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003455638885498047,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 7,
+    "model_name": "llama3.3:70b",
+    "question": "¿Si me apunto un día tengo que ir al resto de desayunos?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0034117698669433594,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.5,
+      "context_recall": 0.5,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.175
+    }
+  },
+  {
+    "question_id": 7,
+    "model_name": "qwen3:32b",
+    "question": "¿Si me apunto un día tengo que ir al resto de desayunos?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003589153289794922,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 8,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Puedo ir en el mismo grupo que mi amigo en desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0035247802734375,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.7,
+      "combined_score": 0.77
+    }
+  },
+  {
+    "question_id": 8,
+    "model_name": "gemma2:27b",
+    "question": "¿Puedo ir en el mismo grupo que mi amigo en desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0037689208984375,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.5,
+      "combined_score": 0.65
+    }
+  },
+  {
+    "question_id": 8,
+    "model_name": "llama3.3:70b",
+    "question": "¿Puedo ir en el mismo grupo que mi amigo en desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.00359344482421875,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.5,
+      "context_precision": 0.7,
+      "context_recall": 0.4,
+      "answer_correctness": 0.6,
+      "answer_similarity": 0.5,
+      "combined_score": 0.595
+    }
+  },
+  {
+    "question_id": 8,
+    "model_name": "qwen3:32b",
+    "question": "¿Puedo ir en el mismo grupo que mi amigo en desayunos?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.00391840934753418,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.5,
+      "context_precision": 0.7,
+      "context_recall": 0.4,
+      "answer_correctness": 0.6,
+      "answer_similarity": 0.5,
+      "combined_score": 0.595
+    }
+  },
+  {
+    "question_id": 9,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Cómo se compra la comida para desayunos?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0034444332122802734,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 9,
+    "model_name": "gemma2:27b",
+    "question": "¿Cómo se compra la comida para desayunos?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003533601760864258,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 9,
+    "model_name": "llama3.3:70b",
+    "question": "¿Cómo se compra la comida para desayunos?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0033991336822509766,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 9,
+    "model_name": "qwen3:32b",
+    "question": "¿Cómo se compra la comida para desayunos?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003571033477783203,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 10,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué se hace en la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003253936767578125,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.9500000000000001
+    }
+  },
+  {
+    "question_id": 10,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué se hace en la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003087759017944336,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.89
+    }
+  },
+  {
+    "question_id": 10,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué se hace en la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0032143592834472656,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.9500000000000001
+    }
+  },
+  {
+    "question_id": 10,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué se hace en la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0039484500885009766,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.89
+    }
+  },
+  {
+    "question_id": 11,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Dónde es la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0398709774017334,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 11,
+    "model_name": "gemma2:27b",
+    "question": "¿Dónde es la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.04155588150024414,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 11,
+    "model_name": "llama3.3:70b",
+    "question": "¿Dónde es la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.04469132423400879,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 11,
+    "model_name": "qwen3:32b",
+    "question": "¿Dónde es la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.04598045349121094,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 12,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué días vais a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0030837059020996094,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.8500000000000001
+    }
+  },
+  {
+    "question_id": 12,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué días vais a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0033235549926757812,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.7,
+      "combined_score": 0.77
+    }
+  },
+  {
+    "question_id": 12,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué días vais a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.00370025634765625,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.91
+    }
+  },
+  {
+    "question_id": 12,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué días vais a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003371715545654297,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.8,
+      "combined_score": 0.78
+    }
+  },
+  {
+    "question_id": 13,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Cuánto dura la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0032401084899902344,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.8500000000000001
+    }
+  },
+  {
+    "question_id": 13,
+    "model_name": "gemma2:27b",
+    "question": "¿Cuánto dura la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003518819808959961,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.8500000000000001
+    }
+  },
+  {
+    "question_id": 13,
+    "model_name": "llama3.3:70b",
+    "question": "¿Cuánto dura la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0037250518798828125,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 0.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.8,
+      "combined_score": 0.68
+    }
+  },
+  {
+    "question_id": 13,
+    "model_name": "qwen3:32b",
+    "question": "¿Cuánto dura la actividad de coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0038068294525146484,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.8500000000000001
+    }
+  },
+  {
+    "question_id": 14,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué edad tienen los niños en coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0033948421478271484,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 14,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué edad tienen los niños en coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0033674240112304688,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 14,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué edad tienen los niños en coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003607511520385742,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 14,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué edad tienen los niños en coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0037870407104492188,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 15,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Cómo vamos hasta la Coma para la actividad de coles?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0038232803344726562,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 15,
+    "model_name": "gemma2:27b",
+    "question": "¿Cómo vamos hasta la Coma para la actividad de coles?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003229856491088867,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 15,
+    "model_name": "llama3.3:70b",
+    "question": "¿Cómo vamos hasta la Coma para la actividad de coles?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003916263580322266,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 15,
+    "model_name": "qwen3:32b",
+    "question": "¿Cómo vamos hasta la Coma para la actividad de coles?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0033783912658691406,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 16,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Quién paga la gasolina para ir a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0032782554626464844,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 16,
+    "model_name": "gemma2:27b",
+    "question": "¿Quién paga la gasolina para ir a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0037162303924560547,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 16,
+    "model_name": "llama3.3:70b",
+    "question": "¿Quién paga la gasolina para ir a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003556966781616211,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 16,
+    "model_name": "qwen3:32b",
+    "question": "¿Quién paga la gasolina para ir a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0039424896240234375,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.0
+    }
+  },
+  {
+    "question_id": 17,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Necesito algún tipo de documentación para ir a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.00313568115234375,
+    "metrics": {
+      "faithfulness": 0.5,
+      "answer_relevancy": 0.5,
+      "context_precision": 0.5,
+      "context_recall": 0.3,
+      "answer_correctness": 0.5,
+      "answer_similarity": 0.6,
+      "combined_score": 0.47
+    }
+  },
+  {
+    "question_id": 17,
+    "model_name": "gemma2:27b",
+    "question": "¿Necesito algún tipo de documentación para ir a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003543376922607422,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.5,
+      "context_precision": 0.7,
+      "context_recall": 0.4,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.6,
+      "combined_score": 0.625
+    }
+  },
+  {
+    "question_id": 17,
+    "model_name": "llama3.3:70b",
+    "question": "¿Necesito algún tipo de documentación para ir a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0032346248626708984,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.5,
+      "context_precision": 0.7,
+      "context_recall": 0.3,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.6,
+      "combined_score": 0.605
+    }
+  },
+  {
+    "question_id": 17,
+    "model_name": "qwen3:32b",
+    "question": "¿Necesito algún tipo de documentación para ir a coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0034689903259277344,
+    "metrics": {
+      "faithfulness": 0.5,
+      "answer_relevancy": 0.5,
+      "context_precision": 0.5,
+      "context_recall": 0.3,
+      "answer_correctness": 0.5,
+      "answer_similarity": 0.4,
+      "combined_score": 0.45
+    }
+  },
+  {
+    "question_id": 18,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Puedo elegir a qué grupo de niños ir en coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0032186508178710938,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.5,
+      "context_precision": 0.7,
+      "context_recall": 0.3,
+      "answer_correctness": 0.6,
+      "answer_similarity": 0.5,
+      "combined_score": 0.575
+    }
+  },
+  {
+    "question_id": 18,
+    "model_name": "gemma2:27b",
+    "question": "¿Puedo elegir a qué grupo de niños ir en coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003688335418701172,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.2,
+      "context_precision": 0.7,
+      "context_recall": 0.3,
+      "answer_correctness": 0.5,
+      "answer_similarity": 0.4,
+      "combined_score": 0.495
+    }
+  },
+  {
+    "question_id": 18,
+    "model_name": "llama3.3:70b",
+    "question": "¿Puedo elegir a qué grupo de niños ir en coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003639698028564453,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 0.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.5,
+      "combined_score": 0.65
+    }
+  },
+  {
+    "question_id": 18,
+    "model_name": "qwen3:32b",
+    "question": "¿Puedo elegir a qué grupo de niños ir en coles?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0035898685455322266,
+    "metrics": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.5,
+      "context_recall": 0.0,
+      "answer_correctness": 0.0,
+      "answer_similarity": 0.0,
+      "combined_score": 0.075
+    }
+  },
+  {
+    "question_id": 19,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué otras actividades se hacen relacionadas con niños?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003963470458984375,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 0.3,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.8,
+      "combined_score": 0.74
+    }
+  },
+  {
+    "question_id": 19,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué otras actividades se hacen relacionadas con niños?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003694772720336914,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 0.3,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.8,
+      "combined_score": 0.74
+    }
+  },
+  {
+    "question_id": 19,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué otras actividades se hacen relacionadas con niños?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003597736358642578,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.8,
+      "combined_score": 0.78
+    }
+  },
+  {
+    "question_id": 19,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué otras actividades se hacen relacionadas con niños?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0031125545501708984,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.5,
+      "context_precision": 0.7,
+      "context_recall": 0.4,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.6,
+      "combined_score": 0.625
+    }
+  },
+  {
+    "question_id": 20,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Dónde es la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.04045581817626953,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 20,
+    "model_name": "gemma2:27b",
+    "question": "¿Dónde es la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.044515132904052734,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 20,
+    "model_name": "llama3.3:70b",
+    "question": "¿Dónde es la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.04605841636657715,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 20,
+    "model_name": "qwen3:32b",
+    "question": "¿Dónde es la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0513911247253418,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 21,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué días se hace la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003125905990600586,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 21,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué días se hace la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0030753612518310547,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 21,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué días se hace la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003138303756713867,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 21,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué días se hace la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0035102367401123047,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 22,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué se hace en la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0031578540802001953,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.89
+    }
+  },
+  {
+    "question_id": 22,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué se hace en la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003167867660522461,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.9500000000000001
+    }
+  },
+  {
+    "question_id": 22,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué se hace en la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0031163692474365234,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.9500000000000001
+    }
+  },
+  {
+    "question_id": 22,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué se hace en la actividad de resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0037839412689208984,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.9500000000000001
+    }
+  },
+  {
+    "question_id": 23,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué tipo de actividades se realizan en resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0033566951751708984,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.9500000000000001
+    }
+  },
+  {
+    "question_id": 23,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué tipo de actividades se realizan en resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0030975341796875,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.9500000000000001
+    }
+  },
+  {
+    "question_id": 23,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué tipo de actividades se realizan en resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.00339508056640625,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.9500000000000001
+    }
+  },
+  {
+    "question_id": 23,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué tipo de actividades se realizan en resis?",
+    "answer": "Los desayunos se realizan en la Porta de la Mar de Valencia todos los sábados a las 8:00 de la mañana. Es el punto de encuentro para los voluntarios de DNI.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0033140182495117188,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "answer_correctness": 1.0,
+      "answer_similarity": 0.9,
+      "combined_score": 0.9500000000000001
+    }
+  },
+  {
+    "question_id": 24,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Cuál es el objetivo principal de DNI?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0037050247192382812,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.7,
+      "context_precision": 0.9,
+      "context_recall": 0.6,
+      "answer_correctness": 0.7,
+      "answer_similarity": 0.6,
+      "combined_score": 0.725
+    }
+  },
+  {
+    "question_id": 24,
+    "model_name": "gemma2:27b",
+    "question": "¿Cuál es el objetivo principal de DNI?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003144502639770508,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.7,
+      "context_precision": 0.9,
+      "context_recall": 0.6,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.7,
+      "combined_score": 0.745
+    }
+  },
+  {
+    "question_id": 24,
+    "model_name": "llama3.3:70b",
+    "question": "¿Cuál es el objetivo principal de DNI?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0034122467041015625,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.7,
+      "context_precision": 0.9,
+      "context_recall": 0.6,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.7,
+      "combined_score": 0.745
+    }
+  },
+  {
+    "question_id": 24,
+    "model_name": "qwen3:32b",
+    "question": "¿Cuál es el objetivo principal de DNI?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0031964778900146484,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.7,
+      "context_precision": 0.9,
+      "context_recall": 0.6,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.7,
+      "combined_score": 0.745
+    }
+  },
+  {
+    "question_id": 25,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué significa Para-Mira-Ayuda?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003708362579345703,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 25,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué significa Para-Mira-Ayuda?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003108501434326172,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 25,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué significa Para-Mira-Ayuda?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0034520626068115234,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 25,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué significa Para-Mira-Ayuda?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0033235549926757812,
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 1.0,
+      "answer_similarity": 1.0,
+      "combined_score": 1.0
+    }
+  },
+  {
+    "question_id": 26,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Cómo se caracteriza el voluntariado de DNI?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0032215118408203125,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.7,
+      "context_precision": 0.9,
+      "context_recall": 0.6,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.7,
+      "combined_score": 0.745
+    }
+  },
+  {
+    "question_id": 26,
+    "model_name": "gemma2:27b",
+    "question": "¿Cómo se caracteriza el voluntariado de DNI?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.003530740737915039,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.6,
+      "context_precision": 0.9,
+      "context_recall": 0.7,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.5,
+      "combined_score": 0.725
+    }
+  },
+  {
+    "question_id": 26,
+    "model_name": "llama3.3:70b",
+    "question": "¿Cómo se caracteriza el voluntariado de DNI?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0035338401794433594,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.7,
+      "context_precision": 0.9,
+      "context_recall": 0.6,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.7,
+      "combined_score": 0.745
+    }
+  },
+  {
+    "question_id": 26,
+    "model_name": "qwen3:32b",
+    "question": "¿Cómo se caracteriza el voluntariado de DNI?",
+    "answer": "Para-Mira-Ayuda son las tres palabras que guían la filosofía de DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y ofrecer ayuda generosamente.",
+    "contexts": [
+      "Los desayunos solidarios de DNI se realizan todos los sábados a las 8:00 de la mañana. El punto de encuentro es la Porta de la Mar de Valencia, donde los voluntarios se reúnen para organizar el reparto de comida a personas sin hogar.",
+      "DNI (Damos Nuestra Ilusión) es una asociación juvenil que promueve el voluntariado entre estudiantes universitarios. La filosofía se basa en los valores de Para-Mira-Ayuda.",
+      "Para participar en las actividades de DNI, los interesados deben asistir a las reuniones informativas que se organizan los miércoles. No se requiere experiencia previa, solo ganas de ayudar."
+    ],
+    "generation_time": 0.0038106441497802734,
+    "metrics": {
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.7,
+      "context_precision": 0.9,
+      "context_recall": 0.6,
+      "answer_correctness": 0.8,
+      "answer_similarity": 0.7,
+      "combined_score": 0.745
+    }
+  }
+]

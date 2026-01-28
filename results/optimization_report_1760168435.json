@@ -1,0 +1,596 @@
+[
+  {
+    "question_id": 22,
+    "model_name": "gemma2:27b",
+    "optimizations_applied": {
+      "timeout_change": {
+        "original": 120,
+        "optimized": 60,
+        "increase_percentage": -50.0
+      },
+      "temperature_change": {
+        "original": 0.7,
+        "optimized": 0.3
+      },
+      "contexts_optimized": false,
+      "explicit_instructions": true,
+      "force_context_usage": true
+    },
+    "prompt_analysis": {
+      "original_length": 73,
+      "optimized_length": 2095,
+      "improvement_type": "CRITICAL - Force context usage"
+    },
+    "context_analysis": {
+      "total_contexts": 10,
+      "avg_relevance": 2.8,
+      "most_relevant": {
+        "context_index": 7,
+        "relevance_score": 6,
+        "context_length": 238,
+        "preview": "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntaria..."
+      },
+      "least_relevant": {
+        "context_index": 2,
+        "relevance_score": 0,
+        "context_length": 40,
+        "preview": "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+      },
+      "all_scores": [
+        {
+          "context_index": 0,
+          "relevance_score": 5,
+          "context_length": 29,
+          "preview": "¿Qué se hace en la actividad?"
+        },
+        {
+          "context_index": 1,
+          "relevance_score": 1,
+          "context_length": 26,
+          "preview": "¿Cuánto dura la actividad?"
+        },
+        {
+          "context_index": 2,
+          "relevance_score": 0,
+          "context_length": 40,
+          "preview": "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+        },
+        {
+          "context_index": 3,
+          "relevance_score": 1,
+          "context_length": 19,
+          "preview": "DINÁMICA DE TRABAJO"
+        },
+        {
+          "context_index": 4,
+          "relevance_score": 0,
+          "context_length": 69,
+          "preview": "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN"
+        },
+        {
+          "context_index": 5,
+          "relevance_score": 1,
+          "context_length": 61,
+          "preview": "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN"
+        },
+        {
+          "context_index": 6,
+          "relevance_score": 2,
+          "context_length": 195,
+          "preview": "4. RECOGIDA DE ALIMENTOS: Colaborando con bancos de alimentos\n5. RECOGIDA DE PLÁSTICOS: Cuidando el ..."
+        },
+        {
+          "context_index": 7,
+          "relevance_score": 6,
+          "context_length": 238,
+          "preview": "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntaria..."
+        },
+        {
+          "context_index": 8,
+          "relevance_score": 6,
+          "context_length": 236,
+          "preview": "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        },
+        {
+          "context_index": 9,
+          "relevance_score": 6,
+          "context_length": 297,
+          "preview": "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños..."
+        }
+      ]
+    },
+    "expected_improvements": {
+      "score_prediction": {
+        "original": 0.0,
+        "predicted": 0.8,
+        "improvement": 0.8,
+        "improvement_percentage": 8000.0
+      },
+      "time_prediction": {
+        "original": 11.02147912979126,
+        "predicted": 5,
+        "change": -6.02147912979126
+      },
+      "confidence": "HIGH - Critical issue with clear solution"
+    },
+    "implementation_notes": [
+      "CRITICAL: Priorizar contexts que mencionen 'resis', 'acollida'",
+      "Forzar uso de información explícita"
+    ]
+  },
+  {
+    "question_id": 22,
+    "model_name": "qwen3:32b",
+    "optimizations_applied": {
+      "timeout_change": {
+        "original": 120,
+        "optimized": 192,
+        "increase_percentage": 60.0
+      },
+      "temperature_change": {
+        "original": 0.7,
+        "optimized": 0.4
+      },
+      "contexts_optimized": false,
+      "explicit_instructions": true,
+      "force_context_usage": true
+    },
+    "prompt_analysis": {
+      "original_length": 73,
+      "optimized_length": 2095,
+      "improvement_type": "CRITICAL - Force context usage"
+    },
+    "context_analysis": {
+      "total_contexts": 10,
+      "avg_relevance": 2.8,
+      "most_relevant": {
+        "context_index": 7,
+        "relevance_score": 6,
+        "context_length": 238,
+        "preview": "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntaria..."
+      },
+      "least_relevant": {
+        "context_index": 2,
+        "relevance_score": 0,
+        "context_length": 40,
+        "preview": "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+      },
+      "all_scores": [
+        {
+          "context_index": 0,
+          "relevance_score": 5,
+          "context_length": 29,
+          "preview": "¿Qué se hace en la actividad?"
+        },
+        {
+          "context_index": 1,
+          "relevance_score": 1,
+          "context_length": 26,
+          "preview": "¿Cuánto dura la actividad?"
+        },
+        {
+          "context_index": 2,
+          "relevance_score": 0,
+          "context_length": 40,
+          "preview": "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS"
+        },
+        {
+          "context_index": 3,
+          "relevance_score": 1,
+          "context_length": 19,
+          "preview": "DINÁMICA DE TRABAJO"
+        },
+        {
+          "context_index": 4,
+          "relevance_score": 0,
+          "context_length": 69,
+          "preview": "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN"
+        },
+        {
+          "context_index": 5,
+          "relevance_score": 1,
+          "context_length": 61,
+          "preview": "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN"
+        },
+        {
+          "context_index": 6,
+          "relevance_score": 2,
+          "context_length": 195,
+          "preview": "4. RECOGIDA DE ALIMENTOS: Colaborando con bancos de alimentos\n5. RECOGIDA DE PLÁSTICOS: Cuidando el ..."
+        },
+        {
+          "context_index": 7,
+          "relevance_score": 6,
+          "context_length": 238,
+          "preview": "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntaria..."
+        },
+        {
+          "context_index": 8,
+          "relevance_score": 6,
+          "context_length": 236,
+          "preview": "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        },
+        {
+          "context_index": 9,
+          "relevance_score": 6,
+          "context_length": 297,
+          "preview": "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños..."
+        }
+      ]
+    },
+    "expected_improvements": {
+      "score_prediction": {
+        "original": 0.0,
+        "predicted": 0.8,
+        "improvement": 0.8,
+        "improvement_percentage": 8000.0
+      },
+      "time_prediction": {
+        "original": 48.07031989097595,
+        "predicted": 84.07031989097595,
+        "change": 36.0
+      },
+      "confidence": "HIGH - Critical issue with clear solution"
+    },
+    "implementation_notes": [
+      "CRITICAL: Priorizar contexts que mencionen 'resis', 'acollida'",
+      "Forzar uso de información explícita"
+    ]
+  },
+  {
+    "question_id": 6,
+    "model_name": "qwen3:32b",
+    "optimizations_applied": {
+      "timeout_change": {
+        "original": 120,
+        "optimized": 240,
+        "increase_percentage": 100.0
+      },
+      "temperature_change": {
+        "original": 0.7,
+        "optimized": 0.4
+      },
+      "contexts_optimized": true,
+      "explicit_instructions": true,
+      "force_context_usage": false
+    },
+    "prompt_analysis": {
+      "original_length": 74,
+      "optimized_length": 2021,
+      "improvement_type": "HIGH - Timeout extension + context reduction"
+    },
+    "context_analysis": {
+      "total_contexts": 10,
+      "avg_relevance": 1.3,
+      "most_relevant": {
+        "context_index": 0,
+        "relevance_score": 4,
+        "context_length": 249,
+        "preview": "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l..."
+      },
+      "least_relevant": {
+        "context_index": 5,
+        "relevance_score": 0,
+        "context_length": 188,
+        "preview": "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se reco..."
+      },
+      "all_scores": [
+        {
+          "context_index": 0,
+          "relevance_score": 4,
+          "context_length": 249,
+          "preview": "¿Si me apunto un día tengo que ir al resto?\nNo. Los desayunos y cenas solidarios son lo que en DNI l..."
+        },
+        {
+          "context_index": 1,
+          "relevance_score": 2,
+          "context_length": 230,
+          "preview": "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación, mientras que en ..."
+        },
+        {
+          "context_index": 2,
+          "relevance_score": 2,
+          "context_length": 191,
+          "preview": "¿Cómo se compra la comida?\nDe los desayunos solidarios se hace cargo la asociación mientras que en l..."
+        },
+        {
+          "context_index": 3,
+          "relevance_score": 2,
+          "context_length": 196,
+          "preview": "¿Cómo me apunto?\nLa actividad se realiza siempre los sábados. Si ese sábado hay actividad, el miérco..."
+        },
+        {
+          "context_index": 4,
+          "relevance_score": 2,
+          "context_length": 293,
+          "preview": "Los desayunos y cenas solidarias son una parte fundamental de la esencia de Damos Nuestra Ilusión. E..."
+        },
+        {
+          "context_index": 5,
+          "relevance_score": 0,
+          "context_length": 188,
+          "preview": "La factura del desayuno se abona mediante transferencia. En el caso de las cenas solidarias, se reco..."
+        },
+        {
+          "context_index": 6,
+          "relevance_score": 1,
+          "context_length": 297,
+          "preview": "Esta actividad se realiza 1 vez por semana, los sábados por la mañana (desayunos solidarios) o los v..."
+        },
+        {
+          "context_index": 7,
+          "relevance_score": 0,
+          "context_length": 212,
+          "preview": "COMPRA DE ALIMENTOS\n\nPara los desayunos, la lista de compra incluye:\n- 6 paquetes de valencianas\n- 5..."
+        },
+        {
+          "context_index": 8,
+          "relevance_score": 0,
+          "context_length": 283,
+          "preview": "Depende del día, de la cantidad de personas que encontramos en la calle y de la zona por la que se r..."
+        },
+        {
+          "context_index": 9,
+          "relevance_score": 0,
+          "context_length": 291,
+          "preview": "Depende un poco del día, de la cantidad de personas que encontramos en la calle y de la zona por la ..."
+        }
+      ]
+    },
+    "expected_improvements": {
+      "score_prediction": {
+        "original": 0.0,
+        "predicted": 0.8,
+        "improvement": 0.8,
+        "improvement_percentage": 8000.0
+      },
+      "time_prediction": {
+        "original": 120.20606565475464,
+        "predicted": 180.20606565475464,
+        "change": 60.0
+      },
+      "confidence": "HIGH - Timeout issue with direct fix"
+    },
+    "implementation_notes": [
+      "EXTENDED TIMEOUT: Usar máximo timeout disponible",
+      "REDUCED CONTEXTS: Limitar a 6 contexts para velocidad"
+    ]
+  },
+  {
+    "question_id": 19,
+    "model_name": "qwen3:32b",
+    "optimizations_applied": {
+      "timeout_change": {
+        "original": 120,
+        "optimized": 240,
+        "increase_percentage": 100.0
+      },
+      "temperature_change": {
+        "original": 0.7,
+        "optimized": 0.4
+      },
+      "contexts_optimized": true,
+      "explicit_instructions": true,
+      "force_context_usage": false
+    },
+    "prompt_analysis": {
+      "original_length": 90,
+      "optimized_length": 1678,
+      "improvement_type": "HIGH - Timeout extension + context reduction"
+    },
+    "context_analysis": {
+      "total_contexts": 10,
+      "avg_relevance": 3.2,
+      "most_relevant": {
+        "context_index": 0,
+        "relevance_score": 8,
+        "context_length": 55,
+        "preview": "¿Qué otras actividades se hacen relacionadas con niños?"
+      },
+      "least_relevant": {
+        "context_index": 6,
+        "relevance_score": 1,
+        "context_length": 270,
+        "preview": "En actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difícile..."
+      },
+      "all_scores": [
+        {
+          "context_index": 0,
+          "relevance_score": 8,
+          "context_length": 55,
+          "preview": "¿Qué otras actividades se hacen relacionadas con niños?"
+        },
+        {
+          "context_index": 1,
+          "relevance_score": 2,
+          "context_length": 29,
+          "preview": "¿Qué se hace en la actividad?"
+        },
+        {
+          "context_index": 2,
+          "relevance_score": 3,
+          "context_length": 98,
+          "preview": "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más."
+        },
+        {
+          "context_index": 3,
+          "relevance_score": 2,
+          "context_length": 250,
+          "preview": "Además esta actividad semanal a lo largo del año hacemos otras actividades puntuales como Llegada de..."
+        },
+        {
+          "context_index": 4,
+          "relevance_score": 2,
+          "context_length": 256,
+          "preview": "Además de esta actividad semanal, a lo largo del año hacemos otras actividades puntuales como Llegad..."
+        },
+        {
+          "context_index": 5,
+          "relevance_score": 3,
+          "context_length": 297,
+          "preview": "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños..."
+        },
+        {
+          "context_index": 6,
+          "relevance_score": 1,
+          "context_length": 270,
+          "preview": "En actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difícile..."
+        },
+        {
+          "context_index": 7,
+          "relevance_score": 4,
+          "context_length": 238,
+          "preview": "¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.\n\n¿Qué se hace en la actividad?\nEn este voluntaria..."
+        },
+        {
+          "context_index": 8,
+          "relevance_score": 4,
+          "context_length": 236,
+          "preview": "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        },
+        {
+          "context_index": 9,
+          "relevance_score": 3,
+          "context_length": 99,
+          "preview": "¿Qué tipo de actividades se realizan?\nMeriendas, paseos, juegos de mesa, excursiones y muchas más!!"
+        }
+      ]
+    },
+    "expected_improvements": {
+      "score_prediction": {
+        "original": 0.0,
+        "predicted": 0.8,
+        "improvement": 0.8,
+        "improvement_percentage": 8000.0
+      },
+      "time_prediction": {
+        "original": 58.584251403808594,
+        "predicted": 118.5842514038086,
+        "change": 60.0
+      },
+      "confidence": "HIGH - Timeout issue with direct fix"
+    },
+    "implementation_notes": [
+      "EXTENDED TIMEOUT: Usar máximo timeout disponible",
+      "REDUCED CONTEXTS: Limitar a 6 contexts para velocidad"
+    ]
+  },
+  {
+    "question_id": 14,
+    "model_name": "deepseek-r1:latest",
+    "optimizations_applied": {
+      "timeout_change": {
+        "original": 120,
+        "optimized": 144,
+        "increase_percentage": 20.0
+      },
+      "temperature_change": {
+        "original": 0.7,
+        "optimized": 0.5
+      },
+      "contexts_optimized": false,
+      "explicit_instructions": true,
+      "force_context_usage": false
+    },
+    "prompt_analysis": {
+      "original_length": 71,
+      "optimized_length": 2529,
+      "improvement_type": "MEDIUM - Explicit context instructions"
+    },
+    "context_analysis": {
+      "total_contexts": 10,
+      "avg_relevance": 2.8,
+      "most_relevant": {
+        "context_index": 0,
+        "relevance_score": 5,
+        "context_length": 207,
+        "preview": "¿Cuánto dura la actividad?\nDe 15:30 a 16:30\n\n¿Qué edad tienen los niños?\nLos niños van desde los tre..."
+      },
+      "least_relevant": {
+        "context_index": 9,
+        "relevance_score": 1,
+        "context_length": 181,
+        "preview": "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércole..."
+      },
+      "all_scores": [
+        {
+          "context_index": 0,
+          "relevance_score": 5,
+          "context_length": 207,
+          "preview": "¿Cuánto dura la actividad?\nDe 15:30 a 16:30\n\n¿Qué edad tienen los niños?\nLos niños van desde los tre..."
+        },
+        {
+          "context_index": 1,
+          "relevance_score": 5,
+          "context_length": 229,
+          "preview": "¿Cuánto dura la actividad?\nDe 15:30 a 16:30, es decir, una hora.\n\n¿Qué edad tienen los niños?\nLos ni..."
+        },
+        {
+          "context_index": 2,
+          "relevance_score": 3,
+          "context_length": 270,
+          "preview": "En actividades de refuerzo escolar vamos a un colegio a ayudar a niños que viven realidades difícile..."
+        },
+        {
+          "context_index": 3,
+          "relevance_score": 2,
+          "context_length": 194,
+          "preview": "¿Puedo elegir a qué grupo de niños ir?\nClaro intentamos que todos los voluntarios estén con el grupo..."
+        },
+        {
+          "context_index": 4,
+          "relevance_score": 3,
+          "context_length": 297,
+          "preview": "¿Qué se hace en la actividad?\nEn actividades de refuerzo escolar vamos a un colegio a ayudar a niños..."
+        },
+        {
+          "context_index": 5,
+          "relevance_score": 2,
+          "context_length": 197,
+          "preview": "¿Puedo elegir a qué grupo de niños ir?\nClaro, intentamos que todos los voluntarios estén con el grup..."
+        },
+        {
+          "context_index": 6,
+          "relevance_score": 3,
+          "context_length": 236,
+          "preview": "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariad..."
+        },
+        {
+          "context_index": 7,
+          "relevance_score": 2,
+          "context_length": 29,
+          "preview": "¿Qué se hace en la actividad?"
+        },
+        {
+          "context_index": 8,
+          "relevance_score": 2,
+          "context_length": 208,
+          "preview": "¿Dónde es?\nEs en el CEIP Antonio Ferrandis de la Coma, Valencia.\n\n¿Qué días vais?\nLunes, martes, mié..."
+        },
+        {
+          "context_index": 9,
+          "relevance_score": 1,
+          "context_length": 181,
+          "preview": "¿Dónde es?\nEs el CEIP Antonio Ferrandis de la Coma Valencia\n\n¿Qué días vais?\nLunes, martes, miércole..."
+        }
+      ]
+    },
+    "expected_improvements": {
+      "score_prediction": {
+        "original": 0.0,
+        "predicted": 0.6,
+        "improvement": 0.6,
+        "improvement_percentage": 6000.0
+      },
+      "time_prediction": {
+        "original": 15.723040103912354,
+        "predicted": 27.723040103912354,
+        "change": 12.0
+      },
+      "confidence": "MEDIUM - Context usage issue"
+    },
+    "implementation_notes": [
+      "EXPLICIT INSTRUCTIONS: Instrucciones directas para usar contexts"
+    ]
+  }
+]

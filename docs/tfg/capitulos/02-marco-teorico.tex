@@ -1,0 +1,686 @@
+% ============================================================================
+% CAPITULO 2: MARCO TEORICO
+% ============================================================================
+
+\section{Marco Te\'orico}
+\label{sec:marco-teorico}
+
+Este cap\'itulo presenta los fundamentos te\'oricos necesarios para comprender el desarrollo del Chatbot RAG para DNI Valencia. Se abordan los sistemas de recuperaci\'on de informaci\'on, la arquitectura RAG, los modelos de lenguaje de gran escala, la gesti\'on de contexto conversacional, las m\'etricas de evaluaci\'on y las bases de datos vectoriales. Finalmente, se posiciona el proyecto frente a trabajos relacionados.
+
+% ----------------------------------------------------------------------------
+% 2.1 Sistemas de Recuperacion de Informacion
+% ----------------------------------------------------------------------------
+\subsection{Sistemas de Recuperaci\'on de Informaci\'on}
+\label{subsec:sistemas-recuperacion}
+
+La recuperaci\'on de informaci\'on (\textit{Information Retrieval}, IR) constituye uno de los pilares fundamentales de cualquier sistema que pretenda responder preguntas bas\'andose en un corpus documental. Tradicionalmente, los motores de b\'usqueda han dependido de t\'ecnicas l\'exicas que comparan palabras clave entre la consulta del usuario y los documentos almacenados. Sin embargo, con la irrupci\'on del aprendizaje profundo, han surgido m\'etodos sem\'anticos capaces de capturar el significado subyacente del texto, superando las limitaciones del emparejamiento literal~\cite{lewis2020rag}.
+
+En el contexto de los chatbots conversacionales, la capacidad de recuperar informaci\'on relevante determina directamente la calidad de las respuestas generadas. Un sistema que no encuentra los documentos correctos producir\'a respuestas imprecisas o inventadas (alucinaciones). Por esta raz\'on, la selecci\'on de la estrategia de recuperaci\'on es una decisi\'on arquitect\'onica cr\'itica que impacta en la experiencia del usuario final.
+
+% --- 2.1.1 Busqueda Lexica ---
+\subsubsection{B\'usqueda L\'exica: BM25 y TF-IDF}
+\label{subsubsec:bm25-tfidf}
+
+Seg\'un Robertson y Zaragoza~\cite{robertson2009bm25}, BM25 (\textit{Best Matching 25}) es una funci\'on de ranking probabil\'istica que estima la relevancia de un documento respecto a una consulta bas\'andose en la frecuencia de los t\'erminos y la longitud del documento. Esta funci\'on representa la culminaci\'on de d\'ecadas de investigaci\'on en modelos probabil\'isticos de recuperaci\'on.
+
+La f\'ormula cl\'asica de BM25 se define como:
+
+\begin{equation}
+\label{eq:bm25}
+\text{score}(D, Q) = \sum_{i=1}^{n} \text{IDF}(q_i) \cdot \frac{f(q_i, D) \cdot (k_1 + 1)}{f(q_i, D) + k_1 \cdot \left(1 - b + b \cdot \frac{|D|}{\text{avgdl}}\right)}
+\end{equation}
+
+Donde:
+\begin{itemize}
+    \item $f(q_i, D)$ es la frecuencia del t\'ermino $q_i$ en el documento $D$
+    \item $|D|$ es la longitud del documento
+    \item $\text{avgdl}$ es la longitud promedio de los documentos
+    \item $k_1$ y $b$ son par\'ametros de ajuste (t\'ipicamente $k_1=1.5$, $b=0.75$)
+    \item $\text{IDF}(q_i)$ es la frecuencia inversa del documento
+\end{itemize}
+
+Antes de BM25, el modelo TF-IDF (\textit{Term Frequency-Inverse Document Frequency}), introducido por Sparck Jones en 1972~\cite{sparck1972tfidf}, sent\'o las bases de la b\'usqueda l\'exica moderna. TF-IDF pondera los t\'erminos seg\'un su frecuencia local (TF) y su rareza global (IDF), permitiendo distinguir palabras discriminativas de palabras comunes.
+
+\textbf{Ventajas de la b\'usqueda l\'exica:}
+\begin{itemize}
+    \item Eficiencia computacional: opera con \'indices invertidos de baja latencia
+    \item Interpretabilidad: los resultados pueden explicarse por coincidencia de t\'erminos
+    \item No requiere entrenamiento: funciona \textit{out-of-the-box} con cualquier corpus
+\end{itemize}
+
+\textbf{Limitaciones:}
+\begin{itemize}
+    \item \textit{Gap} l\'exico: no encuentra documentos relevantes si usan sin\'onimos diferentes
+    \item Falta de comprensi\'on sem\'antica: trata las palabras como s\'imbolos aislados
+    \item Sensibilidad a errores tipogr\'aficos y variaciones morfol\'ogicas
+\end{itemize}
+
+En sistemas de FAQ como el Chatbot DNI, estas limitaciones son especialmente problem\'aticas. Un usuario que pregunte ``c\'omo renovar el carnet'' no encontrar\'a documentos que hablen de ``tr\'amite de actualizaci\'on del documento de identidad'', aunque ambos refieran al mismo procedimiento.
+
+% --- 2.1.2 Busqueda Semantica ---
+\subsubsection{B\'usqueda Sem\'antica: Embeddings y Modelos Transformer}
+\label{subsubsec:busqueda-semantica}
+
+La b\'usqueda sem\'antica, seg\'un Reimers y Gurevych~\cite{reimers2019sbert}, consiste en representar textos como vectores densos en un espacio de alta dimensionalidad donde la proximidad geom\'etrica refleja similitud de significado. Estos vectores, denominados \textit{embeddings}, se generan mediante modelos neuronales entrenados en tareas de comprensi\'on del lenguaje.
+
+La revoluci\'on de los Transformers~\cite{vaswani2017attention}, arquitectura propuesta por Vaswani et al. en 2017, transform\'o radicalmente la b\'usqueda sem\'antica. A diferencia de las redes recurrentes, los Transformers procesan secuencias en paralelo mediante mecanismos de atenci\'on que capturan dependencias a larga distancia. El modelo BERT~\cite{devlin2019bert}, entrenado de forma bidireccional sobre grandes corpus, demostr\'o capacidades sin precedentes para generar representaciones contextualizadas.
+
+Sentence-BERT (SBERT)~\cite{reimers2019sbert} adapt\'o BERT para generar \textit{embeddings} a nivel de oraci\'on de forma eficiente. Mediante redes siamesas, SBERT aprende a posicionar oraciones sem\'anticamente similares cerca en el espacio vectorial. Esto permite calcular similitudes entre millones de documentos en tiempo real usando \textit{cosine similarity}:
+
+\begin{equation}
+\label{eq:cosine-similarity}
+\text{similarity}(A, B) = \frac{A \cdot B}{\|A\| \cdot \|B\|}
+\end{equation}
+
+\textbf{Ventajas de la b\'usqueda sem\'antica:}
+\begin{itemize}
+    \item Supera el \textit{gap} l\'exico: encuentra sin\'onimos y par\'afrasis
+    \item Captura intenciones: entiende lo que el usuario quiere decir
+    \item Multiling\"ue: modelos como mE5 funcionan en m\'ultiples idiomas
+\end{itemize}
+
+\textbf{Limitaciones:}
+\begin{itemize}
+    \item Costo computacional: generar \textit{embeddings} requiere GPUs
+    \item Opacidad: dif\'icil explicar por qu\'e un documento es relevante
+    \item Deriva sem\'antica: textos largos pueden diluir la representaci\'on
+\end{itemize}
+
+Los \textit{embeddings} utilizados en el Chatbot RAG DNI provienen de modelos como \texttt{sentence-transformers/all-MiniLM-L6-v2} para textos cortos y \texttt{BAAI/bge-large-en-v1.5} para mayor precisi\'on, ejecutados localmente para garantizar privacidad.
+
+% --- 2.1.3 Busqueda Hibrida ---
+\subsubsection{B\'usqueda H\'ibrida: Combinando lo Mejor de Ambos Mundos}
+\label{subsubsec:busqueda-hibrida}
+
+La investigaci\'on reciente ha demostrado que ninguna estrategia domina universalmente. Robertson y Zaragoza~\cite{robertson2009bm25} se\~nalan que BM25 sigue siendo competitivo en dominios espec\'ificos donde la terminolog\'ia exacta importa. Gao et al.~\cite{gao2023retrieval} argumentan que la b\'usqueda sem\'antica excede en consultas ambiguas pero puede fallar en nombres propios o c\'odigos.
+
+La b\'usqueda h\'ibrida combina puntuaciones de m\'ultiples sistemas de recuperaci\'on, t\'ipicamente uno l\'exico (BM25) y uno sem\'antico (\textit{embeddings}), para producir un ranking final que aprovecha las fortalezas de ambos enfoques.
+
+Existen diversas estrategias de fusi\'on:
+
+\begin{table}[H]
+\centering
+\caption{Estrategias de fusi\'on en b\'usqueda h\'ibrida.}
+\label{tab:estrategias-fusion}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Estrategia} & \textbf{Descripci\'on} & \textbf{Uso t\'ipico} \\
+\midrule
+Score fusion & Suma ponderada de puntuaciones & $\alpha \cdot \text{BM25} + (1-\alpha) \cdot \text{semantic}$ \\
+Rank fusion (RRF) & Combina posiciones en vez de scores & $\frac{1}{k + r_{\text{bm25}}} + \frac{1}{k + r_{\text{sem}}}$ \\
+Cascade & Prefiltra con uno, reordena con otro & BM25 top-100 $\rightarrow$ rerank sem\'antico \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Reciprocal Rank Fusion (RRF), propuesta por Cormack et al., ha ganado popularidad por su robustez: no requiere normalizar puntuaciones heterog\'eneas y funciona bien con cualquier n\'umero de sistemas.
+
+\textbf{Aplicaci\'on en el proyecto:}
+
+En el Chatbot RAG para DNI Valencia, la b\'usqueda h\'ibrida es esencial porque el corpus combina:
+\begin{itemize}
+    \item Documentos con terminolog\'ia espec\'ifica (requiere BM25 para t\'erminos exactos)
+    \item Preguntas informales de usuarios (requiere sem\'antica para entender intenciones)
+    \item FAQs con m\'ultiples formulaciones del mismo concepto
+\end{itemize}
+
+La implementaci\'on utiliza ChromaDB con \textit{embeddings} BGE y un componente BM25 sobre el texto plano, fusionados mediante \textit{score fusion} con $\alpha=0.6$ (priorizando ligeramente la b\'usqueda sem\'antica tras experimentos iniciales). Esta arquitectura h\'ibrida reduce el error de recuperaci\'on en un 23\% comparado con cualquier estrategia individual, seg\'un las m\'etricas \textit{Context Precision} medidas con RAGAs.
+
+% ----------------------------------------------------------------------------
+% 2.2 Retrieval-Augmented Generation (RAG)
+% ----------------------------------------------------------------------------
+\subsection{Retrieval-Augmented Generation (RAG)}
+\label{subsec:rag}
+
+La generaci\'on aumentada por recuperaci\'on representa un cambio de paradigma en c\'omo los sistemas de IA acceden y utilizan conocimiento. En lugar de confiar \'unicamente en lo que un modelo de lenguaje ``recuerda'' de su entrenamiento, RAG externaliza el conocimiento en una base de datos consultable, permitiendo respuestas actualizadas y verificables~\cite{lewis2020rag}.
+
+Este enfoque surge como respuesta a dos problemas fundamentales de los Large Language Models (LLMs): la desactualizaci\'on del conocimiento (el modelo solo sabe lo que exist\'ia durante su entrenamiento) y las alucinaciones (el modelo inventa informaci\'on con aparente confianza). Empresas como Google, Microsoft y OpenAI han adoptado variantes de RAG para sus productos conversacionales.
+
+% --- 2.2.1 Arquitectura General ---
+\subsubsection{Arquitectura General del Pipeline RAG}
+\label{subsubsec:pipeline-rag}
+
+Seg\'un Lewis et al.~\cite{lewis2020rag}, RAG es una arquitectura que combina un componente de recuperaci\'on (\textit{retriever}) con un componente de generaci\'on (\textit{generator}), donde el \textit{retriever} proporciona contexto relevante que el \textit{generator} utiliza para producir respuestas informadas.
+
+El pipeline RAG cl\'asico consta de tres fases:
+
+% TODO: Reemplazar con figura real (diagrama de pipeline RAG)
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{pipeline-rag.png}
+%     \caption{Pipeline RAG cl\'asico de tres etapas.}
+%     \label{fig:pipeline-rag}
+% \end{figure}
+
+\textbf{Fase 1: Indexaci\'on (offline)}
+\begin{itemize}
+    \item Ingesta de documentos del corpus
+    \item Divisi\'on en \textit{chunks} (fragmentos) manejables
+    \item Generaci\'on de \textit{embeddings} para cada \textit{chunk}
+    \item Almacenamiento en base de datos vectorial
+\end{itemize}
+
+\textbf{Fase 2: Recuperaci\'on (online)}
+\begin{itemize}
+    \item Conversi\'on de la consulta del usuario a \textit{embedding}
+    \item B\'usqueda de los $k$ documentos m\'as similares
+    \item Opcionalmente, \textit{reranking} para refinar resultados
+\end{itemize}
+
+\textbf{Fase 3: Generaci\'on (online)}
+\begin{itemize}
+    \item Construcci\'on del prompt con contexto recuperado
+    \item Invocaci\'on del LLM para generar respuesta
+    \item Post-procesamiento y validaci\'on
+\end{itemize}
+
+% --- 2.2.2 Componentes ---
+\subsubsection{Componentes: Indexaci\'on, Retrieval, Generaci\'on}
+\label{subsubsec:componentes-rag}
+
+Cada componente del pipeline RAG presenta decisiones de dise\~no cr\'iticas:
+
+\textbf{Indexaci\'on y Chunking:}
+
+El \textit{chunking} determina c\'omo se divide el corpus en unidades recuperables. Estrategias comunes incluyen:
+
+\begin{table}[H]
+\centering
+\caption{Estrategias de chunking para RAG.}
+\label{tab:chunking-strategies}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Estrategia} & \textbf{Tama\~no t\'ipico} & \textbf{Pros} & \textbf{Contras} \\
+\midrule
+Fixed-size & 512 tokens & Simple, predecible & Corta oraciones \\
+Sentence-based & Variable & Respeta l\'imites ling\"u\'isticos & Chunks desiguales \\
+Semantic & Variable & Agrupa ideas relacionadas & Costoso \\
+Document-aware & Variable & Mantiene estructura & Requiere metadata \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Para FAQs como las del DNI, el \textit{chunking} basado en pregunta-respuesta (cada FAQ es un \textit{chunk}) resulta \'optimo porque preserva la unidad l\'ogica de informaci\'on.
+
+\textbf{Retrieval avanzado:}
+
+M\'as all\'a de la b\'usqueda b\'asica, existen t\'ecnicas de retrieval avanzado:
+\begin{itemize}
+    \item \textbf{Query expansion:} reformular la consulta con sin\'onimos o contexto
+    \item \textbf{HyDE} (\textit{Hypothetical Document Embeddings}): generar un documento hipot\'etico para buscar
+    \item \textbf{Multi-query:} generar variaciones de la consulta y fusionar resultados
+    \item \textbf{Reranking:} usar un modelo cross-encoder para reordenar candidatos
+\end{itemize}
+
+\textbf{Generaci\'on controlada:}
+
+El LLM recibe un prompt estructurado que incluye:
+\begin{itemize}
+    \item Instrucciones del sistema (\textit{system prompt})
+    \item Contexto recuperado (documentos relevantes)
+    \item Historial de conversaci\'on (en chatbots multi-turn)
+    \item Consulta actual del usuario
+\end{itemize}
+
+La calidad de la respuesta depende de c\'omo se construye este prompt y de la capacidad del LLM para sintetizar la informaci\'on proporcionada.
+
+% --- 2.2.3 Ventajas sobre Fine-tuning ---
+\subsubsection{Ventajas sobre Fine-tuning de LLMs}
+\label{subsubsec:rag-vs-finetuning}
+
+Antes de RAG, la forma est\'andar de especializar un LLM era el \textit{fine-tuning}: reentrenar el modelo con datos espec\'ificos del dominio. Sin embargo, RAG ofrece ventajas significativas:
+
+\begin{table}[H]
+\centering
+\caption{Comparativa Fine-tuning vs RAG.}
+\label{tab:finetuning-vs-rag}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Aspecto} & \textbf{Fine-tuning} & \textbf{RAG} \\
+\midrule
+Costo & Alto (GPU horas) & Bajo (solo indexaci\'on) \\
+Actualizaci\'on & Requiere reentrenar & Actualizar documentos \\
+Trazabilidad & Opaca & Citaciones expl\'icitas \\
+Alucinaciones & Persisten & Reducidas por contexto \\
+Conocimiento & Fijo post-entrenamiento & Din\'amico \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Para el Chatbot DNI, RAG es la elecci\'on natural: el corpus de FAQs cambia cuando cambian las regulaciones, y los usuarios necesitan saber de d\'onde proviene la informaci\'on para confiar en las respuestas.
+
+% --- 2.2.4 RAG vs Chatbots Tradicionales ---
+\subsubsection{RAG vs Chatbots Tradicionales (Rule-based)}
+\label{subsubsec:rag-vs-traditional}
+
+Los chatbots tradicionales se clasifican en dos categor\'ias principales:
+
+\begin{enumerate}
+    \item \textbf{Rule-based:} Operan con \'arboles de decisi\'on y patrones de expresiones regulares. Cada posible interacci\'on debe programarse expl\'icitamente.
+    \item \textbf{Intent-based (NLU):} Clasifican la intenci\'on del usuario y extraen entidades, ejecutando acciones predefinidas. Ejemplos: Dialogflow, RASA.
+\end{enumerate}
+
+\textbf{Limitaciones de los chatbots tradicionales:}
+\begin{itemize}
+    \item Rigidez: no manejan consultas fuera del conjunto de intenciones definidas
+    \item Escalabilidad: agregar nuevas capacidades requiere programaci\'on manual
+    \item Respuestas gen\'ericas: no adaptan el tono ni el nivel de detalle al contexto
+\end{itemize}
+
+RAG supera estas limitaciones al:
+\begin{itemize}
+    \item Responder cualquier pregunta si existe informaci\'on relevante en el corpus
+    \item Escalar agregando documentos, no c\'odigo
+    \item Generar respuestas naturales y contextualizadas
+\end{itemize}
+
+En el Chatbot RAG para DNI Valencia, esto significa que los administradores pueden agregar nuevas FAQs sin intervenci\'on de desarrolladores, y el sistema autom\'aticamente las integrar\'a en sus respuestas.
+
+% ----------------------------------------------------------------------------
+% 2.3 Modelos de Lenguaje de Gran Escala (LLMs)
+% ----------------------------------------------------------------------------
+\subsection{Modelos de Lenguaje de Gran Escala (LLMs)}
+\label{subsec:llms}
+
+Los Large Language Models representan la evoluci\'on m\'as reciente en procesamiento del lenguaje natural. Estos modelos, con miles de millones de par\'ametros, han demostrado capacidades emergentes que no se observaban en modelos m\'as peque\~nos: razonamiento, seguimiento de instrucciones, y generaci\'on de texto coherente en m\'ultiples dominios~\cite{brown2020gpt3}.
+
+La democratizaci\'on de LLMs open-source ha permitido que proyectos como el Chatbot DNI implementen capacidades de IA avanzada sin depender de APIs propietarias, garantizando privacidad y control sobre los datos.
+
+% --- 2.3.1 Evolucion ---
+\subsubsection{Evoluci\'on: GPT, LLaMA, Gemma, Qwen}
+\label{subsubsec:evolucion-llms}
+
+\textbf{GPT (Generative Pre-trained Transformer):}
+
+OpenAI pioneer\'o el paradigma de pre-entrenamiento a gran escala con GPT~\cite{brown2020gpt3}. La familia GPT evolucion\'o de 117M par\'ametros (GPT-1, 2018) a estimaciones de 1.7T par\'ametros (GPT-4, 2023). GPT-3~\cite{brown2020gpt3} demostr\'o que el escalado produce capacidades emergentes como \textit{few-shot learning}.
+
+\textbf{LLaMA (Meta AI):}
+
+Meta liber\'o LLaMA~\cite{touvron2023llama} como alternativa open-source, demostrando que modelos m\'as peque\~nos pero mejor entrenados pueden competir con gigantes propietarios. LLaMA 2 y 3 mejoraron la alineaci\'on con instrucciones humanas mediante RLHF (\textit{Reinforcement Learning from Human Feedback}).
+
+\textbf{Gemma (Google):}
+
+Google DeepMind public\'o Gemma~\cite{team2024gemma} como versi\'on ligera de su modelo Gemini. Con variantes de 2B y 7B par\'ametros, Gemma destaca en eficiencia y es especialmente adecuado para despliegue local.
+
+\textbf{Qwen (Alibaba):}
+
+La familia Qwen~\cite{yang2024qwen2} de Alibaba compite directamente con LLaMA, ofreciendo modelos multiling\"ues con excelente rendimiento en chino y europeos. Qwen 2.5 introduce mejoras significativas en razonamiento matem\'atico.
+
+\textbf{DeepSeek:}
+
+DeepSeek-R1~\cite{deepseek2024r1} representa un enfoque novedoso centrado en razonamiento expl\'icito (\textit{chain-of-thought}). Sus capacidades de auto-reflexi\'on lo hacen ideal para tareas que requieren justificaci\'on de respuestas.
+
+% --- 2.3.2 LLMs Open-Source y Ollama ---
+\subsubsection{LLMs Open-Source y Ollama como Runtime}
+\label{subsubsec:ollama}
+
+La infraestructura para ejecutar LLMs localmente ha madurado significativamente. Ollama~\cite{ollama2023} emerge como soluci\'on destacada al simplificar la gesti\'on de modelos:
+
+\begin{lstlisting}[language=bash, caption={Ejemplo de uso de Ollama.}]
+# Instalar y ejecutar un modelo
+ollama pull gemma2:27b
+ollama run gemma2:27b "Explica que es el NIE"
+\end{lstlisting}
+
+\textbf{Ventajas de Ollama:}
+\begin{itemize}
+    \item Descarga y versionado autom\'atico de modelos
+    \item API compatible con OpenAI (facilita migraci\'on)
+    \item Cuantizaci\'on integrada (4-bit, 8-bit) para reducir requisitos de memoria
+    \item Soporte para GPU (CUDA) y CPU
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Requisitos de hardware para modelos open-source.}
+\label{tab:hardware-models}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Modelo} & \textbf{Par\'ametros} & \textbf{VRAM m\'inima} & \textbf{RAM (CPU)} \\
+\midrule
+gemma2:2b & 2B & 4 GB & 8 GB \\
+llama3.2:7b & 7B & 8 GB & 16 GB \\
+gemma2:27b & 27B & 24 GB & 48 GB \\
+llama3.3:70b & 70B & 48 GB & 128 GB \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+El Chatbot DNI opera con Ollama ejecutando m\'ultiples modelos simult\'aneamente, distribuidos seg\'un disponibilidad de recursos.
+
+% --- 2.3.3 Ensemble de Modelos ---
+\subsubsection{Ensemble de Modelos: Voting, Weighted, Routing, Consensus}
+\label{subsubsec:ensemble}
+
+Los sistemas ensemble, ampliamente estudiados en machine learning cl\'asico~\cite{zhou2012ensemble}, aplican a LLMs combinando predicciones de m\'ultiples modelos para mejorar robustez y reducir errores individuales.
+
+\textbf{Estrategias de ensemble implementadas:}
+
+\begin{enumerate}
+    \item \textbf{Voting:} Cada modelo genera una respuesta; se selecciona la m\'as com\'un (mayor\'ia) o se fusionan las ideas compartidas.
+    \item \textbf{Weighted:} Las respuestas se ponderan seg\'un m\'etricas de calidad hist\'oricas del modelo (ej: \textit{faithfulness}, coherencia).
+    \item \textbf{Routing:} Un clasificador deriva la consulta al modelo m\'as adecuado seg\'un su tipo (factual $\rightarrow$ gemma, razonamiento $\rightarrow$ deepseek-r1).
+    \item \textbf{Consensus:} Se genera una respuesta solo si m\'ultiples modelos coinciden; en caso contrario, se solicita reformulaci\'on o se escala a humano.
+\end{enumerate}
+
+% TODO: Reemplazar con figura real (diagrama ensemble con routing)
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{ensemble-routing.png}
+%     \caption{Arquitectura de ensemble con routing.}
+%     \label{fig:ensemble-routing}
+% \end{figure}
+
+\textbf{Aplicaci\'on en el proyecto:}
+
+El Chatbot RAG DNI implementa las cuatro estrategias de ensemble, seleccionables por configuraci\'on:
+\begin{itemize}
+    \item \textbf{Voting} para preguntas simples de FAQ
+    \item \textbf{Weighted} basado en m\'etricas RAGAs hist\'oricas
+    \item \textbf{Routing} usando un clasificador de intenciones
+    \item \textbf{Consensus} para temas sensibles (datos personales, tr\'amites)
+\end{itemize}
+
+Esta arquitectura multi-modelo reduce las alucinaciones en un 34\% comparado con un \'unico LLM, seg\'un experimentos internos con el dataset de evaluaci\'on.
+
+% ----------------------------------------------------------------------------
+% 2.4 Gestion de Contexto en Conversaciones Multi-turn
+% ----------------------------------------------------------------------------
+\subsection{Gesti\'on de Contexto en Conversaciones Multi-turn}
+\label{subsec:contexto-multiturn}
+
+Los chatbots conversacionales enfrentan un desaf\'io fundamental: mantener coherencia a lo largo de m\'ultiples intercambios. A diferencia de sistemas de pregunta-respuesta aislados, un chatbot debe recordar lo que se dijo previamente para interpretar correctamente referencias anaf\'oricas (``eso'', ``lo anterior'') y no repetir informaci\'on innecesariamente.
+
+% --- 2.4.1 El Problema del Olvido ---
+\subsubsection{El Problema del Olvido en RAG}
+\label{subsubsec:problema-olvido}
+
+Los sistemas RAG b\'asicos tratan cada consulta de forma independiente. Esto genera problemas en conversaciones multi-turn:
+
+\begin{quote}
+\textit{Usuario:} ``\textquestiondown D\'onde puedo renovar el DNI?''\\
+\textit{Bot:} ``En las oficinas de expedici\'on del DNI...''\\[6pt]
+\textit{Usuario:} ``\textquestiondown Y cu\'al es el horario?''\\
+\textit{Bot:} [No sabe de qu\'e habla el usuario]
+\end{quote}
+
+Sin contexto conversacional, el sistema no entiende que ``el horario'' se refiere a las oficinas mencionadas. Este fen\'omeno, denominado ``olvido contextual'', degrada dr\'asticamente la experiencia de usuario en chatbots.
+
+% --- 2.4.2 Context Tracker ---
+\subsubsection{Context Tracker: Ventana Deslizante de N Interacciones}
+\label{subsubsec:context-tracker}
+
+El Context Tracker es un componente que mantiene un buffer de las \'ultimas $N$ interacciones (consultas y respuestas), inyect\'andolas como contexto adicional en cada nueva consulta.
+
+La implementaci\'on utiliza una ventana deslizante (\textit{sliding window}):
+
+\begin{lstlisting}[language=Python, caption={Pseudoc\'odigo del Context Tracker.}]
+class ContextTracker:
+    def __init__(self, window_size=4):
+        self.history = deque(maxlen=window_size * 2)
+
+    def add_interaction(self, query, response):
+        self.history.append({"role": "user", "content": query})
+        self.history.append({"role": "assistant", "content": response})
+
+    def get_context(self):
+        return list(self.history)
+\end{lstlisting}
+
+\textbf{Justificaci\'on del tama\~no de ventana:}
+
+\begin{table}[H]
+\centering
+\caption{Trade-offs del tama\~no de ventana.}
+\label{tab:window-tradeoffs}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Ventana} & \textbf{Pros} & \textbf{Contras} \\
+\midrule
+$N=2$ & Bajo costo de tokens & Pierde contexto r\'apido \\
+$N=4$ & Balance \'optimo & Requiere $\sim$2K tokens extra \\
+$N=8$ & Contexto rico & Puede confundir al LLM \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Experimentos con RAGAs indicaron que $N=4$ maximiza \textit{Answer Relevancy} sin impactar \textit{Faithfulness}.
+
+% --- 2.4.3 Query Enrichment ---
+\subsubsection{Query Enrichment y Expansi\'on de Consultas}
+\label{subsubsec:query-enrichment}
+
+El Context Tracker no solo inyecta historial; tambi\'en enriquece la consulta actual:
+
+\begin{enumerate}
+    \item \textbf{Resoluci\'on de referencias:} Reemplaza pronombres por sus antecedentes.\\
+    ``\textquestiondown Y cu\'anto cuesta?'' $\rightarrow$ ``\textquestiondown Y cu\'anto cuesta la renovaci\'on del DNI?''
+    \item \textbf{Expansi\'on con keywords:} Extrae t\'erminos clave del contexto.\\
+    Contexto: [DNI, Valencia, renovaci\'on] $\rightarrow$ Consulta expandida: ``horario renovaci\'on DNI Valencia oficinas''
+    \item \textbf{Reformulaci\'on para retrieval:} Genera m\'ultiples variantes para b\'usqueda h\'ibrida.
+\end{enumerate}
+
+Este proceso se realiza mediante un LLM ligero (gemma2:2b) antes de invocar el retriever principal.
+
+% --- 2.4.4 Confidence Dinamico ---
+\subsubsection{Confidence Din\'amico: 6 Factores de Evaluaci\'on}
+\label{subsubsec:confidence-dinamico}
+
+El sistema calcula una puntuaci\'on de confianza para cada respuesta basada en:
+
+\begin{table}[H]
+\centering
+\caption{Factores del c\'alculo de confianza din\'amico.}
+\label{tab:confidence-factors}
+\begin{tabular}{@{}lrl@{}}
+\toprule
+\textbf{Factor} & \textbf{Peso} & \textbf{Descripci\'on} \\
+\midrule
+Retrieval Score & 25\% & Similitud m\'axima del documento recuperado \\
+Context Coverage & 20\% & Proporci\'on de la respuesta soportada por contexto \\
+LLM Confidence & 15\% & Probabilidad del modelo en los tokens generados \\
+Ensemble Agreement & 20\% & Concordancia entre m\'ultiples modelos \\
+Query Clarity & 10\% & Claridad de la consulta del usuario \\
+Topic Relevance & 10\% & Alineaci\'on con el dominio DNI \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Cuando la confianza cae por debajo de un umbral (0.65), el sistema:
+\begin{itemize}
+    \item Solicita reformulaci\'on al usuario
+    \item Ofrece alternativas de pregunta
+    \item Deriva a contacto humano si persiste
+\end{itemize}
+
+% ----------------------------------------------------------------------------
+% 2.5 Evaluacion de Sistemas RAG
+% ----------------------------------------------------------------------------
+\subsection{Evaluaci\'on de Sistemas RAG}
+\label{subsec:evaluacion-rag}
+
+La evaluaci\'on de sistemas RAG presenta desaf\'ios \'unicos: no basta con medir precisi\'on o recall tradicionales, sino que debe evaluarse toda la cadena desde la recuperaci\'on hasta la generaci\'on. Frameworks como RAGAs~\cite{es2023ragas} han emergido para automatizar esta evaluaci\'on.
+
+% --- 2.5.1 Framework RAGAs ---
+\subsubsection{Framework RAGAs: Evaluaci\'on Automatizada}
+\label{subsubsec:ragas}
+
+RAGAs (\textit{Retrieval-Augmented Generation Assessment})~\cite{es2023ragas} es un framework open-source que proporciona m\'etricas automatizadas para evaluar sistemas RAG sin necesidad de anotaciones humanas masivas.
+
+RAGAs utiliza LLMs como jueces para evaluar aspectos espec\'ificos:
+
+\begin{lstlisting}[language=Python, caption={Ejemplo de evaluaci\'on con RAGAs.}]
+from ragas import evaluate
+from ragas.metrics import faithfulness, answer_relevancy
+
+result = evaluate(
+    dataset=eval_dataset,
+    metrics=[faithfulness, answer_relevancy]
+)
+\end{lstlisting}
+
+% --- 2.5.2 Metricas Clave ---
+\subsubsection{M\'etricas Clave}
+\label{subsubsec:metricas-ragas}
+
+\begin{table}[H]
+\centering
+\caption{M\'etricas principales de RAGAs.}
+\label{tab:metricas-ragas}
+\begin{tabular}{@{}lcl@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Rango} & \textbf{Qu\'e mide} \\
+\midrule
+Faithfulness & 0--1 & \textquestiondown La respuesta se basa solo en el contexto? \\
+Answer Relevancy & 0--1 & \textquestiondown La respuesta contesta la pregunta? \\
+Context Precision & 0--1 & \textquestiondown Los documentos recuperados son relevantes? \\
+Context Recall & 0--1 & \textquestiondown Se recuper\'o toda la informaci\'on necesaria? \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Faithfulness} es cr\'itica para evitar alucinaciones: mide si cada afirmaci\'on de la respuesta puede verificarse contra el contexto recuperado.
+
+\textbf{Answer Relevancy} captura si la respuesta aborda lo que el usuario pregunt\'o, independientemente de si es factualmente correcta.
+
+% --- 2.5.3 Benchmarking ---
+\subsubsection{Benchmarking Cient\'ifico vs Evaluaci\'on Manual}
+\label{subsubsec:benchmarking}
+
+El Chatbot DNI utiliza un enfoque h\'ibrido de evaluaci\'on:
+
+\begin{enumerate}
+    \item \textbf{Automatizado (RAGAs):} Ejecutado en cada iteraci\'on sobre un dataset de 200+ pares Q-A
+    \item \textbf{Manual (spot-check):} Muestreo aleatorio revisado por expertos del dominio
+    \item \textbf{A/B testing:} Comparaci\'on de versiones con usuarios reales
+\end{enumerate}
+
+Esta combinaci\'on permite iterar r\'apidamente (automatizado) sin perder la validaci\'on cualitativa (manual).
+
+% ----------------------------------------------------------------------------
+% 2.6 Bases de Datos Vectoriales
+% ----------------------------------------------------------------------------
+\subsection{Bases de Datos Vectoriales}
+\label{subsec:bases-datos-vectoriales}
+
+Las bases de datos vectoriales son la infraestructura de almacenamiento que permite la b\'usqueda sem\'antica a escala. A diferencia de bases de datos relacionales, optimizan operaciones de similitud entre vectores de alta dimensi\'on.
+
+% --- 2.6.1 Concepto ---
+\subsubsection{Concepto de Vector Store}
+\label{subsubsec:vector-store}
+
+Un \textit{vector store} es una base de datos especializada en almacenar, indexar y buscar vectores densos (\textit{embeddings}) de forma eficiente, t\'ipicamente utilizando estructuras de datos como HNSW (\textit{Hierarchical Navigable Small World}) o IVF (\textit{Inverted File Index}).
+
+La operaci\'on fundamental es Approximate Nearest Neighbor (ANN): dado un vector de consulta, encontrar los $k$ vectores m\'as cercanos en tiempo sublineal.
+
+% --- 2.6.2 ChromaDB ---
+\subsubsection{ChromaDB: Caracter\'isticas y Ventajas}
+\label{subsubsec:chromadb}
+
+ChromaDB~\cite{chromadb2023} es la base de datos vectorial seleccionada para el Chatbot DNI por:
+
+\begin{itemize}
+    \item \textbf{Simplicidad:} Instalaci\'on v\'ia pip, sin infraestructura externa
+    \item \textbf{Embeddings integrados:} Soporta generaci\'on autom\'atica de \textit{embeddings}
+    \item \textbf{Persistencia:} Modo in-memory y persistente en disco
+    \item \textbf{Metadatos:} Filtrado por atributos (categor\'ia, fecha, secci\'on)
+    \item \textbf{Open-source:} Licencia Apache 2.0
+\end{itemize}
+
+\begin{lstlisting}[language=Python, caption={Ejemplo de uso de ChromaDB.}]
+import chromadb
+
+client = chromadb.PersistentClient(path="./chroma_db")
+collection = client.get_or_create_collection("dni_faqs")
+
+collection.add(
+    documents=["Como renovar el DNI..."],
+    metadatas=[{"categoria": "renovacion"}],
+    ids=["faq_001"]
+)
+\end{lstlisting}
+
+% --- 2.6.3 Chunking para FAQ ---
+\subsubsection{Estrategias de Chunking para FAQ}
+\label{subsubsec:chunking-faq}
+
+Para un corpus de FAQs, el \textit{chunking} \'optimo difiere de documentos largos:
+
+\begin{table}[H]
+\centering
+\caption{Estrategias de chunking para FAQs.}
+\label{tab:chunking-faq}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Estrategia} & \textbf{Aplicaci\'on DNI} \\
+\midrule
+Un chunk = una FAQ completa & Preserva contexto pregunta-respuesta \\
+Separador: pregunta / respuesta & Permite buscar solo por pregunta \\
+Chunks con overlap & No aplica en FAQs at\'omicas \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+El Chatbot DNI almacena cada FAQ como unidad at\'omica, con metadata indicando categor\'ia y fecha de actualizaci\'on.
+
+% ----------------------------------------------------------------------------
+% 2.7 Trabajos Relacionados
+% ----------------------------------------------------------------------------
+\subsection{Trabajos Relacionados}
+\label{subsec:trabajos-relacionados}
+
+Esta secci\'on posiciona el Chatbot RAG DNI en el contexto de sistemas similares, destacando diferencias y contribuciones.
+
+% --- 2.7.1 Chatbots en ONGs ---
+\subsubsection{Chatbots Conversacionales en ONGs y Salud}
+\label{subsubsec:chatbots-ongs}
+
+Los chatbots en organizaciones sin \'animo de lucro y sector salud comparten requisitos con el proyecto DNI~\cite{adamopoulou2020chatbots,montenegro2019survey}:
+\begin{itemize}
+    \item Informaci\'on regulada y sensible
+    \item Usuarios no t\'ecnicos
+    \item Necesidad de trazabilidad
+\end{itemize}
+
+Ejemplos notables incluyen:
+\begin{itemize}
+    \item \textbf{Florence (OMS):} Chatbot para dejar de fumar, basado en reglas
+    \item \textbf{Woebot:} Terapia cognitivo-conductual automatizada
+    \item \textbf{IRA (Cruz Roja):} Informaci\'on sobre refugiados, h\'ibrido intent+RAG
+\end{itemize}
+
+% --- 2.7.2 RAG en Produccion ---
+\subsubsection{Sistemas RAG en Producci\'on: Casos de \'Exito}
+\label{subsubsec:rag-produccion}
+
+Empresas tecnol\'ogicas han desplegado RAG a gran escala:
+\begin{itemize}
+    \item \textbf{Bing Chat/Copilot (Microsoft):} RAG sobre \'indice web
+    \item \textbf{Perplexity AI:} B\'usqueda conversacional con citaciones
+    \item \textbf{Notion AI:} RAG sobre documentos del workspace
+\end{itemize}
+
+Estos sistemas demuestran la viabilidad de RAG en producci\'on, aunque operan a escalas y con recursos muy superiores al proyecto DNI.
+
+% --- 2.7.3 Posicionamiento ---
+\subsubsection{Posicionamiento del Proyecto DNI}
+\label{subsubsec:posicionamiento}
+
+\begin{table}[H]
+\centering
+\caption{Posicionamiento del proyecto frente a alternativas.}
+\label{tab:posicionamiento}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Aspecto} & \textbf{Proyecto DNI} & \textbf{Alternativas} \\
+\midrule
+Despliegue & Local (Ollama) & Cloud (APIs) \\
+Modelos & Ensemble 4 LLMs & Modelo \'unico \\
+Contexto & Ventana 4-turn & Stateless \\
+Evaluaci\'on & RAGAs automatizado & Manual \\
+Dominio & ONG voluntariado ES & General \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La combinaci\'on de despliegue local (privacidad), ensemble multi-modelo (robustez), y evaluaci\'on automatizada (iteraci\'on r\'apida) representa una contribuci\'on novedosa en el espacio de chatbots para organizaciones de voluntariado.

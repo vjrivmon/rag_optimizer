@@ -1,0 +1,2844 @@
+{
+  "benchmark_file": "results/benchmark_20251011_012920.json",
+  "total_entries": 103,
+  "overall_analysis": {
+    "faithfulness": {
+      "mean": 0.7339805825242719,
+      "median": 1.0,
+      "std_dev": 0.3810597704283057,
+      "min": 0.0,
+      "max": 1.0,
+      "count": 103,
+      "zeros_count": 16,
+      "zeros_percentage": 15.53398058252427
+    },
+    "answer_relevancy": {
+      "mean": 0.7689320388349514,
+      "median": 1.0,
+      "std_dev": 0.37312383640928487,
+      "min": 0.0,
+      "max": 1.0,
+      "count": 103,
+      "zeros_count": 16,
+      "zeros_percentage": 15.53398058252427
+    },
+    "context_precision": {
+      "mean": 0.8436893203883495,
+      "median": 1.0,
+      "std_dev": 0.28063999090056796,
+      "min": 0.0,
+      "max": 1.0,
+      "count": 103,
+      "zeros_count": 6,
+      "zeros_percentage": 5.825242718446602
+    },
+    "context_recall": {
+      "mean": 0.8310679611650486,
+      "median": 1.0,
+      "std_dev": 0.2890244328546963,
+      "min": 0.0,
+      "max": 1.0,
+      "count": 103,
+      "zeros_count": 6,
+      "zeros_percentage": 5.825242718446602
+    },
+    "answer_correctness": {
+      "mean": 0.7271844660194174,
+      "median": 1.0,
+      "std_dev": 0.3868409448585747,
+      "min": 0.0,
+      "max": 1.0,
+      "count": 103,
+      "zeros_count": 16,
+      "zeros_percentage": 15.53398058252427
+    },
+    "answer_similarity": {
+      "mean": 0.6737864077669903,
+      "median": 0.9,
+      "std_dev": 0.3542352062995255,
+      "min": 0.0,
+      "max": 1.0,
+      "count": 103,
+      "zeros_count": 16,
+      "zeros_percentage": 15.53398058252427
+    },
+    "combined_score": {
+      "mean": 0.7701456310679612,
+      "median": 0.99,
+      "std_dev": 0.31044122325082796,
+      "min": 0.0,
+      "max": 1.0,
+      "count": 103,
+      "zeros_count": 6,
+      "zeros_percentage": 5.825242718446602
+    }
+  },
+  "model_analysis": {
+    "deepseek-r1:latest": {
+      "total_questions": 25,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.46,
+          "median": 0.4,
+          "std_dev": 0.3894440481849308,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 7,
+          "zeros_percentage": 28.000000000000004
+        },
+        "answer_relevancy": {
+          "mean": 0.552,
+          "median": 0.7,
+          "std_dev": 0.42339894504670966,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 7,
+          "zeros_percentage": 28.000000000000004
+        },
+        "context_precision": {
+          "mean": 0.784,
+          "median": 0.8,
+          "std_dev": 0.25442746183015175,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 4.0
+        },
+        "context_recall": {
+          "mean": 0.768,
+          "median": 0.8,
+          "std_dev": 0.2749545416973504,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 4.0
+        },
+        "answer_correctness": {
+          "mean": 0.452,
+          "median": 0.4,
+          "std_dev": 0.3980368492154129,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 7,
+          "zeros_percentage": 28.000000000000004
+        },
+        "answer_similarity": {
+          "mean": 0.424,
+          "median": 0.5,
+          "std_dev": 0.3515205067512657,
+          "min": 0.0,
+          "max": 0.9,
+          "zeros_count": 7,
+          "zeros_percentage": 28.000000000000004
+        },
+        "combined_score": {
+          "mean": 0.5842,
+          "median": 0.595,
+          "std_dev": 0.29815292496748486,
+          "min": 0.0,
+          "max": 0.99,
+          "zeros_count": 1,
+          "zeros_percentage": 4.0
+        }
+      }
+    },
+    "gemma2:27b": {
+      "total_questions": 26,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.8423076923076923,
+          "median": 1.0,
+          "std_dev": 0.32517450936145276,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 7.6923076923076925
+        },
+        "answer_relevancy": {
+          "mean": 0.8653846153846154,
+          "median": 1.0,
+          "std_dev": 0.3058657322320468,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 7.6923076923076925
+        },
+        "context_precision": {
+          "mean": 0.8923076923076924,
+          "median": 1.0,
+          "std_dev": 0.23987176061066784,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 3.8461538461538463
+        },
+        "context_recall": {
+          "mean": 0.8807692307692307,
+          "median": 1.0,
+          "std_dev": 0.249830711913857,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 3.8461538461538463
+        },
+        "answer_correctness": {
+          "mean": 0.8307692307692308,
+          "median": 1.0,
+          "std_dev": 0.32713205990147864,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 7.6923076923076925
+        },
+        "answer_similarity": {
+          "mean": 0.7769230769230769,
+          "median": 0.9,
+          "std_dev": 0.3063431961806135,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 7.6923076923076925
+        },
+        "combined_score": {
+          "mean": 0.854423076923077,
+          "median": 0.99,
+          "std_dev": 0.2682436464227137,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 3.8461538461538463
+        }
+      }
+    },
+    "llama3.3:70b": {
+      "total_questions": 26,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.8269230769230769,
+          "median": 1.0,
+          "std_dev": 0.32809473303628917,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 3,
+          "zeros_percentage": 11.538461538461538
+        },
+        "answer_relevancy": {
+          "mean": 0.8346153846153846,
+          "median": 1.0,
+          "std_dev": 0.3261193740853894,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 3,
+          "zeros_percentage": 11.538461538461538
+        },
+        "context_precision": {
+          "mean": 0.8769230769230769,
+          "median": 1.0,
+          "std_dev": 0.261239648304299,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 3.8461538461538463
+        },
+        "context_recall": {
+          "mean": 0.8730769230769231,
+          "median": 1.0,
+          "std_dev": 0.26162215855342574,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 3.8461538461538463
+        },
+        "answer_correctness": {
+          "mean": 0.823076923076923,
+          "median": 1.0,
+          "std_dev": 0.3350315714170141,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 3,
+          "zeros_percentage": 11.538461538461538
+        },
+        "answer_similarity": {
+          "mean": 0.7576923076923077,
+          "median": 0.9,
+          "std_dev": 0.3214630018189676,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 3,
+          "zeros_percentage": 11.538461538461538
+        },
+        "combined_score": {
+          "mean": 0.8378846153846153,
+          "median": 0.99,
+          "std_dev": 0.27359156813368013,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 3.8461538461538463
+        }
+      }
+    },
+    "qwen3:32b": {
+      "total_questions": 26,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.7961538461538462,
+          "median": 1.0,
+          "std_dev": 0.36494467441602074,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 4,
+          "zeros_percentage": 15.384615384615385
+        },
+        "answer_relevancy": {
+          "mean": 0.8153846153846154,
+          "median": 1.0,
+          "std_dev": 0.36407945033171835,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 4,
+          "zeros_percentage": 15.384615384615385
+        },
+        "context_precision": {
+          "mean": 0.8192307692307692,
+          "median": 1.0,
+          "std_dev": 0.3544226073706143,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 3,
+          "zeros_percentage": 11.538461538461538
+        },
+        "context_recall": {
+          "mean": 0.8,
+          "median": 1.0,
+          "std_dev": 0.35777087639996635,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 3,
+          "zeros_percentage": 11.538461538461538
+        },
+        "answer_correctness": {
+          "mean": 0.7923076923076923,
+          "median": 1.0,
+          "std_dev": 0.3719387873541311,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 4,
+          "zeros_percentage": 15.384615384615385
+        },
+        "answer_similarity": {
+          "mean": 0.7269230769230769,
+          "median": 0.9,
+          "std_dev": 0.3353299179109342,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 4,
+          "zeros_percentage": 15.384615384615385
+        },
+        "combined_score": {
+          "mean": 0.796923076923077,
+          "median": 0.99,
+          "std_dev": 0.3370135811004563,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 3,
+          "zeros_percentage": 11.538461538461538
+        }
+      }
+    }
+  },
+  "question_analysis": {
+    "1": {
+      "question_text": "¿Qué se hace en la actividad de desayunos?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.6,
+          "median": 0.6,
+          "std_dev": 0.0,
+          "min": 0.6,
+          "max": 0.6,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 0.725,
+          "median": 0.7,
+          "std_dev": 0.050000000000000044,
+          "min": 0.7,
+          "max": 0.8,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.0,
+          "min": 0.5,
+          "max": 0.5,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.11547005383792512,
+          "min": 0.4,
+          "max": 0.6,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.575,
+          "median": 0.6,
+          "std_dev": 0.04999999999999999,
+          "min": 0.5,
+          "max": 0.6,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.525,
+          "median": 0.5,
+          "std_dev": 0.04999999999999999,
+          "min": 0.5,
+          "max": 0.6,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.58,
+          "median": 0.585,
+          "std_dev": 0.01914854215512677,
+          "min": 0.5549999999999999,
+          "max": 0.595,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "2": {
+      "question_text": "¿Dónde es el punto de encuentro de desayunos?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.95,
+          "median": 0.95,
+          "std_dev": 0.05773502691896256,
+          "min": 0.9,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.995,
+          "median": 0.995,
+          "std_dev": 0.005773502691896263,
+          "min": 0.99,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "3": {
+      "question_text": "¿A qué hora son los desayunos y las cenas solidarias?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.85,
+          "median": 1.0,
+          "std_dev": 0.3,
+          "min": 0.4,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 0.975,
+          "median": 1.0,
+          "std_dev": 0.04999999999999999,
+          "min": 0.9,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.85,
+          "median": 1.0,
+          "std_dev": 0.3,
+          "min": 0.4,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.825,
+          "median": 0.9,
+          "std_dev": 0.2217355782608345,
+          "min": 0.5,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.925,
+          "median": 0.99,
+          "std_dev": 0.1367479433117734,
+          "min": 0.7200000000000001,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "4": {
+      "question_text": "¿Cada cuánto se hace la actividad de desayunos?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.85,
+          "median": 0.9,
+          "std_dev": 0.10000000000000003,
+          "min": 0.7,
+          "max": 0.9,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.9675,
+          "median": 0.99,
+          "std_dev": 0.044999999999999984,
+          "min": 0.9,
+          "max": 0.99,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "5": {
+      "question_text": "¿Cuánto dura la actividad de desayunos?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.8,
+          "median": 1.0,
+          "std_dev": 0.4,
+          "min": 0.2,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 0.825,
+          "median": 1.0,
+          "std_dev": 0.35,
+          "min": 0.3,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 0.975,
+          "median": 1.0,
+          "std_dev": 0.04999999999999999,
+          "min": 0.9,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.975,
+          "median": 1.0,
+          "std_dev": 0.04999999999999999,
+          "min": 0.9,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.725,
+          "median": 0.9,
+          "std_dev": 0.42720018726587655,
+          "min": 0.1,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.725,
+          "median": 0.9,
+          "std_dev": 0.35,
+          "min": 0.2,
+          "max": 0.9,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.8512500000000001,
+          "median": 0.98,
+          "std_dev": 0.2643348570784161,
+          "min": 0.455,
+          "max": 0.99,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "6": {
+      "question_text": "¿Cómo me apunto a desayunos solidarios?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.7,
+          "median": 0.9,
+          "std_dev": 0.47609522856952335,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_relevancy": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "context_precision": {
+          "mean": 0.7,
+          "median": 0.9,
+          "std_dev": 0.47609522856952335,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "context_recall": {
+          "mean": 0.7,
+          "median": 0.9,
+          "std_dev": 0.47609522856952335,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_correctness": {
+          "mean": 0.7,
+          "median": 0.9,
+          "std_dev": 0.47609522856952335,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_similarity": {
+          "mean": 0.625,
+          "median": 0.8,
+          "std_dev": 0.42720018726587655,
+          "min": 0.0,
+          "max": 0.9,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "combined_score": {
+          "mean": 0.7025,
+          "median": 0.91,
+          "std_dev": 0.4743680006071236,
+          "min": 0.0,
+          "max": 0.99,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        }
+      }
+    },
+    "7": {
+      "question_text": "¿Si me apunto un día tengo que ir al resto de desayunos?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 0.975,
+          "median": 1.0,
+          "std_dev": 0.04999999999999999,
+          "min": 0.9,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.85,
+          "median": 0.9,
+          "std_dev": 0.10000000000000003,
+          "min": 0.7,
+          "max": 0.9,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.9625,
+          "median": 0.99,
+          "std_dev": 0.05499999999999999,
+          "min": 0.88,
+          "max": 0.99,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "8": {
+      "question_text": "¿Puedo ir en el mismo grupo que mi amigo en desayunos?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.9,
+          "median": 0.9,
+          "std_dev": 0.0,
+          "min": 0.9,
+          "max": 0.9,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.99,
+          "median": 0.99,
+          "std_dev": 0.0,
+          "min": 0.99,
+          "max": 0.99,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "9": {
+      "question_text": "¿Cómo se compra la comida para desayunos?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.55,
+          "median": 0.6,
+          "std_dev": 0.2516611478423583,
+          "min": 0.2,
+          "max": 0.8,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 0.7000000000000001,
+          "median": 0.8,
+          "std_dev": 0.27080128015453203,
+          "min": 0.3,
+          "max": 0.9,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 0.75,
+          "median": 0.8,
+          "std_dev": 0.19148542155126763,
+          "min": 0.5,
+          "max": 0.9,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.65,
+          "median": 0.7,
+          "std_dev": 0.19148542155126763,
+          "min": 0.4,
+          "max": 0.8,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.525,
+          "median": 0.55,
+          "std_dev": 0.25,
+          "min": 0.2,
+          "max": 0.8,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.45,
+          "median": 0.45,
+          "std_dev": 0.20816659994661324,
+          "min": 0.2,
+          "max": 0.7,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.6175,
+          "median": 0.67,
+          "std_dev": 0.22381167678802344,
+          "min": 0.30500000000000005,
+          "max": 0.8250000000000001,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "10": {
+      "question_text": "¿Qué se hace en la actividad de coles?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "answer_relevancy": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "context_precision": {
+          "mean": 0.9,
+          "median": 0.9,
+          "std_dev": 0.11547005383792512,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.9,
+          "median": 0.9,
+          "std_dev": 0.11547005383792512,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "answer_similarity": {
+          "mean": 0.475,
+          "median": 0.45,
+          "std_dev": 0.55,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "combined_score": {
+          "mean": 0.6375,
+          "median": 0.635,
+          "std_dev": 0.41282562904936027,
+          "min": 0.28,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "11": {
+      "question_text": "¿Dónde es la actividad de coles?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "answer_relevancy": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "context_precision": {
+          "mean": 0.9,
+          "median": 0.9,
+          "std_dev": 0.11547005383792512,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.9,
+          "median": 0.9,
+          "std_dev": 0.11547005383792512,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "answer_similarity": {
+          "mean": 0.475,
+          "median": 0.45,
+          "std_dev": 0.55,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "combined_score": {
+          "mean": 0.6375,
+          "median": 0.635,
+          "std_dev": 0.41282562904936027,
+          "min": 0.28,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "12": {
+      "question_text": "¿Qué días vais a coles?",
+      "total_models": 3,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.6666666666666666,
+          "median": 1.0,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 33.33333333333333
+        },
+        "answer_relevancy": {
+          "mean": 0.6666666666666666,
+          "median": 1.0,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 33.33333333333333
+        },
+        "context_precision": {
+          "mean": 0.9333333333333333,
+          "median": 1.0,
+          "std_dev": 0.11547005383792512,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.9333333333333333,
+          "median": 1.0,
+          "std_dev": 0.11547005383792512,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.6666666666666666,
+          "median": 1.0,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 33.33333333333333
+        },
+        "answer_similarity": {
+          "mean": 0.6,
+          "median": 0.9,
+          "std_dev": 0.5196152422706632,
+          "min": 0.0,
+          "max": 0.9,
+          "zeros_count": 1,
+          "zeros_percentage": 33.33333333333333
+        },
+        "combined_score": {
+          "mean": 0.7533333333333333,
+          "median": 0.99,
+          "std_dev": 0.40991869112463425,
+          "min": 0.28,
+          "max": 0.99,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "13": {
+      "question_text": "¿Cuánto dura la actividad de coles?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.75,
+          "median": 0.9,
+          "std_dev": 0.37859388972001823,
+          "min": 0.2,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 0.75,
+          "median": 0.8,
+          "std_dev": 0.3,
+          "min": 0.4,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.75,
+          "median": 0.9,
+          "std_dev": 0.37859388972001823,
+          "min": 0.2,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.675,
+          "median": 0.75,
+          "std_dev": 0.26299556396765833,
+          "min": 0.3,
+          "max": 0.9,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.8125,
+          "median": 0.9,
+          "std_dev": 0.2475715384826508,
+          "min": 0.4600000000000001,
+          "max": 0.99,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "14": {
+      "question_text": "¿Qué edad tienen los niños en coles?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_relevancy": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "context_precision": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "context_recall": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_correctness": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_similarity": {
+          "mean": 0.7,
+          "median": 0.9,
+          "std_dev": 0.469041575982343,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "combined_score": {
+          "mean": 0.745,
+          "median": 0.99,
+          "std_dev": 0.4966890375275057,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        }
+      }
+    },
+    "15": {
+      "question_text": "¿Cómo vamos hasta la Coma para la actividad de coles?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.9,
+          "median": 1.0,
+          "std_dev": 0.2,
+          "min": 0.6,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 0.975,
+          "median": 1.0,
+          "std_dev": 0.04999999999999999,
+          "min": 0.9,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.9,
+          "median": 1.0,
+          "std_dev": 0.2,
+          "min": 0.6,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.8,
+          "median": 0.9,
+          "std_dev": 0.2,
+          "min": 0.5,
+          "max": 0.9,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.92125,
+          "median": 0.99,
+          "std_dev": 0.13749999999999996,
+          "min": 0.7150000000000001,
+          "max": 0.99,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "16": {
+      "question_text": "¿Quién paga la gasolina para ir a coles?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.975,
+          "median": 1.0,
+          "std_dev": 0.04999999999999999,
+          "min": 0.9,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.95,
+          "median": 0.95,
+          "std_dev": 0.05773502691896256,
+          "min": 0.9,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.97875,
+          "median": 0.995,
+          "std_dev": 0.036142080737002376,
+          "min": 0.925,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "17": {
+      "question_text": "¿Necesito algún tipo de documentación para ir a coles?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_relevancy": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_similarity": {
+          "mean": 0.7,
+          "median": 0.9,
+          "std_dev": 0.469041575982343,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "combined_score": {
+          "mean": 0.8325,
+          "median": 0.99,
+          "std_dev": 0.32170120712653016,
+          "min": 0.35,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "18": {
+      "question_text": "¿Puedo elegir a qué grupo de niños ir en coles?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.7,
+          "median": 0.9,
+          "std_dev": 0.469041575982343,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_relevancy": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "context_precision": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.725,
+          "median": 0.95,
+          "std_dev": 0.4856267428111155,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_similarity": {
+          "mean": 0.65,
+          "median": 0.8500000000000001,
+          "std_dev": 0.4358898943540674,
+          "min": 0.0,
+          "max": 0.9,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "combined_score": {
+          "mean": 0.795,
+          "median": 0.9550000000000001,
+          "std_dev": 0.3438265066376743,
+          "min": 0.28,
+          "max": 0.99,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "19": {
+      "question_text": "¿Qué otras actividades se hacen relacionadas con niños?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.725,
+          "median": 0.95,
+          "std_dev": 0.4856267428111155,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_relevancy": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "context_precision": {
+          "mean": 0.7,
+          "median": 0.9,
+          "std_dev": 0.47609522856952335,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "context_recall": {
+          "mean": 0.725,
+          "median": 0.95,
+          "std_dev": 0.4856267428111155,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_correctness": {
+          "mean": 0.75,
+          "median": 1.0,
+          "std_dev": 0.5,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_similarity": {
+          "mean": 0.7,
+          "median": 0.9,
+          "std_dev": 0.469041575982343,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "combined_score": {
+          "mean": 0.7262500000000001,
+          "median": 0.9525,
+          "std_dev": 0.48565033717686223,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        }
+      }
+    },
+    "20": {
+      "question_text": "¿Dónde es la actividad de resis?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.95,
+          "median": 0.95,
+          "std_dev": 0.05773502691896256,
+          "min": 0.9,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.995,
+          "median": 0.995,
+          "std_dev": 0.005773502691896263,
+          "min": 0.99,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "21": {
+      "question_text": "¿Qué días se hace la actividad de resis?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.47500000000000003,
+          "median": 0.45,
+          "std_dev": 0.4991659710623979,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_relevancy": {
+          "mean": 0.525,
+          "median": 0.55,
+          "std_dev": 0.4991659710623979,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "context_precision": {
+          "mean": 0.9,
+          "median": 0.9,
+          "std_dev": 0.11547005383792512,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.8500000000000001,
+          "median": 0.8,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.47500000000000003,
+          "median": 0.45,
+          "std_dev": 0.4991659710623979,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "answer_similarity": {
+          "mean": 0.45,
+          "median": 0.39999999999999997,
+          "std_dev": 0.47958315233127197,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 1,
+          "zeros_percentage": 25.0
+        },
+        "combined_score": {
+          "mean": 0.6212500000000001,
+          "median": 0.6025,
+          "std_dev": 0.3528071947490111,
+          "min": 0.28,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "22": {
+      "question_text": "¿Qué se hace en la actividad de resis?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.05,
+          "median": 0.0,
+          "std_dev": 0.1,
+          "min": 0.0,
+          "max": 0.2,
+          "zeros_count": 3,
+          "zeros_percentage": 75.0
+        },
+        "answer_relevancy": {
+          "mean": 0.075,
+          "median": 0.0,
+          "std_dev": 0.15,
+          "min": 0.0,
+          "max": 0.3,
+          "zeros_count": 3,
+          "zeros_percentage": 75.0
+        },
+        "context_precision": {
+          "mean": 0.1,
+          "median": 0.0,
+          "std_dev": 0.2,
+          "min": 0.0,
+          "max": 0.4,
+          "zeros_count": 3,
+          "zeros_percentage": 75.0
+        },
+        "context_recall": {
+          "mean": 0.05,
+          "median": 0.0,
+          "std_dev": 0.1,
+          "min": 0.0,
+          "max": 0.2,
+          "zeros_count": 3,
+          "zeros_percentage": 75.0
+        },
+        "answer_correctness": {
+          "mean": 0.05,
+          "median": 0.0,
+          "std_dev": 0.1,
+          "min": 0.0,
+          "max": 0.2,
+          "zeros_count": 3,
+          "zeros_percentage": 75.0
+        },
+        "answer_similarity": {
+          "mean": 0.025,
+          "median": 0.0,
+          "std_dev": 0.05,
+          "min": 0.0,
+          "max": 0.1,
+          "zeros_count": 3,
+          "zeros_percentage": 75.0
+        },
+        "combined_score": {
+          "mean": 0.060000000000000005,
+          "median": 0.0,
+          "std_dev": 0.12000000000000001,
+          "min": 0.0,
+          "max": 0.24000000000000002,
+          "zeros_count": 3,
+          "zeros_percentage": 75.0
+        }
+      }
+    },
+    "23": {
+      "question_text": "¿Qué tipo de actividades se realizan en resis?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "answer_relevancy": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.5773502691896257,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "answer_similarity": {
+          "mean": 0.475,
+          "median": 0.45,
+          "std_dev": 0.55,
+          "min": 0.0,
+          "max": 1.0,
+          "zeros_count": 2,
+          "zeros_percentage": 50.0
+        },
+        "combined_score": {
+          "mean": 0.6725,
+          "median": 0.6699999999999999,
+          "std_dev": 0.3724133008723865,
+          "min": 0.35,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "24": {
+      "question_text": "¿Cuál es el objetivo principal de DNI?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.9,
+          "median": 1.0,
+          "std_dev": 0.2,
+          "min": 0.6,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 0.925,
+          "median": 1.0,
+          "std_dev": 0.15000000000000002,
+          "min": 0.7,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.925,
+          "median": 1.0,
+          "std_dev": 0.15000000000000002,
+          "min": 0.7,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.875,
+          "median": 1.0,
+          "std_dev": 0.25,
+          "min": 0.5,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.825,
+          "median": 0.9,
+          "std_dev": 0.15000000000000002,
+          "min": 0.6,
+          "max": 0.9,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.9075,
+          "median": 0.99,
+          "std_dev": 0.16500000000000004,
+          "min": 0.6599999999999999,
+          "max": 0.99,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "25": {
+      "question_text": "¿Qué significa Para-Mira-Ayuda?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 1.0,
+          "median": 1.0,
+          "std_dev": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 0.30000000000000004,
+          "median": 0.30000000000000004,
+          "std_dev": 0.11547005383792516,
+          "min": 0.2,
+          "max": 0.4,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.30000000000000004,
+          "median": 0.30000000000000004,
+          "std_dev": 0.11547005383792516,
+          "min": 0.2,
+          "max": 0.4,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.95,
+          "median": 1.0,
+          "std_dev": 0.09999999999999998,
+          "min": 0.8,
+          "max": 1.0,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.85,
+          "median": 0.9,
+          "std_dev": 0.10000000000000003,
+          "min": 0.7,
+          "max": 0.9,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.7225,
+          "median": 0.7100000000000001,
+          "std_dev": 0.03947573094109002,
+          "min": 0.6900000000000001,
+          "max": 0.78,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    },
+    "26": {
+      "question_text": "¿Cómo se caracteriza el voluntariado de DNI?",
+      "total_models": 4,
+      "metrics_stats": {
+        "faithfulness": {
+          "mean": 0.575,
+          "median": 0.6,
+          "std_dev": 0.12583057392117913,
+          "min": 0.4,
+          "max": 0.7,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_relevancy": {
+          "mean": 0.675,
+          "median": 0.7,
+          "std_dev": 0.12583057392117916,
+          "min": 0.5,
+          "max": 0.8,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_precision": {
+          "mean": 0.725,
+          "median": 0.75,
+          "std_dev": 0.09574271077563384,
+          "min": 0.6,
+          "max": 0.8,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "context_recall": {
+          "mean": 0.625,
+          "median": 0.6499999999999999,
+          "std_dev": 0.09574271077563379,
+          "min": 0.5,
+          "max": 0.7,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_correctness": {
+          "mean": 0.475,
+          "median": 0.5,
+          "std_dev": 0.12583057392117916,
+          "min": 0.3,
+          "max": 0.6,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "answer_similarity": {
+          "mean": 0.5,
+          "median": 0.5,
+          "std_dev": 0.08164965809277258,
+          "min": 0.4,
+          "max": 0.6,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        },
+        "combined_score": {
+          "mean": 0.61,
+          "median": 0.6375,
+          "std_dev": 0.10653637876331255,
+          "min": 0.46,
+          "max": 0.705,
+          "zeros_count": 0,
+          "zeros_percentage": 0.0
+        }
+      }
+    }
+  },
+  "problematic_cases": [
+    {
+      "question_id": 6,
+      "model_name": "qwen3:32b",
+      "question": "¿Cómo me apunto a desayunos solidarios?",
+      "answer": "[Respuesta truncada - solo thinking]",
+      "combined_score": 0.0,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.0
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy",
+        "low_recall",
+        "reasonable_answer_low_score"
+      ],
+      "contexts_count": 10,
+      "generation_time": 120.20606565475464
+    },
+    {
+      "question_id": 14,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Qué edad tienen los niños en coles?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.0,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.0
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy",
+        "low_recall"
+      ],
+      "contexts_count": 10,
+      "generation_time": 15.723040103912354
+    },
+    {
+      "question_id": 19,
+      "model_name": "qwen3:32b",
+      "question": "¿Qué otras actividades se hacen relacionadas con niños?",
+      "answer": "[Respuesta truncada - solo thinking]",
+      "combined_score": 0.0,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.0
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy",
+        "low_recall",
+        "reasonable_answer_low_score"
+      ],
+      "contexts_count": 10,
+      "generation_time": 58.584251403808594
+    },
+    {
+      "question_id": 22,
+      "model_name": "gemma2:27b",
+      "question": "¿Qué se hace en la actividad de resis?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.0,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.0
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy",
+        "low_recall"
+      ],
+      "contexts_count": 10,
+      "generation_time": 11.02147912979126
+    },
+    {
+      "question_id": 22,
+      "model_name": "llama3.3:70b",
+      "question": "¿Qué se hace en la actividad de resis?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.0,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.0
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy",
+        "low_recall"
+      ],
+      "contexts_count": 10,
+      "generation_time": 19.10001015663147
+    },
+    {
+      "question_id": 22,
+      "model_name": "qwen3:32b",
+      "question": "¿Qué se hace en la actividad de resis?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.0,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.0
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy",
+        "low_recall"
+      ],
+      "contexts_count": 10,
+      "generation_time": 48.07031989097595
+    },
+    {
+      "question_id": 22,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Qué se hace en la actividad de resis?",
+      "answer": "La actividad consiste en preparar y distribuir desayunos solidarios a los voluntarios, concretamente los sábados a las 8:00 de la mañana en la Porta de la Mar.",
+      "combined_score": 0.24000000000000002,
+      "metrics": {
+        "faithfulness": 0.2,
+        "answer_relevancy": 0.3,
+        "context_precision": 0.4,
+        "context_recall": 0.2,
+        "answer_correctness": 0.2,
+        "answer_similarity": 0.1,
+        "combined_score": 0.24000000000000002
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_recall",
+        "reasonable_answer_low_score"
+      ],
+      "contexts_count": 10,
+      "generation_time": 14.013992071151733
+    },
+    {
+      "question_id": 10,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Qué se hace en la actividad de coles?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.28,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.8,
+        "context_recall": 0.8,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.28
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy"
+      ],
+      "contexts_count": 10,
+      "generation_time": 15.932809352874756
+    },
+    {
+      "question_id": 10,
+      "model_name": "llama3.3:70b",
+      "question": "¿Qué se hace en la actividad de coles?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.28,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.8,
+        "context_recall": 0.8,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.28
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy"
+      ],
+      "contexts_count": 10,
+      "generation_time": 20.48114562034607
+    },
+    {
+      "question_id": 11,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Dónde es la actividad de coles?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.28,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.8,
+        "context_recall": 0.8,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.28
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy"
+      ],
+      "contexts_count": 10,
+      "generation_time": 22.795318603515625
+    },
+    {
+      "question_id": 11,
+      "model_name": "llama3.3:70b",
+      "question": "¿Dónde es la actividad de coles?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.28,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.8,
+        "context_recall": 0.8,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.28
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy"
+      ],
+      "contexts_count": 10,
+      "generation_time": 30.56380844116211
+    },
+    {
+      "question_id": 12,
+      "model_name": "gemma2:27b",
+      "question": "¿Qué días vais a coles?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.28,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.8,
+        "context_recall": 0.8,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.28
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy"
+      ],
+      "contexts_count": 10,
+      "generation_time": 14.666993618011475
+    },
+    {
+      "question_id": 18,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Puedo elegir a qué grupo de niños ir en coles?",
+      "answer": "La respuesta es: No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.28,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.8,
+        "context_recall": 0.8,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.28
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy"
+      ],
+      "contexts_count": 10,
+      "generation_time": 13.901665449142456
+    },
+    {
+      "question_id": 21,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Qué días se hace la actividad de resis?",
+      "answer": "La actividad se realiza los viernes de 15:30 a 16:30 [3].",
+      "combined_score": 0.28,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.8,
+        "context_recall": 0.8,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.28
+      },
+      "issues": [
+        "very_low_combined_score",
+        "low_faithfulness",
+        "low_relevancy",
+        "reasonable_answer_low_score"
+      ],
+      "contexts_count": 10,
+      "generation_time": 14.663491010665894
+    },
+    {
+      "question_id": 9,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Cómo se compra la comida para desayunos?",
+      "answer": "Para comprar la comida para los desayunos en DNI Valencia, sigue estos pasos:\n\n1. **Punto de encuentro**: Realiza los desayunos los sábados en la **Porta de la Mar**.\n\n2. **Lista de compra**:\n   - 6 paquetes de valencianas\n   - 5 briks de leche semidesnatada\n   - 4-5 packs de vasos pequeños\n   - Caja de sobres de azúcar\n   - Paquete de café soluble\n\n3. **Factura**: La factura se abona mediante transferencia.\n\nEstas etapas aseguran que el alimento para los desayunos sea proveído correctamente.",
+      "combined_score": 0.30500000000000005,
+      "metrics": {
+        "faithfulness": 0.2,
+        "answer_relevancy": 0.3,
+        "context_precision": 0.5,
+        "context_recall": 0.4,
+        "answer_correctness": 0.2,
+        "answer_similarity": 0.2,
+        "combined_score": 0.30500000000000005
+      },
+      "issues": [
+        "low_faithfulness",
+        "reasonable_answer_low_score"
+      ],
+      "contexts_count": 10,
+      "generation_time": 17.43331503868103
+    },
+    {
+      "question_id": 17,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Necesito algún tipo de documentación para ir a coles?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.35,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 1.0,
+        "context_recall": 1.0,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.35
+      },
+      "issues": [
+        "low_faithfulness",
+        "low_relevancy"
+      ],
+      "contexts_count": 10,
+      "generation_time": 15.053281784057617
+    },
+    {
+      "question_id": 23,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Qué tipo de actividades se realizan en resis?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.35,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 1.0,
+        "context_recall": 1.0,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.35
+      },
+      "issues": [
+        "low_faithfulness",
+        "low_relevancy"
+      ],
+      "contexts_count": 10,
+      "generation_time": 12.453933238983154
+    },
+    {
+      "question_id": 23,
+      "model_name": "qwen3:32b",
+      "question": "¿Qué tipo de actividades se realizan en resis?",
+      "answer": "No tengo esa información en el contexto proporcionado.",
+      "combined_score": 0.35,
+      "metrics": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 1.0,
+        "context_recall": 1.0,
+        "answer_correctness": 0.0,
+        "answer_similarity": 0.0,
+        "combined_score": 0.35
+      },
+      "issues": [
+        "low_faithfulness",
+        "low_relevancy"
+      ],
+      "contexts_count": 10,
+      "generation_time": 31.757525205612183
+    },
+    {
+      "question_id": 21,
+      "model_name": "gemma2:27b",
+      "question": "¿Qué días se hace la actividad de resis?",
+      "answer": "Los días que se realiza la actividad de resis son lunes, martes, miércoles, jueves y viernes [5].",
+      "combined_score": 0.36500000000000005,
+      "metrics": {
+        "faithfulness": 0.1,
+        "answer_relevancy": 0.2,
+        "context_precision": 0.8,
+        "context_recall": 0.8,
+        "answer_correctness": 0.1,
+        "answer_similarity": 0.1,
+        "combined_score": 0.36500000000000005
+      },
+      "issues": [
+        "low_faithfulness",
+        "low_relevancy",
+        "reasonable_answer_low_score"
+      ],
+      "contexts_count": 10,
+      "generation_time": 12.044902563095093
+    },
+    {
+      "question_id": 5,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Cuánto dura la actividad de desayunos?",
+      "answer": "La duración de la actividad de desayunos no se specify claramente en el contexto proporcionado.",
+      "combined_score": 0.455,
+      "metrics": {
+        "faithfulness": 0.2,
+        "answer_relevancy": 0.3,
+        "context_precision": 0.9,
+        "context_recall": 0.9,
+        "answer_correctness": 0.1,
+        "answer_similarity": 0.2,
+        "combined_score": 0.455
+      },
+      "issues": [
+        "low_faithfulness",
+        "reasonable_answer_low_score"
+      ],
+      "contexts_count": 10,
+      "generation_time": 16.818916082382202
+    },
+    {
+      "question_id": 26,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Cómo se caracteriza el voluntariado de DNI?",
+      "answer": "El voluntariado de DNI se characterized por ser una actividad que se realiza los sábados. Cuando un sábado tiene actividad, se publica un formulario para inscribirse los miércoles, tanto en WhatsApp como en redes sociales [4]. Además, las actividades incluyen pasarnos tiempo con los residentes de la Acollida a través de distintas actividades, busca acercar al voluntariado al joven y animar a los demás [3] y [5].",
+      "combined_score": 0.46,
+      "metrics": {
+        "faithfulness": 0.4,
+        "answer_relevancy": 0.5,
+        "context_precision": 0.6,
+        "context_recall": 0.5,
+        "answer_correctness": 0.3,
+        "answer_similarity": 0.4,
+        "combined_score": 0.46
+      },
+      "issues": [
+        "reasonable_answer_low_score"
+      ],
+      "contexts_count": 10,
+      "generation_time": 14.646722078323364
+    },
+    {
+      "question_id": 13,
+      "model_name": "deepseek-r1:latest",
+      "question": "¿Cuánto dura la actividad de coles?",
+      "answer": "La actividad de coles dura una hora, ya que se realizan los desayunos los sábados a las 8:00 de la mañana en la Porta de la Mar de Valencia [1].",
+      "combined_score": 0.4600000000000001,
+      "metrics": {
+        "faithfulness": 0.2,
+        "answer_relevancy": 0.4,
+        "context_precision": 0.8,
+        "context_recall": 0.8,
+        "answer_correctness": 0.2,
+        "answer_similarity": 0.3,
+        "combined_score": 0.4600000000000001
+      },
+      "issues": [
+        "low_faithfulness",
+        "reasonable_answer_low_score"
+      ],
+      "contexts_count": 10,
+      "generation_time": 14.929516077041626
+    },
+    {
+      "question_id": 25,
+      "model_name": "llama3.3:70b",
+      "question": "¿Qué significa Para-Mira-Ayuda?",
+      "answer": "Para-Mira-Ayuda son las tres palabras que guían DNI. Significa detenerse para ser consciente de quienes nos rodean, mirar con cariño y cercanía, y ofrecer ayuda con generosidad [4].",
+      "combined_score": 0.7100000000000001,
+      "metrics": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 1.0,
+        "context_precision": 0.2,
+        "context_recall": 0.2,
+        "answer_correctness": 1.0,
+        "answer_similarity": 0.9,
+        "combined_score": 0.7100000000000001
+      },
+      "issues": [
+        "low_recall"
+      ],
+      "contexts_count": 10,
+      "generation_time": 27.63772439956665
+    },
+    {
+      "question_id": 25,
+      "model_name": "qwen3:32b",
+      "question": "¿Qué significa Para-Mira-Ayuda?",
+      "answer": "**Respuesta:**  \nPara-Mira-Ayuda son las tres palabras que guían la labor de DNI. Significa detenerse para ser conscientes de quienes nos rodean, mirar con cariño y cercanía, y ofrecer ayuda con generosidad [4].  \n\n**Citas:**  \n- \"PARA. MIRA. AYUDA. Son las tres palabras que guían la labor de DNI. Significa detenerse (PARAR) para ser conscientes de quienes nos rodean, MIRAR con cariño y cercanía, y ofrecer nuestra AYUDA con generosidad\" [4].",
+      "combined_score": 0.7100000000000001,
+      "metrics": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 1.0,
+        "context_precision": 0.2,
+        "context_recall": 0.2,
+        "answer_correctness": 1.0,
+        "answer_similarity": 0.9,
+        "combined_score": 0.7100000000000001
+      },
+      "issues": [
+        "low_recall"
+      ],
+      "contexts_count": 10,
+      "generation_time": 56.81285810470581
+    }
+  ],
+  "strictness_analysis": {
+    "overall_strictness_score": 0.13592233009708737,
+    "metric_strictness": {
+      "faithfulness": {
+        "zeros_percentage": 15.53398058252427,
+        "low_scores_percentage": 20.388349514563107,
+        "mean_score": 0.7339805825242719,
+        "is_too_strict": false
+      },
+      "answer_relevancy": {
+        "zeros_percentage": 15.53398058252427,
+        "low_scores_percentage": 16.50485436893204,
+        "mean_score": 0.7689320388349514,
+        "is_too_strict": false
+      },
+      "context_precision": {
+        "zeros_percentage": 5.825242718446602,
+        "low_scores_percentage": 7.766990291262135,
+        "mean_score": 0.8436893203883495,
+        "is_too_strict": false
+      },
+      "context_recall": {
+        "zeros_percentage": 5.825242718446602,
+        "low_scores_percentage": 8.737864077669903,
+        "mean_score": 0.8310679611650486,
+        "is_too_strict": false
+      },
+      "answer_correctness": {
+        "zeros_percentage": 15.53398058252427,
+        "low_scores_percentage": 20.388349514563107,
+        "mean_score": 0.7271844660194174,
+        "is_too_strict": false
+      },
+      "answer_similarity": {
+        "zeros_percentage": 15.53398058252427,
+        "low_scores_percentage": 19.41747572815534,
+        "mean_score": 0.6737864077669903,
+        "is_too_strict": false
+      }
+    },
+    "question_strictness": {},
+    "model_strictness": {},
+    "evidence_of_strictness": [
+      {
+        "question_id": 6,
+        "model_name": "qwen3:32b",
+        "answer_preview": "[Respuesta truncada - solo thinking]...",
+        "score": 0.0,
+        "metrics": {
+          "faithfulness": 0.0,
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0,
+          "answer_correctness": 0.0,
+          "answer_similarity": 0.0,
+          "combined_score": 0.0
+        },
+        "reason": "reasonable_answer_low_score"
+      },
+      {
+        "question_id": 9,
+        "model_name": "deepseek-r1:latest",
+        "answer_preview": "Para comprar la comida para los desayunos en DNI Valencia, sigue estos pasos:\n\n1. **Punto de encuent...",
+        "score": 0.30500000000000005,
+        "metrics": {
+          "faithfulness": 0.2,
+          "answer_relevancy": 0.3,
+          "context_precision": 0.5,
+          "context_recall": 0.4,
+          "answer_correctness": 0.2,
+          "answer_similarity": 0.2,
+          "combined_score": 0.30500000000000005
+        },
+        "reason": "reasonable_answer_low_score"
+      },
+      {
+        "question_id": 19,
+        "model_name": "qwen3:32b",
+        "answer_preview": "[Respuesta truncada - solo thinking]...",
+        "score": 0.0,
+        "metrics": {
+          "faithfulness": 0.0,
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0,
+          "answer_correctness": 0.0,
+          "answer_similarity": 0.0,
+          "combined_score": 0.0
+        },
+        "reason": "reasonable_answer_low_score"
+      },
+      {
+        "question_id": 21,
+        "model_name": "deepseek-r1:latest",
+        "answer_preview": "La actividad se realiza los viernes de 15:30 a 16:30 [3]....",
+        "score": 0.28,
+        "metrics": {
+          "faithfulness": 0.0,
+          "answer_relevancy": 0.0,
+          "context_precision": 0.8,
+          "context_recall": 0.8,
+          "answer_correctness": 0.0,
+          "answer_similarity": 0.0,
+          "combined_score": 0.28
+        },
+        "reason": "reasonable_answer_low_score"
+      },
+      {
+        "question_id": 21,
+        "model_name": "gemma2:27b",
+        "answer_preview": "Los días que se realiza la actividad de resis son lunes, martes, miércoles, jueves y viernes [5]....",
+        "score": 0.36500000000000005,
+        "metrics": {
+          "faithfulness": 0.1,
+          "answer_relevancy": 0.2,
+          "context_precision": 0.8,
+          "context_recall": 0.8,
+          "answer_correctness": 0.1,
+          "answer_similarity": 0.1,
+          "combined_score": 0.36500000000000005
+        },
+        "reason": "reasonable_answer_low_score"
+      },
+      {
+        "question_id": 22,
+        "model_name": "deepseek-r1:latest",
+        "answer_preview": "La actividad consiste en preparar y distribuir desayunos solidarios a los voluntarios, concretamente...",
+        "score": 0.24000000000000002,
+        "metrics": {
+          "faithfulness": 0.2,
+          "answer_relevancy": 0.3,
+          "context_precision": 0.4,
+          "context_recall": 0.2,
+          "answer_correctness": 0.2,
+          "answer_similarity": 0.1,
+          "combined_score": 0.24000000000000002
+        },
+        "reason": "reasonable_answer_low_score"
+      }
+    ]
+  },
+  "recommendations": [
+    "⚠️ Hay 6 casos con respuestas razonables pero scores bajos",
+    "💡 Considerar implementar evaluación híbrida que combine RAGAs con análisis cualitativo",
+    "🔧 Para respuestas con scores bajos pero razonables, considerar re-evaluación manual"
+  ]
+}

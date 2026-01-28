@@ -1,0 +1,35 @@
+{
+  "p22_improvement": "True",
+  "multiple_queries": {
+    "P22": {
+      "success": "True",
+      "confidence": 0.74,
+      "results_count": 15,
+      "has_expected_terms": true
+    },
+    "P4": {
+      "success": "True",
+      "confidence": 0.69,
+      "results_count": 15,
+      "has_expected_terms": true
+    },
+    "P6": {
+      "success": "True",
+      "confidence": 0.7066666666666667,
+      "results_count": 15,
+      "has_expected_terms": true
+    }
+  },
+  "comparison": {
+    "original": {
+      "has_resis": false,
+      "confidence": 1.0,
+      "time": 0.031131744384765625
+    },
+    "enhanced": {
+      "has_resis": true,
+      "confidence": 0.74,
+      "time": 0.031164884567260742
+    }
+  }
+}

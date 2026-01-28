@@ -1,0 +1,348 @@
+{
+  "total_preguntas": 30,
+  "total_correctas": 24,
+  "porcentaje": "80.0%",
+  "menciones_dana": 3,
+  "menciones_kayak": 3,
+  "tiempo_total": 176.89845323562622,
+  "resultados_por_categoria": {
+    "resis": [
+      {
+        "pregunta": "¿Cómo se llama la residencia?",
+        "respuesta": "¡Hola! La residencia se llama **La Acollida** (también conocida como L'Acollida). \n\n¿Te interesa saber más sobre el voluntariado en residencias? ¡Escríbenos por WhatsApp al 962 025 978 o 647 440 275, o síguenos en Instagram @dnivalenciaa! 😊  \n",
+        "confidence": 0.95,
+        "tiempo": 11.459668636322021,
+        "longitud": 243,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Dónde está la residencia?",
+        "respuesta": "¡Hola! 👋 La residencia donde hacemos voluntariado se llama La Acollida (también conocida como L'Acollida). 🏡\n\nEstá ubicada en la calle Crevillente 22, muy cerca de la Avenida Blasco Ibáñez, en Valencia.  \n\n¿Te interesa saber más sobre el proyecto de residencias? Puedes contactarnos por WhatsApp al 962 025 978 o con Carlos, el responsable del proyecto, al 637608880. ¡Esperamos verte pronto! 😊\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 5.41067361831665,
+        "longitud": 397,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Cuándo se va a la residencia?",
+        "respuesta": "¡Hola! Me alegra que te interese el voluntariado con DNI 😊\n\nLas visitas a la residencia se realizan todos los **miércoles de 17:30 a 18:30**.  \n\nPara confirmar detalles de la próxima sesión, consulta el grupo de WhatsApp o contacta al 962 025 978.\n\n\n¡Esperamos verte pronto! 🎉",
+        "confidence": 0.95,
+        "tiempo": 4.302568435668945,
+        "longitud": 276,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Qué actividades se hacen con los abuelitos?",
+        "respuesta": "¡Hola! Me alegra que te interese nuestro proyecto \"Charlas con abuelitos\". 😊\n\nEn este voluntariado, pasamos tiempo con los residentes de la residencia L'Acollida.  Las actividades son muy variadas y buscan llevarles alegría:\n\n* **Meriendas y paseos** por el jardín\n* **Juegos de mesa:** parchís, cartas, dominó...\n* **Conversaciones:** charlar sobre sus historias de vida, leer periódicos juntos\n* **Cantar canciones antiguas**\n* **Manualidades simples**\n\nLo más importante es la atención individualizada que les damos. ¡Para ellos, tener a alguien joven que se interese por ellos y les dedique tiempo con cariño es un regalo!\n\nSi quieres saber más detalles sobre el proyecto o cómo participar, puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Estamos deseando conocerte! 😄\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 8.606169700622559,
+        "longitud": 818,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Cuántos abuelitos hay en la residencia?",
+        "respuesta": "¡Hola! 👋 Me alegra que te interese nuestro proyecto \"Charlas con Abuelitos\". 😊\n\nEn cuanto a tu pregunta sobre cuántos abuelitos hay en la residencia, no tengo esa información exacta. \n\nLo que sí sé es que suelen asistir entre **10 y 15 abuelitos** a las actividades, aunque no todos participan activamente en cada encuentro.\n\nSi quieres saber más detalles sobre la residencia o el número exacto de residentes, te recomiendo que contactes directamente con DNI. Puedes escribirnos por WhatsApp al **962 025 978 / 647 440 275** o seguirnos en Instagram (@dnivalenciaa). ¡Estaremos encantados de ayudarte! 💖",
+        "confidence": 0.95,
+        "tiempo": 6.474043607711792,
+        "longitud": 603,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Quién es el responsable de RESIS?",
+        "respuesta": "¡Hola! 👋 Me alegra que te interese el voluntariado con DNI. \n\nPara responder a tu pregunta sobre quién es el responsable de RESIS, puedo decirte que se llama Carlos y su número de teléfono es 637608880.  \n\nSi quieres saber más sobre el proyecto o tienes otras preguntas, no dudes en contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Estamos aquí para ayudarte! 😊",
+        "confidence": 0.95,
+        "tiempo": 4.9228785037994385,
+        "longitud": 396,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Necesito formación para ir a la residencia?",
+        "respuesta": "¡Hola! Entiendo que quieres saber si necesitas formación para ir a la residencia. \n\nSegún la información que tengo, no es necesaria ninguna formación previa para participar en las actividades de DNI.  \n\nEn el caso de \"Charlas con Abuelitos\", te explicarán qué hacer antes de cada actividad y siempre habrá coordinadores que te guíen. \n\nSi quieres saber más detalles sobre cómo funciona este proyecto, te recomiendo que contactes directamente con el responsable a través de WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Seguro que te pueden dar toda la información que necesitas! 😊\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 6.476703405380249,
+        "longitud": 604,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Puedo ir de prueba a la residencia?",
+        "respuesta": "¡Claro que sí! Puedes ir un día de prueba a la residencia para ver cómo es. \n\nPara coordinar el mejor momento, contacta con el responsable del proyecto Charlas con Abuelitos. 😊  Puedes encontrarlos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Te esperamos!\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 3.928248167037964,
+        "longitud": 285,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Qué días hay actividades con ancianos?",
+        "respuesta": "¡Hola! 👋 Me alegra que te interese el voluntariado con personas mayores. 👴👵\n\nLas actividades con abuelitos en la residencia L'Acollida se realizan **todos los miércoles de 17:30 a 18:30**.  \n\nSi quieres saber más detalles sobre la próxima sesión, puedes consultar el grupo de WhatsApp o contactar al 962 025 978. ¡Te esperamos! 😊\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 4.601881265640259,
+        "longitud": 332,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Se necesita compromiso para ir a la residencia?",
+        "respuesta": "¡Hola! Entiendo que te interesa saber sobre el compromiso para ir a la residencia. \n\nEn DNI somos flexibles y entendemos que tienes una vida activa.  Puedes venir un día de prueba para ver cómo es la experiencia. Para coordinar la visita, contacta con el responsable del proyecto \"Charlas con Abuelitos\". \n\n¡Esperamos conocerte pronto! Puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). 😊\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 4.948315143585205,
+        "longitud": 430,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      }
+    ],
+    "coles": [
+      {
+        "pregunta": "¿Qué es COLES?",
+        "respuesta": "¡Hola! COLES es el proyecto de Refuerzo Escolar de DNI. 📚\n\nAquí tienes algunos detalles:\n\n* Es un programa tutorizado en biblioteca donde ayudamos a niños en riesgo de exclusión con sus deberes y estudios.\n* Trabajamos en grupos pequeños o sesiones individuales, adaptándonos al nivel de cada niño.\n* No solo ayudamos con matemáticas o lengua, sino que fomentamos su desarrollo integral: autoestima, hábitos de estudio, motivación.\n\nPara participar como voluntario en COLES, lo ideal es comprometerse 1-2 veces por semana para generar un vínculo con los niños. 😊\n\nSi quieres saber más sobre COLES o cualquier otro proyecto de DNI, puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Estamos deseando conocerte! 👋",
+        "confidence": 0.95,
+        "tiempo": 7.4467549324035645,
+        "longitud": 751,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Dónde es el refuerzo escolar?",
+        "respuesta": "¡Hola! Me alegra que te interese el Refuerzo Escolar. 📚\n\nPara saber exactamente dónde se realiza, te cuento que depende del grupo de edad y la actividad.  \n\n* **Generalmente** se lleva a cabo en una biblioteca tutorizada en Valencia. \n\nSi quieres más detalles sobre la ubicación exacta y los horarios (que suelen ser por las tardes entre semana), lo mejor es que contactes directamente con nosotros al 647 440 275. ¡Te daremos toda la información! 😉\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 5.057570457458496,
+        "longitud": 452,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Qué días hay refuerzo escolar?",
+        "respuesta": "¡Hola! 👋 En DNI tenemos Refuerzo Escolar de lunes a viernes. \n\n* **Horario:** De 15:30 a 16:30. \n\nSi quieres saber más sobre cómo funciona el programa o tienes alguna otra pregunta, puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Estamos aquí para ayudarte! 😊",
+        "confidence": 0.95,
+        "tiempo": 4.585152626037598,
+        "longitud": 302,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Necesito experiencia para dar refuerzo escolar?",
+        "respuesta": "¡Hola! Entiendo que te interesa el refuerzo escolar.  \n\nEs genial que quieras ayudar. Para responder a tu pregunta: no necesitas experiencia previa para dar refuerzo escolar. En DNI creemos en aprender haciendo y siempre hay coordinadores que te guían. \n\nAntes de cada actividad te explicamos qué hacer, ¡así que no te preocupes!\n\nSi quieres saber más detalles sobre el programa de refuerzo escolar (COLES), por ejemplo,  puedes contactarnos a través de WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Estaremos encantados de ayudarte! 😊",
+        "confidence": 0.95,
+        "tiempo": 6.231419324874878,
+        "longitud": 556,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Con cuántos niños trabajo en COLES?",
+        "respuesta": "¡Hola! 👋 En DNI nos apasiona ayudar a la comunidad. \n\nSobre tu pregunta sobre COLES, puedo decirte que trabajamos con niños de tres años hasta sexto de primaria, divididos en grupos por edades.  \n\nSi quieres saber más detalles sobre cómo funciona el refuerzo escolar o tienes otras preguntas, ¡escríbenos por WhatsApp al 962 025 978 o al 647 440 275! También puedes encontrarnos en Instagram como @dnivalenciaa. 😊\n\n¡Esperamos verte pronto formando parte del equipo DNI! 💪",
+        "confidence": 0.95,
+        "tiempo": 5.552264213562012,
+        "longitud": 471,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Qué materias se enseñan en COLES?",
+        "respuesta": "¡Hola! 👋 Me alegra que te interese el Refuerzo Escolar (COLES). 📚\n\nEn COLES ayudamos a niños en riesgo de exclusión con sus deberes y estudios. Trabajamos en grupos pequeños o sesiones individuales, adaptándonos al nivel de cada niño.  No solo les damos apoyo en materias como matemáticas o lengua, sino que también fomentamos su desarrollo integral: autoestima, hábitos de estudio, motivación.\n\nPara saber qué materias específicas se trabajan en cada caso, te recomiendo contactar directamente con DNI. Puedes escribirnos por WhatsApp al 647 440 275 y te daremos todos los detalles. 😉 ¡Nos encantaría tenerte en el equipo!\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 6.555598020553589,
+        "longitud": 626,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Cuánto dura una sesión de refuerzo escolar?",
+        "respuesta": "¡Hola! 👋 Me alegra que te interese el refuerzo escolar. \n\nUna sesión de refuerzo escolar dura **una hora**, de 15:30 a 16:30.  \n\nSi quieres saber más sobre cómo funciona el programa, qué tipo de actividades se hacen o cualquier otra cosa, puedes escribirnos por WhatsApp (962 025 978 / 647 440 275) o mandarnos un mensaje directo a Instagram (@dnivalenciaa). ¡Estamos aquí para ayudarte! 😊\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 5.482664585113525,
+        "longitud": 392,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      }
+    ],
+    "desayunos": [
+      {
+        "pregunta": "¿A qué hora son los desayunos solidarios?",
+        "respuesta": "¡Hola! Me alegra que te intereses por los Desayunos Solidarios de DNI. \n\nLos desayunos suelen ser los fines de semana (sábados o domingos) por la mañana temprano, típicamente entre las 9:00-12:00h. La hora exacta varía según la zona donde vayamos y la coordinación con las personas sin hogar. Nos gusta madrugar un poco para llegar cuando la gente está despertando.\n\nTe avisaremos con antelación del punto de encuentro y hora exacta en el grupo de WhatsApp. ¡Anímate a unirte! \n\nSi tienes más preguntas, puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). 😊\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 7.1883344650268555,
+        "longitud": 598,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Dónde es el punto de encuentro para desayunos?",
+        "respuesta": "¡Hola! 👋  Me alegra que te interese participar en los Desayunos Solidarios de DNI. \n\nEl punto de encuentro siempre es la **Porta de la Mar de Valencia**. Desde ahí nos dividimos en equipos y vamos a diferentes zonas de la ciudad como Mestalla, el centro, El Carmen o el río. \n\nSi quieres saber más detalles sobre la próxima salida (hora exacta, zona específica), te recomiendo unirte a nuestro grupo de WhatsApp (962 025 978 / 647 440 275) o seguirnos en Instagram (@dnivalenciaa). ¡Allí publicamos toda la información! 😉\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 6.638206481933594,
+        "longitud": 524,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Qué se lleva a los desayunos?",
+        "respuesta": "¡Hola! Me alegra que te interese saber más sobre nuestros desayunos solidarios. \n\nPara responder a tu pregunta, normalmente llevamos:\n\n* **Bebidas:** Café soluble, zumos y leche semidesnatada.\n* **Comida:** Bocadillos, bollería o fruta, buscando siempre opciones nutritivas y fáciles de repartir.\n\nSi quieres saber más detalles sobre la logística o cómo apuntarte, puedes contactarnos por WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Te esperamos! 😊\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 5.853184938430786,
+        "longitud": 474,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Cuántos voluntarios van a desayunos?",
+        "respuesta": "¡Hola! Me alegra que te interese el voluntariado con DNI. \n\nSobre tu pregunta de cuántos voluntarios van a los desayunos solidarios, puedo decirte que:\n\n* Normalmente participan entre **15 y 30 personas** en total.\n* Los grupos de reparto son más reducidos, entre **5 y 8 personas**, para moverse con facilidad por la ciudad.\n\nSi quieres saber más detalles sobre las próximas fechas o cómo apuntarte, te recomiendo que consultes el calendario de la comunidad de WhatsApp (962 025 978 / 647 440 275) o preguntes a un miembro del staff. ¡Seguro que te ayudan!\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 6.413475036621094,
+        "longitud": 560,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Puedo ir solo a los desayunos?",
+        "respuesta": "¡Claro que sí! En DNI llamamos a los desayunos y cenas solidarias \"actividades puntuales\".  \n\nEsto significa que puedes apuntarte un día sin compromiso de tener que ir a las siguientes. \n\n* **¿Te interesa saber más sobre cómo funciona?** Los desayunos son los sábados a las 8:00 am en zona centro de Valencia.\n* **Para apuntarte:** El miércoles anterior se publica un formulario por WhatsApp y redes sociales.\n\nSi tienes más preguntas, ¡no dudes en contactarnos! Puedes escribirnos por WhatsApp al 962 025 978 o 647 440 275, o seguirnos en Instagram (@dnivalenciaa). 😊",
+        "confidence": 0.95,
+        "tiempo": 6.619544982910156,
+        "longitud": 568,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Cada cuánto hay desayunos solidarios?",
+        "respuesta": "¡Hola! Me alegra que te interese el voluntariado con DNI. \n\nSobre la frecuencia de los desayunos solidarios, normalmente se hacen una vez a la semana. Para saber exactamente cuándo son, te recomiendo consultar el calendario de nuestra comunidad de WhatsApp o preguntar a un miembro del staff. ¡Te esperamos! Puedes contactarnos al 962 025 978 / 647 440 275.\n\n¡Un saludo y gracias por tu interés en ayudar! 😊\n",
+        "confidence": 0.95,
+        "tiempo": 5.3518829345703125,
+        "longitud": 408,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Qué hacemos en los desayunos además de dar comida?",
+        "respuesta": "¡Hola! Es genial que te interese participar en los Desayunos Solidarios de DNI. \n\nAdemás de repartir comida a las personas sin hogar, también se suele compartir un momento agradable con ellos.  \n\nSi quieres saber más detalles sobre la dinámica de la actividad, te recomiendo apuntarte a nuestra comunidad de WhatsApp (962 025 978 / 647 440 275) o seguirnos en Instagram (@dnivalenciaa). ¡Allí encontrarás mucha más información!\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 5.650398254394531,
+        "longitud": 430,
+        "menciona_dana": false,
+        "menciona_kayak": false,
+        "es_correcta": true,
+        "num_chunks": 10
+      }
+    ],
+    "exclusion": [
+      {
+        "pregunta": "¿Qué es el proyecto de la DANA?",
+        "respuesta": "¡Hola! Me alegra que te interese DNI. \n\nSobre el proyecto de la DANA, puedo decirte que se llama \"Rehabilitar Valencia\" y está enfocado en apoyar a las zonas afectadas por la DANA en Horta Sud.  \n\nSi quieres saber más detalles sobre este proyecto o cualquier otro, te recomiendo que nos contactes directamente:\n\n* **WhatsApp:** 962 025 978 / 647 440 275\n* **Instagram:** @dnivalenciaa\n\n¡Esperamos verte pronto formando parte de DNI! 😊\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 5.719825029373169,
+        "longitud": 437,
+        "menciona_dana": true,
+        "menciona_kayak": false,
+        "es_correcta": false,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Cómo ayudo a los afectados por la DANA?",
+        "respuesta": "¡Hola! Es genial que te interese ayudar a las personas afectadas por la DANA. \n\nEn DNI tenemos un proyecto llamado \"Rehabilitar Valencia\" enfocado en apoyar a las zonas afectadas por la DANA en Horta Sud.  \n\nPara saber más sobre cómo puedes colaborar específicamente con este proyecto, te recomiendo que contactes directamente con nosotros a través de WhatsApp (962 025 978 / 647 440 275) o Instagram (@dnivalenciaa). ¡Estaremos encantados de darte más información! 😊\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 5.532217979431152,
+        "longitud": 470,
+        "menciona_dana": true,
+        "menciona_kayak": false,
+        "es_correcta": false,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Cuándo es la recogida de plásticos en kayak?",
+        "respuesta": "¡Hola! 👋 Me alegra que te interese el voluntariado con DNI. \n\nSobre la recogida de plásticos en kayak, no tengo información específica sobre cuándo se realizan esas actividades.  \n\nTe recomiendo que contactes directamente con nosotros para obtener más detalles:\n\n* **WhatsApp:** 962 025 978 / 647 440 275\n* **Instagram:** @dnivalenciaa\n\n¡Esperamos verte pronto formando parte de DNI! 😊\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 4.744233846664429,
+        "longitud": 388,
+        "menciona_dana": false,
+        "menciona_kayak": true,
+        "es_correcta": false,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Dónde están los kayaks?",
+        "respuesta": "¡Hola! 👋 Me alegra que te interese DNI. \n\nSobre tu pregunta sobre los kayaks, puedo decirte que usamos kayaks para la Recogida de Plásticos, uno de nuestros proyectos.  \n\nPara saber más detalles sobre dónde y cuándo se realizan estas actividades, te recomiendo que contactes directamente con nosotros a través de:\n\n* WhatsApp: 962 025 978 / 647 440 275\n* Instagram: @dnivalenciaa\n\n¡Esperamos verte pronto formando parte de DNI! 😄",
+        "confidence": 0.95,
+        "tiempo": 5.054515600204468,
+        "longitud": 429,
+        "menciona_dana": false,
+        "menciona_kayak": true,
+        "es_correcta": false,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Qué es Rehabilitar Valencia?",
+        "respuesta": "¡Hola! 👋 Me alegra que te interese Rehabilitar Valencia. \n\nEn la información que tengo disponible no hay detalles específicos sobre ese proyecto.  \n\nPara saber más sobre Rehabilitar Valencia, te recomiendo que contactes directamente con DNI. Puedes escribirnos por WhatsApp al 962 025 978 o 647 440 275, o enviarnos un mensaje directo a través de nuestro Instagram @dnivalenciaa. ¡Estaremos encantados de ayudarte! 😊",
+        "confidence": 0.95,
+        "tiempo": 5.088647842407227,
+        "longitud": 416,
+        "menciona_dana": true,
+        "menciona_kayak": false,
+        "es_correcta": false,
+        "num_chunks": 10
+      },
+      {
+        "pregunta": "¿Cómo me apunto al kayak?",
+        "respuesta": "¡Hola! Me alegra que te interese el kayak con DNI. 🛶\n\nPara apuntarte a la Recogida de Plásticos en Kayak, lo mejor es que contactes directamente con nosotros para obtener más información sobre cómo participar. Puedes escribirnos por WhatsApp al 962 025 978 o al 647 440 275, o enviarnos un mensaje directo a través de nuestro Instagram @dnivalenciaa.\n\n¡Esperamos verte pronto remando con nosotros! 😄\n\n\n",
+        "confidence": 0.95,
+        "tiempo": 4.999802827835083,
+        "longitud": 402,
+        "menciona_dana": false,
+        "menciona_kayak": true,
+        "es_correcta": false,
+        "num_chunks": 10
+      }
+    ]
+  }
+}

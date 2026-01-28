@@ -1,0 +1,18 @@
+# Dependencias para RAG Optimizer Dashboard v3
+# Instalación: pip install -r requirements_dashboard_v3.txt
+
+# Framework web
+streamlit>=1.28.0
+
+# Análisis de datos
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualización
+plotly>=5.17.0
+matplotlib>=3.7.0
+
+# Exportación
+openpyxl>=3.1.0  # Para Excel
+reportlab>=4.0.0  # Para PDF profesional
+

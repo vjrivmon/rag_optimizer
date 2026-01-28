@@ -56,32 +56,57 @@ def chunk_faq_document(text: str, source: str) -> list[Document]:
             i += 1
             continue
 
-        # Detectar pregunta FAQ
-        if line.startswith('¿') or (line and '?' in line and len(line) < 100):
-            # Construir chunk con pregunta + respuesta + contexto
-            chunk_lines = [line]  # Pregunta
+        # Detectar pregunta FAQ (formato "Q:" o directo con ¿)
+        is_question = False
+        question_text = line
+        
+        if line.upper().startswith('Q:'):
+            is_question = True
+            question_text = line[2:].strip()  # Quitar "Q:"
+        elif line.startswith('¿') or (line and '?' in line and len(line) < 150):
+            is_question = True
+        
+        if is_question:
+            # Construir chunk con pregunta + respuesta
+            chunk_lines = [question_text]  # Pregunta limpia
 
-            # Agregar respuesta (líneas siguientes que no son preguntas)
+            # Buscar respuesta en las líneas siguientes
             j = i + 1
-            while j < len(lines) and j < i + 10:  # Máximo 10 líneas
+            
+            while j < len(lines) and j < i + 15:  # Máximo 15 líneas
                 next_line = lines[j].strip()
 
-                # Parar si encontramos otra pregunta o sección
-                if next_line.startswith('¿') or next_line.startswith('====='):
+                # Si encontramos "A:", procesar respuesta
+                if next_line.upper().startswith('A:'):
+                    answer_text = next_line[2:].strip()
+                    chunk_lines.append(answer_text)
+                    j += 1
+                    
+                    # Continuar con líneas que son parte de la respuesta
+                    while j < len(lines) and j < i + 15:
+                        continuation = lines[j].strip()
+                        # Parar si encontramos otra pregunta/respuesta o sección
+                        if continuation.upper().startswith(('Q:', 'A:')) or continuation.startswith('¿') or continuation.startswith('====='):
+                            break
+                        # Parar en línea vacía si ya tenemos contenido
+                        if not continuation and len(chunk_lines) >= 2:
+                            break
+                        if continuation:
+                            chunk_lines.append(continuation)
+                        j += 1
+                    break
+                
+                # Si no hay "A:" explícito, agregar líneas hasta siguiente pregunta
+                elif not next_line.upper().startswith('Q:') and not next_line.startswith('¿') and not next_line.startswith('====='):
+                    if next_line:
+                        chunk_lines.append(next_line)
+                    j += 1
+                else:
                     break
 
-                # Parar si es línea vacía y ya tenemos contenido
-                if not next_line and len(chunk_lines) > 2:
-                    break
-
-                if next_line:  # Agregar líneas no vacías
-                    chunk_lines.append(next_line)
-
-                j += 1
-
-            # Crear chunk solo si tiene contenido sustancial
+            # Crear chunk si tiene contenido sustancial
             chunk_text = '\n'.join(chunk_lines)
-            if len(chunk_text) > 30:  # Mínimo 30 caracteres
+            if len(chunk_text) > 20:  # Mínimo 20 caracteres
                 # Detectar categoría específica del chunk
                 chunk_category = detect_faq_category(chunk_text)
                 if chunk_category == 'general':
@@ -93,11 +118,11 @@ def chunk_faq_document(text: str, source: str) -> list[Document]:
                         'source': source,
                         'type': 'faq',
                         'category': chunk_category,
-                        'question': line
+                        'question': question_text
                     }
                 ))
 
-            i = j  # Saltar las líneas procesadas
+            i = j  # Saltar líneas procesadas
         else:
             i += 1
 
@@ -127,11 +152,14 @@ def chunk_regular_document(text: str, source: str, chunk_size: int = 300, overla
 
 def is_faq_document(text: str) -> bool:
     """Detecta si un documento tiene formato FAQ"""
-    # Contar preguntas (líneas que empiezan con ¿)
-    question_count = len(re.findall(r'^\¿.+\?', text, re.MULTILINE))
+    # Contar preguntas en formato "Q:" o que empiezan con ¿
+    question_count_q = len(re.findall(r'^Q:\s*.+\?', text, re.MULTILINE | re.IGNORECASE))
+    question_count_direct = len(re.findall(r'^\¿.+\?', text, re.MULTILINE))
+    
+    total_questions = question_count_q + question_count_direct
 
     # Si tiene 3+ preguntas, considerarlo FAQ
-    return question_count >= 3
+    return total_questions >= 3
 
 
 def create_faq_aware_vector_store():

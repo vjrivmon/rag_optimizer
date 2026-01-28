@@ -1,0 +1,401 @@
+{
+  "timestamp": "2025-10-11T18:32:43.838323",
+  "test_type": "p25_only",
+  "question_id": 25,
+  "question": "¿Qué significa Para-Mira-Ayuda?",
+  "expected_answer": "Son las tres palabras que guían la labor de los voluntarios de DNI. En un mundo que avanza a un ritmo frenético, es necesario detenerse (PARAR) para ser conscientes de aquellos que nos rodean, MIRAR con cariño y cercanía, y ofrecer nuestra AYUDA con generosidad y alegría.",
+  "result": {
+    "question": "¿Qué significa Para-Mira-Ayuda?",
+    "question_id": 25,
+    "individual": [
+      {
+        "model_name": "gemma2:27b",
+        "question": "¿Qué significa Para-Mira-Ayuda?",
+        "question_id": 25,
+        "answer": "Para-Mira-Ayuda es el lema y la filosofía de trabajo de DNI (Damos Nuestra Ilusión). \n\n* **PARAR:** Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\n* **MIRAR:** Observar con atención y empatía a quienes nos rodean.\n* **AYUDAR:** Ofrecer nuestra ayuda de manera generosa y alegre. \n\n\nEstas tres palabras buscan transformar el día a día y hacer del voluntariado algo habitual y natural. \n",
+        "contexts": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+          "DINÁMICA DE TRABAJO",
+          "¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?\n\nDNI busca dejar un mundo mejor, aspira a ayudar al vecino, no pretende irse muy lejos para conseguir hacer algo bueno, porque siempre tendremos a una persona cerca que nos está esperando. No pretende ser importante, sino meterse en tu día a día, habituarte a PARAR, enseñarte a MIRAR con cariño y cercanía, y ofrecer la máxima AYUDA, sacando lo mejor de nosotros mismos.\n\nDNI es la verdadera juventud, es inquietud, es caridad, es ambición… es todo aquello que define a los que quieren cambiar el mundo, empezando por la puerta de su casa.",
+          "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+          "PARA. MIRA. AYUDA.\n\nEstas son las tres palabras que guían la labor de nuestros voluntarios de DNI (Damos Nuestra Ilusión). \n\nEn un mundo que avanza a un ritmo frenético, es necesario detenerse para ser conscientes de aquellos que nos rodean y estar dispuesto a ofrecer nuestra ayuda con generosidad y alegría.\n\nPARAR: Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\nMIRAR: Observar con atención y empatía a quienes nos rodean.\nAYUDAR: Ofrecer nuestra ayuda de manera generosa y alegre.\n\nEstas tres palabras son el lema y la filosofía de trabajo de DNI. No buscamos grandes gestos ni reconocimiento, sino transformar el día a día y hacer del voluntariado algo habitual y natural.",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+          "JUSTIFICACIÓN"
+        ],
+        "generation_time": 14.202125549316406,
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_relevancy": 1.0,
+          "context_precision": 1.0,
+          "context_recall": 1.0,
+          "answer_correctness": 1.0,
+          "answer_similarity": 0.9,
+          "combined_score": 0.99
+        },
+        "validation": {
+          "is_valid": true,
+          "confidence": 0.95,
+          "issues": [],
+          "protocol_used": "unknown"
+        },
+        "config_used": {
+          "name": "gemma2:27b_adaptive",
+          "top_k": 10,
+          "similarity_threshold": 0.2,
+          "semantic_weight": 0.6,
+          "keyword_weight": 0.4
+        },
+        "retrieval_stats": {
+          "num_chunks": 10,
+          "relevant_chunks": 0,
+          "query_used": "¿Qué significa Para-Mira-Ayuda?",
+          "adaptive_temperature": 0.3,
+          "timeout_used": 18.0
+        }
+      },
+      {
+        "model_name": "llama3.3:70b",
+        "question": "¿Qué significa Para-Mira-Ayuda?",
+        "question_id": 25,
+        "answer": "Según el texto [7], \"Para-Mira-Ayuda\" se refiere a las tres palabras que guían la labor de los voluntarios de DNI (Damos Nuestra Ilusión), que significan:\n\n- PARAR: Detenerse en la vida cotidiana para ser conscientes del entorno.\n- MIRAR: Observar con atención y empatía a quienes nos rodean.\n- AYUDAR: Ofrecer ayuda de manera generosa y alegre.\n\nEstas palabras son el lema y la filosofía de trabajo de DNI, enfocadas en transformar el día a día a través del voluntariado.",
+        "contexts": [
+          "¿Qué se hace en la actividad?",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+          "DINÁMICA DE TRABAJO",
+          "¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?\n\nDNI busca dejar un mundo mejor, aspira a ayudar al vecino, no pretende irse muy lejos para conseguir hacer algo bueno, porque siempre tendremos a una persona cerca que nos está esperando. No pretende ser importante, sino meterse en tu día a día, habituarte a PARAR, enseñarte a MIRAR con cariño y cercanía, y ofrecer la máxima AYUDA, sacando lo mejor de nosotros mismos.\n\nDNI es la verdadera juventud, es inquietud, es caridad, es ambición… es todo aquello que define a los que quieren cambiar el mundo, empezando por la puerta de su casa.",
+          "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+          "PARA. MIRA. AYUDA.\n\nEstas son las tres palabras que guían la labor de nuestros voluntarios de DNI (Damos Nuestra Ilusión). \n\nEn un mundo que avanza a un ritmo frenético, es necesario detenerse para ser conscientes de aquellos que nos rodean y estar dispuesto a ofrecer nuestra ayuda con generosidad y alegría.\n\nPARAR: Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\nMIRAR: Observar con atención y empatía a quienes nos rodean.\nAYUDAR: Ofrecer nuestra ayuda de manera generosa y alegre.\n\nEstas tres palabras son el lema y la filosofía de trabajo de DNI. No buscamos grandes gestos ni reconocimiento, sino transformar el día a día y hacer del voluntariado algo habitual y natural.",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+          "JUSTIFICACIÓN",
+          "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes"
+        ],
+        "generation_time": 29.769898176193237,
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_relevancy": 1.0,
+          "context_precision": 1.0,
+          "context_recall": 1.0,
+          "answer_correctness": 1.0,
+          "answer_similarity": 0.9,
+          "combined_score": 0.99
+        },
+        "validation": {
+          "is_valid": true,
+          "confidence": 0.95,
+          "issues": [],
+          "protocol_used": "unknown"
+        },
+        "config_used": {
+          "name": "llama3.70b_adaptive",
+          "top_k": 12,
+          "similarity_threshold": 0.15,
+          "semantic_weight": 0.7,
+          "keyword_weight": 0.3
+        },
+        "retrieval_stats": {
+          "num_chunks": 12,
+          "relevant_chunks": 0,
+          "query_used": "¿Qué significa Para-Mira-Ayuda?",
+          "adaptive_temperature": 0.3,
+          "timeout_used": 30.0
+        }
+      },
+      {
+        "model_name": "qwen3:32b",
+        "question": "¿Qué significa Para-Mira-Ayuda?",
+        "question_id": 25,
+        "answer": "<think>\nOkay, let's tackle this question. The user is asking what \"Para-Mira-Ayuda\" means. I need to base my answer solely on the provided information.\n\nLooking through the texts, I see that in point [7], there's a section titled \"PARA. MIRA. AYUDA.\" which explains that these three words guide the volunteers of DNI. The explanation breaks down each word: PARAR (to stop), MIRAR (to look with empathy), and AYUDAR (to help generously). The text also mentions that these are the guiding principles and philosophy of DNI, emphasizing transforming daily life through volunteering without seeking recognition.\n\nAdditionally, in [5], the DNI is described as aiming to help the neighbor, not going far but being close, and focusing on stopping, looking with care, and offering maximum help. The three words are part of the lema (slogan) and work philosophy.\n\nI need to make sure I don",
+        "contexts": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+          "DINÁMICA DE TRABAJO",
+          "¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?\n\nDNI busca dejar un mundo mejor, aspira a ayudar al vecino, no pretende irse muy lejos para conseguir hacer algo bueno, porque siempre tendremos a una persona cerca que nos está esperando. No pretende ser importante, sino meterse en tu día a día, habituarte a PARAR, enseñarte a MIRAR con cariño y cercanía, y ofrecer la máxima AYUDA, sacando lo mejor de nosotros mismos.\n\nDNI es la verdadera juventud, es inquietud, es caridad, es ambición… es todo aquello que define a los que quieren cambiar el mundo, empezando por la puerta de su casa.",
+          "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+          "PARA. MIRA. AYUDA.\n\nEstas son las tres palabras que guían la labor de nuestros voluntarios de DNI (Damos Nuestra Ilusión). \n\nEn un mundo que avanza a un ritmo frenético, es necesario detenerse para ser conscientes de aquellos que nos rodean y estar dispuesto a ofrecer nuestra ayuda con generosidad y alegría.\n\nPARAR: Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\nMIRAR: Observar con atención y empatía a quienes nos rodean.\nAYUDAR: Ofrecer nuestra ayuda de manera generosa y alegre.\n\nEstas tres palabras son el lema y la filosofía de trabajo de DNI. No buscamos grandes gestos ni reconocimiento, sino transformar el día a día y hacer del voluntariado algo habitual y natural.",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+          "JUSTIFICACIÓN"
+        ],
+        "generation_time": 33.165244340896606,
+        "metrics": {
+          "faithfulness": 0.9,
+          "answer_relevancy": 0.9,
+          "context_precision": 0.9,
+          "context_recall": 0.8,
+          "answer_correctness": 1.0,
+          "answer_similarity": 0.85,
+          "combined_score": 0.8850000000000001
+        },
+        "validation": {
+          "is_valid": true,
+          "confidence": 0.95,
+          "issues": [],
+          "protocol_used": "unknown"
+        },
+        "config_used": {
+          "name": "standard",
+          "top_k": 10,
+          "similarity_threshold": 0.2,
+          "semantic_weight": 0.6,
+          "keyword_weight": 0.4
+        },
+        "retrieval_stats": {
+          "num_chunks": 10,
+          "relevant_chunks": 0,
+          "query_used": "¿Qué significa Para-Mira-Ayuda?",
+          "adaptive_temperature": 0.4,
+          "timeout_used": 21.599999999999998
+        }
+      },
+      {
+        "model_name": "deepseek-r1:latest",
+        "question": "¿Qué significa Para-Mira-Ayuda?",
+        "question_id": 25,
+        "answer": "<think>\nBueno, tengo que responder a la pregunta \"¿Qué significa Para-Mira-Ayuda?\" basándome exclusivamente en la información proporcionada. Primero, voy a leer detenidamente cada punto para entender lo que se está pidiendo.\n\nLa información me ofrece varias actividades relacionadas con DNI, incluyendo residentes, voluntariados, actividades con niños, logística, dinámica de trabajo y más. En particular, hay una sección titulada \"PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIOS\" que menciona \"PARAR. MIRA. AYUDA.\" como las tres palabras guía del trabajo de los voluntarios de DNI.\n\nAhora, intento entender qué significa cada una de estas palabras en el contexto de la actividad:\n\n1. **PARAR**: La actividad dice que se hace en la residencia La Acollida, cerca de Blasco",
+        "contexts": [
+          "¿Qué se hace en la actividad?",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+          "Y es precisamente la alegría e ilusión la que caracteriza a los jóvenes de DNI. Jóvenes apasionados, comprometidos, cercanos.\n\n¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+          "DINÁMICA DE TRABAJO",
+          "¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?\n\nDNI busca dejar un mundo mejor, aspira a ayudar al vecino, no pretende irse muy lejos para conseguir hacer algo bueno, porque siempre tendremos a una persona cerca que nos está esperando. No pretende ser importante, sino meterse en tu día a día, habituarte a PARAR, enseñarte a MIRAR con cariño y cercanía, y ofrecer la máxima AYUDA, sacando lo mejor de nosotros mismos.\n\nDNI es la verdadera juventud, es inquietud, es caridad, es ambición… es todo aquello que define a los que quieren cambiar el mundo, empezando por la puerta de su casa.",
+          "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+          "PARA. MIRA. AYUDA.\n\nEstas son las tres palabras que guían la labor de nuestros voluntarios de DNI (Damos Nuestra Ilusión). \n\nEn un mundo que avanza a un ritmo frenético, es necesario detenerse para ser conscientes de aquellos que nos rodean y estar dispuesto a ofrecer nuestra ayuda con generosidad y alegría.\n\nPARAR: Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\nMIRAR: Observar con atención y empatía a quienes nos rodean.\nAYUDAR: Ofrecer nuestra ayuda de manera generosa y alegre.\n\nEstas tres palabras son el lema y la filosofía de trabajo de DNI. No buscamos grandes gestos ni reconocimiento, sino transformar el día a día y hacer del voluntariado algo habitual y natural.",
+          "JUSTIFICACIÓN",
+          "CHARLAS CON ABUELITOS - PROYECTO DE RESIDENCIAS\n\nINTRODUCCIÓN",
+          "FILOSOFÍA DE TRABAJO DE DNI\n\nNo buscamos grandes gestos ni reconocimiento. Buscamos transformar el día a día, hacer del voluntariado algo habitual, natural. \n\nQueremos que PARAR, MIRAR y AYUDAR se convierta en una forma de vida.\n\nEl lema \"PARA. MIRA. AYUDA.\" resume nuestra filosofía:\n- En la vida acelerada, debemos PARAR para ser conscientes\n- MIRAR a nuestro alrededor con empatía y cercanía\n- AYUDAR a quienes nos rodean con generosidad y alegría\n\nDNI es solidaridad, inquietud, juventud. Esto es DNI.",
+          "- AUTÉNTICOS: Sin máscaras ni segundas intenciones\n- ALEGRES: Repartimos ilusión y alegría por donde vamos\n- SENCILLOS: Hacemos de lo ordinario un momentazo",
+          "¿Qué días se hace?\nLos miércoles de 17:30 - 18:30\n\n¿Qué se hace en la actividad?\nEn este voluntariado vamos a pasar tiempo con los residentes de la Acollida. A través de distintas actividades buscamos llevarles la alegría de los jóvenes"
+        ],
+        "generation_time": 9.473523378372192,
+        "metrics": {
+          "faithfulness": 0.8,
+          "answer_relevancy": 0.9,
+          "context_precision": 0.9,
+          "context_recall": 0.7,
+          "answer_correctness": 0.9,
+          "answer_similarity": 0.6,
+          "combined_score": 0.805
+        },
+        "validation": {
+          "is_valid": true,
+          "confidence": 0.95,
+          "issues": [],
+          "protocol_used": "unknown"
+        },
+        "config_used": {
+          "name": "deepseek-r1:latest_adaptive",
+          "top_k": 15,
+          "similarity_threshold": 0.1,
+          "semantic_weight": 0.6,
+          "keyword_weight": 0.4
+        },
+        "retrieval_stats": {
+          "num_chunks": 15,
+          "relevant_chunks": 0,
+          "query_used": "¿Qué significa Para-Mira-Ayuda?",
+          "adaptive_temperature": 0.3,
+          "timeout_used": 24.0
+        }
+      }
+    ],
+    "ensemble": {
+      "voting": {
+        "answer": "Para-Mira-Ayuda es el lema y la filosofía de trabajo de DNI (Damos Nuestra Ilusión). \n\n* **PARAR:** Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\n* **MIRAR:** Observar con atención y empatía a quienes nos rodean.\n* **AYUDAR:** Ofrecer nuestra ayuda de manera generosa y alegre. \n\n\nEstas tres palabras buscan transformar el día a día y hacer del voluntariado algo habitual y natural. \n",
+        "selected_from": "gemma2:27b",
+        "models_used": [
+          "gemma2:27b",
+          "llama3.3:70b",
+          "qwen3:32b",
+          "deepseek-r1:latest"
+        ],
+        "selection_reason": "Empate en score (0.00) - usando tiebreaker gemma2:27b",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_relevancy": 1.0,
+          "context_precision": 1.0,
+          "context_recall": 1.0,
+          "answer_correctness": 1.0,
+          "answer_similarity": 0.9,
+          "combined_score": 0.99
+        },
+        "generation_time": 14.202125549316406,
+        "all_scores": {
+          "gemma2:27b": 0.0,
+          "llama3.3:70b": 0.0,
+          "qwen3:32b": 0.0,
+          "deepseek-r1:latest": 0.0
+        },
+        "contexts": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+          "DINÁMICA DE TRABAJO",
+          "¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?\n\nDNI busca dejar un mundo mejor, aspira a ayudar al vecino, no pretende irse muy lejos para conseguir hacer algo bueno, porque siempre tendremos a una persona cerca que nos está esperando. No pretende ser importante, sino meterse en tu día a día, habituarte a PARAR, enseñarte a MIRAR con cariño y cercanía, y ofrecer la máxima AYUDA, sacando lo mejor de nosotros mismos.\n\nDNI es la verdadera juventud, es inquietud, es caridad, es ambición… es todo aquello que define a los que quieren cambiar el mundo, empezando por la puerta de su casa.",
+          "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+          "PARA. MIRA. AYUDA.\n\nEstas son las tres palabras que guían la labor de nuestros voluntarios de DNI (Damos Nuestra Ilusión). \n\nEn un mundo que avanza a un ritmo frenético, es necesario detenerse para ser conscientes de aquellos que nos rodean y estar dispuesto a ofrecer nuestra ayuda con generosidad y alegría.\n\nPARAR: Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\nMIRAR: Observar con atención y empatía a quienes nos rodean.\nAYUDAR: Ofrecer nuestra ayuda de manera generosa y alegre.\n\nEstas tres palabras son el lema y la filosofía de trabajo de DNI. No buscamos grandes gestos ni reconocimiento, sino transformar el día a día y hacer del voluntariado algo habitual y natural.",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+          "JUSTIFICACIÓN"
+        ],
+        "strategy": "voting",
+        "strategy_description": "Selecciona respuesta con mayor combined_score"
+      },
+      "weighted": {
+        "answer": "Para-Mira-Ayuda es el lema y la filosofía de trabajo de DNI (Damos Nuestra Ilusión). \n\n* **PARAR:** Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\n* **MIRAR:** Observar con atención y empatía a quienes nos rodean.\n* **AYUDAR:** Ofrecer nuestra ayuda de manera generosa y alegre. \n\n\nEstas tres palabras buscan transformar el día a día y hacer del voluntariado algo habitual y natural. \n",
+        "selected_from": "gemma2:27b",
+        "models_used": [
+          "gemma2:27b",
+          "llama3.3:70b",
+          "qwen3:32b",
+          "deepseek-r1:latest"
+        ],
+        "selection_reason": "Mejor score ponderado: 0.000 (score raw: 0.000, peso: 0.40)",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_relevancy": 1.0,
+          "context_precision": 1.0,
+          "context_recall": 1.0,
+          "answer_correctness": 1.0,
+          "answer_similarity": 0.9,
+          "combined_score": 0.99
+        },
+        "generation_time": 14.202125549316406,
+        "weighted_scores": {
+          "gemma2:27b": 0.0,
+          "llama3.3:70b": 0.0,
+          "qwen3:32b": 0.0,
+          "deepseek-r1:latest": 0.0
+        },
+        "raw_scores": {
+          "gemma2:27b": 0.0,
+          "llama3.3:70b": 0.0,
+          "qwen3:32b": 0.0,
+          "deepseek-r1:latest": 0.0
+        },
+        "contributions": {
+          "gemma2:27b": "0.000 (peso: 0.40 × score: 0.000)",
+          "llama3.3:70b": "0.000 (peso: 0.25 × score: 0.000)",
+          "qwen3:32b": "0.000 (peso: 0.30 × score: 0.000)",
+          "deepseek-r1:latest": "0.000 (peso: 0.05 × score: 0.000)"
+        },
+        "contexts": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+          "DINÁMICA DE TRABAJO",
+          "¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?\n\nDNI busca dejar un mundo mejor, aspira a ayudar al vecino, no pretende irse muy lejos para conseguir hacer algo bueno, porque siempre tendremos a una persona cerca que nos está esperando. No pretende ser importante, sino meterse en tu día a día, habituarte a PARAR, enseñarte a MIRAR con cariño y cercanía, y ofrecer la máxima AYUDA, sacando lo mejor de nosotros mismos.\n\nDNI es la verdadera juventud, es inquietud, es caridad, es ambición… es todo aquello que define a los que quieren cambiar el mundo, empezando por la puerta de su casa.",
+          "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+          "PARA. MIRA. AYUDA.\n\nEstas son las tres palabras que guían la labor de nuestros voluntarios de DNI (Damos Nuestra Ilusión). \n\nEn un mundo que avanza a un ritmo frenético, es necesario detenerse para ser conscientes de aquellos que nos rodean y estar dispuesto a ofrecer nuestra ayuda con generosidad y alegría.\n\nPARAR: Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\nMIRAR: Observar con atención y empatía a quienes nos rodean.\nAYUDAR: Ofrecer nuestra ayuda de manera generosa y alegre.\n\nEstas tres palabras son el lema y la filosofía de trabajo de DNI. No buscamos grandes gestos ni reconocimiento, sino transformar el día a día y hacer del voluntariado algo habitual y natural.",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+          "JUSTIFICACIÓN"
+        ],
+        "strategy": "weighted",
+        "strategy_description": "Combina scores con pesos por rendimiento"
+      },
+      "routing": {
+        "answer": "Para-Mira-Ayuda es el lema y la filosofía de trabajo de DNI (Damos Nuestra Ilusión). \n\n* **PARAR:** Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\n* **MIRAR:** Observar con atención y empatía a quienes nos rodean.\n* **AYUDAR:** Ofrecer nuestra ayuda de manera generosa y alegre. \n\n\nEstas tres palabras buscan transformar el día a día y hacer del voluntariado algo habitual y natural. \n",
+        "selected_from": "gemma2:27b",
+        "models_used": [
+          "llama3.3:70b",
+          "gemma2:27b"
+        ],
+        "selection_reason": "Synthesis P25: combinando llama3.3:70b, gemma2:27b - usando mejor: gemma2:27b",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_relevancy": 1.0,
+          "context_precision": 1.0,
+          "context_recall": 1.0,
+          "answer_correctness": 1.0,
+          "answer_similarity": 0.9,
+          "combined_score": 0.99
+        },
+        "generation_time": 43.972023725509644,
+        "synthesis_mode": true,
+        "contexts": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+          "DINÁMICA DE TRABAJO",
+          "¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?\n\nDNI busca dejar un mundo mejor, aspira a ayudar al vecino, no pretende irse muy lejos para conseguir hacer algo bueno, porque siempre tendremos a una persona cerca que nos está esperando. No pretende ser importante, sino meterse en tu día a día, habituarte a PARAR, enseñarte a MIRAR con cariño y cercanía, y ofrecer la máxima AYUDA, sacando lo mejor de nosotros mismos.\n\nDNI es la verdadera juventud, es inquietud, es caridad, es ambición… es todo aquello que define a los que quieren cambiar el mundo, empezando por la puerta de su casa.",
+          "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+          "PARA. MIRA. AYUDA.\n\nEstas son las tres palabras que guían la labor de nuestros voluntarios de DNI (Damos Nuestra Ilusión). \n\nEn un mundo que avanza a un ritmo frenético, es necesario detenerse para ser conscientes de aquellos que nos rodean y estar dispuesto a ofrecer nuestra ayuda con generosidad y alegría.\n\nPARAR: Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\nMIRAR: Observar con atención y empatía a quienes nos rodean.\nAYUDAR: Ofrecer nuestra ayuda de manera generosa y alegre.\n\nEstas tres palabras son el lema y la filosofía de trabajo de DNI. No buscamos grandes gestos ni reconocimiento, sino transformar el día a día y hacer del voluntariado algo habitual y natural.",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+          "JUSTIFICACIÓN"
+        ],
+        "strategy": "routing",
+        "strategy_description": "Routing inteligente por tipo de pregunta"
+      },
+      "consensus": {
+        "answer": "Para-Mira-Ayuda es el lema y la filosofía de trabajo de DNI (Damos Nuestra Ilusión). \n\n* **PARAR:** Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\n* **MIRAR:** Observar con atención y empatía a quienes nos rodean.\n* **AYUDAR:** Ofrecer nuestra ayuda de manera generosa y alegre. \n\n\nEstas tres palabras buscan transformar el día a día y hacer del voluntariado algo habitual y natural. \n",
+        "selected_from": "gemma2:27b",
+        "models_used": [
+          "gemma2:27b",
+          "llama3.3:70b",
+          "qwen3:32b",
+          "deepseek-r1:latest"
+        ],
+        "selection_reason": "Divergencia (stdev: 0.000, mean: 0.00) - fallback a gemma2:27b (más confiable)",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_relevancy": 1.0,
+          "context_precision": 1.0,
+          "context_recall": 1.0,
+          "answer_correctness": 1.0,
+          "answer_similarity": 0.9,
+          "combined_score": 0.99
+        },
+        "generation_time": 14.202125549316406,
+        "consensus_stats": {
+          "mean_score": 0.0,
+          "stdev_score": 0.0,
+          "max_score": 0.0,
+          "min_score": 0.0,
+          "has_consensus": true,
+          "strategy_used": "fallback_gemma2"
+        },
+        "all_scores": {
+          "gemma2:27b": 0.0,
+          "llama3.3:70b": 0.0,
+          "qwen3:32b": 0.0,
+          "deepseek-r1:latest": 0.0
+        },
+        "contexts": [
+          "¿Qué se hace en la actividad?",
+          "¿Qué otras actividades se hacen relacionadas con niños?",
+          "LOGÍSTICA DETALLADA DESAYUNOS SOLIDARIOS",
+          "DINÁMICA DE TRABAJO",
+          "¿POR QUÉ DNI?\n\nLa pregunta correcta no es qué es DNI, sino por qué DNI. ¿Qué es lo que ha sucedido para que aparezca? ¿Qué intenta conseguir? ¿A quién pretende llegar?\n\nDNI busca dejar un mundo mejor, aspira a ayudar al vecino, no pretende irse muy lejos para conseguir hacer algo bueno, porque siempre tendremos a una persona cerca que nos está esperando. No pretende ser importante, sino meterse en tu día a día, habituarte a PARAR, enseñarte a MIRAR con cariño y cercanía, y ofrecer la máxima AYUDA, sacando lo mejor de nosotros mismos.\n\nDNI es la verdadera juventud, es inquietud, es caridad, es ambición… es todo aquello que define a los que quieren cambiar el mundo, empezando por la puerta de su casa.",
+          "PRESENTACIÓN DEL PROYECTO: DESAYUNOS Y CENAS SOLIDARIAS\n\nINTRODUCCIÓN",
+          "PARA. MIRA. AYUDA.\n\nEstas son las tres palabras que guían la labor de nuestros voluntarios de DNI (Damos Nuestra Ilusión). \n\nEn un mundo que avanza a un ritmo frenético, es necesario detenerse para ser conscientes de aquellos que nos rodean y estar dispuesto a ofrecer nuestra ayuda con generosidad y alegría.\n\nPARAR: Detenerse en la vida cotidiana para ser conscientes de nuestro entorno.\nMIRAR: Observar con atención y empatía a quienes nos rodean.\nAYUDAR: Ofrecer nuestra ayuda de manera generosa y alegre.\n\nEstas tres palabras son el lema y la filosofía de trabajo de DNI. No buscamos grandes gestos ni reconocimiento, sino transformar el día a día y hacer del voluntariado algo habitual y natural.",
+          "===== RESIDENCIAS (RESIS) =====\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22.\n\n¿Qué días se hace?\nLos miércoles de 17:30 a 18:30.",
+          "RESIS - VOLUNTARIADO EN RESIDENCIA LA ACOLLIDA\n\n¿Dónde es?\nEn la residencia La Acollida, muy cerca de Blasco Ibáñez en la calle Crevillente 22\n\n¿Qué días se hace?\nLos miércoles de 17:30 - 18:30",
+          "JUSTIFICACIÓN"
+        ],
+        "strategy": "consensus",
+        "strategy_description": "Busca consenso o aplica fallback inteligente"
+      }
+    },
+    "summary": {
+      "total_models": 4,
+      "total_strategies": 4,
+      "total_time": 86.61105799674988
+    }
+  },
+  "times": {
+    "generation": 86.61106634140015,
+    "evaluation": 14.050716161727905,
+    "total": 100.66179537773132
+  }
+}

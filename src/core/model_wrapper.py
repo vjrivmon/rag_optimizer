@@ -20,7 +20,8 @@ class LLMWrapper:
         prompt: str,
         temperature: float = 0.3,
         top_p: float = 0.9,
-        max_tokens: int = 512
+        max_tokens: int = 512,
+        timeout: Optional[float] = None
     ) -> Dict[str, Any]:
         """Genera respuesta usando la API de Ollama del servidor UPV"""
 
@@ -40,13 +41,16 @@ class LLMWrapper:
         start_time = time.time()
 
         try:
+            # Timeout dinámico: usar el especificado o default 120s (suficiente para EC2->UPV)
+            request_timeout = timeout if timeout is not None else 120
+
             # Usar verify=False para ignorar certificado SSL (-k en curl)
             response = requests.post(
                 self.api_endpoint,
                 json=payload,
                 headers={'Content-Type': 'application/json'},
                 verify=False,  # Equivalente a -k en curl
-                timeout=300  # 5 minutos para modelos grandes (deepseek-r1, llama3.3:70b)
+                timeout=request_timeout
             )
             response.raise_for_status()
 
@@ -107,7 +111,7 @@ class LLMWrapper:
         context: str,
         strictness: str = 'high'
     ) -> str:
-        """Construye prompt RAG"""
+        """Construye prompt RAG con forzado de español para Qwen"""
         
         system_prompts = {
             'low': "Eres un asistente útil. Responde usando el contexto proporcionado.",
@@ -116,6 +120,10 @@ class LLMWrapper:
         }
         
         system = system_prompts.get(strictness, system_prompts['high'])
+        
+        # FORZAR ESPAÑOL PARA QWEN (problema detectado en chatbot)
+        if 'qwen' in self.model_name.lower():
+            system += "\n\n⚠️ IMPORTANTE: DEBES responder SIEMPRE en ESPAÑOL. NUNCA respondas en inglés ni otros idiomas."
         
         prompt = f"""{system}
 

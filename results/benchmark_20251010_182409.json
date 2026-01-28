@@ -1,0 +1,70 @@
+[
+  {
+    "question_id": 1,
+    "model_name": "deepseek-r1:latest",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "[ANSWER]  \nNo tengo esa información en el contexto proporcionado.",
+    "contexts": [],
+    "generation_time": 11.752288341522217,
+    "metrics": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null,
+      "answer_correctness": null,
+      "answer_similarity": null,
+      "combined_score": null
+    }
+  },
+  {
+    "question_id": 1,
+    "model_name": "gemma2:27b",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "No tengo esa información en el contexto proporcionado.",
+    "contexts": [],
+    "generation_time": 11.02698278427124,
+    "metrics": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null,
+      "answer_correctness": null,
+      "answer_similarity": null,
+      "combined_score": null
+    }
+  },
+  {
+    "question_id": 1,
+    "model_name": "llama3.3:70b",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "No tengo esa información en el contexto proporcionado.",
+    "contexts": [],
+    "generation_time": 16.93144202232361,
+    "metrics": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null,
+      "answer_correctness": null,
+      "answer_similarity": null,
+      "combined_score": null
+    }
+  },
+  {
+    "question_id": 1,
+    "model_name": "qwen3:32b",
+    "question": "¿Qué se hace en la actividad de desayunos?",
+    "answer": "No tengo esa información en el contexto proporcionado.",
+    "contexts": [],
+    "generation_time": 7.355332136154175,
+    "metrics": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null,
+      "answer_correctness": null,
+      "answer_similarity": null,
+      "combined_score": null
+    }
+  }
+]
