@@ -10,12 +10,13 @@ import asyncio
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List
+import os
 from openai import AsyncOpenAI
 
 # === CONFIGURACIÓN ===
 TEMP_FILE = "results/ensemble_temp_20251011_175506.json"
 OUTPUT_DIR = Path("results")
-OPENAI_KEY = "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"
+OPENAI_KEY = os.environ["OPENAI_API_KEY"]
 
 # === CARGAR DATASET PARA EXPECTED ANSWERS ===
 def load_dataset() -> List[Dict]:
